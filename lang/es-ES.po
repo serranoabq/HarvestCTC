@@ -1,0 +1,602 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: harvest\n"
+"POT-Creation-Date: 2013-10-08 10:18-0700\n"
+"PO-Revision-Date: 2013-10-10 10:51-0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: .\n"
+
+#: inc/contact_widget.php:10 inc/contact_widget.php:12
+#: inc/contact_widget.php:16
+msgid "Contact Info"
+msgstr "Informaci&o;n de contacto"
+
+#: inc/contact_widget.php:65 inc/event-post-type.php:376
+#: inc/sermon_post-post-type.php:236 inc/staff-post-type.php:151
+#: inc/widget_post-post-type.php:96
+msgid "Widget Title:"
+msgstr ""
+
+#: inc/event-post-type.php:17 inc/event-post-type.php:29
+msgid "Events"
+msgstr "Eventos"
+
+#: inc/event-post-type.php:18
+msgid "Event"
+msgstr "Evento"
+
+#: inc/event-post-type.php:19 inc/event-post-type.php:20
+#: inc/event-post-type.php:23
+msgid "Add New Event"
+msgstr "A&ntilde;adir Evento"
+
+#: inc/event-post-type.php:21 inc/event-post-type.php:22
+msgid "Edit Event"
+msgstr "Editar Evento"
+
+#: inc/event-post-type.php:24 inc/event-post-type.php:25
+msgid "View Event"
+msgstr "Ver Evento"
+
+#: inc/event-post-type.php:26
+msgid "Search Events"
+msgstr "Buscar Eventos"
+
+#: inc/event-post-type.php:27
+msgid "No Events Found"
+msgstr "No se hallaron eventos"
+
+#: inc/event-post-type.php:28
+msgid "No Events Found in Trash"
+msgstr "No se hallaron evenos en la basura"
+
+#: inc/event-post-type.php:305 inc/event-post-type.php:307
+msgid "Upcoming Events"
+msgstr "Pr&oacute;ximos Eventos"
+
+#: inc/event-post-type.php:315
+msgid "News &amp; Events"
+msgstr "Noticias & Eventos"
+
+#: inc/sermon_post-post-type.php:17 inc/sermon_post-post-type.php:29
+#: functions_old.php:234 functions_old.php:244
+msgid "Sermons"
+msgstr "Sermones"
+
+#: inc/sermon_post-post-type.php:18 functions_old.php:235
+msgid "Sermon"
+msgstr "Sermo&oacute;n"
+
+#: inc/sermon_post-post-type.php:19 inc/sermon_post-post-type.php:20
+#: functions_old.php:236 functions_old.php:237 functions_old.php:239
+msgid "Add New Sermon"
+msgstr "A&ntilde;adir Serm&oacute;n"
+
+#: inc/sermon_post-post-type.php:21 inc/sermon_post-post-type.php:22
+msgid "Edit Sermon"
+msgstr "Editar Serm&oacute;n"
+
+#: inc/sermon_post-post-type.php:23
+msgid "New Sermon"
+msgstr "A&ntilde;adir Serm&oacute;n"
+
+#: inc/sermon_post-post-type.php:24 inc/sermon_post-post-type.php:25
+#: functions_old.php:240
+msgid "View Sermon"
+msgstr "Ver Serm&oacute;n"
+
+#: inc/sermon_post-post-type.php:26 functions_old.php:241
+msgid "Search Sermons"
+msgstr "Buscar Sermones"
+
+#: inc/sermon_post-post-type.php:27
+msgid "No Sermons found"
+msgstr "No se hallaron sermones"
+
+#: inc/sermon_post-post-type.php:28
+msgid "No Sermons found in Trash"
+msgstr "No se hallaron sermones en la basura"
+
+#: inc/sermon_post-post-type.php:48 functions_old.php:262
+#: template-series.php:13
+msgid "Sermon Series"
+msgstr "Serie de Sermones"
+
+#: inc/sermon_post-post-type.php:181 inc/sermon_post-post-type.php:183
+#: inc/sermon_post-post-type.php:190
+msgid "Recent Sermons"
+msgstr "Sermones Recientes"
+
+#: inc/staff-post-type.php:17 inc/staff-post-type.php:29 functions_old.php:392
+#: functions_old.php:402
+msgid "Staff"
+msgstr "Equipo"
+
+#: inc/staff-post-type.php:18 functions_old.php:393
+msgid "Staff Member"
+msgstr "Miembro del Equipo"
+
+#: inc/staff-post-type.php:19 inc/staff-post-type.php:20
+#: inc/staff-post-type.php:23 functions_old.php:394 functions_old.php:395
+#: functions_old.php:397
+msgid "Add New Staff Member"
+msgstr "A&ntilde;adir un miembro del equipo"
+
+#: inc/staff-post-type.php:21 inc/staff-post-type.php:22 functions_old.php:396
+msgid "Edit Staff Member"
+msgstr "Editar miembro del equipo"
+
+#: inc/staff-post-type.php:24 inc/staff-post-type.php:25 functions_old.php:398
+msgid "View Staff Member"
+msgstr "Ver miembros del equipo"
+
+#: inc/staff-post-type.php:26 functions_old.php:399
+msgid "Search Staff Members"
+msgstr "Bucar miembros del equipo"
+
+#: inc/staff-post-type.php:27 functions_old.php:400
+msgid "No Staff Members found"
+msgstr "No se hallaron miembros del equipo"
+
+#: inc/staff-post-type.php:28 functions_old.php:401
+msgid "No Staff Members found in Trash"
+msgstr "No se hallaron miembros del equipo en la basura"
+
+#: inc/staff-post-type.php:105 inc/staff-post-type.php:107
+msgid "Church Staff"
+msgstr "Equipo de la iglesia"
+
+#: inc/staff-post-type.php:112
+msgid "Our Staff"
+msgstr "Conoce a nuestro equipo"
+
+#: inc/widget_post-post-type.php:17
+msgid "Widget Posts"
+msgstr ""
+
+#: inc/widget_post-post-type.php:18 inc/widget_post-post-type.php:30
+#: inc/widget_post-post-type.php:59
+msgid "Widget Post"
+msgstr ""
+
+#: inc/widget_post-post-type.php:19 inc/widget_post-post-type.php:20
+msgid "Add New"
+msgstr ""
+
+#: inc/widget_post-post-type.php:21
+msgid "Edit"
+msgstr ""
+
+#: inc/widget_post-post-type.php:22
+msgid "Edit Widget Post"
+msgstr ""
+
+#: inc/widget_post-post-type.php:23
+msgid "New Widget Post"
+msgstr ""
+
+#: inc/widget_post-post-type.php:24 inc/widget_post-post-type.php:25
+msgid "View Widget Post"
+msgstr ""
+
+#: inc/widget_post-post-type.php:26
+msgid "Search widget posts"
+msgstr ""
+
+#: inc/widget_post-post-type.php:27
+msgid "No widget posts found"
+msgstr "P&aacute;gina no encontrada"
+
+#: inc/widget_post-post-type.php:28
+msgid "No widget posts found in Trash"
+msgstr ""
+
+#: inc/widget_post-post-type.php:29
+msgid "Parent Widget Post"
+msgstr ""
+
+#: inc/widget_post-post-type.php:57
+msgid "Display widget posts"
+msgstr ""
+
+#: inc/widget_post-post-type.php:98
+msgid "Select Widget Post to display:"
+msgstr "Seleccione un Widget Post para mostrar:"
+
+#: 404.php:12
+msgid "Page Not found"
+msgstr "P&agina no encontrada"
+
+#: 404.php:13
+msgid ""
+"We're sorry. The page you requested could not be found. It's a simple "
+"mistake, probably on our part. Please "
+msgstr ""
+"Lo sentimos, la p&aacute;gina que usted solict&oacute; no fue encontrada. Es "
+"un simple error, probablemente de nuestra parte. Por favor "
+
+#: 404.php:13
+msgid "click here"
+msgstr "haga clic aqu&icute;"
+
+#: 404.php:13
+msgid ""
+"</a> to return our homepage or use the menu above to visit another section "
+"of our site. Have a blessed day!"
+msgstr ""
+"</a> para regresar a nuestra p&aacute;gina principal o utilice el "
+"men&uacute; de arribapara visitar otra secci&oaciute;n de nuestra sitio web. "
+"Bendiciones!"
+
+#: comments-legacy.php:9 comments.php:19
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Esta p&aacute;gina est&aacute; protegida por una contrase&ntilde;a. Entre la "
+"contrase&ntilde;a para ver los comentarios."
+
+#: comments-legacy.php:37
+msgid "Comments For This Post"
+msgstr "Cometarios para est"
+
+#: comments-legacy.php:59 comments-legacy.php:91
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: comments-legacy.php:63
+msgid "at"
+msgstr ""
+
+#: comments-legacy.php:81
+msgid "Trackbacks For This Post"
+msgstr ""
+
+#: comments-legacy.php:89
+msgid "Says:"
+msgstr ""
+
+#: comments-legacy.php:119 comments.php:89
+msgid "Comments are closed."
+msgstr ""
+
+#: comments-legacy.php:128
+msgid "Leave a Reply"
+msgstr ""
+
+#: comments-legacy.php:131 comments.php:123
+msgid "You must be"
+msgstr ""
+
+#: comments-legacy.php:131 comments.php:123
+msgid "logged in"
+msgstr ""
+
+#: comments-legacy.php:131 comments.php:123
+msgid "to post a comment."
+msgstr ""
+
+#: comments-legacy.php:138 comments.php:137
+msgid "Logged in as"
+msgstr ""
+
+#: comments-legacy.php:138 comments.php:137
+msgid "Logout &raquo;"
+msgstr ""
+
+#: comments-legacy.php:143
+msgid "Name"
+msgstr ""
+
+#: comments-legacy.php:143 comments-legacy.php:146
+msgid "(required)"
+msgstr ""
+
+#: comments-legacy.php:146
+msgid "Mail (will not be published)"
+msgstr "Direcci&oacute;n (no ser&aacute; publicada)"
+
+#: comments-legacy.php:149
+msgid "Wechurchte"
+msgstr ""
+
+#: comments-legacy.php:157
+msgid "Submit Comment"
+msgstr ""
+
+#: comments.php:37
+msgid "No Response"
+msgstr ""
+
+#: comments.php:37
+msgid "1 Response"
+msgstr ""
+
+#: comments.php:37
+msgid "% Responses"
+msgstr ""
+
+#: comments.php:145
+msgid "Your Name"
+msgstr "Nombre"
+
+#: comments.php:151
+msgid "Your Email"
+msgstr "Correo electr&oacute;nico"
+
+#: comments.php:167
+msgid "Your Comment"
+msgstr "Comentario"
+
+#: functions.php:16 functions_old.php:162
+msgid "Main Navigation Menu"
+msgstr ""
+
+#: functions.php:17 functions_old.php:163
+msgid "Footer Menu"
+msgstr ""
+
+#: functions_old.php:238
+msgid "Edit Sermon Post"
+msgstr ""
+
+#: functions_old.php:242
+msgid "No sermons found"
+msgstr ""
+
+#: functions_old.php:243
+msgid "No sermons found in trash"
+msgstr ""
+
+#: search.php:12
+msgid "Search Results"
+msgstr "Resultados de B&uacute;squeda"
+
+#: search.php:14
+msgid "Your search for"
+msgstr "Su b&uacute;squeda por"
+
+#: search.php:14
+msgid "returned the following results:"
+msgstr "produjo los siguientes resultados:"
+
+#: search.php:21
+msgid "read more..."
+msgstr "m&aacute;s..."
+
+#: search.php:28
+msgid "Sorry"
+msgstr "Lo sentimos"
+
+#: search.php:28
+msgid "was not found in the site."
+msgstr "no fue hallado en esta p&aacute;gina."
+
+#: single-events.php:25 type-events.php:55
+msgid "When:"
+msgstr "Cu&aacute;ndo:"
+
+#: single-events.php:36
+msgid "Time:"
+msgstr "Hora:"
+
+#: single-events.php:40
+msgid "Where:"
+msgstr "D&oacute;nde"
+
+#: single-events.php:42
+msgid "[Map]"
+msgstr "[Mapa]"
+
+#: single-sermon_post.php:24 taxonomy-series.php:1 type-media.php:48
+msgid "Date:"
+msgstr "Fecha:"
+
+#: single-sermon_post.php:26 taxonomy-series.php:1 type-media.php:50
+msgid "By:"
+msgstr "Por:"
+
+#: single-sermon_post.php:29
+msgid "Verse:"
+msgstr "Vers&iacute;culo"
+
+#: single-sermon_post.php:32 type-media.php:53
+msgid "Series:"
+msgstr "Serie:"
+
+#: single-sermon_post.php:47
+msgid "Download"
+msgstr "Descargar"
+
+#: single-sermon_post.php:76 taxonomy-series.php:1 type-media.php:94
+msgid ""
+"To subscribe to all of our sermons as a podcast, add the address below to "
+"your podcast reader."
+msgstr ""
+"Para subscribirse a todos nuestros sermones un podcast, a&ntilde;ada la "
+"siguiente direcci&ocute;n a su lector de podcast."
+
+#: taxonomy-series.php:1
+msgid "Sermon Series:"
+msgstr "Serie de Sermones:"
+
+#: taxonomy-series.php:1
+msgid "Sorry, no sermons matched your criteria."
+msgstr ""
+"Lo sentimos, ning&uacute;n serm&oacute;n cumpli&oacute; con su criterio de "
+"b&uacute;squeda;"
+
+#: taxonomy-series.php:1
+msgid ""
+"To subscribe to this series as a podcast, add the address below to your "
+"podcast reader."
+msgstr ""
+"Para subscribirse a esta serie como un podcast, a&ntilde;ada la siguiente "
+"direcci&ocute;n a su lector de podcast."
+
+#: template-home.php:18
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: template-staff.php:13
+msgid "Meet our staff"
+msgstr "Conoce a nuestro equip"
+
+#: type-media.php:13
+msgid "Media"
+msgstr ""
+
+#: admin/class.theme-options.php:99 admin/harvest-options.php:4
+msgid "General Settings"
+msgstr ""
+
+#: admin/class.theme-options.php:100 admin/harvest-options.php:8
+msgid "About this Theme"
+msgstr ""
+
+#: admin/class.theme-options.php:135
+msgid "Theme Options"
+msgstr ""
+
+#: admin/class.theme-options.php:135 admin/class.theme-options.php:188
+msgid " Theme Options"
+msgstr ""
+
+#: admin/class.theme-options.php:151
+msgid "Default Field"
+msgstr ""
+
+#: admin/class.theme-options.php:152
+msgid "This is a default description."
+msgstr ""
+
+#: admin/class.theme-options.php:191
+msgid "Theme options updated."
+msgstr ""
+
+#: admin/class.theme-options.php:208
+msgid "Restore Defaults"
+msgstr ""
+
+#: admin/class.theme-options.php:209
+msgid "Save Changes"
+msgstr ""
+
+#: admin/class.theme-options.php:466
+msgid "Dummy Setting"
+msgstr ""
+
+#: admin/class.theme-options.php:467
+msgid "Dummy setting to demo functionality."
+msgstr ""
+
+#: admin/class.theme-options.php:527
+msgid "Use this image"
+msgstr ""
+
+#: admin/harvest-options.php:5
+msgid "Logos"
+msgstr ""
+
+#: admin/harvest-options.php:6
+msgid "Social Media"
+msgstr ""
+
+#: admin/harvest-options.php:7
+msgid "Analytics"
+msgstr ""
+
+#: admin/harvest-options.php:17
+msgid "Headline"
+msgstr ""
+
+#: admin/harvest-options.php:18
+msgid "Headline text displayed at the top of the page."
+msgstr ""
+
+#: admin/harvest-options.php:25
+msgid "Address"
+msgstr ""
+
+#: admin/harvest-options.php:26
+msgid "Church address. Used in Header (optional), Footer and Contact Widget"
+msgstr ""
+
+#: admin/harvest-options.php:33
+msgid "Show link to Google Maps in headline"
+msgstr ""
+
+#: admin/harvest-options.php:40
+msgid "Phone"
+msgstr ""
+
+#: admin/harvest-options.php:41
+msgid "Church phone number. Used in Footer and Contact Widget"
+msgstr ""
+
+#: admin/harvest-options.php:48
+msgid "Additional Info"
+msgstr ""
+
+#: admin/harvest-options.php:49
+msgid ""
+"Enter any additional information you would like to display in the Contact "
+"Widget. HTML is allowed."
+msgstr ""
+
+#: admin/harvest-options.php:58
+msgid "Custom Logo"
+msgstr ""
+
+#: admin/harvest-options.php:59
+msgid "Logo for website. Displayed on header and RSS feeds."
+msgstr ""
+
+#: admin/harvest-options.php:66
+msgid "Custom Favicon"
+msgstr ""
+
+#: admin/harvest-options.php:67
+msgid "Upload a 16x16 png or gif icon for your site."
+msgstr ""
+
+#: admin/harvest-options.php:74
+msgid "Custom Color Stylesheet"
+msgstr ""
+
+#: admin/harvest-options.php:75
+msgid "Choose a stylesheet to complement the theme."
+msgstr ""
+
+#: admin/harvest-options.php:91
+msgid "Google Analytics Code"
+msgstr ""
+
+#: admin/harvest-options.php:110
+msgid "Facebook"
+msgstr ""
+
+#: admin/harvest-options.php:118
+msgid "Twitter"
+msgstr ""
+
+#: admin/harvest-options.php:126
+msgid "Google+"
+msgstr ""
+
+#: admin/harvest-options.php:134
+msgid "Instagram"
+msgstr ""
+
+#: admin/harvest-options.php:143
+msgid "You Tube"
+msgstr ""
+
+#: admin/harvest-options.php:150
+msgid "Vimeo"
+msgstr ""

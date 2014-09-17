@@ -1,0 +1,5 @@
+	<div id="footer">		<div class="box">			<div id="footer_nav">				<?php wp_nav_menu (array ( 'theme_location' => 'footer-menu', 'depth' => 0) ); ?>			</div> <!-- #footer_nav -->						<div id="footer_address" style="line-height: 20px">					<?php echo '&copy; '.get_bloginfo('title'); ?><br/><?php if ( harvest_option( 'address' ) ) {						echo harvest_option( 'address' ); ?> <br/> <?php if ( harvest_option( 'phone' ) ) { ?>						<span>Phone: <?php echo harvest_option( 'phone' ); ?></span>	<?php } ?><?php } ?>			</div> <!-- #address -->		</div> <!-- .box -->	</div> 	<!-- #footer -->
+<?php wp_footer(); ?><?php // use analytics only on when not logged in to avoid self hits ?>
+<?php if ( harvest_option('google_analytics') <> "" && !is_user_logged_in() ) { echo stripslashes(harvest_option('google_analytics')); } ?>
+</body>
+</html>

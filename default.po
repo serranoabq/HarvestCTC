@@ -1,0 +1,214 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: harvest\n"
+"POT-Creation-Date: 2013-10-08 09:46-0700\n"
+"PO-Revision-Date: 2013-10-08 10:14-0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: Spanish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: inc\n"
+"X-Poedit-SearchPath-1: .\n"
+
+#: inc/contact_widget.php:65 inc/event-post-type.php:376
+#: inc/sermon_post-post-type.php:236 inc/staff-post-type.php:151
+#: inc/widget_post-post-type.php:96
+msgid "Widget Title:"
+msgstr ""
+
+#: inc/widget_post-post-type.php:98
+msgid "Select Widget Post to display:"
+msgstr "Seleccione un Widget Post para mostrar:"
+
+#: 404.php:12
+msgid "Page Not found"
+msgstr "P&agina no encontrada"
+
+#: comments-legacy.php:9 comments.php:19
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+"Esta p&aacute;gina est&aacute; protegida por una contrase&ntilde;a. Entre la "
+"contrase&ntilde;a para ver los comentarios."
+
+#: comments-legacy.php:37
+msgid "Comments For This Post"
+msgstr "Cometarios para est"
+
+#: comments-legacy.php:59 comments-legacy.php:91
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: comments-legacy.php:63
+msgid "at"
+msgstr ""
+
+#: comments-legacy.php:81
+msgid "Trackbacks For This Post"
+msgstr ""
+
+#: comments-legacy.php:89
+msgid "Says:"
+msgstr ""
+
+#: comments-legacy.php:119 comments.php:89
+msgid "Comments are closed."
+msgstr ""
+
+#: comments-legacy.php:128
+msgid "Leave a Reply"
+msgstr ""
+
+#: comments-legacy.php:131 comments.php:123
+msgid "You must be"
+msgstr ""
+
+#: comments-legacy.php:131 comments.php:123
+msgid "logged in"
+msgstr ""
+
+#: comments-legacy.php:131 comments.php:123
+msgid "to post a comment."
+msgstr ""
+
+#: comments-legacy.php:138 comments.php:137
+msgid "Logged in as"
+msgstr ""
+
+#: comments-legacy.php:138 comments.php:137
+msgid "Logout &raquo;"
+msgstr ""
+
+#: comments-legacy.php:143
+msgid "Name"
+msgstr ""
+
+#: comments-legacy.php:146
+msgid "Mail (will not be published)"
+msgstr "Direcci&oacute;n (no ser&aacute; publicada)"
+
+#: comments-legacy.php:149
+msgid "Wechurchte"
+msgstr ""
+
+#: comments-legacy.php:157
+msgid "Submit Comment"
+msgstr ""
+
+#: comments.php:145
+msgid "Your Name"
+msgstr "Nombre"
+
+#: comments.php:151
+msgid "Your Email"
+msgstr "Correo electr&oacute;nico"
+
+#: comments.php:167
+msgid "Your Comment"
+msgstr "Comentario"
+
+#: search.php:12
+msgid "Search Results"
+msgstr "Resultados de B&uacute;squeda"
+
+#: search.php:14
+msgid "Your search for"
+msgstr "Su b&uacute;squeda por"
+
+#: search.php:14
+msgid "returned the following results:"
+msgstr "produjo los siguientes resultados:"
+
+#: search.php:21
+msgid "read more..."
+msgstr "m&aacute;s..."
+
+#: search.php:28
+msgid "Sorry"
+msgstr "Lo sentimos"
+
+#: search.php:28
+msgid "was not found in the site."
+msgstr "no fue hallado en esta p&aacute;gina."
+
+#: single-events.php:25 type-events.php:55
+msgid "When:"
+msgstr "Cu&aacute;ndo:"
+
+#: single-events.php:36
+msgid "Time:"
+msgstr "Hora:"
+
+#: single-events.php:40
+msgid "Where:"
+msgstr "D&oacute;nde"
+
+#: single-events.php:42
+msgid "[Map]"
+msgstr "[Mapa]"
+
+#: single-sermon_post.php:24 taxonomy-series.php:1 type-media.php:48
+msgid "Date:"
+msgstr "Fecha:"
+
+#: single-sermon_post.php:26 taxonomy-series.php:1 type-media.php:50
+msgid "By:"
+msgstr "Por:"
+
+#: single-sermon_post.php:29
+msgid "Verse:"
+msgstr "Vers&iacute;culo"
+
+#: single-sermon_post.php:32 type-media.php:53
+msgid "Series:"
+msgstr "Serie:"
+
+#: single-sermon_post.php:47
+msgid "Download"
+msgstr "Descargar"
+
+#: single-sermon_post.php:76 taxonomy-series.php:1 type-media.php:94
+msgid ""
+"To subscribe to all of our sermons as a podcast, add the address below to "
+"your podcast reader."
+msgstr ""
+"Para subscribirse a todos nuestros sermones un podcast, a&ntilde;ada la "
+"siguiente direcci&ocute;n a su lector de podcast."
+
+#: taxonomy-series.php:1
+msgid "Sermon Series:"
+msgstr "Serie de Sermones:"
+
+#: taxonomy-series.php:1
+msgid "Sorry, no sermons matched your criteria."
+msgstr ""
+"Lo sentimos, ning&uacute;n serm&oacute;n cumpli&oacute; con su criterio de "
+"b&uacute;squeda;"
+
+#: taxonomy-series.php:1
+msgid ""
+"To subscribe to this series as a podcast, add the address below to your "
+"podcast reader."
+msgstr ""
+"Para subscribirse a esta serie como un podcast, a&ntilde;ada la siguiente "
+"direcci&ocute;n a su lector de podcast."
+
+#: template-home.php:18
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: template-series.php:13
+msgid "Sermon Series"
+msgstr "Serie de Sermones"
+
+#: template-staff.php:13
+msgid "Meet our staff"
+msgstr "Conoce a nuestro equip"
+
+#: type-media.php:13
+msgid "Media"
+msgstr ""
