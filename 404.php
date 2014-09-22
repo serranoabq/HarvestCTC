@@ -9,8 +9,8 @@
 			<div id="container">
 				<div class="main_feature">
 					<div class="post">
-						<h2 class="title"><?php _e('Page Not found','harvest');?></h2>
-						<p><?php echo __("We're sorry. The page you requested could not be found. It's a simple mistake, probably on our part. Please ",'harvest') . '<a href="/">' . __('click here','harvest') . '</a> ' . __('to return our homepage or use the menu above to visit another section of our site. Have a blessed day!','harvest');?></p>
+						<h2 class="title"><?php _e( 'Page Not found', 'harvest-ctc' );?></h2>
+						<p><?php _e( 'We\'re sorry. The page you requested could not be found. It\'s a simple mistake, probably on our part. Please <a href="/">click here</a> to return our homepage or use the menu above to visit another section of our site. Have a blessed day!', 'harvest-ctc' );?></p>
 					</div> <!-- .post -->
 				</div> <!-- .main_feature -->
 

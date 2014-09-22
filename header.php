@@ -7,19 +7,26 @@
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="es"> <!--<![endif]-->
 <head>
 	<title>
-		<?php if ( is_home() ) { ?><?php bloginfo('name'); ?>&nbsp;|&nbsp;<?php bloginfo('description'); ?><?php } ?>
-		<?php if ( is_search() ) { ?>Search Results &nbsp;|&nbsp;<?php bloginfo('name'); ?><?php } ?>
-		<?php if ( is_author() ) { ?>Author Archives &nbsp;|&nbsp;<?php bloginfo('name'); ?><?php } ?>
-		<?php if ( is_page() || is_single() ) { ?><?php wp_title(''); ?><?php if(''!=wp_title('',false)) { ?>&nbsp;|&nbsp;<?php } ?><?php bloginfo('name'); ?><?php } ?>
-		<?php if ( is_category() ) { ?>Archive&nbsp;|&nbsp;<?php single_cat_title(); ?>&nbsp;|&nbsp;<?php bloginfo('name'); ?><?php } ?>
-		<?php if ( is_tax('series') ) { ?>Sermon Series:&nbsp;<?php single_tag_title('',true); ?>&nbsp;|&nbsp;<?php bloginfo('name'); ?><?php } ?>
-		<?php if ( is_month() ) { ?><?php bloginfo('name'); ?>&nbsp;|&nbsp; Archive &nbsp;|&nbsp;<?php the_time('F'); ?><?php } ?>
-		<?php if (function_exists('is_tag')) { if ( is_tag() ) { ?><?php bloginfo('name'); ?>&nbsp;|&nbsp; Tag Archive &nbsp;|&nbsp;<?php  single_tag_title("", true); } } ?>
+		<?php bloginfo( 'name' ); ?>
+		<?php if ( is_home() ) { ?> | <?php bloginfo( 'description' ); } ?>
+		<?php if ( is_page() || is_single() ) { ?> | <?php wp_title(''); ?><?php if('' != wp_title( '' ,false ) ) { ?> | <?php } ?><?php bloginfo( 'name' ); ?><?php } ?>
+		
+		<?php if ( is_tax('ctc_sermon_series') ) { ?> | Sermon Series: <?php single_tag_title( '', true ); } ?>
+		<?php if ( is_tax('ctc_sermon_book') ) { ?> | Sermon Books: <?php single_tag_title( '', true ); } ?>
+		<?php if ( is_tax('ctc_sermon_speaker') ) { ?> | Sermon Speakers: <?php single_tag_title( '', true ); } ?>
+		<?php if ( is_tax('ctc_sermon_topic') ) { ?> | Sermon Topics: <?php single_tag_title( '', true ); } ?>
+
+		<?php if ( is_search() ) { ?> | Search Results <?php } ?>
+		<?php if ( is_author() ) { ?> | Author Archive <?php } ?>
+		<?php if ( is_category() ) { ?> | Archive: <?php single_cat_title(); } ?>
+		<?php if ( is_month() ) { ?> |  Archive  | <?php the_time('F'); ?><?php } ?>
 	</title>
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<?php if ( harvest_option( 'google_verification' ) <> "" ) { ?><meta name="google-site-verification" content=<?php echo harvest_option( 'google_verification' ); ?> /><?php } ?>
+<?php if ( harvest_option( 'google_verification' ) <> "" ) { ?>
+	<meta name="google-site-verification" content=<?php echo harvest_option( 'google_verification' ); ?> />
+<?php } ?>
 	
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Oswald:300,700' rel='stylesheet' type='text/css'>
@@ -37,24 +44,21 @@
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(harvest_page_slug()); ?>>
+<body <?php body_class( harvest_page_slug() ); ?>>
 
 	<div id="top">
 		<div id="top_bar">
 			<div id="topheadline">
 				<span id="headline">
-					<?php if(harvest_option( 'headline' )) echo stripslashes(harvest_option( 'headline' )); else bloginfo('description');?>
-					<?php if ( harvest_option('use_address') ) { ?>
-					- <a href="http://maps.google.com/?q=<?php echo harvest_option( 'address' ); ?>" title="GET DIRECTIONS" target="_blank">GET DIRECTIONS</a>
+					<?php if( harvest_option( 'headline' ) ) echo stripslashes (harvest_option( 'headline' )); else bloginfo( 'description' );?>
+					<?php if ( harvest_option( 'use_address' ) ) { ?>
+					- <a href="http://maps.google.com/?q=<?php echo harvest_option( 'address' ); ?>" title="<?php _e( 'GET DIRECTIONS' , 'harvest' ); ?>" target="_blank"><?php _e( 'GET DIRECTIONS' , 'harvest' ); ?></a>
 					<?php } ?>
 				</span>
 			</div>
 			
 			<div class="social-icons">
-				<?php if ( harvest_option( 'twitter' ) <> "" ) { ?><a href="<?php echo harvest_option( 'twitter' ); ?>" title="Follow us on Twitter" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/grunge_twitter.png" alt="Twitter" /></a><?php } ?>
-				<?php if ( harvest_option( 'facebook' ) <> "" ) { ?><a href="<?php echo harvest_option( 'facebook' ); ?>" title="Follow us on Facebook" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/grunge_facebook.png" alt="Facebook" /></a><?php } ?>
-				<?php if ( harvest_option( 'google' ) <> "" ) { ?><a href="<?php echo harvest_option( 'google' ); ?>" title="Follow us on Google+" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/grunge_google.png" alt="Google+" /></a><?php } ?>
-				<?php if ( harvest_option( 'instagram' ) <> "" ) { ?><a href="<?php echo harvest_option( 'instagram' ); ?>" title="Follow us on Instagram" target="_blank"><img src="<?php bloginfo('template_directory'); ?>/images/grunge_instagram.png" alt="Instagram" /></a><?php } ?>
+				<?php wp_nav_menu (array ( 'theme_location' => 'social-menu', 'depth' => 0) ); ?>
 			</div> <!-- .social -->
 		</div> <!-- #top_bar -->
 	</div> <!-- #top -->

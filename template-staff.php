@@ -1,7 +1,7 @@
 <?php
 /*
 
-Template Name: Staff
+	Template Name: Staff
 
 */
 ?>

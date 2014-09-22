@@ -20,8 +20,10 @@ function harvest_setup(){
 	
 	// Register Menus
 	register_nav_menus( array(
-		'main-nav-menu' => __( 'Main Navigation Menu' ),
-		'footer-menu'   => __( 'Footer Menu' )
+		'main-nav-menu'     => __( 'Main Navigation Menu' ),
+		'footer-menu'       => __( 'Footer Menu' ),
+		'social-menu'       => __( 'Social Icons' ),
+		'social-menu-small' => __( 'Small Social Icons' )
 	));
 		
 	// Create Admin settins page
@@ -70,7 +72,6 @@ function harvest_add_ctc(){
 					'ctc_sermon_book',
 					'ctc_sermon_series',
 					'ctc_sermon_speaker',
-					'ctc_sermon_tag',
 			),
 			'fields' => array(
 					'_ctc_sermon_has_full_text',

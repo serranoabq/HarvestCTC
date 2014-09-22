@@ -13,7 +13,7 @@
 						<div class="entry">
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 							<div class="entry-excerpt" id="post-<?php the_ID(); ?>">
-								<h4><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s', 'harvest' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+								<h4><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s', 'harvest-ctc' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
 								
 								<span class="date">Published <?php echo the_time("F j, Y") ?></span>
 								
@@ -30,8 +30,8 @@
 						</div> <!-- .entry -->
 					</div> <!-- .post -->
 
-<?php if (function_exists("harvest_pagination")) {
-	harvest_pagination($additional_loop->max_num_pages);
+<?php if( function_exists( 'harvest_pagination' ) ) {
+	harvest_pagination( $additional_loop -> max_num_pages );
 } ?>
 				</div> <!-- #leftcol -->
 				
