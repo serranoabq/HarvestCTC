@@ -1,0 +1,39 @@
+/* 
+CUSTOM STYLESHEET
+---------------------
+
+Instructions:
+
+Add your custom styles here instead of style.css so it 
+is easier to update the theme. Simply copy an existing 
+style from style.css to this file, and modify it to 
+your liking.
+
+*/
+
+
+/* Dont forget the media queries! */
+/* Phone portrait (<320) */
+@media only screen and (max-width : 320px) {
+
+}
+
+/* Phone landscape (<480) */
+@media only screen and (max-width : 480px) {
+
+}
+
+/* Intermediate tablet (<640)*/
+@media only screen and (max-width : 640px) {
+
+}
+
+/* Tablet portrait (<768) */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Tablet landscape (<960) */
+@media only screen and (max-width : 960px) {
+
+}

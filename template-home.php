@@ -1,23 +1,25 @@
 <?php
-/*
-
-Template Name: Home
-
-*/
+/**
+ * TEMPLATE: HOME
+ *
+ */
 ?>
 <?php get_header(); ?>
+
 <?php if ( function_exists( 'meteor_slideshow' ) ) { ?>
 			<div class="slides">
-<?php		meteor_slideshow('home','height: 300, width:600'); ?>
+<?php		meteor_slideshow( 'home', 'height: 300, width:600' ); ?>
 			</div>
 <?php } ?>
-<?php if(harvest_option( 'layout' )) $lo=harvest_option( 'layout' ); ?>
+
+<?php if(harvest_option( 'layout' )) $lo = harvest_option( 'layout' ); ?>
+
 			<div id="container" class="homepage <?php echo $lo; ?>">
 				<div class="main_feature">
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 					
-					<h2><?php _e('Welcome','harvest');?></h2>
-<?php 	if ( !function_exists( 'meteor_slideshow' ) ) { ?>
+					<h2><?php _e( 'Welcome', 'harvest-ctc' );?></h2>
+<?php 	if ( ! function_exists( 'meteor_slideshow' ) ) { ?>
 					<div class="main_feature_img">
 					<?php the_post_thumbnail(); ?>
 					</div> <!-- #main_feature_img -->

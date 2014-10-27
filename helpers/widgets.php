@@ -53,18 +53,6 @@
 			'after_title'   => '</h2>'.
 		));
 		
-
-		/*
-		// Events page sidebar
-		register_sidebar(array('name' => 'Events Page Sidebar','id' => 'sidebar-events','before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h2>','after_title' => '</h2>'));
-	
-		// Staff page sidebar
-		register_sidebar(array('name' => 'Staff Page Sidebar','id' => 'sidebar-staff','before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h2>','after_title' => '</h2>'));
-		
-		// Media page sidebar
-		register_sidebar(array('name' => 'Media Page Sidebar','id' => 'sidebar-media','before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h2>','after_title' => '</h2>'));
-
-		*/
 		
 	}
 

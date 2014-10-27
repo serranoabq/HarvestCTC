@@ -21,15 +21,13 @@ function harvest_setup(){
 	// Register Menus
 	register_nav_menus( array(
 		'main-nav-menu'     => __( 'Main Navigation Menu' ),
-		'footer-menu'       => __( 'Footer Menu' ),
-		'social-menu'       => __( 'Social Icons' ),
-		'social-menu-small' => __( 'Small Social Icons' )
+		'footer-menu'       => __( 'Footer Menu' )
 	));
 		
 	// Create Admin settins page
 	if ( is_admin() && file_exists( $template_path . 'admin/class.theme-options.php' ) ) {
-		include_once( $template_path . '/admin/class.theme-options.php' );
-		include_once( $template_path . '/admin/harvest-options.php' );
+		include_once( $template_path . 'admin/class.theme-options.php' );
+		include_once( $template_path . 'admin/harvest-options.php' );
 		
 		// Options and sections are defined in harvest-options.php
 		$theme_options = new Theme_Options( $harvest_theme_options, $harvest_theme_sections );
@@ -41,7 +39,10 @@ function harvest_setup(){
 	// Complete theme setup 
 	harvest_thumb_setup();
 	
-	//harvest_load_custom_types();
+	harvest_load_custom_types();
+	
+	// Translation
+	load_theme_textdomain( 'harvest-ctc', $template_path . 'lang' );
 	
 }
 
@@ -132,9 +133,9 @@ function harvest_option( $option ) {
 function harvest_load_custom_types(){
 	var $template_path = trailingslashit( get_template_directory() );
 	
-	require_once( $template_path  . '/includes/widget_post-post-type.php');
-	require_once( $template_path  . '/includes/contact_widget.php');
-	require_once( $template_path  . '/includes/ministry-post-type.php');
+	require_once( $template_path  . '/inc/widget_post-post-type.php');
+	require_once( $template_path  . '/inc/contact_widget.php');
+	//require_once( $template_path  . '/includes/ministry-post-type.php');
 	
 }
 
@@ -144,26 +145,41 @@ function harvest_load_custom_types(){
 add_action( 'tgmpa_register', 'harvest_register_required_plugins' );
 function harvest_register_required_plugins() {
 	$plugins = array(
+		
 		array(
 			'name' => 'Church Theme Content',
 			'slug' => 'church-theme-content',
 			'required' => true
 		),
+		
 		array(
-			'name' => 'CTC Full Calendar',
-			'slug' => 'ctc-full-calendar',
-			'required' => false
+			'name' => 'S8 Simple Taxonomy Images',
+			'slug' => 's8-simple-taxonomy-images',
+			'required' => true
 		),
+		
 		array(
 			'name' => 'Meteor Slides',
 			'slug' => 'meteor-slides',
 			'required' => false
 		),
+		
 		array(
-			'name' => 'S8 Simple Taxonomy Images',
-			'slug' => 's8-simple-taxonomy-images',
-			'required' => false
+			'name' => 'CTC Full Calendar',
+			'slug' => 'ctc-full-calendar',
+			'required' => false,
+			'source' => 'https://github.com/serranoabq/ctc-full-calendar/archive/master.zip',
+			'external_url' => 'https://github.com/serranoabq/ctc-full-calendar',
 		),
+		
+		array(
+			'name' => 'CTC Ministries',
+			'slug' => 'ctc-ministries',
+			'required' => false,
+			'source' => 'https://github.com/serranoabq/ctc-ministries/archive/master.zip',
+			'external_url' => 'https://github.com/serranoabq/ctc-ministries',
+		),
+		
 	);
 	$config = array();
 	tgmpa( $plugins, $config );
@@ -203,23 +219,6 @@ function harvest_scripts_styles(){
 function harvest_deregister_scripts(){
 	global $post;
 	
-	/*
-	// MediaElementJS: Only on sermon_post
-	// Notes: MediaElementJS is included in WP 3.6. This theme uses the 
-	// built in functionality but also falls back to its own version
-	// There is also a bug in mediaelement that breaks the display and the
-	// local version corrects for it
-	if( is_singular('sermon_post') ) {
-		if( !wp_style_is('mediaelement') ) 
-			wp_enqueue_style('mediaelement', get_template_directory_uri() . '/mediaelement/mediaelementplayer.css', array(), null);
-		if( wp_script_is('mediaelement','registered') ) 
-			wp_deregister_script('mediaelement');
-		wp_enqueue_script('mediaelement',get_template_directory_uri() .	'/mediaelement/mediaelement-and-player.min.js', array( 'jquery' ), null);
-		
-	}
-	*/
-	
-	
 	if( (is_a( $post, 'WP_Post' ) ) {
 		// Meteor Slides
 		if ( ! has_shortcode( $post->post_content, 'meteor-slides' ){
@@ -238,39 +237,6 @@ function harvest_deregister_scripts(){
 		
 	}
 
-}
-;
-// Remove version numbers from css & js calls
-add_filter( 'style_loader_src', 'harvest_nover', 9999 );
-add_filter( 'script_loader_src', 'harvest_nover', 9999 );
-function harvest_nover( $src ) {
-    if ( strpos( $src, 'ver=' ) )
-        $src = remove_query_arg( 'ver', $src );
-    return $src;
-}
-
-// Create a different slug for pages
-function harvest_page_slug(){
-	global $post;
-	$page_slug = 'page-'.$post->post_name; 
-	return $page_slug;
-}
-
-
-
-/*************************************************************
-/ Editor-related settings
-/************************************************************/
-// Allow special tags in editor
-add_filter('tiny_mce_before_init', 'harvest_change_mce_options');
-function harvest_change_mce_options($initArray) {
-	$ext = 'pre[*],iframe[*],script[*],style';
-	if ( isset( $initArray['extended_valid_elements'] ) ) {
-		$initArray['extended_valid_elements'] .= ',' . $ext;
-	} else {
-		$initArray['extended_valid_elements'] = $ext;
-	}
-	return $initArray;
 }
 
 

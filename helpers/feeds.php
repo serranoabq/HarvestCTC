@@ -1,6 +1,5 @@
 <?php
-	// Feed Helpers
-	
+	// HELPER: Feed
 	
 	function harvest_prep_feeds(){
 		add_filter( 'request', 'harvest_feed_request' );

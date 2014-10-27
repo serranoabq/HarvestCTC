@@ -117,4 +117,35 @@
 		}
 	}
 
+	// Remove version numbers from css & js calls
+	add_filter( 'style_loader_src', 'harvest_nover', 9999 );
+	add_filter( 'script_loader_src', 'harvest_nover', 9999 );
+	function harvest_nover( $src ) {
+			if ( strpos( $src, 'ver=' ) )
+					$src = remove_query_arg( 'ver', $src );
+			return $src;
+	}
+
+	// Create a different slug for pages
+	function harvest_page_slug(){
+		global $post;
+		$page_slug = 'page-'.$post->post_name; 
+		return $page_slug;
+	}
+	
+	/*************************************************************
+	/ Editor-related settings
+	/************************************************************/
+	// Allow special tags in editor
+	add_filter('tiny_mce_before_init', 'harvest_change_mce_options');
+	function harvest_change_mce_options($initArray) {
+		$ext = 'pre[*],iframe[*],script[*],style';
+		if ( isset( $initArray['extended_valid_elements'] ) ) {
+			$initArray['extended_valid_elements'] .= ',' . $ext;
+		} else {
+			$initArray['extended_valid_elements'] = $ext;
+		}
+		return $initArray;
+	}
+
 ?>

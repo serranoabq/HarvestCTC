@@ -10,20 +10,21 @@
 		<?php bloginfo( 'name' ); ?>
 		<?php if ( is_home() ) { ?> | <?php bloginfo( 'description' ); } ?>
 		<?php if ( is_page() || is_single() ) { ?> | <?php wp_title(''); ?><?php if('' != wp_title( '' ,false ) ) { ?> | <?php } ?><?php bloginfo( 'name' ); ?><?php } ?>
-		
-		<?php if ( is_tax('ctc_sermon_series') ) { ?> | Sermon Series: <?php single_tag_title( '', true ); } ?>
-		<?php if ( is_tax('ctc_sermon_book') ) { ?> | Sermon Books: <?php single_tag_title( '', true ); } ?>
-		<?php if ( is_tax('ctc_sermon_speaker') ) { ?> | Sermon Speakers: <?php single_tag_title( '', true ); } ?>
-		<?php if ( is_tax('ctc_sermon_topic') ) { ?> | Sermon Topics: <?php single_tag_title( '', true ); } ?>
-
-		<?php if ( is_search() ) { ?> | Search Results <?php } ?>
-		<?php if ( is_author() ) { ?> | Author Archive <?php } ?>
-		<?php if ( is_category() ) { ?> | Archive: <?php single_cat_title(); } ?>
-		<?php if ( is_month() ) { ?> |  Archive  | <?php the_time('F'); ?><?php } ?>
+		<?php // Taxonomies ?>
+		<?php if ( is_tax('ctc_sermon_series') ) { ?> | <?php echo _x( 'Sermon Series:', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); } ?>
+		<?php if ( is_tax('ctc_sermon_book') ) { ?> | <?php echo _x( 'Sermon Book:', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); } ?>
+		<?php if ( is_tax('ctc_sermon_speaker') ) { ?> | <?php echo _x( 'Sermon Speaker:', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); } ?>
+		<?php if ( is_tax('ctc_sermon_topic') ) { ?> | <?php echo _x( 'Sermon Topic:', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); } ?>
+		<?php // Archives ?>
+		<?php if ( is_search() ) { echo ' | ' . __( 'Search Results', 'harvest-ctc' ) } ?>
+		<?php if ( is_author() ) { echo ' | ' . __( 'Author Archive', 'harvest-ctc' ) } ?>
+		<?php if ( is_category() ) { echo ' | ' . __( 'Archive', 'harvest-ctc') . ':' . single_cat_title('', false); } ?>
+		<?php if ( is_month() ) { echo ' | ' . __( 'Archive', 'harvest-ctc' ). '|' . get_the_time('F'); } ?>
 	</title>
 	
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	
 <?php if ( harvest_option( 'google_verification' ) <> "" ) { ?>
 	<meta name="google-site-verification" content=<?php echo harvest_option( 'google_verification' ); ?> />
 <?php } ?>
@@ -50,7 +51,7 @@
 		<div id="top_bar">
 			<div id="topheadline">
 				<span id="headline">
-					<?php if( harvest_option( 'headline' ) ) echo stripslashes (harvest_option( 'headline' )); else bloginfo( 'description' );?>
+					<?php if( harvest_option( 'headline' ) ) echo stripslashes( harvest_option( 'headline' )); else bloginfo( 'description' );?>
 					<?php if ( harvest_option( 'use_address' ) ) { ?>
 					- <a href="http://maps.google.com/?q=<?php echo harvest_option( 'address' ); ?>" title="<?php _e( 'GET DIRECTIONS' , 'harvest' ); ?>" target="_blank"><?php _e( 'GET DIRECTIONS' , 'harvest' ); ?></a>
 					<?php } ?>
@@ -62,6 +63,7 @@
 			</div> <!-- .social -->
 		</div> <!-- #top_bar -->
 	</div> <!-- #top -->
+<!------ REVIEWD UP TO HERE -->
 
 	<div id="wrap">
 		<div class="box">
@@ -72,10 +74,12 @@
 					</h1>    
 				</div> <!-- #logo -->
 
-				<div><a href="#header_nav" class="menu-link">Menu...<span id="caret" class="icon-caret-down icon-2x right" aria-hidden="true"></span></a></div>
+				<div id="header_nav_link">
+					<a href="#header_nav" class="menu-link">Menu...<span id="caret" class="icon-caret-down icon-2x right" aria-hidden="true"></span></a>
+				</div><!-- #header_nav_link -->
 				<nav id="header_nav" class="navigation">
 					<?php wp_nav_menu (array ( 'theme_location' => 'main-nav-menu') ); ?>
-				</nav> <!-- #header_right.navigation -->
+				</nav> <!-- #header_nav -->
 
 			</div> <!-- #header -->
 

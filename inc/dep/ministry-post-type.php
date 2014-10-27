@@ -11,6 +11,33 @@
 // Create Staff post type
 add_action( 'init', 'harvest_createMinistryPostType' );
 function harvest_createMinistryPostType() {
+	$args = array(
+		'labels' => array(
+			'name'								=> __( 'Ministries', 'harvest-ctc' ),
+			'singular_name'				=> __( 'Ministry', 'harvest-ctc' ),
+			'add_new' 						=> __( 'Add New Ministry', 'harvest-ctc' ),
+			'add_new_item' 				=> __( 'Add Ministry', 'harvest-ctc' ),
+			'edit_item' 					=> __( 'Edit Ministry', 'harvest-ctc' ),
+			'new_item' 						=> __( 'New Ministry', 'harvest-ctc' ),
+			'all_items' 					=> __( 'All Ministries', 'harvest-ctc' ),
+			'view_item' 					=> __( 'View Ministry', 'harvest-ctc' ),
+			'search_items' 				=> __( 'Search Ministries', 'harvest-ctc' ),
+			'not_found' 					=> __( 'No ministries found', 'harvest-ctc' ),
+			'not_found_in_trash' 	=> __( 'No ministries found in Trash', 'harvest-ctc' )
+		),
+		'public' 				=> true,
+		'has_archive' 	=> false,
+		'rewrite'				=> array(
+			'slug' 				=> 'ministries',
+			'with_front' 	=> false,
+			'feeds'				=> false
+		),
+		'supports' 			=> array( 'title', 'editor', 'publicize', 'thumbnail' ), 
+		'menu_icon'			=> 'dashicons-groups',
+		'menu_position'	=> 5 // below Posts
+	);
+	$args = apply_filters( 'ctc_post_type_person_args', $args ); // allow filtering
+
 	register_post_type( 'ministry',
 		array(
 			'labels' => array(
