@@ -5,7 +5,7 @@
 /************************************************************/
 add_action( 'after_setup_theme', 'harvest_setup' );
 function harvest_setup(){
-	var $template_path = trailingslashit( get_template_directory() );
+	$template_path = trailingslashit( get_template_directory() );
 	
 	// Load helpers
 	include_once( $template_path . 'helpers/class-tgm-plugin-activation.php' );
@@ -49,6 +49,8 @@ function harvest_setup(){
 // Add Church Theme Content support
 function harvest_add_ctc(){
 	 
+	add_theme_support( 'church-theme-content' );
+	
 	// Events
 	add_theme_support( 'ctc-events', array(
 			'taxonomies' => array(),
@@ -131,7 +133,7 @@ function harvest_option( $option ) {
 /************************************************************/
 // Load custom post types
 function harvest_load_custom_types(){
-	var $template_path = trailingslashit( get_template_directory() );
+	$template_path = trailingslashit( get_template_directory() );
 	
 	require_once( $template_path  . '/inc/widget_post-post-type.php');
 	require_once( $template_path  . '/inc/contact_widget.php');
@@ -192,22 +194,22 @@ add_action( 'wp_enqueue_scripts', 'harvest_scripts_styles' );
 function harvest_scripts_styles(){
 	// sytle.css 	= main theme style
 	// custom.css = additional custom styles
-	wp_enqueue_style('harvest-stylesheet', get_stylesheet_uri(), array(), null);
+	wp_enqueue_style('harvest-stylesheet', get_stylesheet_uri(), array(), null );
 	
 	// Add font awesome support
-	wp_enqueue_style('font-awesome','//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), null);
+	wp_enqueue_style('font-awesome','//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), null );
 
 	// Handle deregistering plugin scripts
-	harvest_deregister_scripts()
+	harvest_deregister_scripts();
 
 	// Load custom styles and scripts
 	//-------------------------------
 	// Custom styles loaded AFTER all other styles to allow overriding
-	wp_enqueue_style('harvest-custom-stylesheet', get_stylesheet_directory_uri() . '/custom/custom.css', array(), null);
+	wp_enqueue_style('harvest-custom-stylesheet', get_stylesheet_directory_uri() . '/custom/custom.css', array(), null );
 	
 	// Additional color stylesheet
 	if ( harvest_option( 'custom_style') ){
-		wp_enqueue_style('harvest-color-stylesheet', harvest_option( 'custom_style' ), array(), null);
+		wp_enqueue_style('harvest-color-stylesheet', harvest_option( 'custom_style' ), array(), null );
 	}
 
 	// Custom scripts with jQuery support
@@ -216,12 +218,12 @@ function harvest_scripts_styles(){
 }
 
 // Handle scripts that we dont want loaded all the time
-function harvest_deregister_scripts(){
+function harvest_deregister_scripts() {
 	global $post;
 	
-	if( (is_a( $post, 'WP_Post' ) ) {
+	if( is_a( $post, 'WP_Post' ) ) {
 		// Meteor Slides
-		if ( ! has_shortcode( $post->post_content, 'meteor-slides' ){
+		if ( ! has_shortcode( $post->post_content, 'meteor-slides' ) ){
 			wp_deregister_style( 'meteor-slides' );
 			wp_deregister_script( 'jquery-cycle' );
 			wp_deregister_script( 'jquery-touchwipe' );
@@ -230,7 +232,7 @@ function harvest_deregister_scripts(){
 		}
 		
 		// Contact Form 7
-		if ( ! has_shortcode( $post->post_content, 'contact-form-7' ){
+		if ( ! has_shortcode( $post->post_content, 'contact-form-7' ) ){
 			wp_deregister_script( 'contact-form-7' );
 			wp_deregister_style( 'contact-form-7' );
 		}

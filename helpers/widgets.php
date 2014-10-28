@@ -3,7 +3,7 @@
 	
 	add_action( 'widgets_init', 'harvest_widgets_init' );
 	function harvest_widgets_init(){
-		if ( !function_exists('register_sidebars') )
+		if ( ! function_exists('register_sidebars') )
 			return;
 
 		// Note the sidebar names when using in a child theme
@@ -18,7 +18,7 @@
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2>',
-			'after_title'   => '</h2>'.
+			'after_title'   => '</h2>',
 		));
 		
 
@@ -30,7 +30,7 @@
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2>',
-			'after_title'   => '</h2>'.
+			'after_title'   => '</h2>',
 		));
 
 		register_sidebar( array( 
@@ -40,7 +40,7 @@
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2>',
-			'after_title'   => '</h2>'.
+			'after_title'   => '</h2>',
 		));		
 
 		register_sidebar( array( 
@@ -50,7 +50,7 @@
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2>',
-			'after_title'   => '</h2>'.
+			'after_title'   => '</h2>',
 		));
 		
 		

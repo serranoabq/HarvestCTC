@@ -16,8 +16,8 @@
 		<?php if ( is_tax('ctc_sermon_speaker') ) { ?> | <?php echo _x( 'Sermon Speaker:', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); } ?>
 		<?php if ( is_tax('ctc_sermon_topic') ) { ?> | <?php echo _x( 'Sermon Topic:', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); } ?>
 		<?php // Archives ?>
-		<?php if ( is_search() ) { echo ' | ' . __( 'Search Results', 'harvest-ctc' ) } ?>
-		<?php if ( is_author() ) { echo ' | ' . __( 'Author Archive', 'harvest-ctc' ) } ?>
+		<?php if ( is_search() ) { echo ' | ' . __( 'Search Results', 'harvest-ctc' ); } ?>
+		<?php if ( is_author() ) { echo ' | ' . __( 'Author Archive', 'harvest-ctc' ); } ?>
 		<?php if ( is_category() ) { echo ' | ' . __( 'Archive', 'harvest-ctc') . ':' . single_cat_title('', false); } ?>
 		<?php if ( is_month() ) { echo ' | ' . __( 'Archive', 'harvest-ctc' ). '|' . get_the_time('F'); } ?>
 	</title>
@@ -63,7 +63,6 @@
 			</div> <!-- .social -->
 		</div> <!-- #top_bar -->
 	</div> <!-- #top -->
-<!------ REVIEWD UP TO HERE -->
 
 	<div id="wrap">
 		<div class="box">
