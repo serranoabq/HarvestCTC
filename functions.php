@@ -16,7 +16,7 @@ function harvest_setup(){
 	include_once( $template_path . 'helpers/widgets.php');
 	
 	// Apply theme styles to visual editor
-	add_editor_style( 'editor-style.css' );
+	add_editor_style( $template_path . 'editor-style.css' );
 	
 	// Register Menus
 	register_nav_menus( array(
@@ -105,10 +105,6 @@ function harvest_add_ctc(){
 			'fields' => array(
 					'_ctc_location_address',
 					'_ctc_location_show_directions_link',
-					'_ctc_location_map_lat',
-					'_ctc_location_map_lng',
-					'_ctc_location_map_type',
-					'_ctc_location_map_zoom',
 					'_ctc_location_phone',
 					'_ctc_location_times',
 			),
@@ -159,10 +155,10 @@ function harvest_register_required_plugins() {
 			'slug' => 's8-simple-taxonomy-images',
 			'required' => true
 		),
-		
+				
 		array(
-			'name' => 'Meteor Slides',
-			'slug' => 'meteor-slides',
+			'name' => 'Master Slider',
+			'slug' => 'master-slider',
 			'required' => false
 		),
 		
