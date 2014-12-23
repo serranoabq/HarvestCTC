@@ -44,6 +44,8 @@ function harvest_setup(){
 	// Translation
 	load_theme_textdomain( 'harvest-ctc', $template_path . 'lang' );
 	
+	add_theme_support( 'title-tag' );
+	harvest_title();
 }
 
 // Add Church Theme Content support
@@ -151,12 +153,6 @@ function harvest_register_required_plugins() {
 		),
 		
 		array(
-			'name' => 'S8 Simple Taxonomy Images',
-			'slug' => 's8-simple-taxonomy-images',
-			'required' => true
-		),
-				
-		array(
 			'name' => 'Master Slider',
 			'slug' => 'master-slider',
 			'required' => false
@@ -176,6 +172,22 @@ function harvest_register_required_plugins() {
 			'required' => false,
 			'source' => 'https://github.com/serranoabq/ctc-ministries/archive/master.zip',
 			'external_url' => 'https://github.com/serranoabq/ctc-ministries',
+		),
+		
+		array(
+			'name' => 'CTC Shortcodes',
+			'slug' => 'ctc-shortcodes',
+			'required' => false,
+			'source' => 'https://github.com/serranoabq/ctc-shortcodes/archive/master.zip',
+			'external_url' => 'https://github.com/serranoabq/ctc-shortcodes',
+		),
+		
+		array(
+			'name' => 'CTC Taxonomy Images',
+			'slug' => 'ctc-taximages',
+			'required' => false,
+			'source' => 'https://github.com/serranoabq/ctc-taximages/archive/master.zip',
+			'external_url' => 'https://github.com/serranoabq/ctc-taximages',
 		),
 		
 	);
@@ -218,15 +230,6 @@ function harvest_deregister_scripts() {
 	global $post;
 	
 	if( is_a( $post, 'WP_Post' ) ) {
-		// Meteor Slides
-		if ( ! has_shortcode( $post->post_content, 'meteor-slides' ) ){
-			wp_deregister_style( 'meteor-slides' );
-			wp_deregister_script( 'jquery-cycle' );
-			wp_deregister_script( 'jquery-touchwipe' );
-			wp_deregister_script( 'jquery-metadata' );
-			wp_deregister_script( 'meteorslides-script' );
-		}
-		
 		// Contact Form 7
 		if ( ! has_shortcode( $post->post_content, 'contact-form-7' ) ){
 			wp_deregister_script( 'contact-form-7' );
@@ -237,5 +240,3 @@ function harvest_deregister_scripts() {
 
 }
 
-
-?>
