@@ -13,6 +13,7 @@ function harvest_setup(){
 	include_once( $template_path . 'helpers/images.php');
 	include_once( $template_path . 'helpers/feeds.php');
 	include_once( $template_path . 'helpers/shortcodes.php');
+	include_once( $template_path . 'helpers/sidebars.php');
 	include_once( $template_path . 'helpers/widgets.php');
 	
 	// Apply theme styles to visual editor
@@ -42,7 +43,7 @@ function harvest_setup(){
 	harvest_load_custom_types();
 	
 	// Translation
-	load_theme_textdomain( 'harvest-ctc', $template_path . 'lang' );
+	load_theme_textdomain( 'harvest', $template_path . 'lang' );
 	
 }
 
@@ -75,12 +76,11 @@ function harvest_add_ctc(){
 					'ctc_sermon_book',
 					'ctc_sermon_series',
 					'ctc_sermon_speaker',
+					'ctc_sermon_tag',
 			),
 			'fields' => array(
-					'_ctc_sermon_has_full_text',
 					'_ctc_sermon_video',
 					'_ctc_sermon_audio',
-					'_ctc_sermon_pdf',
 			),
 			'field_overrides' => array()
 	) );
@@ -153,12 +153,13 @@ function harvest_register_required_plugins() {
 			'slug' => 'church-theme-content',
 			'required' => true
 		),
-		
+		/*
 		array(
 			'name' => 'S8 Simple Taxonomy Images',
 			'slug' => 's8-simple-taxonomy-images',
 			'required' => true
 		),
+		*/
 		
 		array(
 			'name' => 'Meteor Slides',
@@ -182,6 +183,15 @@ function harvest_register_required_plugins() {
 			'external_url' => 'https://github.com/serranoabq/ctc-ministries',
 		),
 		
+		array(
+			'name' => 'CTC Shortcodes',
+			'slug' => 'ctc-shortcodes',
+			'required' => false,
+			'source' => 'https://github.com/serranoabq/ctc-shortcodes/archive/master.zip',
+			'external_url' => 'https://github.com/serranoabq/ctc-shortcodes',
+		),
+		
+		
 	);
 	$config = array();
 	tgmpa( $plugins, $config );
@@ -199,6 +209,7 @@ function harvest_scripts_styles(){
 	
 	// Add font awesome support
 	wp_enqueue_style('font-awesome','//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), null );
+	wp_enqueue_style('fonts','http://fonts.googleapis.com/css?family=Bitter:400,700|Lato:400,700', array(), null );
 
 	// Handle deregistering plugin scripts
 	harvest_deregister_scripts();
@@ -258,23 +269,23 @@ function harvest_wp_title( $title, $sep ) {
 		
 	// Taxonomies
 	if ( is_tax('ctc_sermon_series') )
-		$tagline = _x( 'Sermon Series: ', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); 
+		$tagline = _x( 'Sermon Series: ', 'Page title', 'harvest' ) . single_tag_title( '', false ); 
 	if ( is_tax('ctc_sermon_book') )
-		$tagline = _x( 'Sermon Book: ', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); 
+		$tagline = _x( 'Sermon Book: ', 'Page title', 'harvest' ) . single_tag_title( '', false ); 
 	if ( is_tax('ctc_sermon_speaker') ) 
-		$tagline = _x( 'Sermon Speaker: ', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); 
+		$tagline = _x( 'Sermon Speaker: ', 'Page title', 'harvest' ) . single_tag_title( '', false ); 
 	if ( is_tax('ctc_sermon_topic') ) 
-		$tagline = _x( 'Sermon Topic: ', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); 
+		$tagline = _x( 'Sermon Topic: ', 'Page title', 'harvest' ) . single_tag_title( '', false ); 
 	
 	// Archives 
 	if ( is_search() ) 
-		$tagline = __( 'Search Results', 'harvest-ctc' );
+		$tagline = __( 'Search Results', 'harvest' );
 	if ( is_author() ) 
-		$tagline = __( 'Author Archive', 'harvest-ctc' ); 
+		$tagline = __( 'Author Archive', 'harvest' ); 
 	if ( is_category() ) 
-		$tagline = __( 'Archive', 'harvest-ctc') . ':' . single_cat_title('', false); 
+		$tagline = __( 'Archive', 'harvest') . ':' . single_cat_title('', false); 
 	if ( is_month() ) 
-		$tagline =  __( 'Archive', 'harvest-ctc' ). '|' . get_the_time('F');
+		$tagline =  __( 'Archive', 'harvest' ). '|' . get_the_time('F');
 
 	$title = $name;
 	if ( $tagline ) $title = rtrim( "$name $sep $tagline", ' | ');

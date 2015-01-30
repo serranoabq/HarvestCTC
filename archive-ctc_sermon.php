@@ -1,12 +1,17 @@
 <?php
-
+	/* Sermon archive */
+	
 	get_header(); 
 ?>
 		<!-- TITLE BAR -->
 		<div class="title_wrap">
 			<div class="grid-container title-bar">
 				<div class="grid-100 title">
-					<h2><?php _e( 'Messages', 'harvest-ctc' ); ?></h2>
+<?php if( harvest_option( 'ctc-sermons' ) ): ?>
+					<h2><?php echo harvest_option ( 'ctc-sermons' ); ?></h2>
+<?php else: ?>					
+					<h2><?php _e( 'Sermons', 'harvest' ); ?></h2>
+<?php endif; ?>
 				</div> <!-- .title.grid-100 -->
 			</div> <!-- .title-bar.grid-100 -->
 		</div>
@@ -108,7 +113,7 @@
 
 				</div> <!-- .ctc-sermon-details -->
 				<div class="clear"></div>
-				<div class="grid-100 ctc-sermon-grid-title"><h2><?php _e( 'Other messages', 'harvest-ctc'); ?></h2></div>
+				<div class="grid-100 ctc-sermon-grid-title"><h2><?php _e( 'Other messages', 'harvest'); ?></h2></div>
 <?php else:  ?>
 				
 				<div class="grid-33 ctc-sermon-grid"> 
@@ -130,7 +135,7 @@
 
 				<div class="clear"></div>
 				<?php /* Sermon Series loop goes here 
-				<div class="grid-100 ctc-sermon-series-title"><h2><?php _e( 'Other messages', 'harvest-ctc'); ?></h2></div>
+				<div class="grid-100 ctc-sermon-series-title"><h2><?php _e( 'Other messages', 'harvest'); ?></h2></div>
 				
 				*/ ?>
 			</div> <!-- .content.grid-container -->

@@ -9,7 +9,7 @@
 	$harvest_theme_options = array();
 	
 	// This will be the name used for the options
-	$harvest_theme_options['name']  = 'Harvest';
+	$harvest_theme_options['themename']  = 'Harvest';
 
 	/* General Settings
 	===========================================*/	
@@ -27,6 +27,14 @@
 		'desc'    => __( 'Upload a 16x16 png or gif icon for your site.' ),
 		'std'     => '',
 		'type'    => 'upload',
+		'section' => 'general'
+	);
+	
+	$harvest_theme_options['slider'] = array(
+		'title'   => _x( 'Slider', 'Metabox name', 'harvest' ),
+		'desc'    => __( 'Enter the shrotcode a homepage slider (e.g. <code>[masterslider id="1"]</code>)', 'harvest' ),
+		'std'     => '',
+		'type'    => 'textarea',
 		'section' => 'general'
 	);
 	

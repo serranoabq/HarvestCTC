@@ -1,11 +1,14 @@
 <?php
+	/* Front page */
+	
+	get_header(); ?>
 
-get_header(); ?>
-
+<?php if ( harvest_option( 'slider' ) ) : ?>
+		<div class="slider_wrap">
+<?php		echo do_shortcode( harvest_option( 'slider' ) ); ?>
+		</div>
+<?php endif; ?>
 		<div class="content_wrap">
-<?php if ( harvest_option( 'slider' ) ) 
-		echo harvest_option( 'slider' );
-?>
 			<div class="grid-container content">
 
 				<div class="boxes">

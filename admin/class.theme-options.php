@@ -97,12 +97,13 @@ class Theme_Options {
 			$this->sections['about']      = __( 'About this Theme' );
 		}
 		
+		// Get theme name to save the options 
+		$this->theme_name = $my_settings['themename'];
+		$this->theme_safename = sanitize_title($my_settings['themename']);
+		unset($my_settings['themename']);
+		
 		// Get the settings
 		$this->get_settings($my_settings);
-		
-		// Get theme name to save the options 
-		$this->theme_name = $my_settings['name'];
-		$this->theme_safename = sanitize_title($my_settings['name']);
 		
 		add_action( 'admin_menu', array( &$this, 'add_pages' ) );
 		add_action( 'admin_init', array( &$this, 'register_settings' ) );
@@ -191,7 +192,7 @@ class Theme_Options {
 		settings_fields( $name . '-options' );
 		
 		echo '<div class="options-tabs">
-			<ul class="tabs-nav">';
+				<ul class="tabs-nav">';
 		
 		foreach ( $this->sections as $section_slug => $section )
 			echo '<li><a href="#' . $section_slug . '">' . $section . '</a></li>';
@@ -209,93 +210,15 @@ class Theme_Options {
 		
 	</form>';
 	
-	echo '<script type="text/javascript">
-		jQuery(document).ready(function($) {
-		
+	echo '
+		<script type="text/javascript">
 			var sections = [];';
-			
-			foreach ( $this->sections as $section_slug => $section )
-				echo "sections['$section'] = '$section_slug';";
-			
-			echo '
-			$(".wrap h3").each( function() {
-				//var section = jQuery.inArray( $(this).html(), sections );
-				var section = $(this).html();
-				var slug = sections[section];
-				$(this).next().wrap("<div class=\'tab-panel\' id=\'" + slug + "\'></div>")
-				$("#" + slug ).prepend("<h3>" + section + "</h3>");
-				$(this).remove();
-			});
-			console.log($("#options-tabs"));
-			$(".options-tabs").responsiveTabs();
-			
-			return;
-			
-			//var wrapped = $(".wrap h3").wrap("<div class=\'tab-panel\' id=\'section_slug . \'>");
-			wrapped.each(function() {
-				$(this).parent().append($(this).parent().nextUntil("div.tab-panel"));
-			});
-			
-			return;
-			$(".ui-tabs-panel").each(function(index) {
-				$(this).attr("id", sections[$(this).children("h3").text()]);
-				if (index > 0)
-					$(this).addClass("ui-tabs-hide");
-			});
-			
-			$(".ui-tabs").tabs({
-				fx: { opacity: "toggle", duration: "fast" }
-			});
-			
-			$("input[type=text],  input[type=url], input[type=email], textarea").each(function() {
-				if ($(this).val() == $(this).attr("placeholder") || $(this).val() == "")
-					$(this).css("color", "#999");
-			});
-			
-			$("input[type=text], input[type=url], input[type=email], textarea").focus(function() {
-				if ($(this).val() == $(this).attr("placeholder") || $(this).val() == "") {
-					$(this).val("");
-					$(this).css("color", "#000");
-				}
-			}).blur(function() {
-				if ($(this).val() == "" || $(this).val() == $(this).attr("placeholder")) {
-					$(this).val($(this).attr("placeholder"));
-					$(this).css("color", "#999");
-				}
-			});
-			
-			$(".wrap h3, .wrap table").show();
-			
-			// Browser compatibility
-			if ($.browser.mozilla) 
-			         $("form").attr("autocomplete", "off");
-							 
-			// Uploader stuff
-			var _custom_media = true,
-			_orig_send_attachment = wp.media.editor.send.attachment;
- 
-			$(".upload_button").click(function(e) {
-				var send_attachment_bkp = wp.media.editor.send.attachment;
-				var button = $(this);
-				targetfield = $(this).prev(".upload-url");
-				wp.media.editor.send.attachment = function(props, attachment){
-					if ( _custom_media ) {
-						targetfield.val(attachment.url);
-						$(targetfield).nextAll("div:first").find(".upload-preview").attr("src",attachment.url);
-					} else {
-						return _orig_send_attachment.apply( this, [props, attachment] );
-					};
-				}
-	 
-				wp.media.editor.open(button);
-				return false;
-			});
-			
-			
-			
-		});
-	</script>
-</div>';
+	foreach ( $this->sections as $section_slug => $section )
+		echo "sections['$section'] = '$section_slug';";
+		
+	echo '			
+		</script>
+	</div> <!-- .wrap -->';
 		
 	}
 	
@@ -434,12 +357,13 @@ class Theme_Options {
 				
 			case 'upload':
 				echo '<input id="' . $id . '" class="upload-url' . $field_class . '" type="text" name="'. $name . '-options[' . $id . ']" value="' . esc_url( $options[$id] ) . '" /> 
-				<input id="'. $id . '-upload_button" class="upload_button button-secondary" type="button" name="' . $name . '-upload_button" value="Upload" />';
+				<input id="'. $id . '-upload_button" class="upload_button button-secondary" type="button" name="' . $name . '-upload_button" value="Upload" />
+				<input id="'. $id . '-remove_button" class="remove_button button-secondary" type="button" name="' . $name . '-remove_button" value="Remove" />';
 				
 				if ( $desc != '' )
 					echo '<br /><span class="description">' . $desc . '</span>';
 				
-				echo '<br /><div style="margin:10px;"><img id="' . $id . '-preview" class="upload-preview" style="max-width:100%;" src="' . esc_url( $options[$id] ) . '" /></div>';
+				echo '<br /><div class="media-preview"><img id="' . $id . '-preview" class="upload-preview" src="' . esc_url( $options[$id] ) . '" /></div>';
 				
 				
 				break;
@@ -581,6 +505,7 @@ class Theme_Options {
 		
 		wp_enqueue_media();
 		wp_enqueue_script( 'responsive-tabs', $uri . 'jquery.responsiveTabs.js', array( 'jquery' ) );
+		wp_enqueue_script( 'theme-options-js', $uri . 'theme-options.js', array( 'jquery' ) );
 		
 		//wp_enqueue_script( 'jquery-ui-tabs' );
 		//Media Uploader Scripts
@@ -598,7 +523,7 @@ class Theme_Options {
 		$subf=trailingslashit(str_replace('\\','/',str_replace($templ,'',$file)));
 		$uri=get_stylesheet_directory_uri().$subf;
 		
-		wp_enqueue_style( $this->theme_safename .'-admin', $uri . $this->theme_safename .'-options.css' );
+		wp_enqueue_style( 'theme-options-css', $uri . 'theme-options.css' );
 		//wp_enqueue_style( $this->theme_safename .'-admin' );
 		//wp_enqueue_style('thickbox');
 	}

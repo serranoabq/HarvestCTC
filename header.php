@@ -30,7 +30,7 @@
 		<header class="header_wrap">
 			<div class="grid-container top">
 				
-				<div class="grid-33" id="logo">
+				<div class="grid-33" id="logo">&nbsp;
 				
 					<a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?>">
 		<?php if ( harvest_option( 'logo' ) <> "" ) { ?>

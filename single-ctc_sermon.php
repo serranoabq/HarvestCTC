@@ -1,5 +1,6 @@
 <?php
-
+	/* Single sermon */
+	
 	get_header(); 
 
 	if (have_posts()) : while (have_posts()) : the_post(); 
@@ -10,15 +11,15 @@
 		// Sermon data
 		$ser_video = get_post_meta( $post_id, '_ctc_sermon_video' , true ); 
 		$ser_audio = get_post_meta( $post_id, '_ctc_sermon_audio' , true ); 
-		$ser_pdf = get_post_meta( $post_id, '_ctc_sermon_pdf' , true ); 
-		$series = get_the_terms( $post_id, 'ctc_sermon_series');
 		
+		$series = get_the_terms( $post_id, 'ctc_sermon_series');
 		if( $series && ! is_wp_error( $series) ) {
 			$series = array_shift( array_values ( $series ) );
 			$ser_series = $series -> name;
 		} else {
 			$ser_series = '';
 		}
+		
 		$books = get_the_terms( $post_id, 'ctc_sermon_book');
 		if( $books && ! is_wp_error( $books ) ) {
 			$books_A = array();
@@ -27,6 +28,7 @@
 		} else {
 			$ser_books = '';
 		}
+		
 		$speakers = get_the_terms( $post_id, 'ctc_sermon_speaker');
 		if( $speakers && ! is_wp_error( $speakers ) ) {
 			$speakers_A = array();
@@ -35,6 +37,7 @@
 		} else {
 			$ser_speakers = '';
 		}
+		
 		$tags = get_the_terms( $post_id, 'ctc_sermon_tag');
 		if( $tags && ! is_wp_error( $tags ) ) {
 			$tags_A = array();
@@ -43,6 +46,7 @@
 		} else {
 			$ser_tags = '';
 		}
+		
 		$topics = get_the_terms( $post_id, 'ctc_sermon_topic');
 		if( $topics && ! is_wp_error( $topics ) ) {
 			$topics_A = array();

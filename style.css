@@ -1,7 +1,8 @@
 /*  
-Theme Name: Harvest-CTC
+Theme Name: Harvest
 Version: 2.6
-Description: A responsive and versatile theme for churches. Author: Justin Serrano 
+Description: A responsive and versatile theme for churches. Uses Church Theme Content Plugin.  
+Author: Justin Serrano 
 */
 
 /* CSS RESET */
@@ -40,6 +41,7 @@ html {
 		-ms-box-sizing: inherit;
 				box-sizing: inherit;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {	display: block; }
@@ -85,12 +87,13 @@ body {
 	font-style: normal;
 	font-family: verdana;
 	//-webkit-box-shadow: 0px 1px 5px #020202;
-	//box-shadow: 0px 1px 5px #020202;
+	box-shadow: 0px 1px 5px #020202;
 	height: 72px;
 	position:relative;
 }
 .top {
 	height:100%;
+	overflow: hidden;
 }
 
 /* Logo */
@@ -104,9 +107,8 @@ body {
 }
 #logo img{
 	height:100%;
-	position: relative;
-  top: 50%;
-	transform: translateY(10%);
+	position: absolute;
+  top: 20%;
 	z-index: 1;
 }
 
@@ -201,3 +203,4 @@ body {
 .home-widget {
 	
 }
+

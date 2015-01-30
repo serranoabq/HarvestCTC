@@ -1,0 +1,121 @@
+html {
+-webkit-box-sizing: border-box;
+	 -moz-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+				box-sizing: border-box;
+}
+*, *:before, *:after {
+-webkit-box-sizing: inherit;
+	 -moz-box-sizing: inherit;
+		 -o-box-sizing: inherit;
+		-ms-box-sizing: inherit;
+				box-sizing: inherit;
+}
+
+/* Responsive tabs */
+/* 
+	Responsive Tabs Basic Style
+	https://github.com/jellekralt/Responsive-Tabs
+*/
+/* Tabs container */
+.r-tabs .r-tabs-nav {
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #2EA2CC;
+}
+/* Individual tabs */
+.r-tabs .r-tabs-tab {
+	display: inline-block;
+	margin: 0;
+	list-style: none;
+	padding: 10px 15px;
+	border-radius: 5px 5px 0 0;
+	background: #444;
+	margin-right: 5px;
+}
+/* Accordion */
+.r-tabs .r-tabs-accordion-title{
+	display: block;
+	margin: 0;
+	list-style: none;
+	padding: 10px 15px;
+	background: #444;
+	box-shadow: inset 0 -3px 5px -5px #777;
+	margin-bottom: 3px;
+}
+
+/* Individual tabs anchor */
+.r-tabs .r-tabs-anchor{
+	color: #fff;
+	font-weight: bold;
+	font-size: 14px;
+}
+/* Active tab */
+.r-tabs .r-tabs-tab.r-tabs-state-active,
+.r-tabs .r-tabs-accordion-title.r-tabs-state-active{
+	background:#2EA2CC;
+}
+/* Tab panels */
+.r-tabs .r-tabs-panel {
+	padding: 15px;
+	display: none;
+	border-left: 1px solid #2ea2cc;
+}
+.r-tabs .r-tabs-panel.r-tabs-state-active {
+	display: block;
+}
+
+/* These are what makes it responsive */
+.r-tabs .r-tabs-accordion-title,
+.r-tabs.accordion .r-tabs-accordion-title {
+	display: none;
+}
+.r-tabs.accordion .r-tabs-nav {
+	display: none;
+}
+.r-tabs.accordion .r-tabs-accordion-title { 
+	display: block;
+}
+
+
+/* Box Demo */
+.box-demo {
+	width:100px; 
+	height: 33px; 
+	background: #ccc;
+	display:inline-block;
+	vertical-align: middle;
+	margin-bottom: 5px;
+}
+
+.box-demo .box-33 {
+	width: 33.3333%;
+	float: left;
+	padding: 5px;
+}
+.box-demo .box-66 {
+	width: 66.6667%;
+	float: left;
+	padding: 5px;
+}
+.box-demo .box-66 div, .box-demo .box-33 div {
+	background: #444;
+	height: 23px;
+}
+
+
+img[class*="-preview"] {
+	max-width: 400px;
+	margin-top: 10px;
+	padding: 10px;
+	background: #ccc;
+}
+
+textarea, input[type="text"], input[type="password"],
+input[type="file"], input[type="email"], input[type="number"], 
+input[type="search"], input[type="tel"], input[type="url"], select {
+	width:100%;
+	max-width:350px;
+}
+

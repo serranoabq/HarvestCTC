@@ -1,12 +1,17 @@
 <?php
-
+	/* People archive */
+	
 	get_header(); 
 ?>
 		<!-- TITLE BAR -->
 		<div class="title_wrap">
 			<div class="grid-container title-bar">
 				<div class="grid-100 title">
-					<h2><?php _e( 'Staff', 'harvest-ctc' ); ?></h2>
+<?php if( harvest_option( 'ctc-people' ) ): ?>
+					<h2><?php echo harvest_option ( 'ctc-people' ); ?></h2>
+<?php else: ?>					
+					<h2><?php _e( 'People', 'harvest' ); ?></h2>
+<?php endif; ?>
 				</div> <!-- .title.grid-100 -->
 			</div> <!-- .title-bar.grid-100 -->
 		</div>

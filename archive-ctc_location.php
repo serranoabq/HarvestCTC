@@ -1,12 +1,17 @@
 <?php
-
+	/* Location archive */
+	
 	get_header(); 
 ?>
 		<!-- TITLE BAR -->
 		<div class="title_wrap">
 			<div class="grid-container title-bar">
 				<div class="grid-100 title">
-					<h2><?php _e( 'Events', 'harvest-ctc' ); ?></h2>
+<?php if( harvest_option( 'ctc-locations' ) ): ?>
+					<h2><?php echo harvest_option ( 'ctc-locations' ); ?></h2>
+<?php else: ?>					
+					<h2><?php _e( 'Locations', 'harvest' ); ?></h2>
+<?php endif; ?>
 				</div> <!-- .title.grid-100 -->
 			</div> <!-- .title-bar.grid-100 -->
 		</div>
@@ -26,7 +31,7 @@
 		$loc_phone = get_post_meta( $post_id, '_ctc_location_phone' , true ); 
 		$loc_times = get_post_meta( $post_id, '_ctc_location_times' , true ); 
 		
-		style = "background: url( 'https://maps.googleapis.com/maps/api/staticmap?size=500x500&zoom=15&scale=2&center=albuquerque&style=saturation:-50|gamma:2&markers=color:orange|albuquerque' );";
+		$style = "background: url( 'https://maps.googleapis.com/maps/api/staticmap?size=500x500&zoom=15&scale=2&center=albuquerque&style=saturation:-50|gamma:2&markers=color:orange|albuquerque' );";
 		if( $thumbnail ) {
 			$img = $thumbnail[0];
 			$style = "background: url( '$img' );"
