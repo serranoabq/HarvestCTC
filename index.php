@@ -1,51 +1,44 @@
 <?php
-/**
- * TEMPLATE: INDEX
- *
- */
+
+get_header(); ?>
+
+<?php if( !is_front_page() ): 
+echo is_archive();
+echo is_single();
+echo get_post_type();?>
+
+		<!-- TITLE BAR -->
+		<div class="title_wrap">
+			<div class="grid-container title-bar">
+				<div class="grid-100 title">
+					<h2><?php the_title(); ?></h2>
+				</div> <!-- .title.grid-100 -->
+			</div> <!-- .title-bar.grid-100 -->
+		</div>
+<?php endif; ?>
+		<div class="content_wrap">
+<?php 
+	if ( is_front_page() ) {
+		//if ( harvest_option( 'slider' ) ) echo harvest_option( 'slider' );
+	}
 ?>
-<?php get_header(); ?>
+			<div class="grid-container content">
 
-			<div id="container">
-				<div id="leftcol">
-					<div class="post">
-						<h2 class="title"><?php _e( 'Blog', 'harvest-ctc' ); ?></h2>
-						<div class="entry">
-<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-							<div class="entry-excerpt" id="post-<?php the_ID(); ?>">
-								<h4><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( '%s', 'harvest-ctc' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
-								
-								<span class="date"><?php echo __( 'Published ', 'harvest-ctc' ) . the_time("F j, Y") ?></span>
-								
-								<?php the_excerpt(); ?>
-								
-								<a href="<?php the_permalink(); ?>" class="read_more"><strong>read more...</strong></a>
-								
-								<div class="clear"></div>
-								
-							</div> <!-- .entry-excerpt -->
-							
-<?php endwhile; endif; ?>
+<?php 
+				if ( is_front_page() ) 
+					get_template_part( 'content', 'home' );
+				elseif ( is_single() )
+					get_template_part( 'single', get_post_type() );
+				elseif ( is_archive() )
+					get_template_part( 'archive', get_post_type() );
+				else
+					get_template_part( 'content', get_post_type() );
+?>
+		
+			</div> <!-- .content.grid-container -->
+		</div> <!-- .content_wrap -->
+		<!-- END CONTENT -->
 
-						</div> <!-- .entry -->
-					</div> <!-- .post -->
-
-<?php if( function_exists( 'harvest_pagination' ) ) {
-	harvest_pagination( $additional_loop -> max_num_pages );
-} ?>
-				</div> <!-- #leftcol -->
-				
-				<div id="rightcol">
-					<?php get_sidebar(); ?>
-				</div> <!-- #rightcol -->
-
-				<div class="clear"></div>
-
-			</div> <!-- #container -->
-
-			<div class="clear"></div>
-
-		</div> <!-- .box -->
-	</div> <!-- #wrap -->
-
-<?php get_footer(); ?>
+<?php
+get_footer();
+	

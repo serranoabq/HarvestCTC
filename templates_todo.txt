@@ -1,0 +1,38 @@
+Templates needed
+x1. Home page - front-page
+x2. Page / Post - page
+
+x3. Event Archive - archive-ctc_event
+x4. Sermon Archive - archive-ctc_sermon
+5. Sermon series archive - archive-ctc_sermon_series 
+x6. Locations archive - archive-ctc_location
+x7. Staff archive - archive-ctc_person
+
+x8. Event Single		- single-ctc_event
+x9. Sermon Single - single-ctc_sermon
+x10. Location single - single-ctc_location; Still needs widgets to be defined
+x11. Staff single - single-ctc_person
+
+Theme Options
+
+General Options
+logo
+favicon
+layout
+
+
+CTC Options
+sermon_names
+location_names
+person_names
+event_names
+
+
+Social Media
+harvest_twitter
+harvest_facebook
+harvest_google
+harvest_instagram
+harvest_youtube
+harvest_vimeo
+

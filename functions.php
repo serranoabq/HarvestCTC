@@ -16,12 +16,12 @@ function harvest_setup(){
 	include_once( $template_path . 'helpers/widgets.php');
 	
 	// Apply theme styles to visual editor
-	add_editor_style( $template_path . 'editor-style.css' );
+	add_editor_style( 'editor-style.css' );
 	
 	// Register Menus
 	register_nav_menus( array(
-		'main-nav-menu'     => __( 'Main Navigation Menu' ),
-		'footer-menu'       => __( 'Footer Menu' )
+		'header-menu'     => __( 'Header Menu' , 'harvest' ),
+		'footer-menu'     => __( 'Footer Menu' , 'harvest' )
 	));
 		
 	// Create Admin settins page
@@ -44,8 +44,6 @@ function harvest_setup(){
 	// Translation
 	load_theme_textdomain( 'harvest-ctc', $template_path . 'lang' );
 	
-	add_theme_support( 'title-tag' );
-	harvest_title();
 }
 
 // Add Church Theme Content support
@@ -107,6 +105,10 @@ function harvest_add_ctc(){
 			'fields' => array(
 					'_ctc_location_address',
 					'_ctc_location_show_directions_link',
+					'_ctc_location_map_lat',
+					'_ctc_location_map_lng',
+					'_ctc_location_map_type',
+					'_ctc_location_map_zoom',
 					'_ctc_location_phone',
 					'_ctc_location_times',
 			),
@@ -153,8 +155,14 @@ function harvest_register_required_plugins() {
 		),
 		
 		array(
-			'name' => 'Master Slider',
-			'slug' => 'master-slider',
+			'name' => 'S8 Simple Taxonomy Images',
+			'slug' => 's8-simple-taxonomy-images',
+			'required' => true
+		),
+		
+		array(
+			'name' => 'Meteor Slides',
+			'slug' => 'meteor-slides',
 			'required' => false
 		),
 		
@@ -174,22 +182,6 @@ function harvest_register_required_plugins() {
 			'external_url' => 'https://github.com/serranoabq/ctc-ministries',
 		),
 		
-		array(
-			'name' => 'CTC Shortcodes',
-			'slug' => 'ctc-shortcodes',
-			'required' => false,
-			'source' => 'https://github.com/serranoabq/ctc-shortcodes/archive/master.zip',
-			'external_url' => 'https://github.com/serranoabq/ctc-shortcodes',
-		),
-		
-		array(
-			'name' => 'CTC Taxonomy Images',
-			'slug' => 'ctc-taximages',
-			'required' => false,
-			'source' => 'https://github.com/serranoabq/ctc-taximages/archive/master.zip',
-			'external_url' => 'https://github.com/serranoabq/ctc-taximages',
-		),
-		
 	);
 	$config = array();
 	tgmpa( $plugins, $config );
@@ -202,6 +194,7 @@ add_action( 'wp_enqueue_scripts', 'harvest_scripts_styles' );
 function harvest_scripts_styles(){
 	// sytle.css 	= main theme style
 	// custom.css = additional custom styles
+	wp_enqueue_style('harvest-grid', get_stylesheet_directory_uri() . '/css/unsemantic-grid-responsive.css', array(), null );
 	wp_enqueue_style('harvest-stylesheet', get_stylesheet_uri(), array(), null );
 	
 	// Add font awesome support
@@ -230,6 +223,15 @@ function harvest_deregister_scripts() {
 	global $post;
 	
 	if( is_a( $post, 'WP_Post' ) ) {
+		// Meteor Slides
+		if ( ! has_shortcode( $post->post_content, 'meteor-slides' ) ){
+			wp_deregister_style( 'meteor-slides' );
+			wp_deregister_script( 'jquery-cycle' );
+			wp_deregister_script( 'jquery-touchwipe' );
+			wp_deregister_script( 'jquery-metadata' );
+			wp_deregister_script( 'meteorslides-script' );
+		}
+		
 		// Contact Form 7
 		if ( ! has_shortcode( $post->post_content, 'contact-form-7' ) ){
 			wp_deregister_script( 'contact-form-7' );
@@ -240,3 +242,59 @@ function harvest_deregister_scripts() {
 
 }
 
+function harvest_wp_title( $title, $sep ) {
+	global $paged, $page;
+
+	if ( is_feed() ) return $title;
+
+	// Add the site name.
+	$name .= get_bloginfo();
+ 
+	// Add the site description for the home/front page.
+	$tagline = get_bloginfo( 'description', 'display' );
+	
+	if ( is_page() || is_single() ) 
+		$tagline = $title;
+		
+	// Taxonomies
+	if ( is_tax('ctc_sermon_series') )
+		$tagline = _x( 'Sermon Series: ', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); 
+	if ( is_tax('ctc_sermon_book') )
+		$tagline = _x( 'Sermon Book: ', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); 
+	if ( is_tax('ctc_sermon_speaker') ) 
+		$tagline = _x( 'Sermon Speaker: ', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); 
+	if ( is_tax('ctc_sermon_topic') ) 
+		$tagline = _x( 'Sermon Topic: ', 'Page title', 'harvest-ctc' ) . single_tag_title( '', false ); 
+	
+	// Archives 
+	if ( is_search() ) 
+		$tagline = __( 'Search Results', 'harvest-ctc' );
+	if ( is_author() ) 
+		$tagline = __( 'Author Archive', 'harvest-ctc' ); 
+	if ( is_category() ) 
+		$tagline = __( 'Archive', 'harvest-ctc') . ':' . single_cat_title('', false); 
+	if ( is_month() ) 
+		$tagline =  __( 'Archive', 'harvest-ctc' ). '|' . get_the_time('F');
+
+	$title = $name;
+	if ( $tagline ) $title = rtrim( "$name $sep $tagline", ' | ');
+	
+	return $title;
+	
+} 
+add_filter( 'wp_title', 'harvest_wp_title', 10, 2 );
+
+function harvest_series_title( $title, $post_id ) {
+	$series = get_the_terms( $post_id, 'ctc_sermon_series' );	
+	if( $series && ! is_wp_error( $series) ) {
+		$series = array_shift( array_values ( $series ) );
+		$ser_series = $series -> name;
+	} else {
+		$ser_series = '';
+	}
+	if( $ser_series )
+		$title = "$ser_series :: $title";
+		
+	return $title;
+}
+add_filter( 'the_title', 'harvest_series_title', 10, 2);

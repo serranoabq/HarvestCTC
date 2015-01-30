@@ -13,41 +13,6 @@ html {
 				box-sizing: inherit;
 }
 
-/* Responsive tabs for weekly calendanar widget */
-/* 
-	Responsive Tabs Basic Style
-	https://github.com/jellekralt/Responsive-Tabs
-*/
-.r-tabs .r-tabs-nav {
-	margin: 0;
-	padding: 0;
-}
-.r-tabs .r-tabs-tab {
-	display: inline-block;
-	margin: 0;
-	list-style: none;
-}
-.r-tabs .r-tabs-panel {
-	padding: 15px;
-	display: none;
-}
-.r-tabs .r-tabs-panel.r-tabs-state-active {
-	display: block;
-}
-/* These are what makes it responsive */
-.r-tabs .r-tabs-accordion-title,
-.r-tabs.accordion .r-tabs-accordion-title {
-	display: none;
-}
-.r-tabs.accordion .r-tabs-nav {
-		display: none;
-}
-.r-tabs.accordion .r-tabs-accordion-title { 
-		display: block;
-}
-
-
-/*
 .ui-tabs-nav {
 	border-bottom: 1px solid #ccc;
 	height: 27px;
@@ -150,4 +115,3 @@ textarea.analytics_box{
 	background: #444;
 	height: 23px;
 }
-*/

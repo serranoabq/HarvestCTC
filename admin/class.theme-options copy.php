@@ -75,25 +75,27 @@ class Theme_Options {
 	private $settings;
 	private $theme_name; // Theme name
 	private $theme_safename; // Theme safe name
-	
+	private $css_subfolder = '/css/';
+	private $alt_css = array();
 	/**
 	 * Construct
 	 *
 	 * @since 1.0
 	 */
-	public function __construct( $my_settings = NULL, $my_sections = NULL ) {
+	public function __construct($my_settings=NULL,$my_sections=NULL) {
 		global $pagenow;
 		
 		// This will keep track of the checkbox options for the validate_settings function.
 		$this->checkboxes = array();
-				
+		
+		
 		// Create the sections
 		if(isset($my_sections)){
 			// Sections passed on class instantiation 
 			$this->sections = $my_sections;
 		}else{
 			// Default sections 
-			$this->sections['general']    = __( 'General Settings' );
+			$this->sections['general']      = __( 'General Settings' );
 			$this->sections['about']      = __( 'About this Theme' );
 		}
 		
@@ -101,18 +103,23 @@ class Theme_Options {
 		$this->get_settings($my_settings);
 		
 		// Get theme name to save the options 
-		$this->theme_name = $my_settings['name'];
-		$this->theme_safename = sanitize_title($my_settings['name']);
-		
+		$theme_data = wp_get_theme();
+		$this->theme_name = $theme_data;
+		$this->theme_safename = sanitize_title($theme_data);
+		if(''==$this->theme_safename){
+			$this->theme_name = 'My Theme';
+			$this->theme_safename = sanitize_title('My Theme');
+		}
 		add_action( 'admin_menu', array( &$this, 'add_pages' ) );
 		add_action( 'admin_init', array( &$this, 'register_settings' ) );
 		
 		if ( ! get_option( $this->theme_safename .'-options' ) )
 			$this->initialize_settings();
-				
+		
+		
 		if ( 'media-upload.php' == $pagenow || 'async-upload.php' == $pagenow ) {  
         // Now we'll replace the 'Insert into Post Button' inside Thickbox  
-        //add_filter( 'gettext', array(&$this, 'replace_thickbox_text'), 1, 3 ); 
+        add_filter( 'gettext', array(&$this, 'replace_thickbox_text'), 1, 3 ); 
     } 
 		
 	}
@@ -124,13 +131,7 @@ class Theme_Options {
 	 */
 	public function add_pages() {
 		
-		$admin_page = add_theme_page( 
-			__( 'Theme Options' ), 							// page title
-			__( 'Theme Options' ), 							// menu title
-			'manage_options', 									// capability
-			$this->theme_safename . '-options', // menu slug
-			array( &$this, 'display_page' ) 		// callback
-		);
+		$admin_page = add_theme_page( __( 'Theme Options' ), ucwords($this->theme_name) . __( ' Theme Options' ), 'manage_options', $this->theme_safename . '-options', array( &$this, 'display_page' ) );
 		
 		add_action( 'admin_print_scripts-' . $admin_page, array( &$this, 'scripts' ) );
 		add_action( 'admin_print_styles-' . $admin_page, array( &$this, 'styles' ) );
@@ -181,7 +182,9 @@ class Theme_Options {
 	public function display_page() {
 		$name = $this->theme_safename;
 		
-		echo '<div class="wrap"><h2>' . ucwords($this->theme_name).  __( ' Theme Options' ) . '</h2>';
+		echo '<div class="wrap">
+	<div class="icon32" id="icon-options-general"></div>
+	<h2>' . ucwords($this->theme_name).  __( ' Theme Options' ) . '</h2>';
 	
 		if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true )
 			echo '<div class="updated fade"><p>' . __( 'Theme options updated.' ) . '</p></div>';
@@ -189,54 +192,37 @@ class Theme_Options {
 		echo '<form action="options.php" method="post">';
 	
 		settings_fields( $name . '-options' );
-		
-		echo '<div class="options-tabs">
-			<ul class="tabs-nav">';
+		echo '<div class="ui-tabs">
+			<ul class="ui-tabs-nav">';
 		
 		foreach ( $this->sections as $section_slug => $section )
 			echo '<li><a href="#' . $section_slug . '">' . $section . '</a></li>';
 		
 		echo '</ul>';
-		
 		do_settings_sections( $_GET['page'] );
 		
-		echo '</div> <!-- .options-tabs -->
+		echo '</div>
 		
 		<p class="submit">
-			<input name="reset" id="reset" type="submit" class="reset-button button-secondary" value="'. __( 'Restore Defaults' ) .'" onclick="return confirm(\'Click OK to reset. Any theme settings will be lost!\');" />
-			<input name="submit" id="submit" type="submit" class="button-primary" value="' . __( 'Save Changes' ) . '" />
+			<input name="reset" type="submit" class="reset-button button-secondary" value="'. __( 'Restore Defaults' ) .'" onclick="return confirm(\'Click OK to reset. Any theme settings will be lost!\');" />
+			<input name="submit" type="submit" class="button-primary" value="' . __( 'Save Changes' ) . '" />
 		</p>
 		
 	</form>';
 	
 	echo '<script type="text/javascript">
 		jQuery(document).ready(function($) {
-		
+			
 			var sections = [];';
 			
 			foreach ( $this->sections as $section_slug => $section )
 				echo "sections['$section'] = '$section_slug';";
 			
-			echo '
-			$(".wrap h3").each( function() {
-				//var section = jQuery.inArray( $(this).html(), sections );
-				var section = $(this).html();
-				var slug = sections[section];
-				$(this).next().wrap("<div class=\'tab-panel\' id=\'" + slug + "\'></div>")
-				$("#" + slug ).prepend("<h3>" + section + "</h3>");
-				$(this).remove();
-			});
-			console.log($("#options-tabs"));
-			$(".options-tabs").responsiveTabs();
-			
-			return;
-			
-			//var wrapped = $(".wrap h3").wrap("<div class=\'tab-panel\' id=\'section_slug . \'>");
+			echo 'var wrapped = $(".wrap h3").wrap("<div class=\"ui-tabs-panel\">");
 			wrapped.each(function() {
-				$(this).parent().append($(this).parent().nextUntil("div.tab-panel"));
+				$(this).parent().append($(this).parent().nextUntil("div.ui-tabs-panel"));
 			});
 			
-			return;
 			$(".ui-tabs-panel").each(function(index) {
 				$(this).attr("id", sections[$(this).children("h3").text()]);
 				if (index > 0)
@@ -330,7 +316,7 @@ class Theme_Options {
 		if ($theme_data->get('Description'))
 			echo '<span class="description">'.$theme_data->get('Description').'</span><br/>';
 		if ($theme_data->get('Author'))
-			echo '<span class="description">&copy; ' . date('Y ') . $theme_data->get('Author').'</span>';
+			echo '<span class="description">&copy; 2013 '.$theme_data->get('Author').'</span>';
 			
 		echo '</div>';
 	}
@@ -476,8 +462,8 @@ class Theme_Options {
 	 * 
 	 * @since 1.0
 	 */
-	public function get_settings( $my_settings = NULL ) {
-		if( isset( $my_settings ) ) {
+	public function get_settings($my_settings=NULL) {
+		if(isset($my_settings)){
 			/* The settings are created outside and passed to the class constructor */
 			$this->settings = $my_settings;
 			return;
@@ -485,7 +471,7 @@ class Theme_Options {
 			/* Hard coded settings  */
 			/* General Settings
 			===========================================*/
-			if( isset( $this->settings ) ) return;
+			if(isset($this->settings)) return;
 			$this->settings['dummy'] = array(
 				'title'   => __( 'Dummy Setting' ),
 				'desc'    => __( 'Dummy setting to demo functionality.' ),
@@ -521,27 +507,13 @@ class Theme_Options {
 	*/
 	public function register_settings() {
 		
-		register_setting( 
-			$this->theme_safename . '-options', 
-			$this->theme_safename . '-options', 
-			array ( &$this, 'validate_settings' ) 
-		);
+		register_setting( $this->theme_safename . '-options', $this->theme_safename . '-options', array ( &$this, 'validate_settings' ) );
 		
 		foreach ( $this->sections as $slug => $title ) {
 			if ( $slug == 'about' )
-				add_settings_section( 
-					$slug, 
-					$title, 
-					array( &$this, 'display_about_section' ), 
-					$this->theme_safename . '-options' 
-				);
+				add_settings_section( $slug, $title, array( &$this, 'display_about_section' ), $this->theme_safename . '-options' );
 			else
-				add_settings_section( 
-					$slug, 
-					$title, 
-					array( &$this, 'display_section' ), 
-					$this->theme_safename . '-options' 
-				);
+				add_settings_section( $slug, $title, array( &$this, 'display_section' ), $this->theme_safename . '-options' );
 		}
 		
 		$this->get_settings();
@@ -574,16 +546,10 @@ class Theme_Options {
 	* @since 1.0
 	*/
 	public function scripts() {
-		$file=realpath(dirname(__FILE__));
-		$templ=realpath(get_stylesheet_directory());
-		$subf=trailingslashit(str_replace('\\','/',str_replace($templ,'',$file)));
-		$uri=get_stylesheet_directory_uri().$subf;
-		
-		wp_enqueue_media();
-		wp_enqueue_script( 'responsive-tabs', $uri . 'jquery.responsiveTabs.js', array( 'jquery' ) );
-		
-		//wp_enqueue_script( 'jquery-ui-tabs' );
+		add_action( 'admin_enqueue_scripts', 'wp_enqueue_media' );
+		wp_enqueue_script( 'jquery-ui-tabs' );
 		//Media Uploader Scripts
+		//wp_enqueue_script('media-upload');
 		//wp_enqueue_script('thickbox');
 	}
 	
@@ -598,9 +564,9 @@ class Theme_Options {
 		$subf=trailingslashit(str_replace('\\','/',str_replace($templ,'',$file)));
 		$uri=get_stylesheet_directory_uri().$subf;
 		
-		wp_enqueue_style( $this->theme_safename .'-admin', $uri . $this->theme_safename .'-options.css' );
-		//wp_enqueue_style( $this->theme_safename .'-admin' );
-		//wp_enqueue_style('thickbox');
+		wp_register_style( $this->theme_safename .'-admin', $uri . $this->theme_safename .'-options.css' );
+		wp_enqueue_style( $this->theme_safename .'-admin' );
+		wp_enqueue_style('thickbox');
 	}
 	
 	/**
@@ -610,16 +576,18 @@ class Theme_Options {
 	*/
 	public function validate_settings( $input ) {
 		
-		if ( ! isset( $_POST['reset'] ) ) {
+		if ( ! isset( $_POST['reset']) ) {
 			$options = get_option( $this->theme_safename .'-options' );
 			
 			foreach ( $this->checkboxes as $id ) {
 				if ( isset( $options[$id] ) && ! isset( $input[$id] ) )
 					unset( $options[$id] );
 			}
+			
 			return $input;
 		}
-		return false;		
+		return false;
+		
 	}
 	
 }

@@ -1,0 +1,800 @@
+/*  
+Theme Name: Harvest-CTC
+Version: 2.6
+Description: A responsive and versatile theme for churches. Includes custom post types for sermons, events, staff, and ministries. It is also designed to integrate with <a href="http://wordpress.org/plugins/s8-simple-taxonomy-images/">S8 Simple Taxonomy Images</a> and <a href="http://wordpress.org/plugins/meteor-slides/">MeteorSlides</a>
+Author: Justin Serrano 
+*/
+
+/* CSS RESET */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html {
+-webkit-box-sizing: border-box;
+	 -moz-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+				box-sizing: border-box;
+}
+*, *:before, *:after {
+-webkit-box-sizing: inherit;
+	 -moz-box-sizing: inherit;
+		 -o-box-sizing: inherit;
+		-ms-box-sizing: inherit;
+				box-sizing: inherit;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {	display: block; }
+body {	line-height: 1; }
+ol, ul {	list-style: none; }
+blockquote, q {	quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after {	content: '';	content: none; }
+table {	border-collapse: collapse;	border-spacing: 0; }
+em, i {	font-style: italic; }
+strong, b {	font-weight:bold;}
+/* End Resets */
+
+/* Helper classes and base styles */
+.clear {
+	clear:both;
+	line-height:1px;
+	height:1px;
+}
+html body * span.clear,
+html body * div.clear,
+html body * li.clear,
+html body * dd.clear {
+	background: none;
+	border: 0;
+	clear: both;
+	display: block;
+	float: none;
+	font-size: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+p {
+	line-height:20px;
+	padding:0 0 20px 0;
+}
+a {text-decoration:none;}
+a:hover {color:#333;}
+a.underline { text-decoration:underline;}
+a.underline:hover {text-decoration:none;}
+.left  {float: left;}
+.right  {float: right;}
+.middle  {vertical-align:middle;}
+.base  {vertical-align:baseline;}
+.text-left  {text-align: left;}
+.text-right {text-align: right;}
+.text-center {text-align: center;}
+
+/*---------------------------------------------------------------------------*/
+/* Base Styles */
+body {
+	background:url(images/tweed.png) #f3f3f3;
+	font-family: 'Open Sans',Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#333;
+	overflow-x:hidden;
+}
+h2,h3,h4{
+	font-family: 'Oswald','Arial Black',Arial, Helvetica;
+	font-weight:bold;
+}
+/*** COLOR ITEM: See color.css ****/
+a {
+	color:#336900;
+}
+
+/* Table */
+table {
+	width: 85%;
+	margin-bottom: 10px;
+}
+td {
+	line-height: 1.5em;
+}
+
+/* Blockquotes */
+blockquote:before{
+	content:'\f10d';
+	font-family: FontAwesome;
+	font-size:200%;
+	color:#777;
+	float:left;
+	margin-right:.25em;
+}
+blockquote p{
+	font-style: italic;
+	font-size:110%;
+	padding-left: 2em;
+	width: 90%;
+}
+blockquote cite{
+	display:block;
+	text-align:right;
+	font-weight:bold;
+}
+blockquote cite:before{
+	content:'\2014';
+}
+
+/*---------------------------------------------------------------------------*/
+/* Main Containers */
+.box, #top_bar  {
+	max-width:960px;
+	width:80%;
+	min-width: 260px;
+	margin:0 auto;
+	background: #f5f5f5;
+	position:relative;
+}
+#container .box, #wrap {
+	width:100%;
+	
+}
+#container {
+	width:100%;
+	padding:22px 10px 20px;
+	overflow:hidden;
+}	
+#container.homepage {
+	padding:10px 10px 25px;
+}
+.main_feature {
+	padding:0 20px 10px;
+	width:66%;
+	float:left;
+}
+
+/*---------------------------------------------------------------------------*/
+/* Top headline */
+#top {
+	width:100%;
+	height: 45px;
+	z-index: 99;
+}
+#top_bar {
+	background:url(images/bg_top.gif) #3c3 repeat;
+	height:100%;
+}
+/**** COLOR ITEM: See color.css ***/
+#top_bar{
+	border-top:3px solid #669c15;
+}
+#topheadline {
+	height:100%;
+	float:left;
+	padding:0 0 0 8px;
+	min-width: 170px; 
+	width:60%;
+}
+#topheadline a{
+	font-weight:bold;
+	font-size:90%;
+}
+#headline {
+	display: table-cell;
+	height:45px;
+	vertical-align: middle;
+}
+
+/* Social media icons on headline */
+.social-icons {
+	position:absolute;
+	bottom:3px;
+	right:10px;
+	max-width:140px;
+}
+
+/*---------------------------------------------------------------------------*/
+/* Logo */
+#logo{
+	padding-top:10px;
+}
+#logo img{
+	display:block;
+	margin:0 auto;
+	width:200px;
+	max-width:80%;
+}
+
+/*---------------------------------------------------------------------------*/
+/* Header menu */
+#header_nav, .menu-link {
+	width: 90%;
+	height:auto;
+	margin: 10px auto; 
+	overflow:hidden; 
+	background: #606060; 
+	-webkit-box-shadow: 0 7px 10px -5px #555;
+	   -moz-box-shadow: 0 7px 10px -5px #555;
+	        box-shadow: 0 7px 10px -5px #555;	
+}
+
+/* Navigation: LEVEL ONE*/
+.navigation{
+	width:100%;
+	height:auto;
+}
+.navigation ul {
+	margin: 0 auto; 
+	xmax-width: 510px; 
+	overflow: hidden; 
+  text-align: center;
+}
+.navigation li {
+	line-height:35px;
+	padding:0 6px 0 6px;
+	position:relative;
+	height: 38px;
+	display: inline-block;
+	font-size:120%;
+	font-family:oswald;
+}
+/*** COLOR ITEM: See color.css ****/
+.navigation li:hover{
+	border-bottom: 4px solid #669c15;
+}
+.navigation a {
+	color: #f5f5f5;
+	font-weight: bold;
+	padding-bottom: 2px;
+	display: inline-block;
+	width:100%;
+}
+
+/* THERE ARE NO SUBMENUS PRESENT */
+.navigation ul ul, .navigation ul ul ul,
+#footer_nav ul ul, #footer_nav ul ul ul{
+	display:none;
+}
+
+/* Responsive top menu */
+.menu-link {
+	background: #808080; 
+	line-height:35px;
+	padding:0 10px 0;
+	height: 38px;
+	font-family:oswald;
+	font-size:130%;
+	display:block;
+	font-weight:bold;
+	color:#f5f5f5;
+	display:none;
+}
+.menu-link:hover, .menu-link:active{
+	color:#f5f5f5;
+}
+
+/*---------------------------------------------------------------------------*/
+/* Footer */
+#footer {
+	width:100%;
+	height: 66px;
+}
+#footer div.box {
+	overflow: hidden;
+	padding: 16px 10px;
+	text-align: center;
+	background:#ddd;
+}
+#footer_nav {
+	width:100%;
+	padding: 10px 0 5px;
+	line-height: 14px;
+	/* border-top:1px dashed #777; */
+	border-bottom:1px dashed #777;
+	margin-bottom: 5px;
+}
+#footer_nav li {
+	padding:0 5px 5px;	
+	display:inline-block;
+}
+#footer_nav a {
+	color:#333;
+	padding: 0 3px;
+	line-height: 20px;
+	font-weight: normal;
+}
+/*** COLOR ITEM: See color.css ****/
+#footer_nav a:hover, #logo a:hover {
+	color:#669c15;
+}
+
+/*---------------------------------------------------------------------------*/
+/* Slides */
+.slides{
+	width:90%;
+	margin: 0 auto;
+}
+.slides img {
+	background: none;
+	border: none;
+	padding: 0;
+}
+.mslide p {
+	position:absolute;
+	bottom:0;
+	left:0;
+	right:0;
+	background: rgba(0,0,0,0.2);
+	margin:10px;
+	padding:5px;
+	color:#000;
+	height:auto;
+	opacity:0;
+	transition:opacity 1s ease;
+}
+.mslide:hover p{
+	opacity:1;
+}
+
+/*---------------------------------------------------------------------------*/
+/* Sidebars & Widgets  */
+.feature {
+	width:50%;
+	float:left;
+	padding:0 20px 10px;
+	transition:all 0.5s ease;
+}
+.feature:nth-last-child(2){
+	width:33%;
+}
+/* Homepage specific */
+.feature.first{
+	width:33%;
+}
+.feature.third {
+	width:50%;
+}
+.widget{
+	margin-bottom: 20px;
+}
+/* Special style class */
+.one-three > .feature.first, 
+.one-three > .feature.second, 
+.one-three > .feature.third {
+	width:33%;
+}
+.one-three > .main_feature{
+	width: 100%;
+}
+.one-three > .feature + .clear {display:none}
+
+/* Headings */
+.feature h2, .widget h2, .main_feature h2 {
+	font-size:24px;
+	border-bottom:solid 1px #c3c3c3;
+	margin-bottom:20px;
+	padding-bottom:6px;
+	color: #444;	
+}
+.feature h3, .main_feature h3{
+	font-size:20px;
+	margin-bottom: 10px;
+}
+.feature h4, .main_feature h4{
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+.feature h5, .main_feature h5{
+
+}
+
+/* Sidebar Lists */
+.feature li, .widget li {
+	border-bottom:dashed 1px #c3c3c3;
+	display:block;
+	padding:12px 0;
+	line-height:20px;
+	overflow:auto;
+}	
+.feature li:first-child, .widget li:first-child{
+	padding-top:0;
+}	
+.feature li img, .widget li img{
+	float:left;
+	margin-right: 10px;
+}
+.feature li span.list_title, .widget li span.list_title {
+	display:block;
+	font-weight:bold;
+}
+
+/* Widgets */
+.biglink {
+	margin: 20px 0;
+}
+.biglink a {
+	background:#dfdfdf;
+	border:solid 1px #c3c3c3;
+	display:block;
+	color:#333;
+	min-height:75px;
+	padding:5px;
+	margin-bottom: 20px;
+}
+.biglink a img {
+	float:left;
+	margin-right:12px;
+	margin-bottom:32px;
+}
+.biglink strong {
+	font-size:18px;
+	font-weight:bold;
+	display:block;
+	text-transform: uppercase;
+}
+.biglink .small {
+	display:block;
+	margin-top: 4%;
+	text-transform: uppercase;
+}
+
+/* RSS feed button */
+.feedbutton{
+  min-height: 38px;
+  border: 1px solid black;
+  background: #ccc;
+  margin-bottom: 20px;
+  padding: 5px;
+	height:auto;
+}
+.feedaddr{
+	display:table;
+	word-wrap: break-word;
+	height:100%;
+	word-break: break-all;
+}
+.feedaddr p {
+	display: table-cell;
+	padding:0 0 0 5px;
+	vertical-align:middle;
+}
+.feedaddr i[class^="icon-"],
+.feedaddr i[class*=" icon-"]{
+	vertical-align:middle;
+	color: #fa9c39;
+}
+x.feedbutton:before{
+	content:'';
+	display:inline-block;
+	vertical-align:middle;
+	height: 100%;
+}
+
+x.feedbutton .feed_icon{
+	float:left;
+}
+
+
+/* Specific Widget Styles */
+.widget #contact_map img{
+	width: 100%;
+}
+.sermon_widget_img, .staff_widget_img, .event_widget_img {
+	width: 75px;
+}
+
+
+/*---------------------------------------------------------------------------*/
+/* Images */
+.entry img, .wp-post-image{
+	border:1px solid #ddd;
+	background:#fff;
+	padding:5px;
+	max-width:100%;
+	margin: 10px;
+}
+img.left { margin-left:0; margin-top:0}
+img.right { margin-right:0; margin-top:0}
+
+/*---------------------------------------------------------------------------*/
+/* Responsive YouTube embeds */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; 
+    height: 0; overflow: hidden;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/*---------------------------------------------------------------------------*/
+/* breadcrumbs */
+#breadcrumb {
+	background: #e0e0e0;
+	clear: both;
+	font-family: 'Oswald','Arial Black',arial, helvetica;
+	line-height: 200%;
+	padding: 0 20px 0 30px;
+	text-indent: -10px;
+	width: 100%;
+	margin: 5px auto 0;
+}
+#breadcrumb a {
+	font-weight: bold;
+}
+
+
+/*---------------------------------------------------------------------------*/
+/* Pagination */
+.pagination {
+	width:100%;
+	height:30px;
+}
+.pagination span.current, .pagination a:hover {
+	float:left;
+	color:#fff;
+	line-height:28px;
+	padding:0 12px;
+	border:solid 1px #669c15;
+	margin-right:10px;
+}
+/*** COLOR ITEM: See color.css ****/
+.pagination span.current, .pagination a:hover {
+	background: #669c15;
+}
+.pagination a {
+	background:#dfdfdf;
+	float:left;
+	color:#333;
+	line-height:28px;
+	padding:0 12px;
+	border:solid 1px #c3c3c3;
+	margin-right:10px;
+}
+.pagination a.last, .pagination a.last:hover {
+	margin-left:100px;
+}
+.pagination span.numbers {
+	float:right;
+	line-height:30px;
+}
+
+
+/*---------------------------------------------------------------------------*/
+/* Custom Post Types: Events, Staff & Sermons */
+/* - Listings */
+.events_list ul, .sermon_list ul {
+	padding:0 0 20px 0;
+	margin-top:-10px;
+}
+.events_list li, .sermon_list li {
+	border-bottom:dashed 1px #c3c3c3;
+	display:block;
+	padding:12px 0;
+	line-height:20px;
+	overflow:auto;
+}
+
+/* - Staff */
+.staff_info  {
+	margin-bottom: 20px;
+	white-space:no-wrap;
+}
+.widget .staff_info{
+	margin:auto;
+}
+.staff_info [class^="icon-"]{
+	display:inline-block;
+	width:20px;
+}
+.staff-img {
+	margin-bottom:10px;
+	box-shadow: 0 5px 5px -5px #000;
+}
+.sermon_speaker, .sermon_date, .sermon_verse, .sermon_series, .staff_position, .staff_email, .event_datetime, .event_location, .event_time, .event_date, .staff_info span{
+	line-height:1.5em;
+}
+
+/* - Ministry */
+.ministry{
+	height: auto;
+	overflow:hidden;
+	clear:both;
+}
+img.ministry-img{
+	max-width:200px;
+}
+ 
+/* - Events *//*
+.event_datetime:before,.event_date:before{
+	content:'When: ';
+	font-weight: bold;
+}
+.widget .event_datetime:before{
+	content:'';
+}
+.event_location:before{ 
+	content:'Where: ';
+	font-weight: bold;
+}
+.event_time:before{ 
+	content:'Time: ';
+	font-weight: bold;
+}
+
+/* - Sermons /
+.sermon_speaker:before{ 
+	content:'By: ';
+	font-weight: bold;
+}
+.sermon_verse:before{ 
+	content:'Verse: ';
+	font-weight: bold;
+}
+.sermon_series:before{ 
+	content:'Series: ';
+	font-weight: bold;
+}
+.sermon_date:before{ 
+	content:'Date: ';
+	font-weight: bold;
+}*/
+
+/*---------------------------------------------------------------------------*/
+/* Buttons */
+/*** COLOR ITEM: See color.css ****/
+.button, .button2 {
+	background: #669c15;
+	background: -webkit-linear-gradient(center top , #669c15 0%, #336900) repeat scroll 0 0 transparent;
+	background: -moz-linear-gradient(center top , #669c15 0%, #336900) repeat scroll 0 0 transparent;
+	border: 2px solid #fff;
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 3px #000 inset;
+	color: #fff;
+	margin-top: 10px;
+	padding: 10px 20px;
+	display: inline-block;
+	min-width: 132px;
+	text-align: center;
+	cursor: pointer;
+}
+.button2:disabled, .button2:disabled:hover{
+	background: #ccc;
+	color: #999;
+	text-shadow: 1px 1px 2px #eee;
+}
+.button:hover, .button2:hover {
+	background: -webkit-linear-gradient(center bottom , #669c15 0%, #336900) repeat scroll 0 0 transparent;
+	background: -moz-linear-gradient(center bottom , #669c15 0%, #336900) repeat scroll 0 0 transparent;
+	color: #fff;
+}
+
+/**** MEDIA QUERIES 								
+* Desktop first approach. Cascade to smaller views. 
+* Breakpoints at 960,768,640,480 and 320    
+*****/
+
+/* Tablet landscape (<960) */
+@media only screen and (max-width : 960px) {
+	.main_feature h2{ color: purple;}
+	/* .feedaddr i[class^="icon-"],.feedaddr i[class*=" icon-"]{ display:none} */
+}
+
+/* Tablet portrait (<768) */
+@media only screen and (max-width : 768px) {
+	.main_feature h2{ color: brown;}
+	
+	.main_feature {width: 100%;}
+	
+	 /* sidebars */
+	.feature, .feature.first {width: 50% !important;}
+	.feature + .clear {display:none}
+	.feature + .clear:last-child{display:block}
+	.feature:nth-last-child(2) {width: 100% !important;}
+	
+	/* Responsive menu */
+	.navigation{
+		margin-top:0 !important;
+		position: absolute;
+		left: 0;
+		right: 0;
+		z-index: 999;
+	}
+	.menu-link{margin-bottom:0 !important; display:block}
+	.navigation > div{
+		max-height:0;
+		transition: max-height 0.5s ease-out;
+	}
+	.navigation ul{
+		padding-left: 10px;
+		text-align: left;
+	}
+	.navigation li{ 
+		display:block; 
+		line-height:38px;
+		height:38px;
+	}
+	.navigation li:hover{ border: none;}
+	.navigation > div.active{ max-height:300px; }
+	
+	/* End responsive menu */
+
+	img.ministry-img{
+		max-width:100%;
+		float:none;
+		display:block;
+		margin-left:auto !important;
+		margin-right:auto !important;
+	}
+}
+
+/* Intermediate tablet (<640)*/
+@media only screen and (max-width : 640px) {
+	.feature, .feature.first {width: 100% !important;}
+}
+
+/* Phone landscape (<480) */
+@media only screen and (max-width : 480px) {
+	.main_feature h2{ color: green;}
+	
+	.main_feature {
+		font-size: 120%;
+		line-height: 200%;
+	}
+	
+	#top_bar{
+		background:none;
+		border: none;
+	}
+	#headline{display:none}
+	#top{
+		position: fixed;
+		bottom:0;
+	}
+	.social-icons{
+		max-width: 32px;
+		right:-5%;
+	}
+	
+	/* Breadcrums collapse to show one level up */
+	#breadcrumb a, #breadcrumb .delimiter{display:none}
+	#breadcrumb a:last-of-type, #breadcrumb a:last-of-type +.delimiter {display:inline}
+	
+	.event_datetime,.sermon_date{
+		clear:both;
+	}
+	
+}
+
+/* Phone portrait (<320) */
+@media only screen and (max-width : 320px) {
+	.main_feature h2{ color: blue;}
+}
