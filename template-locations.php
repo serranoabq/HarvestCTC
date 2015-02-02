@@ -1,5 +1,7 @@
 <?php
-	/* Location archive */
+	/*
+	Template Name: Locations
+	*/
 	
 	get_header(); 
 ?>
@@ -27,7 +29,7 @@
 				</div> <!-- .ctc-loc-content -->
 				
 <?php
-	query_posts($query_string . '&orderby=menu_order&order=ASC');
+	
 	if (have_posts()) : while (have_posts()) : the_post(); 
 		$post_id = get_the_ID();
 		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );

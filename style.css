@@ -54,24 +54,37 @@ em, i {	font-style: italic; }
 strong, b {	font-weight:bold;}
 /* End Resets */
 
-/*
-a {text-decoration:none;}
+
+a {text-decoration:none; color: #333;}
 a:hover {color:#333;}
 a.underline { text-decoration:underline;}
 a.underline:hover {text-decoration:none;}
+/*
 .left  {float: left;}
 .right  {float: right;}
 .middle  {vertical-align:middle;}
 .base  {vertical-align:baseline;}
+*/
 .text-left  {text-align: left;}
 .text-right {text-align: right;}
 .text-center {text-align: center;}
-*/
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Bitter;
+}
+h1 { font-size: 150%;}
+h2 { font-size: 130%;}
+h3 { font-size: 110%;}
+h4 { font-size: 110%;}
+
+.grid-container {
+	max-width: 960px;
+}
 
 /* Header */
 body { 
 	background: #fff;
-	font-family: verdana
+	font-family: Lato, verdana, sans-serif;
 }
 .wrapper{
 	max-height: 100%;
@@ -85,7 +98,6 @@ body {
 	font-size: 14px;
 	font-weight: 400; 
 	font-style: normal;
-	font-family: verdana;
 	//-webkit-box-shadow: 0px 1px 5px #020202;
 	box-shadow: 0px 1px 5px #020202;
 	height: 72px;
@@ -108,7 +120,7 @@ body {
 #logo img{
 	height:100%;
 	position: absolute;
-  top: 20%;
+  top: 10%;
 	z-index: 1;
 }
 
@@ -134,7 +146,7 @@ body {
 	z-index: 100;
 	color: #FFFFFF;
 	font-weight: 400;
-	font-size: 12px;
+	font-size: 14px;
 	text-transform: uppercase;
 	text-decoration: none;
 	cursor: pointer;
@@ -142,7 +154,7 @@ body {
 .nav-main ul li a {
 	color: #FFFFFF;
 	font-weight: 400 ;
-	font-size: 12px;
+	font-size: 14px;
 	text-transform: uppercase;
 	text-decoration: none;
 	cursor: pointer;
@@ -162,14 +174,15 @@ body {
 .title-bar{
 	color: #FFFFFF;
 	font-size: 28px;
-	padding: 10px 0 5px;
-	font-family:verdana;
+	padding: 5px 0;
 	text-transform: uppercase;
 }
 
+/** Boxes widget ***************************/
 /* Boxes */
 .boxes {
-	margin: 20px 0;
+	margin: 50px 0 20px;
+	overflow: hidden;
 }
 .front-box-widget {
 	margin-bottom: 10px;
@@ -177,7 +190,7 @@ body {
 }
 .front-box-widget figure{
 	background: #333;
-	height: 100px;
+	height: 200px;
 	position: relative;
 }
 .front-box-widget figure img {
@@ -198,9 +211,222 @@ body {
 	font-weight: bold;
 	line-height: 25px;
 }
+/** End Boxes widget ***************************/
 
 /* Home widgets */
 .home-widget {
-	
+	overflow: hidden;
 }
 
+
+/** Calendar widget ***************************/
+
+/* Tabs parent */
+.r-tabs {
+	display:block !important;
+	color: #333;
+}
+.r-tabs a {
+	color: #006f7c;
+}
+/* Tabs container */
+.r-tabs .r-tabs-nav {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+/* Individual tab */
+.r-tabs .r-tabs-tab {
+	display: inline-block;
+	margin: 0;
+	list-style: none;
+	
+	background: #fff;
+	list-style-type: none;
+	font-size: 36px;
+	line-height: 24px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	text-align: center;
+	float: left;
+	width: 14.285%;  /* 100%/7 */
+	border-bottom: 1px solid #B2B4B1;
+	border-top: 1px solid #B2B4B1;
+}
+/* Accordion */
+.r-tabs .r-tabs-accordion-title{
+	background: #fff;
+	font-size: 16px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	border-bottom: 1px solid #B2B4B1;
+}
+/* Individual tabs anchor */
+.r-tabs .r-tabs-anchor{
+	font-family: Lato; 
+	text-decoration: none;
+	color: #006f7c;
+}
+/* Weekday text */
+.r-tabs .r-tabs-anchor span {
+	font-size: 11px;
+	text-transform: uppercase;
+}
+.r-tabs .r-tabs-tab .r-tabs-anchor span {
+	display: block;
+}
+.r-tabs .r-tabs-accordion-title span {
+	padding-left: 10px;
+}
+
+/* Active tab */
+.r-tabs .r-tabs-state-active{
+	background: #006f7c;
+}
+.r-tabs .r-tabs-state-active .r-tabs-anchor{
+	color: #fff;
+}
+
+/* Tab panels */
+.r-tabs .r-tabs-panel {
+	padding: 15px;
+	display: none;
+}
+/* Active panel */
+.r-tabs .r-tabs-panel.r-tabs-state-active {
+	display: block;
+	border-bottom: 1px solid #ccc;
+	background: #f6f6f6;
+}
+
+/* These are what makes it responsive */
+.r-tabs .r-tabs-accordion-title,
+.r-tabs.accordion .r-tabs-accordion-title {
+	display: none;
+}
+.r-tabs.accordion .r-tabs-nav {
+		display: none;
+}
+.r-tabs.accordion .r-tabs-accordion-title { 
+		display: block;
+}
+
+.weekly-calendar h2 {
+	background: #b2b4b1;
+	padding: 10px 20px;
+	color: #fff;
+	text-transform: uppercase;
+	margin-top: 20px;
+}
+
+/** End Calendar widget ***************************/
+
+/** Event archives ********************************/
+.ctc-event-grid, .ctc-loc-grid {
+	height: 300px;
+	background-size: auto 280px !important;
+	background-origin: content-box !important;
+	background-repeat: no-repeat !important;
+	background-clip: content-box !important;
+	background-position: 50% !important;
+	margin-bottom: 10px;
+	position: relative;
+}
+.ctc-event-grid .ctc-event-title,
+.ctc-loc-grid .ctc-loc-title,
+.ctc-event-grid .ctc-event-grid-details,
+.ctc-loc-grid .ctc-loc-grid-details {
+	max-width: 90%;
+	padding: 10px;
+	margin: 10px auto 0;
+	background: rgba(20, 20, 20, 0.5);
+	color: #fff;
+}
+.ctc-event-grid .ctc-event-title,
+.ctc-loc-grid .ctc-loc-title {
+	text-align: center;
+	font-weight: bold;
+}
+.ctc-event-grid .ctc-event-grid-details,
+.ctc-loc-grid .ctc-loc-grid-details {
+	position: absolute;
+	left: 5%;
+	bottom: 10px;
+	width:90%;
+}
+.ctc-event-grid-details i.fa {
+	padding-right: 10px;
+	color: #fff;
+}
+.ctc-cal-week-title-link {
+	color: #fff;
+}
+
+.image_wrap {
+	max-height: 360px;
+	max-width: 640px;
+	overflow: hidden;
+	margin: 20px auto;
+	padding: 5px;
+	border: 1px solid #b4b2b1;
+}
+.image_wrap img {
+	width:100%;
+}
+.ctc-loc-details,
+.ctc-loc-widgets-right {
+	min-height: 300px;
+}
+.ctc-loc-details .ctc-loc-details-map {
+	margin: 20px auto;
+	width: 100%;
+}
+.ctc-loc-details .ctc-loc-details-map img {
+	width: 100%;
+}
+div[class*="ctc-loc-details-"] > i.fa {
+	width: 20px;
+	text-align: center;
+}
+div[class*="ctc-loc-details-"] {
+	margin: 10px 0;
+}
+
+/** Sermon *************************************/
+.ctc-sermon-title{
+	margin-bottom: 20px;
+}
+.ctc-sermon-img, .ctc-sermon-video, .ctc-sermon-audio {
+	margin-bottom: 20px;
+}
+.ctc-sermon-details{
+	font-family: Bitter;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+.ctc-sermon-grid {
+	margin: 20px 0;
+	text-align: center;
+	background: #eee;
+	padding: 10px;
+	height: 200px;
+	overflow: hidden;
+	position: relative;
+}
+.ctc-sermon-grid .ctc-sermon-img {
+	margin: 0px auto;
+	width: 100%;
+}
+.ctc-sermon-grid-item-title {
+	margin-top: 20px;
+	font-family: Bitter;
+	font-weight: bold;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	background: rgba(0,0,0,.5);
+	color: #fff;
+	padding: 10px 0;
+	left: 0;
+}

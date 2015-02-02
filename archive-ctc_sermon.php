@@ -7,11 +7,8 @@
 		<div class="title_wrap">
 			<div class="grid-container title-bar">
 				<div class="grid-100 title">
-<?php if( harvest_option( 'ctc-sermons' ) ): ?>
-					<h2><?php echo harvest_option ( 'ctc-sermons' ); ?></h2>
-<?php else: ?>					
-					<h2><?php _e( 'Sermons', 'harvest' ); ?></h2>
-<?php endif; ?>
+					<h2><?php echo harvest_option( 'ctc-sermons' , __( 'Sermons', 'harvest' ) ); ?>
+					</h2>
 				</div> <!-- .title.grid-100 -->
 			</div> <!-- .title-bar.grid-100 -->
 		</div>
@@ -62,7 +59,7 @@
 				foreach ( $tags as $tag ) { $tags_A[] = $tag -> name; }
 				$ser_tags = join( ', ', $tags_A );
 			} else {
-				$ser_tags = '';
+				$ser_tags = ''; 
 			}
 			$topics = get_the_terms( $post_id, 'ctc_sermon_topic');
 			if( $topics && ! is_wp_error( $topics ) ) {
@@ -75,32 +72,35 @@
 ?>
 		
 <?php if( $ser_video ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-video">
-					<div class="ctc-video"><?php echo wp_video_shortcode( array( 'src' => $ser_video ) ); ?></div>
+				<div class="grid-100 ctc-sermon-title">
+					<h2><?php echo __('Latest message: ', 'harvest') . get_the_title(); ?></h2>
+				</div>
+				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
+					<div class="ctc-sermon-video"><?php echo wp_video_shortcode( array( 'src' => $ser_video ) ); ?></div>
 				</div> <!-- .ctc-sermon-video -->
 <?php elseif ( $thumbnail ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-img">
-					<img class="ctc-img" src="<?php echo $thumbnail[0]; ?>"/>
+				<div class="grid-60 prefix-20 suffix-25 ctc-sermon-media">
+					<img class="ctc-sermon-img" src="<?php echo $thumbnail[0]; ?>"/>
 				</div> <!-- .ctc-sermon-img -->
 <?php elseif ( harvest_option( 'logo' ) <> "" ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-img">
-					<img src="<?php echo harvest_option( 'logo' ); ?>" alt="ctc-img logo" />
+				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
+					<img src="<?php echo harvest_option( 'logo' ); ?>" class="ctc-sermon-img logo" />
 				</div> <!-- .ctc-sermon-img -->
 <?php else: ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-img">
-					<span class="ctc-img logo"><?php bloginfo('name'); ?></span>
+				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
+					<span class="ctc-sermon-img logo"><?php bloginfo('name'); ?></span>
 				</div> <!-- .ctc-sermon-img -->
 <?php endif; ?>
-<?php if( $ser_audio ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-audio">
-					<div class="ctc-audio"><?php echo wp_audio_shortcode( array( 'src' => $ser_audio ) ); ?></div>
+<?php if( $ser_audio && ! $ser_video ): ?>
+				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
+					<div class="ctc-sermon-audio"><?php echo wp_audio_shortcode( array( 'src' => $ser_audio ) ); ?></div>
 				</div> <!-- .ctc-sermon-audio -->
-<?php endif; ?>
+<?php endif;  ?>
 
-				<div class="grid-50 prefix-25 suffix-25 grid-parent ctc-sermon-details"> 
-
+				<div class="grid-60 prefix-20 suffix-20 grid-parent ctc-sermon-details"> 
+					<div class="grid-50"><?php the_date(); ?></div>
 <?php if( $ser_speakers ): ?>
-					<div class="grid-50"><?php echo $ser_speakers; ?></div>				
+					<div class="grid-50">By <?php echo $ser_speakers; ?></div>				
 <?php endif; ?>
 
 <?php if( $ser_tags ): ?>
@@ -114,19 +114,19 @@
 				</div> <!-- .ctc-sermon-details -->
 				<div class="clear"></div>
 				<div class="grid-100 ctc-sermon-grid-title"><h2><?php _e( 'Other messages', 'harvest'); ?></h2></div>
-<?php else:  ?>
+<?php else: ?>
 				
 				<div class="grid-33 ctc-sermon-grid"> 
 					<a href="<?php echo $permalink; ?>">
 <?php if ( $thumbnail ): ?>
-						<img class="ctc-img" src="<?php echo $thumbnail[0]; ?>"/>
+						<img class="ctc-sermon-img" src="<?php echo $thumbnail[0]; ?>"/>
 <?php elseif ( harvest_option( 'logo' ) <> "" ): ?>
-						<img src="<?php echo harvest_option( 'logo' ); ?>" alt="ctc-img logo" />
+						<img src="<?php echo harvest_option( 'logo' ); ?>" class="ctc-sermon-img logo" />
 <?php else: ?>
-						<span class="ctc-img logo"><?php bloginfo('name'); ?></span>
+						<span class="ctc-sermon-img logo"><?php bloginfo('name'); ?></span>
 <?php endif; ?>
+						<div class="ctc-sermon-grid-item-title"><?php echo the_title();?></div>
 					</a>
-					<div class="ctc-sermon-grid-item-title"><?php echo the_title();?></div>
 			</div> <!-- .ctc-sermon-grid -->
 <?php endif; ?>
 

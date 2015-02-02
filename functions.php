@@ -58,7 +58,8 @@ function harvest_add_ctc(){
 			'fields' => array(
 					'_ctc_event_start_date',
 					'_ctc_event_end_date',
-					'_ctc_event_time',
+					'_ctc_event_start_time',
+					'_ctc_event_end_time',
 					'_ctc_event_recurrence',
 					'_ctc_event_recurrence_end_date',
 					'_ctc_event_recurrence_period', // Not default in CTC
@@ -104,11 +105,6 @@ function harvest_add_ctc(){
 			'taxonomies' => array(),
 			'fields' => array(
 					'_ctc_location_address',
-					'_ctc_location_show_directions_link',
-					'_ctc_location_map_lat',
-					'_ctc_location_map_lng',
-					'_ctc_location_map_type',
-					'_ctc_location_map_zoom',
 					'_ctc_location_phone',
 					'_ctc_location_times',
 			),
@@ -118,14 +114,14 @@ function harvest_add_ctc(){
 }
 
 // Helper function for theme options
-function harvest_option( $option ) {
+function harvest_option( $option, $default = false ) {
 	$theme_data = wp_get_theme();
 	$theme_safename = sanitize_title( $theme_data );
 	$options = get_option( $theme_safename . '-options' );
 	if ( isset( $options[ $option ] ) )
 		return $options[ $option ];
 	else
-		return false;
+		return $default;
 }
 
 /*************************************************************
@@ -211,6 +207,11 @@ function harvest_scripts_styles(){
 	wp_enqueue_style('font-awesome','//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', array(), null );
 	wp_enqueue_style('fonts','http://fonts.googleapis.com/css?family=Bitter:400,700|Lato:400,700', array(), null );
 
+	// Registered, but not enqueued
+	wp_register_script( 'responsive-tabs-js',get_stylesheet_directory_uri() . '/js/jquery.responsiveTabs.min.js', array('jquery') );
+	//wp_register_style( 'weekly_cal' , get_stylesheet_directory_uri() . '/css/cal_widget.css' );
+		
+	
 	// Handle deregistering plugin scripts
 	harvest_deregister_scripts();
 

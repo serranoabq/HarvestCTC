@@ -1,4 +1,4 @@
-<?php
+ <?php
 	/* Single sermon */
 	
 	get_header(); 
@@ -71,30 +71,30 @@
 			<div class="grid-container content">
 
 <?php if( $ser_video ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-video">
-					<div class="ctc-video"><?php echo wp_video_shortcode( array( 'src' => $ser_video ) ); ?></div>
+				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-media">
+					<div class="ctc-sermon-video"><?php echo wp_video_shortcode( array( 'src' => $ser_video ) ); ?></div>
 				</div> <!-- .ctc-sermon-video -->
 <?php elseif ( $thumbnail ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-img">
-					<img class="ctc-img" src="<?php echo $thumbnail[0]; ?>"/>
+				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-media">
+					<img class="ctc-sermon-img" src="<?php echo $thumbnail[0]; ?>"/>
 				</div> <!-- .ctc-sermon-img -->
 <?php elseif ( harvest_option( 'logo' ) <> "" ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-img">
-					<img src="<?php echo harvest_option( 'logo' ); ?>" alt="ctc-img logo" />
+				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-media">
+					<img src="<?php echo harvest_option( 'logo' ); ?>" alt="ctc-sermon-img logo" />
 				</div> <!-- .ctc-sermon-img -->
 <?php else: ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-img">
-					<span class="ctc-img logo"><?php bloginfo('name'); ?></span>
+				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-media">
+					<span class="ctc-sermon-img logo"><?php bloginfo('name'); ?></span>
 				</div> <!-- .ctc-sermon-img -->
 <?php endif; ?>
-<?php if( $ser_audio ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-audio">
-					<div class="ctc-audio"><?php echo wp_audio_shortcode( array( 'src' => $ser_audio ) ); ?></div>
+<?php if( $ser_audio && !$ser_video ): ?>
+				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-media">
+					<div class="ctc-sermon-audio"><?php echo wp_audio_shortcode( array( 'src' => $ser_audio ) ); ?></div>
 				</div> <!-- .ctc-sermon-audio -->
 <?php endif; ?>
 
 				<div class="grid-50 prefix-25 suffix-25 grid-parent ctc-sermon-details"> 
-
+					<div class="grid-50"><?php the_date(); ?></div>
 <?php if( $ser_speakers ): ?>
 					<div class="grid-50"><?php echo $ser_speakers; ?></div>				
 <?php endif; ?>

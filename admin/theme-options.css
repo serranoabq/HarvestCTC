@@ -50,6 +50,7 @@ html {
 	color: #fff;
 	font-weight: bold;
 	font-size: 14px;
+	text-decoration: none;
 }
 /* Active tab */
 .r-tabs .r-tabs-tab.r-tabs-state-active,

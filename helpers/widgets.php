@@ -4,6 +4,7 @@
 	add_action( 'widgets_init', 'harvest_registerWidgets' );
 	function harvest_registerWidgets() {
 		register_widget( 'harvest_HomeWidget' );
+		register_widget( 'harvest_WeekWidget' );
 	}
 	
 class harvest_HomeWidget extends WP_Widget {
@@ -15,12 +16,7 @@ class harvest_HomeWidget extends WP_Widget {
 			'description' => 'Harvest Home Box' 
 		);
 		$this->WP_Widget('front_box_widget', __('Harvest Home Page Box'), $widget_ops);
-		
-		if ( false || 'media-upload.php' == $pagenow || 'async-upload.php' == $pagenow ) {  
-        // Now we'll replace the 'Insert into Post Button' inside Thickbox  
-        add_filter( 'gettext', array(&$this, 'replace_thickbox_text'), 1, 3 ); 
-    }
-		
+	
 	}
 	
 	function widget( $args, $instance ) {
@@ -55,16 +51,6 @@ class harvest_HomeWidget extends WP_Widget {
 		return $instance;
 	}
 	
-	public function replace_thickbox_text($translated_text, $text, $domain) { 
-    if ('Insert into Post' == $text) { 
-        $referer = strpos( wp_get_referer(), $this->theme_safename . '-options' ); 
-        if ( $referer != '' ) { 
-            return __('Use this image');  
-        }  
-    }  
-    return $translated_text;  
-	}
-	
 	function prep_scripts(){
 		echo '
 		<script type="text/javascript">
@@ -97,7 +83,8 @@ class harvest_HomeWidget extends WP_Widget {
 		$caption = esc_attr( $instance['caption'] );
 		$image_url = esc_attr( $instance['image_url'] );
 		$link = esc_attr( $instance['link'] );
-		add_action( 'admin_enqueue_scripts', 'wp_enqueue_media' );
+		//add_action( 'admin_enqueue_scripts', 'wp_enqueue_media' );
+		wp_enqueue_media();
 		$this->prep_scripts();
 ?>
     <p>
@@ -121,10 +108,10 @@ class harvest_WeekWidget extends WP_Widget {
 		
 	function harvest_WeekWidget() {
 		$widget_ops = array(
-			'classname' 	=> 'widget_weekcal', 
+			'classname' 	=> 'weekly-calendar', 
 			'description' => __( 'Harvest Weekly Calendar', 'harvest' ) 
 		);
-		$this->WP_Widget( 'widget_weekcal', __( 'Weekly Calendar', 'harvest' ), $widget_ops);
+		$this->WP_Widget( 'weekly-calendar', __( 'Harvest Weekly Calendar', 'harvest' ), $widget_ops);
 	}
 	
 	function getEvents( $week_start, $week_end, $max_recur ){
@@ -211,7 +198,7 @@ class harvest_WeekWidget extends WP_Widget {
 						} else {
 							$recur_date = date( 'Y-m-d', mktime( 0, 0, 0, $m, $d, $y ));
 						}
-						echo "<div>$i $n $recur_date $recurrence_end</div>";
+						//echo "<div>$i $n $recur_date $recurrence_end</div>";
 						// Figure out the shift needed to apply to the end date & time
 						$date_shift = strtotime( $recur_date ) - strtotime( $start_date );
 						
@@ -240,6 +227,7 @@ class harvest_WeekWidget extends WP_Widget {
 
 		return $events;
 	} 
+	
 	function widget( $args, $instance ) {
 		extract( $args );
 		$title = apply_filters('widget_title', empty( $instance['title'] ) ? __( 'Weekly Calendar', 'harvest' ) : $instance['title'], $instance, id_base);
@@ -251,10 +239,10 @@ class harvest_WeekWidget extends WP_Widget {
 		
 		$events = $this->getEvents( $week_start, $week_end );
 		
-		if( !wp_script_is( 'responsive-tabs-js' ) ) 
-			wp_enqueue_script( 'responsive-tabs-js', 
-				get_stylesheet_directory_uri() . '/js/jquery.responsiveTabs.min.js', 
-				array('jquery') );
+		wp_enqueue_script( 'responsive-tabs-js' );
+		//wp_enqueue_style( 'weekly_cal' );
+		
+		$this->prep_scripts();
 		
 		echo $before_widget;
 		if ( $title ) {
@@ -264,7 +252,7 @@ class harvest_WeekWidget extends WP_Widget {
 			echo $before_title . $title . $after_title;
 		}
 		
-		echo '<div id="ctc-cal-week"><ul>';
+		echo '<div id="ctc-cal-week" style="display:none"><ul>';
 		
 		$week_startDT = new DateTime( $week_start );
 		$week_endDT = new DateTime( $week_end );
@@ -272,7 +260,7 @@ class harvest_WeekWidget extends WP_Widget {
 		// Do the day tabs
 		$dayN = 1;
 		while( $week_startDT <= $week_endDT ) {
-			$day = $week_startDT -> format( 'd' );
+			$day = $week_startDT -> format( 'j' );
 			$week_day = date_i18n( 'l', $week_startDT -> getTimestamp() );
 			echo '<li><a href="#day-'. $dayN .'">'. $day . "<span>$week_day</span>" .'</a></li>';
 			$week_startDT -> modify( '+1 day' );
@@ -284,7 +272,7 @@ class harvest_WeekWidget extends WP_Widget {
 		$week_startDT = new DateTime( $week_start );
 		$dayN = 1;
 		while( $week_startDT <= $week_endDT ) {
-			$day = $week_startDT -> format( 'd' );
+			$day = $week_startDT -> format( 'j' );
 			$week_day = date_i18n( 'l', $week_startDT -> getTimestamp() );
 			echo '<div id="day-'. $dayN . '">';
 			$evt_count = 0;
@@ -311,6 +299,30 @@ class harvest_WeekWidget extends WP_Widget {
 		echo $after_widget;
 	}
 
+	function prep_scripts(){
+		echo '
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$( ".weekly-calendar" ).show();
+				$( "#ctc-cal-week" ).each( function(){ $( this ).responsiveTabs(); } );
+				ctc_accordion();
+				$( window ).resize( function(){ ctc_accordion(); } );
+	
+				function ctc_accordion(){
+					jQuery( "#ctc-cal-week" ).each( function(){ 
+						cww = jQuery( this ).width();
+						if ( cww < 512 ) 
+							jQuery(  this ).addClass( "accordion" );
+						else
+							jQuery( this ).removeClass( "accordion" );
+					} );
+				}
+				
+			});
+		</script>';
+	}
+	
+	
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );

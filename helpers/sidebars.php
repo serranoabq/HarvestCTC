@@ -79,6 +79,15 @@
 			'before_title'  => '<h2>',
 			'after_title'   => '</h2>',
 		));
+		register_sidebar( array( 
+			'name'          => 'Location Archive Sidebar', 
+			'id'            => 'location-archive-sidebar',
+			'description'   => 'Full-width widget at the top of location archive page.', 
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2>',
+			'after_title'   => '</h2>',
+		));
 		
 		/* Footer widget areas */
 		register_sidebar( array( 

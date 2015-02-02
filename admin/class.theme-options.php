@@ -477,23 +477,9 @@ class Theme_Options {
 		
 	}
 	
-	/**
-	* Hook for changing the text in the media uploader button
-	*
-	* @since 1.0
-	*/
-	public function replace_thickbox_text($translated_text, $text, $domain) { 
-    if ('Insert into Post' == $text) { 
-        $referer = strpos( wp_get_referer(), $this->theme_safename . '-options' ); 
-        if ( $referer != '' ) { 
-            return __('Use this image');  
-        }  
-    }  
-    return $translated_text;  
-	}  
 	
 	/**
-	* jQuery Tabs
+	* scripts
 	*
 	* @since 1.0
 	*/
@@ -504,12 +490,8 @@ class Theme_Options {
 		$uri=get_stylesheet_directory_uri().$subf;
 		
 		wp_enqueue_media();
-		wp_enqueue_script( 'responsive-tabs', $uri . 'jquery.responsiveTabs.js', array( 'jquery' ) );
+		wp_enqueue_script( 'responsive-tabs', $uri . 'jquery.responsiveTabs.min.js', array( 'jquery' ) );
 		wp_enqueue_script( 'theme-options-js', $uri . 'theme-options.js', array( 'jquery' ) );
-		
-		//wp_enqueue_script( 'jquery-ui-tabs' );
-		//Media Uploader Scripts
-		//wp_enqueue_script('thickbox');
 	}
 	
 	/**

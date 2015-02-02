@@ -12,7 +12,17 @@
 		$loc_address = get_post_meta( $post_id, '_ctc_location_address' , true ); 
 		$loc_phone = get_post_meta( $post_id, '_ctc_location_phone' , true ); 
 		$loc_times = get_post_meta( $post_id, '_ctc_location_times' , true ); 
-
+		
+		$img = ''; $map_url = $img;
+		$map_used = false;
+		if( $thumbnail )
+			$img = $thumbnail[0];
+		elseif( $loc_address ) {
+			$url = urlencode( $loc_address );
+			$map_url = "https://maps.googleapis.com/maps/api/staticmap?size=640x360&zoom=15&scale=2&center=$url&style=saturation:-25&markers=color:orange|$url";
+			$img = $map_url;
+			$map_used = true;
+		}
 ?>
 
 		<!-- TITLE BAR -->
@@ -24,28 +34,43 @@
 			</div> <!-- .title-bar.grid-100 -->
 		</div>
 		
-		<!-- IMAGE -->
-<?php if( $thumbnail ): ?>
-		<div class="image_wrap">
-				<img src="<?php echo $thumbnail[0]; ?>" class="header-img full-width"/>
-		</div>
-<?php endif; ?>
-
 		<div class="content_wrap">
 
 			<div class="grid-container content">
 
-				<div class="grid-50 ctc-loc-details">
+		<!-- IMAGE -->
+<?php if( $img ): ?>
+			<div class="image_wrap">
+					<img src="<?php echo $img; ?>" class="ctc-loc-img"/>
+			</div>
+<?php endif; ?>
 
+				<div class="grid-100 ctc-loc-content">
+				
+					<?php echo the_content(); ?>
+					
+				</div> <!-- .ctc-loc-content -->
+				
+				<div class="grid-50 ctc-loc-details">
+<?php if( $loc_times || $loc_address ): ?>
+					<h2><?php _e( 'Times &amp; Location', 'harvest' ); ?></h2>
+<?php endif; ?>
 <?php if( $loc_times ): ?>
-					<div class="ctc-time"><i class="fa-time icon-time"></i><?php echo $loc_times; ?></div>
+					<div class="ctc-loc-details-time">
+					<i class="fa fa-clock-o icon-time"></i><?php echo nl2br( $loc_times ); ?></div>
 <?php endif; ?>				
 
 <?php if( $loc_address ): ?>
-					<div class="ctc-address"><i class="fa-map-marker icon-map-marker"></i><?php echo $loc_address; ?></div>
-					<div class="ctc-map">
-						<a href="http://maps.google.com/maps?q=<?php echo urlencode($evt_address); ?>" target="_blank">
-							<img src="http://maps.googleapis.com/maps/api/staticmap?center=<?php echo urlencode($evt_address); ?>&zoom=15&size=200x200&sensor=false&scale=2&style=saturation:-50|gamma:0.5&markers=color:orange|<?php echo urlencode($evt_address); ?>" />
+					<div class="ctc-loc-details-address"><i class="fa fa-map-marker icon-map-marker"></i><?php echo $loc_address; ?></div>
+<?php endif; ?>
+<?php if( $loc_phone ): ?>
+					<div class="ctc-loc-details-phone"><i class="fa fa-mobile icon-mobile"></i><?php echo $loc_phone; ?></div>
+<?php endif; ?>
+
+<?php if( $loc_address && ! $map_used ): ?>
+					<div class="ctc-loc-details-map">
+						<a href="http://maps.google.com/maps?q=<?php echo urlencode($loc_address); ?>" target="_blank">
+							<img src="<?php echo $map_url; ?>"/>
 						</a>
 					</div>
 <?php endif; ?>					
@@ -55,12 +80,6 @@
 				<div class="grid-50 ctc-loc-widgets-right">
 					<?php dynamic_sidebar( 'location-sidebar-right' ); ?>
 				</div> <!-- .ctc-loc-widgets-right -->
-				
-				<div class="grid-100 ctc-loc-content">
-				
-					<?php echo the_content(); ?>
-					
-				</div> <!-- .ctc-loc-content -->
 				
 				<div class="grid-100 ctc-loc-widgets-bottom">
 				
