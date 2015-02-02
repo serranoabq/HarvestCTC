@@ -96,7 +96,7 @@
 				<div class="grid-50 prefix-25 suffix-25 grid-parent ctc-sermon-details"> 
 					<div class="grid-50"><?php the_date(); ?></div>
 <?php if( $ser_speakers ): ?>
-					<div class="grid-50"><?php echo $ser_speakers; ?></div>				
+					<div class="grid-50">By <?php echo $ser_speakers; ?></div>				
 <?php endif; ?>
 
 <?php if( $ser_tags ): ?>
