@@ -5,7 +5,7 @@
 
 <?php if ( harvest_option( 'slider' ) ) : ?>
 		<div class="slider_wrap">
-<?php		echo do_shortcode( harvest_option( 'slider' ) ); ?>
+<?php	echo do_shortcode( harvest_option( 'slider' ) ); ?>
 		</div>
 <?php endif; ?>
 		<div class="content_wrap">

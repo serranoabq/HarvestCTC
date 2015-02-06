@@ -37,35 +37,33 @@
 		$evt_venue = get_post_meta( $post_id, '_ctc_event_venue' , true ); 
 		$evt_address = get_post_meta( $post_id, '_ctc_event_address' , true ); 
 		
-		if( strtotime( $evt_start ) < strtotime( date('Y-m-d') ) ) break;
+		if( strtotime( $evt_start ) < strtotime( date('Y-m-d') ) ) continue;
 		
-		
-		$style = "background-image: url( 'https://maps.googleapis.com/maps/api/staticmap?size=500x250&zoom=15&scale=2&center=albuquerque&style=saturation:-50|gamma:2&markers=color:orange|albuquerque' );";
+		$img = " https://maps.googleapis.com/maps/api/staticmap?size=500x250&zoom=15&scale=2&center=albuquerque&style=saturation:-50|gamma:2&markers=color:orange|albuquerque";
 		if( $thumbnail ) {
 			$img = $thumbnail[0];
-			$style = "background: url( '$img' );";
 		} elseif ( $evt_address ) {
-			$style = "background: url( 'https://maps.googleapis.com/maps/api/staticmap?size=500x250&zoom=15&scale=2&center=$evt_address&style=saturation:-50|gamma:2&markers=color:orange|$evt_address' );";
+			$img = " https://maps.googleapis.com/maps/api/staticmap?size=500x280&zoom=15&scale=2&center=$evt_address&style=saturation:-50|gamma:2&markers=color:orange|$evt_address";
 		} 
 		
 ?>
-
-				<a href="<?php echo $permalink; ?>">
-					<div class="grid-33 ctc-event-grid" <?php echo 'style="' . $style . '"'; ?> >
-						<div class="ctc-event-title">
-							<h3><?php echo the_title(); ?></h3>
-						</div>
+				<div class="grid-33 ctc-event-grid">
+					<a href="<?php echo $permalink; ?>">
 						<div class="ctc-event-grid-details">
-						
-	<?php if( $evt_start ): ?>
+							<h3><?php echo the_title(); ?></h3>
+<?php if( $evt_start ): ?>
 							<div class="ctc-date">
 								<i class="fa fa-calendar icon-calendar"></i><?php echo date( 'D, M d Y', strtotime( $evt_start ) ); if ( $evt_end != $evt_start) echo '-'. date( 'D, M d Y', strtotime( $evt_end ) ); ?> 
-	<?php if( $evt_time ): ?>
+<?php if( $evt_time ): ?>
 								@ <?php echo $evt_time; ?>
-	<?php endif; ?>						
+<?php endif; ?>						
 							</div>
-	<?php endif; ?>
-
+<?php endif; ?>
+						</div>
+						<div class="overlay"></div>
+						<img src="<?php echo $img; ?>" class="ctc-event-img"/>
+					
+						
 						</div> <!-- .ctc-event-grid-details -->
 				</div> <!-- .ctc-event-grid -->
 			</a>

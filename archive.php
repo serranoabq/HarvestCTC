@@ -24,7 +24,7 @@
 ?>
 
 				<div class="grid-100">
-<?php if( $thumbnail ): ?><img src="<?php echo $thumbnail[0]; ?>" class="left" /><?phpendif; ?>					
+<?php if( $thumbnail ): ?><img src="<?php echo $thumbnail[0]; ?>" class="left" /><?php endif; ?>					
 					<div class="ctc-loc-title">
 						<a href="<?php echo $permalink; ?>"><?php echo the_title(); ?></a>
 					</div>

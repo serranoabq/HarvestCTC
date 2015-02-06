@@ -24,19 +24,23 @@
 			$post_id = get_the_ID();
 			$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'sermon' ); // sermon is 16:9 image (HD video)
 			$permalink = get_permalink();
+			if( $thumbnail ) $img = $thumbnail[0];
 
 			// Sermon data
 			$ser_video = get_post_meta( $post_id, '_ctc_sermon_video' , true ); 
 			$ser_audio = get_post_meta( $post_id, '_ctc_sermon_audio' , true ); 
-			$ser_pdf = get_post_meta( $post_id, '_ctc_sermon_pdf' , true ); 
-			$series = get_the_terms( $post_id, 'ctc_sermon_series');
 			
+			$series = get_the_terms( $post_id, 'ctc_sermon_series');
 			if( $series && ! is_wp_error( $series) ) {
 				$series = array_shift( array_values ( $series ) );
 				$ser_series = $series -> name;
+				$ser_series_slug = $series -> slug;
+				$ser_series_link = get_term_link( intval( $series->term_id ), 'ctc_sermon_series' );
+				$img = get_option( 'ctc_tax_img_' . $series->term_id );
 			} else {
 				$ser_series = '';
 			}
+			
 			$books = get_the_terms( $post_id, 'ctc_sermon_book');
 			if( $books && ! is_wp_error( $books ) ) {
 				$books_A = array();
@@ -45,6 +49,7 @@
 			} else {
 				$ser_books = '';
 			}
+			
 			$speakers = get_the_terms( $post_id, 'ctc_sermon_speaker');
 			if( $speakers && ! is_wp_error( $speakers ) ) {
 				$speakers_A = array();
@@ -53,6 +58,7 @@
 			} else {
 				$ser_speakers = '';
 			}
+			
 			$tags = get_the_terms( $post_id, 'ctc_sermon_tag');
 			if( $tags && ! is_wp_error( $tags ) ) {
 				$tags_A = array();
@@ -61,6 +67,7 @@
 			} else {
 				$ser_tags = ''; 
 			}
+			
 			$topics = get_the_terms( $post_id, 'ctc_sermon_topic');
 			if( $topics && ! is_wp_error( $topics ) ) {
 				$topics_A = array();
@@ -68,27 +75,26 @@
 				$ser_topics = join( ', ', $topics_A );
 			} else {
 				$ser_topics = '';
-			}
+			
+			if( !$img && harvest_option( 'logo' ) <> "" )
+				$img = harvest_option( 'logo' );
+
 ?>
 		
-<?php if( $ser_video ): ?>
 				<div class="grid-100 ctc-sermon-title">
 					<h2><?php echo __('Latest message: ', 'harvest') . get_the_title(); ?></h2>
 				</div>
+<?php if( $ser_video ): ?>
 				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
 					<div class="ctc-sermon-video"><?php echo wp_video_shortcode( array( 'src' => $ser_video ) ); ?></div>
 				</div> <!-- .ctc-sermon-video -->
-<?php elseif ( $thumbnail ): ?>
+<?php elseif ( $img ): ?>
 				<div class="grid-60 prefix-20 suffix-25 ctc-sermon-media">
-					<img class="ctc-sermon-img" src="<?php echo $thumbnail[0]; ?>"/>
-				</div> <!-- .ctc-sermon-img -->
-<?php elseif ( harvest_option( 'logo' ) <> "" ): ?>
-				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
-					<img src="<?php echo harvest_option( 'logo' ); ?>" class="ctc-sermon-img logo" />
+					<img class="ctc-sermon-img" src="<?php echo $img; ?>"/>
 				</div> <!-- .ctc-sermon-img -->
 <?php else: ?>
 				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
-					<span class="ctc-sermon-img logo"><?php bloginfo('name'); ?></span>
+					<span class="ctc-sermon-img logo"><?php bloginfo( 'name' ); ?></span>
 				</div> <!-- .ctc-sermon-img -->
 <?php endif; ?>
 <?php if( $ser_audio && ! $ser_video ): ?>
@@ -100,11 +106,15 @@
 				<div class="grid-60 prefix-20 suffix-20 grid-parent ctc-sermon-details"> 
 					<div class="grid-50"><?php the_date(); ?></div>
 <?php if( $ser_speakers ): ?>
-					<div class="grid-50">By <?php echo $ser_speakers; ?></div>				
+					<div class="grid-50"><?php echo __( 'By ', 'harvest' ) . $ser_speakers; ?></div>	
+<?php endif; ?>
+
+<?php if( $ser_series ): ?>
+					<div class="grid-50"><?php _e( 'Series:', 'harvest' );?> <a href="<?php echo $ser_series_link; ?>">  <?php echo $ser_series; ?></a></div>				
 <?php endif; ?>
 
 <?php if( $ser_tags ): ?>
-					<div class="grid-50"><?php echo $ser_tags; ?></div>				
+					<div class="grid-50"><?php echo $ser_tags; ?></div>	
 <?php endif; ?>
 
 <?php if( $ser_topics ): ?>
@@ -118,10 +128,8 @@
 				
 				<div class="grid-33 ctc-sermon-grid"> 
 					<a href="<?php echo $permalink; ?>">
-<?php if ( $thumbnail ): ?>
-						<img class="ctc-sermon-img" src="<?php echo $thumbnail[0]; ?>"/>
-<?php elseif ( harvest_option( 'logo' ) <> "" ): ?>
-						<img src="<?php echo harvest_option( 'logo' ); ?>" class="ctc-sermon-img logo" />
+<?php if ( $img ): ?>
+						<img class="ctc-sermon-img" src="<?php echo $img; ?>"/>
 <?php else: ?>
 						<span class="ctc-sermon-img logo"><?php bloginfo('name'); ?></span>
 <?php endif; ?>

@@ -15,15 +15,9 @@
 		
 		set_post_thumbnail_size(900, 9999 );
 		
-		add_image_size( 'slide-background', 800, 450 );
-		
-		//add_image_size( 'widget-thumb', 85, 85 );
-		
-		// Thumbnail for CTC (events, sermons, series?)
-		add_image_size( 'ctc-thumb', 75, 75, true );
-		
-		// Featured image size for CTC posts
-		add_image_size( 'ctc-post', 300 );
+		add_image_size( 'sermon-thumb', 500, 280 );
+		add_image_size( 'sermon', 640, 360 );
+		add_image_size( 'person', 360, 640 );
 		
 		
 		// Recommend a thumbnail flush after installing theme to regenerate

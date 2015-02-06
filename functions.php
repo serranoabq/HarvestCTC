@@ -8,13 +8,12 @@ function harvest_setup(){
 	$template_path = trailingslashit( get_template_directory() );
 	
 	// Load helpers
-	include_once( $template_path . 'helpers/class-tgm-plugin-activation.php' );
-	include_once( $template_path . 'helpers/display.php');
-	include_once( $template_path . 'helpers/images.php');
-	include_once( $template_path . 'helpers/feeds.php');
-	include_once( $template_path . 'helpers/shortcodes.php');
-	include_once( $template_path . 'helpers/sidebars.php');
-	include_once( $template_path . 'helpers/widgets.php');
+	include_once( get_template_directory() . '/helpers/class-tgm-plugin-activation.php' );
+	include_once( get_template_directory() . '/helpers/display.php');
+	include_once( get_template_directory() . '/helpers/images.php');
+	include_once( get_template_directory() . '/helpers/feeds.php');
+	include_once( get_template_directory() . '/helpers/sidebars.php');
+	include_once( get_template_directory() . '/helpers/widgets.php');
 	
 	// Apply theme styles to visual editor
 	add_editor_style( 'editor-style.css' );
@@ -26,9 +25,9 @@ function harvest_setup(){
 	));
 		
 	// Create Admin settins page
-	if ( is_admin() && file_exists( $template_path . 'admin/class.theme-options.php' ) ) {
-		include_once( $template_path . 'admin/class.theme-options.php' );
-		include_once( $template_path . 'admin/harvest-options.php' );
+	if ( is_admin() && file_exists( $template_path . '/admin/class.theme-options.php' ) ) {
+		include_once( get_template_directory() . '/admin/class.theme-options.php' );
+		include_once( get_template_directory() . '/admin/harvest-options.php' );
 		
 		// Options and sections are defined in harvest-options.php
 		$theme_options = new Theme_Options( $harvest_theme_options, $harvest_theme_sections );
@@ -40,10 +39,10 @@ function harvest_setup(){
 	// Complete theme setup 
 	harvest_thumb_setup();
 	
-	harvest_load_custom_types();
+	//harvest_load_custom_types();
 	
 	// Translation
-	load_theme_textdomain( 'harvest', $template_path . 'lang' );
+	load_theme_textdomain( 'harvest', get_template_directory() . '/lang' );
 	
 }
 
@@ -129,10 +128,10 @@ function harvest_option( $option, $default = false ) {
 /************************************************************/
 // Load custom post types
 function harvest_load_custom_types(){
-	$template_path = trailingslashit( get_template_directory() );
+	//$template_path = trailingslashit( get_template_directory() );
 	
-	require_once( $template_path  . '/inc/widget_post-post-type.php');
-	require_once( $template_path  . '/inc/contact_widget.php');
+	//require_once( get_template_directory()  . '/inc/widget_post-post-type.php');
+	//require_once( get_template_directory()  . '/inc/contact_widget.php');
 	//require_once( $template_path  . '/includes/ministry-post-type.php');
 	
 }
@@ -260,7 +259,7 @@ function harvest_wp_title( $title, $sep ) {
 	if ( is_feed() ) return $title;
 
 	// Add the site name.
-	$name .= get_bloginfo();
+	$name = get_bloginfo( 'name' );
  
 	// Add the site description for the home/front page.
 	$tagline = get_bloginfo( 'description', 'display' );

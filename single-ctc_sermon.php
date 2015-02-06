@@ -7,7 +7,8 @@
 		$post_id = get_the_ID();
 		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'sermon' ); // sermon is 16:9 image (HD video)
 		$permalink = get_permalink();
-
+		if( $thumbnail ) $img = $thumbnail[0];
+		
 		// Sermon data
 		$ser_video = get_post_meta( $post_id, '_ctc_sermon_video' , true ); 
 		$ser_audio = get_post_meta( $post_id, '_ctc_sermon_audio' , true ); 
@@ -16,6 +17,9 @@
 		if( $series && ! is_wp_error( $series) ) {
 			$series = array_shift( array_values ( $series ) );
 			$ser_series = $series -> name;
+			$ser_series_slug = $series -> slug;
+			$ser_series_link = get_term_link( intval( $series->term_id ), 'ctc_sermon_series' );
+			$img = get_option( 'ctc_tax_img_' . $series->term_id );
 		} else {
 			$ser_series = '';
 		}
@@ -56,6 +60,8 @@
 			$ser_topics = '';
 		}
 		
+		if( !$img && harvest_option( 'logo' ) <> "" )
+			$img = harvest_option( 'logo' );
 ?>
 		<!-- TITLE BAR -->
 		<div class="title_wrap">
@@ -71,53 +77,102 @@
 			<div class="grid-container content">
 
 <?php if( $ser_video ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-media">
+				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
 					<div class="ctc-sermon-video"><?php echo wp_video_shortcode( array( 'src' => $ser_video ) ); ?></div>
 				</div> <!-- .ctc-sermon-video -->
-<?php elseif ( $thumbnail ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-media">
-					<img class="ctc-sermon-img" src="<?php echo $thumbnail[0]; ?>"/>
-				</div> <!-- .ctc-sermon-img -->
-<?php elseif ( harvest_option( 'logo' ) <> "" ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-media">
-					<img src="<?php echo harvest_option( 'logo' ); ?>" alt="ctc-sermon-img logo" />
+<?php elseif ( $img ): ?>
+				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
+					<img class="ctc-sermon-img" src="<?php echo $img; ?>"/>
 				</div> <!-- .ctc-sermon-img -->
 <?php else: ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-media">
-					<span class="ctc-sermon-img logo"><?php bloginfo('name'); ?></span>
+				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
+					<span class="ctc-sermon-img logo"><?php bloginfo( 'name' ); ?></span>
 				</div> <!-- .ctc-sermon-img -->
 <?php endif; ?>
-<?php if( $ser_audio && !$ser_video ): ?>
-				<div class="grid-50 prefix-25 suffix-25 ctc-sermon-media">
+<?php if( $ser_audio && ! $ser_video ): ?>
+				<div class="grid-60 prefix-20 suffix-20 ctc-sermon-media">
 					<div class="ctc-sermon-audio"><?php echo wp_audio_shortcode( array( 'src' => $ser_audio ) ); ?></div>
 				</div> <!-- .ctc-sermon-audio -->
 <?php endif; ?>
 
-				<div class="grid-50 prefix-25 suffix-25 grid-parent ctc-sermon-details"> 
+				<div class="grid-60 prefix-20 suffix-20 grid-parent ctc-sermon-details"> 
 					<div class="grid-50"><?php the_date(); ?></div>
+					
 <?php if( $ser_speakers ): ?>
-					<div class="grid-50">By <?php echo $ser_speakers; ?></div>				
+					<div class="grid-50"><?php echo __( 'By ', 'harvest' ) . $ser_speakers; ?></div>				
+<?php endif; ?>
+
+<?php if( $ser_series ): ?>
+					<div class="grid-50"><?php _e( 'Series:', 'harvest' );?> <a href="<?php echo $ser_series_link; ?>">  <?php echo $ser_series; ?></a></div>				
 <?php endif; ?>
 
 <?php if( $ser_tags ): ?>
-					<div class="grid-50"><?php echo $ser_tags; ?></div>				
+					<div class="grid-50"><?php echo $ser_tags; ?></div>	
 <?php endif; ?>
 
 <?php if( $ser_topics ): ?>
-					<div class="grid-50"><?php echo $ser_topics; ?></div>				
+					<div class="grid-50"><?php echo $ser_topics; ?></div>
 <?php endif; ?>
 
 				</div> <!-- .ctc-sermon-details -->
+<?php endwhile; endif; ?>				
 				<div class="clear"></div>
+<?php 
+	// other posts in the series
+	if( $ser_series ):
+		$args = array( 
+			'post_type' 			=> 'ctc_sermon', 
+			'taxonomy'				=> 'ctc_sermon_series',
+			'order' 					=> 'DESC', 
+			'posts_per_page'	=> 10,
+			'term'						=> $ser_series_slug,
+		);
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) : 
+?>
+		<div class="grid-100 ctc-sermon-grid-title ctc-sermon-others"><h2><?php _e( 'Other messages in the series', 'harvest'); ?></h2></div>
+<?php
+			while ( $query->have_posts() ) : $query->the_post();
+				$post_id = get_the_ID();
+				$permalink = get_permalink();
+?>
+			<div class="grid-25 ctc-sermon-grid">
+				<a href="<?php echo $permalink; ?>">
+<?php if ( $img ): ?>
+					<img class="ctc-sermon-img" src="<?php echo $img; ?>"/>
+<?php else: ?>
+					<span class="ctc-sermon-img logo"><?php bloginfo('name'); ?></span>
+<?php endif; ?>
+					<div class="ctc-sermon-grid-item-title"><?php echo the_title();?></div>
+				</a>
+			</div>
+<?php
+	endwhile; endif; endif; 
+	wp_reset_postdata();
+?>
 
+		<div class="grid-100 ctc-sermon-grid-title"><h2><?php _e( 'Other series', 'harvest'); ?></h2></div>
+<?php
+		$all_series = get_terms( 'ctc_sermon_series' );
+		foreach( $all_series as $single_series ) {
+			$term_id = $single_series -> term_id ; 
+			$term_link = get_term_link( intval( $single_series->term_id ), 'ctc_sermon_series' );
+			$term_name = $single_series -> name;
+			$imgsrc = get_option( 'ctc_tax_img_' . $term_id );
+?>
+			<div class="grid-33 ctc-sermon-series">
+				<img src="<?php echo $imgsrc; ?>"/>
+			</div>
+<?php } ?>	
 
+				<div class="clear"></div>
 			</div> <!-- .content.grid-container -->
 
 		</div> <!-- .content_wrap -->
 		<!-- END CONTENT -->
 
 <?php
-	endwhile; endif; 
+	
 	
 	get_footer();
 	

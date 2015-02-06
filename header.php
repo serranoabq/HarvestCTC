@@ -1,3 +1,8 @@
+<?php 
+/**
+ * HEADER
+ */
+?>
 <!--[if lte IE 8]> <html class="ie ie6 <?php language_attributes(); ?>"> <![endif]-->
 <!--[if IE 7]>     <html class="ie ie7 <?php language_attributes(); ?>"> <![endif]-->
 <!--[if IE 8]>     <html class="ie ie8 <?php language_attributes(); ?>"> <![endif]-->
@@ -33,11 +38,11 @@
 				<div class="grid-33" id="logo">&nbsp;
 				
 					<a href="<?php bloginfo( 'url' ); ?>" title="<?php bloginfo( 'name' ); ?>">
-		<?php if ( harvest_option( 'logo' ) <> "" ) { ?>
+<?php if ( harvest_option( 'logo' ) <> "" ) : ?>
 						<img src="<?php echo harvest_option( 'logo' ); ?>" alt="logo" />
-		<?php } else { ?>
+<?php else: ?>
 						<span class="name"><?php bloginfo( 'name' ); ?></span>
-		<?php } ?>
+<?php endif; ?>
 					</a>
 				
 				</div> <!-- #logo.grid-33 -->
@@ -57,3 +62,4 @@
 				</div> <!-- .grid-66 -->
 			</div> <!-- .top -->
 		</header> <!-- .header-wrap -->
+		

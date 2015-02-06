@@ -73,7 +73,7 @@
 		register_sidebar( array( 
 			'name'          => 'Location Sidebar Bottom', 
 			'id'            => 'location-sidebar-bottom',
-			'description'   => 'Full-width widget area on single location pages', 
+			'description'   => 'Full-width widget area on bottom of single location pages', 
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2>',
