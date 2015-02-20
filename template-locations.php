@@ -6,13 +6,11 @@
 	get_header(); 
 ?>
 		<!-- TITLE BAR -->
-		<div class="title_wrap">
+		<div class="title_wrap accent-background">
 			<div class="grid-container title-bar">
 				<div class="grid-100 title">
 <?php if( harvest_option( 'ctc-locations' ) ): ?>
-					<h2><?php echo harvest_option ( 'ctc-locations' ); ?></h2>
-<?php else: ?>					
-					<h2><?php _e( 'Locations', 'harvest' ); ?></h2>
+					<h2><?php echo harvest_option ( 'ctc-locations' , __( 'Locations', 'harvest' ) ); ?></h2>
 <?php endif; ?>
 				</div> <!-- .title.grid-100 -->
 			</div> <!-- .title-bar.grid-100 -->

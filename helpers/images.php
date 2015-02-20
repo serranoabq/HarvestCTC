@@ -16,8 +16,8 @@
 		set_post_thumbnail_size(900, 9999 );
 		
 		add_image_size( 'sermon-thumb', 500, 280 );
-		add_image_size( 'sermon', 640, 360 );
-		add_image_size( 'person', 360, 640 );
+		add_image_size( 'ctc-wide', 640, 360 );
+		add_image_size( 'ctc-tall', 360, 1138 );
 		
 		
 		// Recommend a thumbnail flush after installing theme to regenerate

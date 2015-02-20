@@ -8,7 +8,7 @@ echo is_single();
 echo get_post_type();?>
 
 		<!-- TITLE BAR -->
-		<div class="title_wrap">
+		<div class="title_wrap accent-background">
 			<div class="grid-container title-bar">
 				<div class="grid-100 title">
 					<h2><?php the_title(); ?></h2>

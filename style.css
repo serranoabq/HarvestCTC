@@ -1,6 +1,6 @@
 /*  
 Theme Name: Harvest
-Version: 2.6
+Version: 3.0b
 Description: A responsive and versatile theme for churches. Uses Church Theme Content Plugin.  
 Author: Justin Serrano 
 */
@@ -45,7 +45,7 @@ html {
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {	display: block; }
-body {	line-height: 1; }
+body {	line-height: 1.25; }
 ol, ul {	list-style: none; }
 blockquote, q {	quotes: none;}
 blockquote:before, blockquote:after, q:before, q:after {	content: '';	content: none; }
@@ -55,10 +55,11 @@ strong, b {	font-weight:bold;}
 /* End Resets */
 
 
-a {text-decoration:none; color: #333;}
+a {text-decoration:none; color: #333; font-weight:bold;}
 a:hover {color:#333;}
 a.underline { text-decoration:underline;}
 a.underline:hover {text-decoration:none;}
+
 /*
 .left  {float: left;}
 .right  {float: right;}
@@ -78,7 +79,19 @@ h3 { font-size: 110%;}
 h4 { font-size: 110%;}
 
 .grid-container {
-	max-width: 1200px;
+	max-width: 1000px;
+	min-width: 320px;
+}
+
+.accent-color {
+
+}
+.accent-background {
+	background: #006f7c;
+	//background: #3D64A0;
+}
+.secondary-accent-background {
+	background: #b2b4b1;
 }
 
 /* Header */
@@ -87,21 +100,30 @@ body {
 	font-family: Lato, verdana, sans-serif;
 }
 .wrapper{
-	max-height: 100%;
+	min-height: 100%;
+	margin-bottom: -140px; /* footer_wrap height + top margin */
+	padding-bottom: 120px; /* footer_wrap height */
 }
 .header_wrap, .footer_wrap {
 	background: url('images/bg-texture.jpg');
 }
+.content_wrap {
+	margin-bottom: 20px;
+}
 .footer_wrap {
-	min-height: 200px;
+	min-height: 120px;
+	margin-top: 20px;
 	position: relative;
-	margin-top: 80px;
+	color: #fff;
+}
+.footer_wrap a,
+.footer_wrap h2,
+.social_footer a,
+.social_footer h2{
+	color: #fff;
 }
 .footer_wrap .copyright{
-	position: absolute;
-	clear: both;
-	bottom: 20px;
-	color: #fff;
+	margin: 20px 0;
 }
 .header_wrap {
 	color: #fff;
@@ -109,17 +131,26 @@ body {
 	font-size: 14px;
 	font-weight: 400; 
 	font-style: normal;
-	//-webkit-box-shadow: 0px 1px 5px #020202;
-	box-shadow: 0px 1px 5px #020202;
 	height: 72px;
 	position:relative;
+	z-index:5;
+}
+.slider_wrap {
+	overflow: hidden;
 }
 .top {
 	height:100%;
 	overflow: hidden;
+	transition: all 0.5s ease;
 }
 .content {
 	min-height: 200px;
+}
+
+i.fa {
+	padding-right: 10px;
+	text-align: center;
+	min-width: 30px;
 }
 
 /* Logo */
@@ -132,15 +163,41 @@ body {
 	color:fff !important;
 }
 #logo img{
-	height:100%;
+	max-width: 250px;
 	position: absolute;
   top: 10%;
-	z-index: 1;
+	z-index: 100;
 }
 
 /* Navigation */
-#header_nav_mobile {
-	display:none;
+#menu {
+	position: relative;
+}
+#header_nav_mobile  {
+	text-align: right;
+	position: relative;
+	z-index: 10;
+}
+
+#hamburger {
+	color: #fff;
+	transition: all 0.5 ease;
+}
+#hamburger.menu-active {
+	background: #fff;
+	color: #555;
+}
+#hamburger.menu-active:before {
+	content:'\f00d';
+}
+
+.wrapper.menu-active .top {
+	overflow:visible;
+}
+
+.nav-main {
+	transition: height 0.5s ease;
+	overflow: hidden;
 }
 .nav-main ul{
 	display: block;
@@ -151,6 +208,7 @@ body {
 	padding-top: 10px;
 	margin: 0;
 }
+
 .nav-main ul > li{
 	-webkit-backface-visibility: hidden;
 	height: 45px;
@@ -158,16 +216,17 @@ body {
 	float: left;
 	position:relative;
 	z-index: 100;
-	color: #FFFFFF;
+	color: #fff;
 	font-weight: 400;
 	font-size: 14px;
 	text-transform: uppercase;
 	text-decoration: none;
 	cursor: pointer;
 }
+
 .nav-main ul li a {
-	color: #FFFFFF;
-	font-weight: 400 ;
+	color: #fff;
+	font-weight: bold ;
 	font-size: 14px;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -176,11 +235,27 @@ body {
 .nav-main ul li a:hover {
 	text-decoration: none!important;
 }
-
+.social_footer,
+.footer-menu {
+	text-align: center;
+	overflow: hidden;
+}
+.footer-menu div[class$="-container"]{
+	text-align: right;
+}
+.footer-menu .menu > li{
+	float: right;
+	position:relative;
+	color: #fff;
+	font-size: 90%;
+	text-decoration: none;
+	cursor: pointer;
+	margin: 5px 10px 10px 0;
+}
 
 /* Title Bar */
 .title_wrap{
-	background: #006f7c;
+	/*background: #006f7c;*/
 	height:60px;
 	padding: 5px;
 	margin-bottom: 50px;
@@ -198,32 +273,13 @@ body {
 	margin: 50px 0 20px;
 	overflow: hidden;
 }
-.front-box-widget {
-	margin-bottom: 10px;
-	overflow: hidden;
-}
-.front-box-widget figure{
-	background: #333;
-	height: 200px;
-	position: relative;
-}
-.front-box-widget figure img {
-	width: 100%;
-	opacity: 0.75;
-}
-.front-box-widget figcaption{
-	position: absolute;
-	bottom: 5px;
-	left: 5px;
-	display: block;
-	background: rgba(128,128,128,0.5);
-	width: 60%;
-	padding: 5px;
-	height: 35px;
-	color: #fff;
+div.box-title {
+	width: 50% ;
+	bottom: 10px;
+	left: 10px;
+	padding: 10px;
 	text-transform: uppercase;
-	font-weight: bold;
-	line-height: 25px;
+	font-weight:bold;
 }
 /** End Boxes widget ***************************/
 
@@ -254,7 +310,6 @@ body {
 	display: inline-block;
 	margin: 0;
 	list-style: none;
-	
 	background: #fff;
 	list-style-type: none;
 	font-size: 36px;
@@ -271,10 +326,13 @@ body {
 .r-tabs .r-tabs-accordion-title{
 	background: #fff;
 	font-size: 16px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	text-align: center;
 	border-bottom: 1px solid #B2B4B1;
+}
+.r-tabs .r-tabs-accordion-title .r-tabs-anchor span{
+	font-size: 16px;
 }
 /* Individual tabs anchor */
 .r-tabs .r-tabs-anchor{
@@ -306,6 +364,7 @@ body {
 .r-tabs .r-tabs-panel {
 	padding: 15px;
 	display: none;
+	min-height: 150px;
 }
 .r-tabs .r-tabs-panel p {
 	margin-bottom: 5px;
@@ -330,7 +389,8 @@ body {
 		display: block;
 }
 
-.weekly-calendar h2 {
+.weekly-calendar h2,
+.recent-sermon h2 {
 	background: #b2b4b1;
 	padding: 10px 20px;
 	color: #fff;
@@ -338,162 +398,212 @@ body {
 	margin-top: 20px;
 }
 
+.ctc-cal-week-title-link,
+.ctc-recent-sermon-title-link {
+	color: #fff;
+}
+
 /** End Calendar widget ***************************/
 
 /** Event archives ********************************/
-.ctc-event-grid, .ctc-loc-grid {
-	height: 300px;
-	//background-size: auto 280px !important;
-	//background-origin: content-box !important;
-	//background-repeat: no-repeat !important;
-	//background-clip: content-box !important;
-	//background-position: 50% !important;
-	//margin-bottom: 10px;
-	position: relative;
-}
-.ctc-event-grid .ctc-event-details {
-	position: absolute;
-  padding: 15px;
-  width: 100%;
-  font-size: 1.2rem;
-  font-family: sans-serif;
-  color: #fff;
-  z-index: 2;
-  bottom: 0;
-}
-.overlay {
-	position: absolute;
-	background: linear-gradient(to bottom, rgba(0,0,0,0) 60%,rgba(0,0,0,0.75) 100%);
-  left:0;
-  top:0;
-  bottom: 0;
-  right:0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.ctc-event-grid a {
-	display:block;
+.front-box-widget .box,
+.ctc-event-grid .ctc-event,
+.ctc-loc-grid .ctc-loc ,
+.ctc-sermon-grid .ctc-sermon ,
+.ctc-sermon-media .ctc-sermon ,
+.ctc-person-grid .ctc-person {
 	overflow: hidden;
-	height:0;
-	padding-bottom: 56.25%;
-	position: relative;
+  position: relative;
+  padding-bottom: 56.25%;
+  height:0;
+  float:left;
+  width:100%;
+	margin-bottom: 20px;
 }
-.ctc-event-grid .ctc-event-img {
+.ctc-person-grid .ctc-person {
+	padding-bottom: 140%; /* 5x7 */
+	/*padding-bottom: 150%; /* 4x6 */
+	/*padding-bottom: 177.78%; /* 16x9 */
+	/*padding-bottom: 100%; /* square */
+}
+.front-box-widget .box-img,
+.ctc-event-grid .ctc-event-img,
+.ctc-loc-grid .ctc-loc-img,
+.ctc-sermon-grid .ctc-sermon-img,
+.ctc-sermon-grid .ctc-grid-full,
+.ctc-person-grid .ctc-person-img {
 	width: 100%;
 	position: absolute;
 	top:50%;
 	left:50%;
-	transform: translate(-50%,50%);
+	transform: translate(-50%,-50%);
 }
-.ctc-event-grid .ctc-event-title,
-.ctc-loc-grid .ctc-loc-title,
-.ctc-event-grid .ctc-event-grid-details,
-.ctc-loc-grid .ctc-loc-grid-details {
-	//max-width: 90%;
-	padding: 10px;
-	//margin: 10px auto 0;
-	background: rgba(20, 20, 20, 0.5);
-	color: #fff;
+.box-title,
+.ctc-grid-details {
 	position: absolute;
-	bottom:
+  padding: 15px;
+  width: 100%;
+  color: #fff;
+  z-index: 2;
+  bottom: 0;
+	background: #ccc;
+	background: rgba(0,0,0,0.5);
 }
-.ctc-event-grid .ctc-event-title,
-.ctc-loc-grid .ctc-loc-title {
-	text-align: center;
+.ctc-grid-details h3 {
 	font-weight: bold;
+	padding-bottom: 5px;
 }
-.ctc-event-grid .ctc-event-grid-details,
-.ctc-loc-grid .ctc-loc-grid-details {
-	position: absolute;
-	left: 5%;
-	bottom: 10px;
-	width:90%;
+.ctc-grid-details .ctc-date {
+	font-size: 0.9em;
 }
-.ctc-event-grid-details i.fa {
-	padding-right: 10px;
+.ctc-grid-details i.fa {
 	color: #fff;
 }
-.ctc-cal-week-title-link {
-	color: #fff;
+.ctc-person-contact i.fa {
+	color: #333;
+	min-width: 25px;
+	width: 25px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+	padding:0;
+	margin-left: 10px;
+	border-radius: 50%;
+	background: #fff;
+}
+.ctc-person-content{
+	margin-top: 20px;
+}
+.ctc-address a {
+	border-bottom: 1px solid #b4b2b1;
 }
 
-.image_wrap {
-	max-height: 360px;
-	max-width: 640px;
-	overflow: hidden;
-	margin: 20px auto;
-	padding: 5px;
-	border: 1px solid #b4b2b1;
-}
-.image_wrap img {
-	width:100%;
-}
-.ctc-loc-details,
-.ctc-loc-widgets-right {
-	min-height: 300px;
-}
-.ctc-loc-details .ctc-loc-details-map {
-	margin: 20px auto;
+
+/* Single event */
+.ctc-event-map, .ctc-event-img  {
 	width: 100%;
+	margin-bottom: 20px;
 }
-.ctc-loc-details .ctc-loc-details-map img {
-	width: 100%;
+.ctc-event-content {
+	margin-top: 20px;
 }
-div[class*="ctc-loc-details-"] > i.fa {
-	width: 20px;
+.ctc-address i.fa-map-marker {
+	float:left;
+	margin-bottom: 20px;
+	padding-top: 3px;
+}
+
+/* Single Person */
+a.ctc-url:before {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: 2.5em;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	padding-right: 10px;
 	text-align: center;
+	min-width: 30px;
+	content: "\f0ac";
 }
-div[class*="ctc-loc-details-"] {
-	margin: 10px 0;
+.ctc-person-urls a[href^="https://www.twitter.com"]:before,
+.ctc-person-urls a[href^="https://twitter.com"]:before {
+	content: "\f081";
+}
+.ctc-person-urls a[href^="http://facebook.com"]:before,
+.ctc-person-urls a[href^="http://www.facebook.com"]:before {
+	content: "\f082";
+}
+.content .ctc-person-details {
+	margin-top: 30px;
+	line-height:1.5em;
+}
+.ctc-person-photo .ctc-person-img {
+	width: 100%;
+}
+
+.ctc-loc-img {
+	width: 100%;
+}
+.ctc-loc-image {
+	margin-bottom: 20px;
+}
+
+.harvest-locations .ctc-location{
+	margin-bottom: 5px;
 }
 
 /** Sermon *************************************/
-.ctc-sermon-title{
+.ctc-sermon-title,
+.ctc-sermon-media,
+.ctc-sermon-details,
+.ctc-sermon-grid-title{
 	margin-bottom: 20px;
 }
-.ctc-sermon-media {
-	margin-bottom: 20px;
-}
-.ctc-sermon-details{
-	font-family: Bitter;
-	font-weight: bold;
-	margin-bottom: 20px;
-}
-.ctc-sermon-grid {
-	margin: 20px 0;
-	text-align: center;
-	background: #eee;
-	padding: 10px;
-	height: 200px;
-	overflow: hidden;
-	position: relative;
-}
-.ctc-sermon-grid .ctc-sermon-img {
-	margin: 0px auto;
-	width: 100%;
-}
-.ctc-sermon-grid-item-title {
+.ctc-sermon-grid-title{
 	margin-top: 20px;
-	font-family: Bitter;
-	font-weight: bold;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	background: rgba(0,0,0,.5);
+}
+.ctc-sermon-media img {
+	margin: 0 auto;
+	margin-bottom: 20px;
+	display: block;
+	max-width: 100%;
+}
+.ctc-sermon-details h2 {
+	margin: 0 0 20px 20px;
+	text-indent: -20px;
+}
+.ctc-grid-full {
+	/*background: #006f7c;*/
 	color: #fff;
-	padding: 10px 0;
-	left: 0;
+	overflow:hidden;
+	height: 320px;
+	
 }
-.ctc-sermon-grid-title {
-	margin: 50px 0 20px;
+.ctc-grid-full h1 {
+	margin: 0 auto;
+	transform: translate(-50%, -50% ) !important;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	font-size: 3vmax;
+	text-align: center;
 }
-.ctc-sermon-series {
-	overflow: hidden;
-	max-height: 165px;
-	margin-bottom: 80px;
+.ctc-sermon-media .ctc-grid-full h1 {
+	font-size: 200%;
 }
-.ctc-sermon-series img {
-	width: 100%;
-	max-height: 100%;
+
+@media only screen and (max-width : 420px) {
+	.menu-active .nav-main ul, 
+	.menu-active .nav-main ul > li{
+		float:none;
+		text-align:center;
+	}
+}
+@media only screen and (max-width : 767px) {
+	.nav-main {
+		height: 0;
+	}
+	.menu-active .nav-main {
+		background: url('images/bg-texture.jpg');
+		margin: 14px -20px;
+		padding: 0 10px 14px;
+		height: auto;
+	}
+	.menu-active .nav-main ul, 
+	.menu-active .nav-main ul > li{
+		float:none;
+		text-align:center;
+	}
+	.front-box-widget .box {
+		padding-bottom: 25%;
+	}
+	.footer-menu div[class$="-container"]{
+		text-align: center;
+	}
+	.footer-menu .menu {
+		display:inline-block;
+	}
+	.widget .ctc-location {
+		text-align:center;
+	}
 }

@@ -16,6 +16,19 @@ jQuery(document).ready( function($) {
 			$(this).css("color", "#999");
 	});
 	
+	$('input.color').iris({
+		//target: $( '.booho' ),
+		palettes: true,
+		change: function( ev, ui ){
+			$( this ).css('border-bottom', '6px solid ' + ui.color.toString() );
+		}
+	});
+	
+	$( '.color-reset' ).click( function (){
+		var picker = $( this ).siblings( 'input.color' );
+		picker.iris( 'color' , picker.attr( 'data-default-color' ) );
+	})
+	
 	$("input[type=text], input[type=url], input[type=email], textarea").focus(function() {
 		if ($(this).val() == $(this).attr("placeholder") || $(this).val() == "") {
 			$(this).val("");

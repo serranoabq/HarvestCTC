@@ -2,6 +2,10 @@
 /**
  * HEADER
  */
+ 
+ $accent_color = harvest_option( 'accent', '' );
+ $accent_secondary = harvest_option( 'secondary_accent', '' );
+		
 ?>
 <!--[if lte IE 8]> <html class="ie ie6 <?php language_attributes(); ?>"> <![endif]-->
 <!--[if IE 7]>     <html class="ie ie7 <?php language_attributes(); ?>"> <![endif]-->
@@ -42,21 +46,21 @@
 						<img src="<?php echo harvest_option( 'logo' ); ?>" alt="logo" />
 <?php else: ?>
 						<span class="name"><?php bloginfo( 'name' ); ?></span>
-<?php endif; ?>
+<?php endif; ?> 
 					</a>
 				
 				</div> <!-- #logo.grid-33 -->
 				
-				<div class="grid-66">
+				<div class="grid-66" id="menu">
 					
-					<nav id="header_nav_mobile">
+					<nav id="header_nav_mobile" class="hide-on-desktop">
 						<a href="#header_nav" class="menu-link" title="<?php _e( 'Menu', 'harvest' ); ?>">
-							<span id="hamburger" class="fa fa-navicon fa-2x" aria-hidden="true"></span>
+							<span id="hamburger" class="fa fa-border fa-navicon fa-2x" aria-hidden="true"></span>
 						</a>
 					</nav><!-- #header_nav_mobile -->
 					
 					<nav id="header_nav" class="nav-main">
-							<?php wp_nav_menu (array ( 'theme_location' => 'header-menu' ) ); ?>
+							<?php wp_nav_menu( array ( 'theme_location' => 'header-menu' ) ); ?>
 					</nav> <!-- #header_nav -->
 					
 				</div> <!-- .grid-66 -->

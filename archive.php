@@ -4,7 +4,7 @@
 	get_header(); 
 ?>
 		<!-- TITLE BAR -->
-		<div class="title_wrap">
+		<div class="title_wrap accent-background" style="<?php echo $accent_color; ?>">
 			<div class="grid-container title-bar">
 				<div class="grid-100 title">
 					<h2><?php _e( 'Archive', 'harvest' ); ?></h2>

@@ -1,0 +1,133 @@
+ Volume in drive C is DriveC
+ Volume Serial Number is FC44-E16E
+
+ Directory of C:\Users\jrserra\Desktop\USBWS\USBWebserver\root\wp-content\themes\HarvestCTC
+
+y02/17/2015  11:26 AM             1,108 archive.php
+02/17/2015  11:26 AM             6,784 archive-ctc_sermon.php
+02/17/2015  11:26 AM             2,517 archive-ctc_person.php
+02/17/2015  11:26 AM             2,399 archive-ctc_location.php
+02/17/2015  05:02 PM             2,766 archive-ctc_event.php
+02/05/2015  01:23 PM                 0 editor-style.css
+02/19/2015  02:57 PM                 0 files.txt
+02/18/2015  03:02 PM             1,767 footer.php
+02/17/2015  11:26 AM             1,247 front-page.php
+02/17/2015  11:26 AM             9,094 functions.php
+02/17/2015  11:26 AM             2,505 header.php
+02/17/2015  11:31 AM               887 404.php
+02/12/2015  12:23 PM                 5 .pid
+10/31/2013  10:26 PM             2,858 .gitignore
+02/17/2015  11:26 AM             1,051 index.php
+10/31/2013  10:26 PM               505 .gitattributes
+02/17/2015  11:26 AM             1,206 mixture.json
+02/17/2015  11:26 AM               896 old.php
+02/18/2015  11:15 AM             1,144 page.php
+02/17/2015  11:26 AM               855 README.md
+02/17/2015  11:26 AM             7,147 screenshot.jpg
+02/17/2015  11:26 AM                40 sidebar.php
+02/17/2015  04:07 PM             4,232 single-ctc_event.php
+02/17/2015  04:12 PM             3,457 single-ctc_location.php
+02/17/2015  11:26 AM             2,305 single-ctc_person.php
+02/17/2015  11:26 AM             5,697 single-ctc_sermon.php
+02/17/2015  11:36 AM               989 single.php
+02/19/2015  08:24 AM            11,930 style.css
+02/17/2015  04:40 PM             3,768 taxonomy-ctc_event_tag.php
+02/17/2015  03:48 PM             5,141 taxonomy-ctc_sermon_series.php
+02/17/2015  04:00 PM             5,175 taxonomy-ctc_sermon_topic.php
+02/17/2015  03:04 PM             2,377 template-locations.php
+02/17/2015  11:26 AM             1,631 template-series.php
+02/17/2015  11:36 AM             1,011 template-sidebar_right.php
+02/18/2015  03:27 PM             1,937 templates_todo.txt
+02/17/2015  11:26 AM             1,347 test.html
+              36 File(s)         97,778 bytes
+
+ Directory of C:\Users\jrserra\Desktop\USBWS\USBWebserver\root\wp-content\themes\HarvestCTC\admin
+
+x02/19/2015  02:40 PM             7,009 harvest-options.php
+x02/17/2015  11:26 AM             8,230 jquery.responsiveTabs.min.js
+x02/18/2015  02:05 PM             2,444 theme-options.css
+x02/18/2015  02:11 PM             2,690 theme-options.js
+x02/18/2015  02:12 PM            17,760 class.theme-options.php
+
+ Directory of C:\Users\jrserra\Desktop\USBWS\USBWebserver\root\wp-content\themes\HarvestCTC\assets
+
+/* Keep, but needs to be updated. This is where a CSS preprocessor has the files */
+02/12/2015  12:51 PM               321 boxe.min.css
+02/12/2015  01:01 PM               621 boxes.scss
+02/12/2015  01:05 PM             1,874 calendar-widget.scss
+02/17/2015  11:26 AM             2,038 calendar_widget.scss
+02/17/2015  11:26 AM             1,722 reset.scss
+02/12/2015  12:51 PM               358 boxe.css
+
+ Directory of C:\Users\jrserra\Desktop\USBWS\USBWebserver\root\wp-content\themes\HarvestCTC\Backup
+/* This folder can be deleted */
+
+ Directory of C:\Users\jrserra\Desktop\USBWS\USBWebserver\root\wp-content\themes\HarvestCTC\css
+/* If unsemantic is the only one left, I might move into the root */
+x02/17/2015  11:26 AM            46,548 unsemantic-grid-responsive.css
+02/17/2015  11:26 AM             1,975 cal_widget.css
+
+ Directory of C:\Users\jrserra\Desktop\USBWS\USBWebserver\root\wp-content\themes\HarvestCTC\custom
+/* This is for convenience. Keep */
+x02/17/2015  11:26 AM               681 custom.js
+02/17/2015  11:26 AM                13 done
+x02/17/2015  11:26 AM               712 custom.css
+
+ Directory of C:\Users\jrserra\Desktop\USBWS\USBWebserver\root\wp-content\themes\HarvestCTC\helpers
+/* Keep directory. Files with Y need to be reviewed */
+x02/17/2015  11:26 AM            77,176 class-tgm-plugin-activation.php
+x02/19/2015  02:39 PM            22,120 ctc-support.php
+y02/18/2015  02:14 PM             7,338 display.php
+y02/17/2015  11:26 AM             1,761 feeds.php
+y02/17/2015  11:26 AM             3,251 images.php
+x02/17/2015  11:26 AM             3,912 sidebars.php
+x02/17/2015  11:26 AM               631 widgets.php
+x02/17/2015  11:26 AM             3,262 widget_home-box.php
+x02/18/2015  03:06 PM             2,463 widget_locations.php
+x02/17/2015  04:33 PM             7,706 widget_recent-sermon.php
+x02/17/2015  05:12 PM            12,742 widget_weekly-cal.php
+
+ Directory of C:\Users\jrserra\Desktop\USBWS\USBWebserver\root\wp-content\themes\HarvestCTC\images
+/* Most images can be removed. Keep directory */
+x02/17/2015  11:26 AM             3,772 bg-texture.jpg
+02/17/2015  11:26 AM            29,738 bg_light_linen.png
+02/17/2015  11:26 AM                49 bg_top.gif
+02/17/2015  11:26 AM             1,755 calendar-icon-32x32.png
+02/17/2015  11:26 AM               378 calendar-icon.gif
+02/17/2015  11:26 AM               448 calendar-icon.png
+02/17/2015  11:26 AM             5,249 default-event.png
+02/17/2015  11:26 AM             8,321 default-news.png
+02/17/2015  11:26 AM            16,219 default-sermon.png
+02/17/2015  11:26 AM               784 gear-icon.png
+02/17/2015  11:26 AM             2,389 grunge_facebook.png
+02/17/2015  11:26 AM             5,048 grunge_google.png
+02/17/2015  11:26 AM             5,208 grunge_instagram.png
+02/17/2015  11:26 AM             2,458 grunge_twitter.png
+02/17/2015  11:26 AM             2,460 grunge_vimeo.png
+02/17/2015  11:26 AM             2,566 grunge_youtube.png
+02/17/2015  11:26 AM               806 icon-email.png
+02/17/2015  11:26 AM             3,919 ico_calender.png
+02/17/2015  11:26 AM             3,746 ico_headphone.png
+02/17/2015  11:26 AM             1,016 ministry-icon-32x32.png
+02/17/2015  11:26 AM               519 ministry-icon.png
+02/17/2015  11:26 AM            10,205 notebook-icon-32x32.pdn
+02/17/2015  11:26 AM             1,305 notebook-icon-32x32.png
+02/17/2015  11:26 AM               443 notebook-icon.png
+02/17/2015  11:26 AM               884 one-three.png
+02/17/2015  11:26 AM             1,728 sermon-icon-32x32.png
+02/17/2015  11:26 AM               695 sermon-icon.png
+02/17/2015  11:26 AM               491 staff-icon.png
+02/17/2015  11:26 AM            21,371 tweed.png
+02/17/2015  11:26 AM               883 two-two.png
+x02/17/2015  11:26 AM            58,412 user.png
+
+ Directory of C:\Users\jrserra\Desktop\USBWS\USBWebserver\root\wp-content\themes\HarvestCTC\inc
+/* this folder can be deleted */
+02/17/2015  11:26 AM             3,776 widget_post-post-type.php
+02/17/2015  11:26 AM             2,486 contact_widget.php
+
+ Directory of C:\Users\jrserra\Desktop\USBWS\USBWebserver\root\wp-content\themes\HarvestCTC\js
+/* This folder must be kept. 
+x02/17/2015  11:26 AM             8,230 jquery.responsiveTabs.min.js
+02/17/2015  11:26 AM            71,200 mediaelement-and-player.min.js
+x02/17/2015  11:26 AM               641 harvest.js

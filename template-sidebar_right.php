@@ -1,5 +1,5 @@
 <?php
-	/* Single post */
+	/* Template Name: Sidebar Right */
 	
 	get_header(); 
 
@@ -21,16 +21,19 @@
 
 			<div class="grid-container content">
 			
+				<div class="grid-66 ctc-content">
+				
 <?php if( $thumbnail ): ?>
-				<div class="grid-70 prefix-15 suffix-15">
 					<img src="<?php echo $thumbnail[0]; ?>" class="featured-image"/>
-				</div>
 <?php endif; ?>
-
-				<div class="grid-80 prefix-10 suffix-10 ctc-content">
+				
 					<?php echo the_content(); ?>
 				</div>
-					
+				
+				<div class="grid-33">
+					<?php get_sidebar(); ?>
+				</div>
+				
 			</div> <!-- .content.grid-container -->
 		</div> <!-- .content_wrap -->
 		<!-- END CONTENT -->

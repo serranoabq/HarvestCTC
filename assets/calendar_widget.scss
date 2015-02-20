@@ -1,0 +1,103 @@
+/** Calendar widget ***************************/
+
+/* Tabs parent */
+
+.r-tabs {
+  display: block !important;
+  color: #333;
+  a {
+    color: #006f7c;
+  }
+  .r-tabs-nav {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  .r-tabs-tab {
+    display: inline-block;
+    margin: 0;
+    list-style: none;
+    background: #fff;
+    list-style-type: none;
+    font-size: 36px;
+    line-height: 24px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+    float: left;
+    width: 14.285%;
+    /* 100%/7 */
+    border-bottom: 1px solid #B2B4B1;
+    border-top: 1px solid #B2B4B1;
+  }
+  .r-tabs-accordion-title {
+    background: #fff;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid #B2B4B1;
+    .r-tabs-anchor span {
+      font-size: 16px;
+    }
+  }
+  .r-tabs-anchor {
+    font-family: Lato;
+    text-decoration: none;
+    color: #006f7c;
+    span {
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+  }
+  .r-tabs-tab .r-tabs-anchor span {
+    display: block;
+  }
+  .r-tabs-accordion-title span {
+    padding-left: 10px;
+  }
+  .r-tabs-state-active {
+    background: #006f7c;
+    .r-tabs-anchor {
+      color: #fff;
+    }
+  }
+  .r-tabs-panel {
+    padding: 15px;
+    display: none;
+    min-height: 150px;
+    p {
+      margin-bottom: 5px;
+    }
+    &.r-tabs-state-active {
+      display: block;
+      border-bottom: 1px solid #ccc;
+      background: #f6f6f6;
+    }
+  }
+  .r-tabs-accordion-title {
+    display: none;
+  }
+  &.accordion {
+    .r-tabs-accordion-title, .r-tabs-nav {
+      display: none;
+    }
+    .r-tabs-accordion-title {
+      display: block;
+    }
+  }
+}
+
+.recent-sermon h2 {
+  background: #b2b4b1;
+  padding: 10px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+.ctc-cal-week-title-link, .ctc-recent-sermon-title-link {
+  color: #fff;
+}
+
+/** End Calendar widget ***************************/

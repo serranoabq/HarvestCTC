@@ -22,6 +22,22 @@
 		'section' => 'general'
 	);
 	
+	$harvest_theme_options['logo_name'] = array(
+		'title'   => _x( 'Display site name', 'Metabox name', 'harvest' ),
+		'desc'    => __( 'Optionally display the site name next to the logo.', 'harvest' ),
+		'std'     => '1',
+		'type'    => 'checkbox',
+		'section' => 'general'
+	);
+	
+	$harvest_theme_options['logo_name_css'] = array(
+		'title'   => _x( 'Site Name CSS', 'Metabox name', 'harvest' ),
+		'desc'    => __( 'Enter any specific styling for the logo name. Check the <code>.logo_name</code> style in the theme stylesheet for reference.', 'harvest' ),
+		'std'     => '',
+		'type'    => 'textarea',
+		'section' => 'general'
+	);
+	
 	$harvest_theme_options['favicon'] = array(
 		'title'   => _x( 'Favicon', 'Metabox name', 'harvest' ),
 		'desc'    => __( 'Upload a 16x16 png or gif icon for your site.' ),
@@ -32,9 +48,25 @@
 	
 	$harvest_theme_options['slider'] = array(
 		'title'   => _x( 'Slider', 'Metabox name', 'harvest' ),
-		'desc'    => __( 'Enter the shrotcode a homepage slider (e.g. <code>[masterslider id="1"]</code>)', 'harvest' ),
+		'desc'    => __( 'Enter the shortcode a homepage slider (e.g. <code>[masterslider id="1"]</code>)', 'harvest' ),
 		'std'     => '',
 		'type'    => 'textarea',
+		'section' => 'general'
+	);
+	
+	$harvest_theme_options['accent'] = array(
+		'title'   => _x( 'Primary Accent Color', 'Metabox name', 'harvest' ),
+		'desc'    => __( 'Choose the default accent color for the theme. This color appears in the title bars of post and pages. ', 'harvest' ),
+		'std'     => '#006f7c',
+		'type'    => 'color',
+		'section' => 'general'
+	);
+	
+	$harvest_theme_options['secondary_accent'] = array(
+		'title'   => _x( 'Secondary Accent Color', 'Metabox name', 'harvest' ),
+		'desc'    => __( 'Choose the secondary accent color for the theme. This color is used on the title bar of widgets in the body of the homepage, and location pages.', 'harvest' ),
+		'std'     => '#b4b2b1',
+		'type'    => 'color',
 		'section' => 'general'
 	);
 	
@@ -54,7 +86,7 @@
 	===========================================*/
 	$harvest_theme_options['ctc-desc'] = array(
 		'title'   => '',
-		'desc'    => 'Enter the display names to use for the different church theme content types. For instance <code>People</code> could be <code>Staff</code>, <code>Sermons</code> could be <code>Messages</code> or <code>Locations</code> could be <code>Places</code>',
+		'desc'    => 'Enter the display names to use for the different church theme content types. For instance <code>People</code> could be <code>Staff</code>, <code>Sermons</code> could be <code>Messages</code> or <code>Locations</code> could be <code>Places</code>. Make sure to resave the Permalinks to update the permalinks',
 		'type'    => 'description',
 		'std'     => '',
 		'section' => 'ctc'
@@ -66,6 +98,26 @@
 		'type'    => 'text',
 		'std'     => __( 'Sermons', 'harvest' ),
 		'section' => 'ctc'
+	);
+	
+	$harvest_theme_options['ctc-sermon-series'] = array(
+		'title'   => 'Sermon Series',
+		'desc'    => '',
+		'type'    => 'text',
+		'std'     => __( 'Sermon Series', 'harvest' ),
+		'section' => 'ctc'
+	);
+	
+	$harvest_theme_options['ctc-sermon-topic'] = array(
+		'title'   => 'Sermon Topics' ,
+		'desc'    => __( 'This theme uses the <code>Sermon Topics</code> field to assign a sermon to a location. While the topic is never used in the theme output, changing this to <code>Location</code> will make it clearer on the admin page.', 'harvest' ),
+		'std'     => 'topic',
+		'type'    => 'radio',
+		'section' => 'ctc',
+		'choices' => array(
+				'topic' => __( 'Sermon Topic', 'harvest' ),
+				'location' => __( 'Location', 'harvest' )
+			)
 	);
 	
 	$harvest_theme_options['ctc-locations'] = array(
@@ -91,6 +143,7 @@
 		'std'     => __( 'Events', 'harvest' ),
 		'section' => 'ctc'
 	);
+	
 	
 	/* Social Media
 	===========================================*/

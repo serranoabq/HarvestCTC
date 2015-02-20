@@ -119,4 +119,5 @@ input[type="search"], input[type="tel"], input[type="url"], select {
 	width:100%;
 	max-width:350px;
 }
-
+input.color{
+}

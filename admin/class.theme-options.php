@@ -381,7 +381,18 @@ class Theme_Options {
 					echo '<br /><span class="description">' . $desc . '</span>';
 				
 				break;
-			
+			case 'color':
+				echo '<input class="regular-text color' . $field_class . '" type="text" id="' . $id . '" name="'. $name . '-options[' . $id . ']" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" data-default-color="'. $std .'" style="border-bottom: 6px solid '. $std .'" />';
+				echo '<input type="button" class="button-secondary color-reset" value="Reset" />';
+		 		
+				if ( $desc != '' )
+		 			echo '<br/><span class="description">' . $desc . '</span>';
+				
+		 		//echo '<div class="booho"></div> ';
+				//echo '<div class="color-preview" style="width: 50px;>&nbsp;</div> ';
+				
+				
+		 		break;
 			case 'text':
 			default:
 		 		echo '<input class="regular-text' . $field_class . '" type="text" id="' . $id . '" name="'. $name . '-options[' . $id . ']" placeholder="' . $std . '" value="' . esc_attr( $options[$id] ) . '" />';
@@ -490,6 +501,7 @@ class Theme_Options {
 		$uri=get_stylesheet_directory_uri().$subf;
 		
 		wp_enqueue_media();
+		wp_enqueue_script( 'iris', admin_url( 'js/iris.min.js' ), array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ),             false, 1 );
 		wp_enqueue_script( 'responsive-tabs', $uri . 'jquery.responsiveTabs.min.js', array( 'jquery' ) );
 		wp_enqueue_script( 'theme-options-js', $uri . 'theme-options.js', array( 'jquery' ) );
 	}
@@ -505,6 +517,7 @@ class Theme_Options {
 		$subf=trailingslashit(str_replace('\\','/',str_replace($templ,'',$file)));
 		$uri=get_stylesheet_directory_uri().$subf;
 		
+		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_style( 'theme-options-css', $uri . 'theme-options.css' );
 		//wp_enqueue_style( $this->theme_safename .'-admin' );
 		//wp_enqueue_style('thickbox');

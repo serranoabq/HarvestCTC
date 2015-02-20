@@ -20,16 +20,18 @@ class harvest_HomeBox extends WP_Widget {
 		$link = esc_attr($instance['link']);
 		
 		echo $before_widget; ?>
-		<figure>
 <?php if ($link): ?>
 			<a href="<?php echo $link; ?>">
 <?php endif; ?>
-				<img src="<?php echo $image_url; ?>" />
-				<figcaption><?php echo $caption; ?></figcaption>
+				<div class="box">
+					<div class="box-title">
+						<?php echo $caption; ?>
+					</div>
+					<img src="<?php echo $image_url; ?>" class="box-img" />
+				</div>
 <?php if ($link): ?>
 			</a>
 <?php endif; ?>	
-		</figure>
 <?php
 		echo $after_widget;
 	}

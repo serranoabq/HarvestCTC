@@ -10,8 +10,7 @@ class harvest_WeeklyCalendar extends WP_Widget {
 		$this->WP_Widget( 'weekly-calendar', __( 'Harvest Weekly Calendar', 'harvest' ), $widget_ops);
 	}
 	
-	function getEvents( $week_start, $week_end, $max_recur ){
-		if ( ! isset( $max_recur ) ) $max_recur = 12;
+	function getEvents( $week_start, $week_end, $max_recur = 12, $tag = '' ){
 		$query = array(
 			'post_type' 			=> 'ctc_event', 
 			'order' 					=> 'ASC',
@@ -19,8 +18,17 @@ class harvest_WeeklyCalendar extends WP_Widget {
 			'meta_key' 				=> '_ctc_event_start_date',
 			'meta_type' 			=> 'DATETIME',
 		); 
-		$posts = new WP_Query();
-		$posts -> query( $query ); 
+		
+		if( !empty( $tag ) )  {
+			$query[ 'tax_query' ] = array( 
+				array(
+					'taxonomy' 	=> 'ctc_event_tag',
+					'field'			=> 'slug',
+					'terms'			=> $tag,
+				),
+			);
+		}
+		$posts = new WP_Query( $query );
 		if ( $posts -> have_posts() ){
 			$events = array();
 			while ($posts->have_posts()) :
@@ -55,7 +63,8 @@ class harvest_WeeklyCalendar extends WP_Widget {
 				$recurrence 		  = get_post_meta( $post_id, '_ctc_event_recurrence', true );
 				$recurrence_end 	= get_post_meta( $post_id, '_ctc_event_recurrence_end_date', true );
 				$recurrence_period 	= get_post_meta( $post_id, '_ctc_event_recurrence_period', true );
-						
+				//$recurrence_end   = empty( $recurrence_end ) ? $week_end : $recurrence_end;
+				
 				if ($recurrence != 'none') {
 					$n = $recurrence_period != '' ? (int) $recurrence_period : 1;
 					//$stDT = new DateTime( $start_date );
@@ -71,7 +80,7 @@ class harvest_WeeklyCalendar extends WP_Widget {
 							case 'weekly':
 								// same day of the week (eg, Sun-Sat)
 								$stDT = new DateTime( $start_date );
-								$stDT -> modify('+' , $i * $n  . ' weeks');
+								$stDT -> modify('+' . $i * $n  . ' weeks');
 								list( $y, $m, $d ) = explode( '-', $stDT->format( 'Y-m-d' ) );
 								break;
 							case 'monthly':
@@ -94,12 +103,13 @@ class harvest_WeeklyCalendar extends WP_Widget {
 						} else {
 							$recur_date = date( 'Y-m-d', mktime( 0, 0, 0, $m, $d, $y ));
 						}
-						//echo "<div>$i $n $recur_date $recurrence_end</div>";
+						
+						error_log( json_encode( array($evt_title, $start_date, $recur_date )));
 						// Figure out the shift needed to apply to the end date & time
 						$date_shift = strtotime( $recur_date ) - strtotime( $start_date );
 						
 						// stop if new date is past the recurrence end date
-						if( strtotime( $recur_date ) > strtotime( $recurrence_end) ) break;
+						if( ! empty( $recurrence_end ) && strtotime( $recur_date ) > strtotime( $recurrence_end) ) break;
 						if( isset( $week_end ) && strtotime( $recur_date ) > strtotime( $week_end ) ) break;
 						
 						// shift end dates as well
@@ -120,30 +130,40 @@ class harvest_WeeklyCalendar extends WP_Widget {
 			endwhile; 
 		}
 		wp_reset_query();			
-
+		usort($events, array($this, 'cmp')); 
 		return $events;
 	} 
 	
+	function cmp($a, $b) { 
+		$rdiff = $a['start_date'] - $b['start_date'];
+		if ($rdiff) return $rdiff; 
+		return $a['start_time'] - $b['start_time']; 
+	}
+	
 	function widget( $args, $instance ) {
+		global $post;
 		extract( $args );
 		$title = apply_filters( 'widget_title', empty( $instance['title'] ) ? __( 'Weekly Calendar', 'harvest' ) : $instance['title'], $instance, $this->id_base );
 		$add_link = $instance['add_link'];
 		$link = $instance['link'];
+		$tag = $instance['tag'];
+		$use_location = $instance['use_location'];
+		if( $use_location && $post->post_type == 'ctc_location' ) $tag = $post->post_name;
 		
 		$week_start = date( 'Y-m-d' );
 		$week_end = date( 'Y-m-d', strtotime( '+6 days' ) );
 		
-		$events = $this->getEvents( $week_start, $week_end, 7 );
+		$events = $this->getEvents( $week_start, $week_end, 7 , $tag );
 		
 		wp_enqueue_script( 'responsive-tabs-js' );
-		//wp_enqueue_style( 'weekly_cal' );
 		
 		$this->prep_scripts();
 		
 		echo $before_widget;
 		if ( $title ) {
 			if( $add_link ) {
-				$after_title = '<a class="ctc-cal-week-title-link" href="'.$link . '"><i class="fa fa-chevron-right pull-right"></i></a>' . $after_title;
+				$before_title = $before_title . '<a class="ctc-cal-week-title-link" href="'.$link . '">';
+				$after_title = '</a>' . $after_title;
 			} 
 			echo $before_title . $title . $after_title;
 		}
@@ -223,12 +243,18 @@ class harvest_WeeklyCalendar extends WP_Widget {
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 		$instance['title'] = strip_tags( $new_instance['title'] );
+		$instance['tag'] = strip_tags( $new_instance['tag'] );
 		if( strip_tags( $new_instance['link'] ) != '' && $new_instance['add_link'] ){
 			$instance['link'] = strip_tags( $new_instance['link'] );
 			$instance['add_link'] = strip_tags( $new_instance['add_link'] );
 		} else {
 			$instance['link'] = '';
 			$instance['add_link'] = '';
+		}
+		
+		if( $new_instance['use_location'] ){
+			$instance['tag'] = '';
+			$instance['use_location'] = strip_tags( $new_instance['use_location'] );
 		}
 		return $instance;
 	}
@@ -237,14 +263,38 @@ class harvest_WeeklyCalendar extends WP_Widget {
 		$title = esc_attr( $instance['title'] );
 		$add_link = esc_attr( $instance['add_link'] );
 		$link = esc_attr( $instance['link'] );
+		$use_location = esc_attr( $instance[ 'use_location' ] );
+		$tag = esc_attr( $instance[ 'tag' ] );
 	?>
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title' ); ?></label> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
 		<p>
 			<input type="checkbox" id="<?php echo $this->get_field_id('add_link'); ?>" name="<?php echo $this->get_field_name('add_link'); ?>" <?php echo $add_link ? 'checked': ''; ?> />
-			<label for="<?php echo $this->get_field_id('add_link'); ?>"><?php _e( 'Show Title Link', 'harvest' ); ?></label> 
+			<label for="<?php echo $this->get_field_id('add_link'); ?>"><?php _e( 'Title Link?', 'harvest' ); ?></label> 
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e( 'URL', 'harvest' ); ?></label>
 			<input type="text" class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" <?php echo $add_link ? '' : 'disabled'; ?> value="<?php echo $link; ?>" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('tag'); ?>"><?php _e( 'Choose a tag to display. If the <code>Use location</code> option is checked AND the widget is in a location page, then the most events with a tag matching that location will be shown.', 'harvest' ); ?></label>
+		</p>
+		<p>
+			<input type="checkbox" id="<?php echo $this->get_field_id('use_location'); ?>" name="<?php echo $this->get_field_name('use_location'); ?>" <?php echo $use_location ? 'checked': ''; ?> />
+			<label for="<?php echo $this->get_field_id('use_location'); ?>" title="<?php _e( 'If selected, when this widget is displayed on a location single post, it will automatically show the events associated with that particular location if the event is given a tag that matches the location', 'harvest' ); ?>" ><?php _e( 'Use location', 'harvest' ); ?></label>
+		</p>
+		<p>
+			<select name="<?php echo $this->get_field_name( 'tag' ); ?>" id="<?php echo $this->get_field_id( 'tag' ); ?>" class="widefat" <?php echo $use_location ? 'disabled' : ''; ?> >
+				<?php
+				
+				echo sprintf( '<option id="none" value="" %s>- None -</option>', empty( $tag ) ? ' selected=selected"' : '' );
+				$tags = get_terms( 'ctc_event_tag', array( 'hide_empty' => 0 ) );
+				foreach ($tags as $option) {
+					echo sprintf( '<option id="%s" value="%s" %s>%s</option>', $option->slug, $option->slug, $tag == $option->slug ? ' selected=selected"' : '', $option->name );
+				}
+				?>
+			</select>		
 		</p>
 		<script>
 		<?php 
@@ -269,7 +319,9 @@ class harvest_WeeklyCalendar extends WP_Widget {
 				});
 				$('#<?php echo $this->get_field_id('add_link'); ?>').change( function (){
 						$('#<?php echo $this->get_field_id('link'); ?>').prop('disabled', ! $( this ).is(':checked') );
-					
+				});
+				$('#<?php echo $this->get_field_id('use_location'); ?>').change( function (){
+						$('#<?php echo $this->get_field_id('tag'); ?>').prop('disabled', $( this ).is(':checked') );
 				});
 			});
 		</script>

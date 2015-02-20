@@ -54,32 +54,14 @@
 		}
 	}
 
-	// Excerpt settings
-	add_filter('excerpt_length', 'harvest_excerpt_length');
-	function harvest_excerpt_length($length) {
-		return 100;
-	}
-
-	// Add trailing ellipsis when trimming long text
-	function string_limit_words($string, $word_limit){
-		$words = explode(' ', $string, ($word_limit+ 1));
-		if(count($words) > $word_limit) {
-			array_pop($words);
-			//add a ... at last article when more than limitword count
-			echo implode(' ', $words)."..."; } 
-		else {
-			//otherwise
-			echo implode(' ', $words); 
-		}
-	}
 	
 	// Retrieve pages by their template
-	function harvest_get_pages_with_template($template){
-		$pages = get_pages(array(
+	function harvest_get_pages_with_template( $template ){
+		$pages = get_pages( array(
 			'meta_key' => '_wp_page_template',
 			'meta_value' => $template,
 			'hierarchical' => 0
-		));
+		) );
 		return $pages;
 	}
 	
@@ -129,7 +111,8 @@
 	// Create a different slug for pages
 	function harvest_page_slug(){
 		global $post;
-		$page_slug = 'page-'.$post->post_name; 
+		$page_slug = $post -> post_type == 'page' ? 'page-' : '';
+		$page_slug .= $post -> post_name; 
 		return $page_slug;
 	}
 	
@@ -148,4 +131,95 @@
 		return $initArray;
 	}
 
-?>
+	add_action( 'admin_init', 'harvest_add_color_metabox' );
+	add_action( 'admin_enqueue_scripts', 'harvest_colorpicker_script' );
+	function harvest_add_color_metabox() {
+		$meta_box = array(
+
+			// Meta Box
+			'id' 		=> 'post_accent_color', // unique ID
+			'title' 	=> __( 'Accent Color ', 'harvest' ),
+			'post_type'	=> 'page',
+			'context'	=> 'side', 
+			'priority'	=> 'low', 
+
+			// Fields
+			'fields' => array(
+				'_post_accent_color' => array(
+					'name'				=> __( 'Accent Color', 'harvest' ),
+					'desc'				=> __( 'Choose an accent color to use on this page.', 'harvest' ), 
+					'type'				=> 'colorpicker', 
+					'default'			=> harvest_option( 'accent', '#006f7c' ), 
+					'no_empty'			=> true, 
+					'class'				=> 'color-picker ctmb-small', // class(es) to add to input (try ctmb-medium, ctmb-small, ctmb-tiny)
+					'field_class'		=> '', // class(es) to add to field container
+					'custom_field'		=> 'harvest_colorpicker', 
+				),
+			),
+		);
+		
+		// Add Meta Box
+		new CT_Meta_Box( $meta_box );
+		
+	}
+	
+	function harvest_colorpicker_script( ) {
+    wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_script( 'iris', admin_url( 'js/iris.min.js' ), array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, 1 );
+	}
+	
+	function harvest_colorpicker( $data ) {
+		
+		$input = '<span class="color-demo" style="display: inline-block; width: 50px; background: ' . $data['esc_value'] .'">&nbsp;</span> ';
+		$input .= '<input type=text" ' . $data['common_atts'] . ' id="' . $data['esc_element_id'] . '" value="' . $data['esc_value'] . '" data-default-color="'. $data['field']['default'] .'" size="7" /> ';
+		$input .= '<input type="button" class="color-reset button-secondary" value="Reset"/>';
+		$input .= '<div class="iris"></div>';
+		
+		?>
+		<div id="ctmb-field-<?php echo esc_attr( $data['key'] ); ?>" class="<?php echo esc_attr( $data['field_class'] ); ?>"<?php echo $data['field_attributes']; ?>>
+
+			<div class="ctmb-name">
+
+				<?php if ( ! empty( $data['field']['name'] ) ) : ?>
+
+					<?php echo esc_html( $data['field']['name'] ); ?>
+
+					<?php if ( ! empty( $data['field']['after_name'] ) ) : ?>
+						<span><?php echo esc_html( $data['field']['after_name'] ); ?></span>
+					<?php endif; ?>
+
+				<?php endif; ?>
+
+			</div>
+
+			<div class="ctmb-value">
+
+				<?php echo $input; ?>
+
+				<?php if ( ! empty( $data['field']['desc'] ) ) : ?>
+				<p class="description">
+					<?php echo $data['field']['desc']; ?>
+				</p>
+				<?php endif; ?>
+
+			</div>
+
+		</div>
+		<script>
+			jQuery(document).ready( function($){
+				$('.color-picker').iris({
+					target: $('.iris'),
+					palettes: true,
+					change: function( ev, ui ) {
+						$('.color-demo').css( 'background', ui.color.toString() )
+					}
+				});
+				$('.color-reset').click( function (){
+					$('.color-picker').iris('color', $('.color-picker').attr( 'data-default-color') );
+					//$('.color-demo').css( 'background', )
+				})
+			});
+		</script>
+<?php		
+	}
+	
