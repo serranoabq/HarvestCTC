@@ -5,18 +5,9 @@
 
 	if (have_posts()) : while (have_posts()) : the_post(); 
 		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
-		
+		harvest_title_bar( get_the_title() );
 ?>
 
-		<!-- TITLE BAR -->
-		<div class="title_wrap accent-background">
-			<div class="grid-container title-bar">
-				<div class="grid-100 title">
-					<h2><?php the_title(); ?></h2>
-				</div> <!-- .title.grid-100 -->
-			</div> <!-- .title-bar.grid-100 -->
-		</div>
-		
 		<div class="content_wrap">
 
 			<div class="grid-container content">
@@ -30,7 +21,7 @@
 					<?php echo the_content(); ?>
 				</div>
 				
-				<div class="grid-33">
+				<div class="grid-33 sidebar">
 					<?php get_sidebar(); ?>
 				</div>
 				

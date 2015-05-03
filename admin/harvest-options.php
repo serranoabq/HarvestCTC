@@ -2,7 +2,8 @@
 	
 	$harvest_theme_sections['general']  = __( 'General Settings', 'harvest' );
 	$harvest_theme_sections['social']   = __( 'Social Media', 'harvest' );
-	$harvest_theme_sections['ctc']   		= __( 'Church Content', 'harvest' );
+	//$harvest_theme_sections['ctc']   		= __( 'Church Content', 'harvest' );
+	$harvest_theme_sections['podcast']   		= __( 'Podcasting', 'harvest' );
 	$harvest_theme_sections['about']   	= __( 'About this Theme', 'harvest' );
 	
 	/* Individual settings in each section */
@@ -25,7 +26,7 @@
 	$harvest_theme_options['logo_name'] = array(
 		'title'   => _x( 'Display site name', 'Metabox name', 'harvest' ),
 		'desc'    => __( 'Optionally display the site name next to the logo.', 'harvest' ),
-		'std'     => '1',
+		'std'     => '0',
 		'type'    => 'checkbox',
 		'section' => 'general'
 	);
@@ -40,9 +41,17 @@
 	
 	$harvest_theme_options['favicon'] = array(
 		'title'   => _x( 'Favicon', 'Metabox name', 'harvest' ),
-		'desc'    => __( 'Upload a 16x16 png or gif icon for your site.' ),
+		'desc'    => __( 'Upload a 16x16 png or gif icon for your site.', 'harvest'),
 		'std'     => '',
 		'type'    => 'upload',
+		'section' => 'general'
+	);
+	
+	$harvest_theme_options['city'] = array(
+		'title'   => _x( 'Default city', 'Metabox name', 'harvest' ),
+		'desc'    => __( 'Enter the city for your church.' , 'harvest'),
+		'std'     => 'Albuquerque',
+		'type'    => 'text',
 		'section' => 'general'
 	);
 	
@@ -83,10 +92,10 @@
 	);
 	
 	/* CTC Options
-	===========================================*/
+	===========================================*
 	$harvest_theme_options['ctc-desc'] = array(
 		'title'   => '',
-		'desc'    => 'Enter the display names to use for the different church theme content types. For instance <code>People</code> could be <code>Staff</code>, <code>Sermons</code> could be <code>Messages</code> or <code>Locations</code> could be <code>Places</code>. Make sure to resave the Permalinks to update the permalinks',
+		'desc'    => 'Enter the display names to use for the different church theme content types. For instance <code>People</code> could be <code>Staff</code>, <code>Sermons</code> could be <code>Messages</code> or <code>Locations</code> could be <code>Places</code>. Make sure to resave the Permalinks to update the permalinks. If separate singular and plural names are desired, write them as <code>Plural/Singluar</code> (i.e., <code>Campuses/Campus</code>).',
 		'type'    => 'description',
 		'std'     => '',
 		'section' => 'ctc'
@@ -143,7 +152,7 @@
 		'std'     => __( 'Events', 'harvest' ),
 		'section' => 'ctc'
 	);
-	
+	*/
 	
 	/* Social Media
 	===========================================*/
@@ -203,12 +212,38 @@
 		'section' => 'social'
 	);
 		
-	$harvest_theme_options['itunes-social'] = array(
-		'title'   => 'iTunes',
-		'desc'    => '',
-		'type'    => 'url',
+	/* Podcasting Podcasting
+	===========================================*/
+	$harvest_theme_options['podcast-desc'] = array(
+		'title'   => '',
+		'desc'    => 'Use this section to enhance your sermon feeds and make them compatible with iTunes&trade;',
+		'type'    => 'description',
 		'std'     => '',
-		'section' => 'social'
+		'section' => 'podcast'
+	);
+	
+	$harvest_theme_options['podcast_desc'] = array(
+		'title'   => __( 'Podcast Description', 'harvest'),
+		'std'     => get_bloginfo ( 'description' ),
+		'type'    => 'textarea',
+		'desc'    => 'Text to display in the Description section of the podcast directory',
+		'section' => 'podcast'
+	);
+	
+	$harvest_theme_options['podcast_image'] = array(
+		'title'   => __( 'Podcast Image', 'harvest' ),
+		'std'     => '',
+		'type'    => 'upload',
+		'desc'    => __( 'Logo or image to use in the podcast directory. iTunes requires this to be a 1400 x 1400 PNG or JPG ending in .png or .jpg', 'harvest'),
+		'section' => 'podcast'
+	);
+
+	$harvest_theme_options['podcast_author'] = array(
+		'title'   => __( 'Podcast Author', 'harvest' ),
+		'std'     => get_bloginfo ( 'name' ),
+		'type'    => 'text',
+		'desc'    => __( 'Name to use in the podcast directory. This is applied to ALL feeds.', 'harvest'),
+		'section' => 'podcast'
 	);
 	
 	

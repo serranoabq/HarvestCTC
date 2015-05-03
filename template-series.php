@@ -2,23 +2,14 @@
 	/* Template Name: Sermon Series */
 	
 	get_header(); 
+	harvest_title_bar( ctcex_get_option( 'ctc-sermon-series' , __( 'Sermon Series', 'harvest' ) ) );
 ?>
-		<!-- TITLE BAR -->
-		<div class="title_wrap accent-background">
-			<div class="grid-container title-bar">
-				<div class="grid-100 title">
-					<h2><?php echo harvest_option( 'ctc-sermon-series' , __( 'Sermon Series', 'harvest' ) ); ?>
-					</h2>
-				</div> <!-- .title.grid-100 -->
-			</div> <!-- .title-bar.grid-100 -->
-		</div>
-		
 		<div class="content_wrap">
 
 			<div class="grid-container content">
 
 <?php
-	$all_series = get_terms( 'ctc_sermon_series' );
+	$all_series = get_terms( 'ctc_sermon_series', array( 'order_by' => 'id', 'order' => 'DESC') );
 	foreach( $all_series as $single_series ) :
 		$img = '';
 		$term_id = $single_series -> term_id ; 
@@ -32,10 +23,10 @@
 					<a href="<?php echo $term_link; ?>">
 						<div class="ctc-sermon">
 <?php if( $img ): ?>
-							<div class="ctc-grid-details">
+							<!-- div class="ctc-grid-details">
 								<h3><?php echo $term_name; ?></h3>
-							</div>
-							<img src="<?php echo $img; ?>" class="ctc-sermon-img" />
+							</div -->
+							<img src="<?php echo $img; ?>" class="ctc-sermon-img" alt="<?php echo $term_name; ?>" title="<?php echo $term_name; ?>"/>
 <?php	else: ?>
 							<div class="ctc-grid-full accent-background">
 								<h1 class="ctc-sermon-name"><?php echo $term_name; ?></h1>

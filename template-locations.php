@@ -1,31 +1,31 @@
 <?php
 	/*
-	Template Name: Locations
+	Template Name: Location Archive
 	*/
 	
 	get_header(); 
+	if (have_posts()) : while (have_posts()) : the_post(); 
+		$post_id = get_the_ID();
+		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
+		$color = get_post_meta( $post_id, '_post_accent_color', true );
+		harvest_title_bar( ctcex_get_option( 'ctc-locations', __( 'Locations', 'harvest') ), $color );
 ?>
-		<!-- TITLE BAR -->
-		<div class="title_wrap accent-background">
-			<div class="grid-container title-bar">
-				<div class="grid-100 title">
-<?php if( harvest_option( 'ctc-locations' ) ): ?>
-					<h2><?php echo harvest_option ( 'ctc-locations' , __( 'Locations', 'harvest' ) ); ?></h2>
-<?php endif; ?>
-				</div> <!-- .title.grid-100 -->
-			</div> <!-- .title-bar.grid-100 -->
-		</div>
-		
 		<div class="content_wrap">
 
 			<div class="grid-container content">
 
-				<div class="grid-100 ctc-loc-content">
-				
-					<?php dynamic_sidebar( 'location-archive-sidebar' ); ?>
+<?php if( $thumbnail ): ?>
+				<div class="grid-100 featured-image-div">
+					<img src="<?php echo $thumbnail[0]; ?>" class="featured-image"/>
+				</div>
+<?php endif; ?>
+
+				<div class="grid-100 ctc-content">
+					<?php echo the_content(); ?>
+				</div>
 					
-				</div> <!-- .ctc-loc-content -->
-				
+			</div> <!-- .content.grid-container -->
+
 <?php
 	
 	if (have_posts()) : while (have_posts()) : the_post(); 

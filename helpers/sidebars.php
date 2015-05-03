@@ -70,6 +70,7 @@
 			'before_title'  => '<h2>',
 			'after_title'   => '</h2>',
 		));
+		
 		register_sidebar( array( 
 			'name'          => 'Location Sidebar Left', 
 			'id'            => 'location-sidebar-left',
@@ -80,26 +81,38 @@
 			'after_title'   => '</h2>',
 		));
 		
-		
-		/* Footer widget areas */
+		/* Event--Use this for a text widget to add content at the top of the event archive */
 		register_sidebar( array( 
-			'name'          => 'Footer Left', 
-			'id'            => 'footer-left',
-			'description'   => 'Footer, left half', 
+			'name'          => 'Event Top Sidebar', 
+			'id'            => 'event-sidebar',
+			'description'   => 'Widget area at top of event archive', 
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2>',
 			'after_title'   => '</h2>',
 		));
 		
+		/* Sermon--Use this for a text widget to add content at the top of the sermon archive */
 		register_sidebar( array( 
-			'name'          => 'Footer Right', 
-			'id'            => 'footer-right',
-			'description'   => 'Footer, right half', 
+			'name'          => 'Sermon Top Sidebar', 
+			'id'            => 'sermon-sidebar',
+			'description'   => 'Widget area at top of sermon archive', 
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</div>',
 			'before_title'  => '<h2>',
 			'after_title'   => '</h2>',
 		));
+		
+		/* Footer widget area */
+		register_sidebar( array( 
+			'name'          => 'Footer', 
+			'id'            => 'footer',
+			'description'   => '', 
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2>',
+			'after_title'   => '</h2>',
+		));
+		
 	}
 

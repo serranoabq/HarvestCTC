@@ -8,7 +8,7 @@ class harvest_HomeBox extends WP_Widget {
 			'classname' 	=> 'front-box-widget', 
 			'description' => 'Harvest Home Box' 
 		);
-		$this->WP_Widget('front_box_widget', __('Harvest Home Page Box'), $widget_ops);
+		$this->WP_Widget('front_box_widget', __('Harvest Home Page Box', 'harvest'), $widget_ops);
 	
 	}
 	
@@ -80,15 +80,15 @@ class harvest_HomeBox extends WP_Widget {
 		$this->prep_scripts();
 ?>
     <p>
-			<label for="<?php echo $this->get_field_id('caption'); ?>"><?php _e('Caption'); ?></label> 
+			<label for="<?php echo $this->get_field_id('caption'); ?>"><?php _e('Caption', 'harvest'); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id('caption'); ?>" name="<?php echo $this->get_field_name('caption'); ?>" type="text" value="<?php echo $caption; ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link URL'); ?></label> 
+			<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link URL', 'harvest'); ?></label> 
 			<input class="widefat" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('image_url'); ?>"><?php _e('Image'); ?></label> 
+			<label for="<?php echo $this->get_field_id('image_url'); ?>"><?php _e('Image', 'harvest'); ?></label> 
 			<input class="widefat upload-url" id="<?php echo $this->get_field_id('image_url'); ?>" name="<?php echo $this->get_field_name('image_url'); ?>" type="text" value="<?php echo $image_url; ?>" /> <input id="image_upload_button" class="upload_button button-secondary" type="button" name="image_upload_button" value="Upload" /> 
 		</p>
 

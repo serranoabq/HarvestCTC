@@ -7,29 +7,20 @@
 		$post_id = get_the_ID();
 		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
 		$color = get_post_meta( $post_id, '_post_accent_color', true );
-		
+		harvest_title_bar( get_the_title(), $color );
 ?>
 
-		<!-- TITLE BAR -->
-		<div class="title_wrap accent-background" style="<?php echo $color ? "background: $color " : $accent_color ; ?>">
-			<div class="grid-container title-bar" >
-				<div class="grid-100 title">
-					<h2><?php the_title(); ?></h2>
-				</div> <!-- .title.grid-100 -->
-			</div> <!-- .title-bar.grid-100 -->
-		</div>
-		
 		<div class="content_wrap">
 
 			<div class="grid-container content">
 		
 <?php if( $thumbnail ): ?>
-				<div class="grid-70 prefix-15 suffix-15">
+				<div class="grid-100 featured-image-div">
 					<img src="<?php echo $thumbnail[0]; ?>" class="featured-image"/>
 				</div>
 <?php endif; ?>
 	
-				<div class="grid-80 prefix-10 suffix-10 ctc-content">
+				<div class="grid-100 ctc-content">
 					<?php echo the_content(); ?>
 				</div>
 				

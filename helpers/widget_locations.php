@@ -44,7 +44,7 @@ class harvest_Locations extends WP_Widget {
 				$loc_times = get_post_meta( $post_id, '_ctc_location_times' , true ); 
 				
 ?>
-			<div class="ctc-location grid-33 mobile-grid-80 mobile-suffix-10 mobile-prefix-10">
+			<div class="ctc-location grid-33 mobile-grid-50 tiny-grid-100">
 				<h3><a href="<?php echo $permalink; ?>"><?php echo the_title(); ?></a></h3>
 <?php if( $loc_address ): ?>
 				<div class="loc-address"><?php echo nl2br($loc_address); ?></div>
@@ -71,7 +71,7 @@ class harvest_Locations extends WP_Widget {
 		$show_map = esc_attr( $instance['show_map'] );
 	?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title' ); ?></label> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'harvest' ); ?></label> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" />
 		</p>
 	<?php 
 	} 

@@ -17,18 +17,18 @@
 				
 				<div class="home-widgets">
 <?php if( harvest_option( 'layout' ) == '66' ): ?>
-					<div class="grid-66 home-widget home-widget-left">
+					<div class="grid-66 mobile-grid-50 tiny-grid-100 home-widget home-widget-left">
 <?php else: ?>
 					<div class="grid-33 home-widget home-widget-left"> 
 <?php endif; ?>
 						<?php dynamic_sidebar( 'home-left' ); ?>
 					</div><!-- .home-widget-left -->
 <?php if( harvest_option( 'layout' ) == '33' ): ?>
-					<div class="grid-33 home-widget home-widget-middle">
+					<div class="grid-33 mobile-grid-50 tiny-grid-100 home-widget home-widget-middle">
 						<?php dynamic_sidebar( 'home-middle' ); ?>
 					</div><!-- .home-widget-middle -->
 <?php endif; ?>
-					<div class="grid-33 home-widget home-widget-right">
+					<div class="grid-33 mobile-grid-50 tiny-grid-100 home-widget home-widget-right">
 						<?php dynamic_sidebar( 'home-right' ); ?>
 					</div><!-- .home-widget-right -->
 				

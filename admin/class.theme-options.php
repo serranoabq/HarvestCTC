@@ -9,60 +9,6 @@
  *  http://wp.tutsplus.com/tutorials/creative-coding/how-to-integrate-the-wordpress-media-uploader-in-theme-and-plugin-options/
  *  http://www.justinwhall.com/multiple-upload-inputs-in-a-wordpress-theme-options-page/
  *
- * USAGE:
- * 1. Optional. Define a variable $my_sections as a keyed string array. Each element  
- *  	represents a section tab and the strings are the tab titles. The keys are the slugs  
- *  	to use for the settings. If not used, a default "General Settings" section (with slug 'general') 
- *    and "About this Theme" (with slug 'about') are created
- * 2. Define a variable $my_settings as another keyed array. Each element represents a 
- *		unique setting and is defined as follows:
- *
-		$my_settings['setting_name'] = array(
-				// Setting type. Can be text, textarea, checkbox, select, radio, checkbox, 
-				//    heading, description, password, email, url, upload
-			'type'    => 'text', 
-				// Section this setting belongs to. It should be one of the keys in the $my_sections array
-			'section' => 'general',
-				// A title for the setting, not used for heading and description types
-			'title'   => 'The setting title' ,
-				// A description for the the setting
-			'desc'    => 'A descriptive text to show next to the setting' ,
-				// A default value for the setting. Use integer 0 or 1 for checboxes
-			'std'     => 'My default value for the setting',
-				// A css class for the setting field
-			'class'   => '',
-				// An array of choices to use in select and radio types
-			'choices' => array(
-				'choice1' => 'Choice 1',
-				'choice2' => 'Choice 2',
-				'choice3' => 'Choice 3'
-			)
-		);
- *
- * 3. Instantiate the class
- *		$theme_options = new Theme_Options($my_settings,$my_sections); // Custom sections and settings
- *		$theme_options = new Theme_Options($my_settings); // OK with default sections 'general' and 'about'
- *		$theme_options = new Theme_Options(); // Default or hard coded sections and options 
- * 4. Add the following helper function to your theme's functions.php to access the options
- * 
-		function get_theme_option( $option ) {
-			$theme_data = wp_get_theme();
-			$theme_safename = sanitize_title($theme_data);
-			$options = get_option( $theme_safename . '-options' );
-			if ( isset( $options[$option] ) )
-				return $options[$option];
-			else
-				return false;
-		}
- * 5. Acces the data using get_theme_option( $setting_name );
- *
- * NOTES:
- *  If the $my_sections variables isn't defined or passed, a default "General Settings" 
- *  section (slug of 'general') and a default "About this Theme" section (slug = 'about') are
- * 	created. The settings can still be passed and will be placed under these headings.
- *  If no variables are passed, the default sections are created and a dummy setting is also 
- *  created, but there is no real context to them. In such cases, you can hard code the sections
- * 	and settings into this file.
  *
  * @since 2.5
  */
@@ -109,12 +55,7 @@ class Theme_Options {
 		add_action( 'admin_init', array( &$this, 'register_settings' ) );
 		
 		if ( ! get_option( $this->theme_safename .'-options' ) )
-			$this->initialize_settings();
-				
-		if ( 'media-upload.php' == $pagenow || 'async-upload.php' == $pagenow ) {  
-        // Now we'll replace the 'Insert into Post Button' inside Thickbox  
-        //add_filter( 'gettext', array(&$this, 'replace_thickbox_text'), 1, 3 ); 
-    } 
+			$this->initialize_settings(); 
 		
 	}
 	
@@ -537,6 +478,7 @@ class Theme_Options {
 				if ( isset( $options[$id] ) && ! isset( $input[$id] ) )
 					unset( $options[$id] );
 			}
+			flush_rewrite_rules();
 			return $input;
 		}
 		return false;		

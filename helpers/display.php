@@ -1,58 +1,74 @@
 <?php
 	// HELPER: Display
+
+	// Register livestream
+	wp_embed_register_handler( 'livestream', '#(http|https)://livestream\.com/accounts/([\d]+)/events/([\d]+)/videos/([\d]+)/player?
+	width=([\d]+)&height=([\d]+)&autoPlay=(true|false)&mute=(true|false)#i', 'wp_embed_handler_livestream' );
+
+function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
+
+	$embed = sprintf(
+			'<div class="video-container"><iframe src="%1$s://livestream\.com/accounts/%2$s/events/%3$s/videos/%4$s/player?
+	width=%5$s&height=%6$s&autoPlay=%7$s&mute=%8$s" frameborder="0" scrolling="no" marginwidth="0" marginheight="0"></iframe></div>',
+			esc_attr($matches[1]),
+			esc_attr($matches[2]),
+			esc_attr($matches[3]),
+			esc_attr($matches[4]),
+			esc_attr($matches[5]),
+			esc_attr($matches[6]),
+			esc_attr($matches[7]),
+			esc_attr($matches[8])
+			);
+
+	return apply_filters( 'embed_livestream', $embed, $matches, $attr, $url, $rawattr );
+}
+
+	// Modify the loop for Sermon archives
+	add_action( '__before_loop', 'harvest_ctc_sermon_pre_loop');
+	function harvest_ctc_sermon_pre_loop() {
+		global $wp_query;
+		$query_term = $wp_query->query;
+
+		if( 'ctc_sermon' != $query_term['post_type'] ) return;
+		
+		$args = array(
+			'order'   => 'DESC',
+			'orderby' => 'date',
+			'posts_per_page' => 9,
+		);
+		$query_term = array_merge( $args, $query_term ); 
+		$wp_query = new WP_Query( $query_term );	
+
+	}	
+
 	
-	// Breadcrumb function
-	function harvest_breadcrumb( $min_parents = 1, $cpt_or_taxs = array() ) {
-		global $post;
-		// min_parents is the number of ancestors that a page must have to show the breadcrumbs
-		// 0 = always show breadcrumbs
+	// Modify the loop for Event archives
+	add_action( '__before_loop', 'harvest_ctc_event_pre_loop');
+	function harvest_ctc_event_pre_loop() {
+		global $wp_query;
+		$query_term = $wp_query->query;
+
+		if( 'ctc_event' != $query_term['post_type'] ) return;
 		
-		// breadcrumb delimiter >>
-		$delimiter = '<span class="delimiter"> &raquo; </span>';
-		
-		if ( is_page() ) {
-			// For pages, we just need their ancestors
-			$parents = array_reverse(get_post_ancestors($post -> ID));
-		} elseif( !empty( $cpt_or_taxs ) ) {
-			foreach( $cpt_or_taxs as $cpt ) {
-				$tax = '';
-				if( is_singular( $cpt ) ){
-					$pages= harvest_get_pages_with_template( 'single-' . $cpt . '.php' );
-					break;
-				} elseif( is_tax( $cpt ) ) {
-					$pages= harvest_get_pages_with_template( 'taxonomy-' . $cpt . '.php' );
-					$tax = $cpt;
-					break;
-				}
-			}
-			
-			if( $pages ){
-				$page = $pages[0];
-				$parents = array_reverse( get_post_ancestors( $page ) );
-				$parents[] = $page->ID;
-			}
-		}
-		
-		// we are only concerned with sub-level pages
-		if( $parents && count( $parents ) >= $min_parents ){
-			// enclose in a classed div for easier styling later on
-			echo '<div id="breadcrumb">';
-			// loop over every ancestor to get its title and link
-			foreach( $parents as $pageid ){
-				$page = get_post( $pageid );
-				$title = $page -> post_title;
-				echo '<a href="' . get_permalink( $page ) . '">'. $title . '</a>' . $delimiter;
-			}
-			if( !empty( $tax ) && is_tax( $tax ) ) {
-				$term = get_queried_object();
-				$title = $term->name;
-			} else {
-				$title = get_the_title();
-			}
-			echo $title;
-			echo '</div>';
-		}
-	}
+		$args = array(
+			'order' => 'ASC',
+			'orderby' => 'meta_value',
+			'meta_key' => '_ctc_event_start_date_start_time',
+			'meta_type' => 'DATETIME',
+			'posts_per_page' => 9,
+			'meta_query' => array(
+				array(
+					'key' => '_ctc_event_end_date',
+					'value' => date_i18n( 'Y-m-d' ), // today localized
+					'compare' => '>=', // later than today
+					'type' => 'DATE',
+				),
+			)
+		);
+		$query_term = array_merge( $args, $query_term ); 
+		$wp_query = new WP_Query( $query_term );	
+
+	}	
 
 	
 	// Retrieve pages by their template
@@ -66,7 +82,7 @@
 	}
 	
 	// Custom pagination display
-	function harvest_pagination($pages = '', $range = 2){
+	function harvest_pagination_old($pages = '', $range = 2){
 		$showitems = ($range * 2)+1; 
 		global $paged;
 		if(empty($paged)) $paged = 1;
@@ -99,6 +115,41 @@
 		}
 	}
 
+	// Custom pagination display
+	function harvest_pagination_new(){
+		global $paged, $wp_query;
+		
+		// Check pages
+		if( empty($paged) ) $paged = 1;
+		$pages = $wp_query->max_num_pages;
+		if( !$pages ) $pages = 1;
+		
+		// Prep the arrows
+		$prev_arrow = '<div class="grid-20 mobile-grid-20 secondary-accent-background"><i class="fa fa-chevron-left"></i></div>';
+		$next_arrow = '<div class="grid-20 mobile-grid-20 secondary-accent-background"><i class="fa fa-chevron-right"></i></div>';
+		
+		// Previous
+		$page_links = array();
+		if( 1 == $paged ) 
+			$page_links[0] = '<span class="prev page-numbers disabled">' . $prev_arrow . '</span>';
+		else 
+			$page_links[0] = '<a href="'. get_pagenum_link($paged-1) . '" class="prev page-numbers">' . $prev_arrow . '</a>';
+		
+		// Page count
+		$page_links[1] = '<span class="page-numbers"><div class="grid-40 mobile-grid-40 prefix-10 suffix-10 mobile-prefix-10 mobile-suffix-10 secondary-accent-background">Page ' . $paged . ' of ' . $pages . '</div></span>';
+		
+		// Next
+		if( $paged == $pages )
+			$page_links[2] = '<span class="next page-numbers disabled">' . $next_arrow . '</span>';
+		else
+			$page_links[2] = '<a href="'. get_pagenum_link($paged+1) . '" class="next page-numbers">' . $next_arrow . '</a>';
+			
+		// Pagination is only added when needed	
+		if( $pages > 1 )
+			echo join('', $page_links) ;
+		
+	}
+	
 	// Remove version numbers from css & js calls
 	add_filter( 'style_loader_src', 'harvest_nover', 9999 );
 	add_filter( 'script_loader_src', 'harvest_nover', 9999 );
@@ -131,38 +182,39 @@
 		return $initArray;
 	}
 
-	add_action( 'admin_init', 'harvest_add_color_metabox' );
-	add_action( 'admin_enqueue_scripts', 'harvest_colorpicker_script' );
-	function harvest_add_color_metabox() {
-		$meta_box = array(
+	if( class_exists( 'CT_Meta_Box' ) ){
+		add_action( 'admin_init', 'harvest_add_color_metabox' , 11);
+		add_action( 'admin_enqueue_scripts', 'harvest_colorpicker_script', 11 );
+		function harvest_add_color_metabox() {
+			$meta_box = array(
 
-			// Meta Box
-			'id' 		=> 'post_accent_color', // unique ID
-			'title' 	=> __( 'Accent Color ', 'harvest' ),
-			'post_type'	=> 'page',
-			'context'	=> 'side', 
-			'priority'	=> 'low', 
+				// Meta Box
+				'id'        => '_post_accent_color', // unique ID
+				'title'     => __( 'Accent Color ', 'harvest' ),
+				'post_type' => 'page',
+				'context'   => 'side', 
+				'priority'  => 'low', 
 
-			// Fields
-			'fields' => array(
-				'_post_accent_color' => array(
-					'name'				=> __( 'Accent Color', 'harvest' ),
-					'desc'				=> __( 'Choose an accent color to use on this page.', 'harvest' ), 
-					'type'				=> 'colorpicker', 
-					'default'			=> harvest_option( 'accent', '#006f7c' ), 
-					'no_empty'			=> true, 
-					'class'				=> 'color-picker ctmb-small', // class(es) to add to input (try ctmb-medium, ctmb-small, ctmb-tiny)
-					'field_class'		=> '', // class(es) to add to field container
-					'custom_field'		=> 'harvest_colorpicker', 
+				// Fields
+				'fields' => array(
+					'_post_accent_color' => array(
+						'name'          => __( 'Accent Color', 'harvest' ),
+						'desc'          => __( 'Choose an accent color to use on this page.', 'harvest' ), 
+						'type'          => 'colorpicker', 
+						'default'       => harvest_option( 'accent', '#006f7c' ), 
+						'no_empty'      => true, 
+						'class'         => 'color-picker ctmb-small', // class(es) to add to input (try ctmb-medium, ctmb-small, ctmb-tiny)
+						'field_class'   => '', // class(es) to add to field container
+						'custom_field'  => 'harvest_colorpicker', 
+					),
 				),
-			),
-		);
-		
-		// Add Meta Box
-		new CT_Meta_Box( $meta_box );
-		
+			);
+			
+			// Add Meta Box
+			new CT_Meta_Box( $meta_box );
+			
+		}
 	}
-	
 	function harvest_colorpicker_script( ) {
     wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'iris', admin_url( 'js/iris.min.js' ), array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, 1 );
@@ -223,3 +275,18 @@
 <?php		
 	}
 	
+	// Title bar on all pages
+	function harvest_title_bar( $title, $color = '' ){
+		$color_style =  "style='background: $color;'"; 
+?>		
+		<!-- TITLE BAR -->
+		<div class="title_wrap accent-background" <?php echo $color ? $color_style: ''; ?> >
+			<div class="grid-container title-bar">
+				<div class="grid-100 title">
+					<h2><?php echo $title; ?></h2>
+				</div> <!-- .title.grid-100 -->
+			</div> <!-- .title-bar.grid-100 -->
+		</div>
+
+<?php		
+	}

@@ -2,15 +2,8 @@
 	/* Std archive */
 	
 	get_header(); 
+	harvest_title_bar( __( 'Archive', 'harvest' ) );
 ?>
-		<!-- TITLE BAR -->
-		<div class="title_wrap accent-background" style="<?php echo $accent_color; ?>">
-			<div class="grid-container title-bar">
-				<div class="grid-100 title">
-					<h2><?php _e( 'Archive', 'harvest' ); ?></h2>
-				</div> <!-- .title.grid-100 -->
-			</div> <!-- .title-bar.grid-100 -->
-		</div>
 		
 		<div class="content_wrap">
 
