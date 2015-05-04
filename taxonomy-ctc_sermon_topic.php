@@ -46,7 +46,7 @@
 			// Others are just displayed as boxes 
 			if( $paged == 1 && $i == 2 ): ?>
 				<div class="grid-100 ctc-sermon-grid-title ctc-sermon-others">
-					<h2><?php echo  __( 'Other messages from this ', 'harvest') . strtolower( harvest_option( 'ctc-sermon-topic' , 'topic' ) ); ?></h2>
+					<h2><?php echo  __( 'Other messages from this ', 'harvest') . strtolower( $title ); ?></h2>
 				</div>
 <?php endif; // $i == 2
 

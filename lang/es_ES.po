@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: harvest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-08 10:18-0700\n"
-"PO-Revision-Date: Wed Feb 25 2015 12:10:10 GMT-0700 (Mountain Standard Time)\n"
+"PO-Revision-Date: Sun May 03 2015 00:53:33 GMT-0600 (Mountain Daylight Time)\n"
 "Last-Translator: Harvest Fellowship <serranoabq+harvest@gmail.com>\n"
 "Language-Team: \n"
 "Language: Spanish (Spain)\n"
@@ -21,11 +21,11 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Loco-Target-Locale: es_ES"
 
-#: ../404.php:11
+#: ../404.php:4
 msgid "Page Not Found"
 msgstr ""
 
-#: ../404.php:21
+#: ../404.php:12 ../old.php:14
 msgid ""
 "We're sorry. The page you requested could not be found. It's a simple "
 "mistake, probably on our part. Please <a href=\"/\">click here</a> to return "
@@ -37,119 +37,114 @@ msgstr ""
 "regresar a nuestra página principal o utilice el menú de arriba para visitar "
 "otra sección de nuestro sitio web. ¡Que tenga un buen día!"
 
-#: ../archive.php:11 ../functions.php:275 ../functions.php:277
-msgid "Archive"
-msgstr "Archivo"
+#: ../archive-ctc_event.php:9
+msgid "Choose a category"
+msgstr "Eliga una categoría"
 
-#: ../archive-ctc_event.php:11 ../functions.php:289 ../admin/harvest-options.php:
-#: 144
+#: ../archive-ctc_event.php:12 ../functions.php:248
 msgid "Events"
 msgstr "Eventos"
 
-#: ../archive-ctc_location.php:13 ../functions.php:279 ../template-locations.php:
-#: 13 ../admin/harvest-options.php:128 ../helpers/ctc-support.php:144
+#: ../archive-ctc_location.php:5 ../functions.php:242 ../template-locations.php:11
 msgid "Locations"
 msgstr "Ubicaciones"
 
-#: ../archive-ctc_person.php:13 ../admin/harvest-options.php:136
+#: ../archive-ctc_person.php:5
 msgid "People"
 msgstr "Personas"
 
-#: ../archive-ctc_sermon.php:10 ../functions.php:284 ../admin/harvest-options.php:
-#: 100
+#: ../archive-ctc_sermon.php:11 ../taxonomy-ctc_sermon_topic.php:19 ..
+#: /templates/sermon-details.php:46
+msgid "Topic"
+msgstr "Tema"
+
+#: ../archive-ctc_sermon.php:12
+#, php-format
+msgid "Choose a %s"
+msgstr "Eliga una %s"
+
+#: ../archive-ctc_sermon.php:18 ../functions.php:245
 msgid "Sermons"
 msgstr "Sermones"
 
-#: ../archive-ctc_sermon.php:93
-msgid "Latest message:"
-msgstr "Ultimo Mensaje"
+#: ../archive-ctc_sermon.php:44 ../taxonomy-ctc_sermon_topic.php:41
+msgid "Latest message"
+msgstr "Mensaje más reciente"
 
-#: ../archive-ctc_sermon.php:97 ../single-ctc_sermon.php:89 ../taxonomy-
-#: ctc_sermon_series.php:95 ../taxonomy-ctc_sermon_topic.php:94
-msgid "<b>Speaker:</b> "
-msgstr "<b>Orador:</b>"
-
-#: ../archive-ctc_sermon.php:101 ../single-ctc_sermon.php:93
-msgid "<b>Series:</b> "
-msgstr "<b>Serie:</b>"
-
-#: ../archive-ctc_sermon.php:129
-msgid "Other series"
-msgstr "Otras series"
-
-#: ../archive-ctc_sermon.php:155
-msgid "All"
-msgstr "Todas"
+#: ../archive.php:5
+msgid "Archive"
+msgstr "Archivo"
 
 #: ../footer.php:35
 #, php-format
 msgid "&copy; Copyright %d %s"
 msgstr ""
 
-#: ../functions.php:24
+#: ../functions.php:25
 msgid "Header Menu"
 msgstr ""
 
-#: ../functions.php:25
+#: ../functions.php:26
 msgid "Footer Menu"
 msgstr ""
 
-#: ../functions.php:255
+#: ../functions.php:220
 msgctxt "Page title"
-msgid "Series: "
+msgid "Series"
 msgstr "Serie"
 
-#: ../functions.php:257
+#: ../functions.php:223
+#, php-format
 msgctxt "Page title"
-msgid "Book: "
-msgstr "Libro"
+msgid "Speaker: %s"
+msgstr "Orador: %s"
 
-#: ../functions.php:259
+#: ../functions.php:225
+#, php-format
 msgctxt "Page title"
-msgid "Speaker: "
-msgstr "Orador"
+msgid "%s Events"
+msgstr "Eventos"
 
-#: ../functions.php:264
+#: ../functions.php:228
 msgctxt "Page title"
-msgid "Location: "
-msgstr "Ubicación"
-
-#: ../functions.php:266
-msgctxt "Page title"
-msgid "Topic: "
+msgid "Topic"
 msgstr "Tema"
 
-#: ../functions.php:271
+#: ../functions.php:234
 msgid "Search Results"
 msgstr "Resultados de B&uacute;squeda"
 
-#: ../functions.php:273
+#: ../functions.php:236
 msgid "Author Archive"
 msgstr "Archivo de Autor"
 
-#: ../header.php:58
+#: ../functions.php:238
+#, php-format
+msgid "Archive: %s"
+msgstr "Archivo: %s"
+
+#: ../functions.php:240
+#, php-format
+msgid "Archive | %s"
+msgstr "Archivo | %s"
+
+#: ../header.php:66
 msgid "Menu"
 msgstr "Menú"
 
-#: ../single-ctc_event.php:44
-msgid "Details"
-msgstr "Detalles"
+#: ../old.php:12
+msgid "Page Not found"
+msgstr "Página no encontrada"
 
-#: ../single-ctc_event.php:63
-msgid "get directions"
-msgstr "direcciones"
+#: ../single-ctc_sermon.php:50 ../taxonomy-ctc_sermon_topic.php:49
+msgid "Other messages from this "
+msgstr "Otros mensajes de esta"
 
-#: ../single-ctc_event.php:68
-msgid "Summary"
-msgstr "Resumen"
-
-#: ../single-ctc_location.php:57
-msgid "Times &amp; Location"
-msgstr "Horario &amp; Ubicación"
-
-#: ../single-ctc_sermon.php:132 ../taxonomy-ctc_sermon_series.php:114
-msgid "Other messages in this series"
-msgstr "Otros mensajes en esta serie"
+#: ../taxonomy-ctc_event_category.php:13
+#, php-format
+msgctxt "Event category"
+msgid "%s events"
+msgstr "eventos de %s"
 
 #: ../taxonomy-ctc_event_tag.php:43
 #, php-format
@@ -179,30 +174,13 @@ msgid_plural "Occurs Every %d Years"
 msgstr[0] "Ocurre anualmente"
 msgstr[1] "Ocurre cada %d años"
 
-#: ../taxonomy-ctc_sermon_series.php:11 ../template-series.php:10 ..
-#: /admin/harvest-options.php:108
+#: ../taxonomy-ctc_sermon_series.php:7
+msgid "Series"
+msgstr "Serie"
+
+#: ../template-series.php:5
 msgid "Sermon Series"
 msgstr "Serie de Sermones"
-
-#: ../taxonomy-ctc_sermon_series.php:99 ../taxonomy-ctc_sermon_topic.php:98
-msgid "<b>Series:</b>"
-msgstr "<b>Serie:</b>"
-
-#: ../taxonomy-ctc_sermon_topic.php:11 ../helpers/ctc-support.php:123
-msgid "Sermon"
-msgstr "Sermón"
-
-#: ../taxonomy-ctc_sermon_topic.php:11
-msgid "Topic"
-msgstr "Tema"
-
-#: ../taxonomy-ctc_sermon_topic.php:113
-msgid "Other messages from this "
-msgstr "Otros mensajes de esta"
-
-#: ../template-home.php:21
-msgid "Welcome"
-msgstr "Bienvenido"
 
 #: ../admin/class.theme-options.php:42 ../admin/harvest-options.php:3
 msgid "General Settings"
@@ -252,10 +230,6 @@ msgstr ""
 msgid "Social Media"
 msgstr ""
 
-#: ../admin/harvest-options.php:5
-msgid "Church Content"
-msgstr ""
-
 #: ../admin/harvest-options.php:6
 msgid "Podcasting"
 msgstr ""
@@ -300,115 +274,109 @@ msgstr ""
 
 #: ../admin/harvest-options.php:51
 msgctxt "Metabox name"
-msgid "Slider"
+msgid "Default city"
 msgstr ""
 
 #: ../admin/harvest-options.php:52
+msgid "Enter the city for your church."
+msgstr ""
+
+#: ../admin/harvest-options.php:59
+msgctxt "Metabox name"
+msgid "Slider"
+msgstr ""
+
+#: ../admin/harvest-options.php:60
 msgid ""
 "Enter the shortcode a homepage slider (e.g. <code>[masterslider "
 "id=\"1\"]</code>)"
 msgstr ""
 
-#: ../admin/harvest-options.php:59
+#: ../admin/harvest-options.php:67
 msgctxt "Metabox name"
 msgid "Primary Accent Color"
 msgstr ""
 
-#: ../admin/harvest-options.php:60
+#: ../admin/harvest-options.php:68
 msgid ""
 "Choose the default accent color for the theme. This color appears in the "
 "title bars of post and pages. "
 msgstr ""
 
-#: ../admin/harvest-options.php:67
+#: ../admin/harvest-options.php:75
 msgctxt "Metabox name"
 msgid "Secondary Accent Color"
 msgstr ""
 
-#: ../admin/harvest-options.php:68
+#: ../admin/harvest-options.php:76
 msgid ""
 "Choose the secondary accent color for the theme. This color is used on the "
 "title bar of widgets in the body of the homepage, and location pages."
 msgstr ""
 
-#: ../admin/harvest-options.php:75
+#: ../admin/harvest-options.php:83
 msgctxt "Metabox name"
 msgid "Homepage Bottom Widget Area Layout"
 msgstr ""
 
-#: ../admin/harvest-options.php:76
+#: ../admin/harvest-options.php:84
 msgid "Choose the layout for your homepage widget area."
 msgstr ""
 
-#: ../admin/harvest-options.php:114
-msgid ""
-"This theme uses the <code>Sermon Topics</code> field to assign a sermon to a "
-"location. While the topic is never used in the theme output, changing this "
-"to <code>Location</code> will make it clearer on the admin page."
-msgstr ""
-
-#: ../admin/harvest-options.php:119
-msgid "Sermon Topic"
-msgstr ""
-
-#: ../admin/harvest-options.php:120
-msgid "Location"
-msgstr "Ubicación"
-
-#: ../admin/harvest-options.php:218
+#: ../admin/harvest-options.php:226
 msgid "Podcast Description"
 msgstr ""
 
-#: ../admin/harvest-options.php:226
+#: ../admin/harvest-options.php:234
 msgid "Podcast Image"
 msgstr ""
 
-#: ../admin/harvest-options.php:229
+#: ../admin/harvest-options.php:237
 msgid ""
 "Logo or image to use in the podcast directory. iTunes requires this to be a "
 "1400 x 1400 PNG or JPG ending in .png or .jpg"
 msgstr ""
 
-#: ../admin/harvest-options.php:234
+#: ../admin/harvest-options.php:242
 msgid "Podcast Author"
 msgstr ""
 
-#: ../admin/harvest-options.php:237
+#: ../admin/harvest-options.php:245
 msgid "Name to use in the podcast directory. This is applied to ALL feeds."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:155
+#: ../helpers/class-tgm-plugin-activation.php:161
 msgid "Install Required Plugins"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:156
+#: ../helpers/class-tgm-plugin-activation.php:162
 msgid "Install Plugins"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:157
+#: ../helpers/class-tgm-plugin-activation.php:163
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:158
+#: ../helpers/class-tgm-plugin-activation.php:164
 msgid "Something went wrong."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:159
+#: ../helpers/class-tgm-plugin-activation.php:165
 #, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:160
+#: ../helpers/class-tgm-plugin-activation.php:166
 #, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:161
+#: ../helpers/class-tgm-plugin-activation.php:167
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to install the %s plugin. "
@@ -421,21 +389,21 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:162
+#: ../helpers/class-tgm-plugin-activation.php:168
 #, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:163
+#: ../helpers/class-tgm-plugin-activation.php:169
 #, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:164
+#: ../helpers/class-tgm-plugin-activation.php:170
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to activate the %s plugin."
@@ -448,7 +416,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:165
+#: ../helpers/class-tgm-plugin-activation.php:171
 #, php-format
 msgid ""
 "The following plugin needs to be updated to its latest version to ensure "
@@ -459,7 +427,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:166
+#: ../helpers/class-tgm-plugin-activation.php:172
 #, php-format
 msgid ""
 "Sorry, but you do not have the correct permissions to update the %s plugin. "
@@ -472,360 +440,222 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:167
+#: ../helpers/class-tgm-plugin-activation.php:173
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:168
-msgid "Activate installed plugin"
-msgid_plural "Activate installed plugins"
+#: ../helpers/class-tgm-plugin-activation.php:174
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:169
+#: ../helpers/class-tgm-plugin-activation.php:175
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:170
+#: ../helpers/class-tgm-plugin-activation.php:176
 msgid "Return to the dashboard"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:171 ../helpers/class-tgm-plugin-
-#: activation.php:1840
+#: ../helpers/class-tgm-plugin-activation.php:177 ../helpers/class-tgm-plugin-
+#: activation.php:1956
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:172 ../helpers/class-tgm-plugin-
-#: activation.php:1538
+#: ../helpers/class-tgm-plugin-activation.php:178 ../helpers/class-tgm-plugin-
+#: activation.php:1644
 msgid "The following plugin was activated successfully:"
 msgid_plural "The following plugins were activated successfully:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../helpers/class-tgm-plugin-activation.php:173
+#: ../helpers/class-tgm-plugin-activation.php:179
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:174
+#: ../helpers/class-tgm-plugin-activation.php:180
 msgid "Dismiss this notice"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1085
-msgid "External Link"
+#: ../helpers/class-tgm-plugin-activation.php:532 ../helpers/class-tgm-plugin-
+#: activation.php:532 ../helpers/class-tgm-plugin-activation.php:2173 ..
+#: /helpers/class-tgm-plugin-activation.php:2173
+msgid "Return to the Dashboard"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1090
+#: ../helpers/class-tgm-plugin-activation.php:1167 ../helpers/class-tgm-plugin-
+#: activation.php:1348
 msgid "Private Repository"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1093
+#: ../helpers/class-tgm-plugin-activation.php:1170 ../helpers/class-tgm-plugin-
+#: activation.php:1351
 msgid "Pre-Packaged"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1097
+#: ../helpers/class-tgm-plugin-activation.php:1175
 msgid "WordPress Repository"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1100
+#: ../helpers/class-tgm-plugin-activation.php:1178
 msgid "Required"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1100
+#: ../helpers/class-tgm-plugin-activation.php:1178
 msgid "Recommended"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1103
+#: ../helpers/class-tgm-plugin-activation.php:1181
 msgid "Not Installed"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1105
+#: ../helpers/class-tgm-plugin-activation.php:1183
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1275
+#: ../helpers/class-tgm-plugin-activation.php:1288 ../helpers/class-tgm-plugin-
+#: activation.php:1288 ../helpers/class-tgm-plugin-activation.php:1409
+msgid "Install"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:1312 ../helpers/class-tgm-plugin-
+#: activation.php:1312 ../helpers/class-tgm-plugin-activation.php:1410
+msgid "Activate"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:1372
 #, php-format
 msgid ""
 "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
 "Dashboard\">Return to the Dashboard</a>"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1291
+#: ../helpers/class-tgm-plugin-activation.php:1388
 msgid "Plugin"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1292
+#: ../helpers/class-tgm-plugin-activation.php:1389
 msgid "Source"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1293
+#: ../helpers/class-tgm-plugin-activation.php:1390
 msgid "Type"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1294
+#: ../helpers/class-tgm-plugin-activation.php:1391
 msgid "Status"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1312
-msgid "Install"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1313
-msgid "Activate"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1823
+#: ../helpers/class-tgm-plugin-activation.php:1939
 msgid "Install package not available."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1824
+#: ../helpers/class-tgm-plugin-activation.php:1940
 #, php-format
 msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1825
+#: ../helpers/class-tgm-plugin-activation.php:1941
 msgid "Unpacking the package&#8230;"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1826
+#: ../helpers/class-tgm-plugin-activation.php:1942
 msgid "Installing the plugin&#8230;"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1827
+#: ../helpers/class-tgm-plugin-activation.php:1943
 msgid "Plugin install failed."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1828
+#: ../helpers/class-tgm-plugin-activation.php:1944
 msgid "Plugin installed successfully."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1839
+#: ../helpers/class-tgm-plugin-activation.php:1955
 msgid "Plugin activation failed."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1949
+#: ../helpers/class-tgm-plugin-activation.php:2069
 msgid ""
 "The installation and activation process is starting. This process may take a "
 "while on some hosts, so please be patient."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1950
+#: ../helpers/class-tgm-plugin-activation.php:2070
 #, php-format
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1950 ../helpers/class-tgm-plugin-
-#: activation.php:1959
+#: ../helpers/class-tgm-plugin-activation.php:2070 ../helpers/class-tgm-plugin-
+#: activation.php:2079
 msgid "Show Details"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1950 ../helpers/class-tgm-plugin-
-#: activation.php:1959
+#: ../helpers/class-tgm-plugin-activation.php:2070 ../helpers/class-tgm-plugin-
+#: activation.php:2079
 msgid "Hide Details"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1951
+#: ../helpers/class-tgm-plugin-activation.php:2071
 msgid "All installations and activations have been completed."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1952
+#: ../helpers/class-tgm-plugin-activation.php:2072
 #, php-format
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1956
+#: ../helpers/class-tgm-plugin-activation.php:2076
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1957
+#: ../helpers/class-tgm-plugin-activation.php:2077
 #, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1958
+#: ../helpers/class-tgm-plugin-activation.php:2078
 #, php-format
 msgid "The installation of %1$s failed."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1959
+#: ../helpers/class-tgm-plugin-activation.php:2079
 #, php-format
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1960
+#: ../helpers/class-tgm-plugin-activation.php:2080
 msgid "All installations have been completed."
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:1961
+#: ../helpers/class-tgm-plugin-activation.php:2081
 #, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: ../helpers/class-tgm-plugin-activation.php:2052 ../helpers/class-tgm-plugin-
-#: activation.php:2052
-msgid "Return to the Dashboard"
+#: ../helpers/ctc-support.php:5
+msgid "Church Theme Content Plugin is required!"
 msgstr ""
 
-#: ../helpers/ctc-support.php:124
-msgctxt "sermon location name"
-msgid "Locations/Location"
+#: ../helpers/ctc-support.php:8
+msgid "CTC_Extender Plugin is required!"
 msgstr ""
 
-#: ../helpers/ctc-support.php:160
-msgctxt "taxonomy general name"
-msgid "Event Tag"
-msgstr ""
-
-#: ../helpers/ctc-support.php:161
-msgctxt "taxonomy singular name"
-msgid "Event Tag"
-msgstr ""
-
-#: ../helpers/ctc-support.php:162
-msgctxt "people"
-msgid "Search Tags"
-msgstr ""
-
-#: ../helpers/ctc-support.php:163
-msgctxt "people"
-msgid "Popular Tags"
-msgstr ""
-
-#: ../helpers/ctc-support.php:164
-msgctxt "people"
-msgid "All Tags"
-msgstr ""
-
-#: ../helpers/ctc-support.php:167
-msgctxt "people"
-msgid "Edit Tag"
-msgstr ""
-
-#: ../helpers/ctc-support.php:168
-msgctxt "people"
-msgid "Update Tag"
-msgstr ""
-
-#: ../helpers/ctc-support.php:169
-msgctxt "people"
-msgid "Add Tag"
-msgstr ""
-
-#: ../helpers/ctc-support.php:170
-msgctxt "people"
-msgid "New Tag"
-msgstr ""
-
-#: ../helpers/ctc-support.php:171
-msgctxt "people"
-msgid "Separate tags with commas"
-msgstr ""
-
-#: ../helpers/ctc-support.php:172
-msgctxt "people"
-msgid "Add or remove tags"
-msgstr ""
-
-#: ../helpers/ctc-support.php:173
-msgctxt "people"
-msgid "Choose from the most used tags"
-msgstr ""
-
-#: ../helpers/ctc-support.php:174
-msgctxt "event menu name"
-msgid "Tags"
-msgstr ""
-
-#: ../helpers/ctc-support.php:206
-msgctxt "event meta box"
-msgid "Daily"
-msgstr ""
-
-#: ../helpers/ctc-support.php:212
-msgid "Recurrence Period"
-msgstr ""
-
-#: ../helpers/ctc-support.php:215
-msgctxt "event meta box"
-msgid "Recur every N days/weeks/months/years"
-msgstr ""
-
-#: ../helpers/ctc-support.php:233
-msgid "Monthly Recurrence Type"
-msgstr ""
-
-#: ../helpers/ctc-support.php:237
-msgctxt "harvest"
-msgid "On the same day of the month"
-msgstr ""
-
-#: ../helpers/ctc-support.php:238
-msgctxt "harvest"
-msgid "On a specific week of the month"
-msgstr ""
-
-#: ../helpers/ctc-support.php:255
-msgid "Monthly Recurrence Week"
-msgstr ""
-
-#: ../helpers/ctc-support.php:256
-msgctxt "event meta box"
-msgid "Day of the week is the same as Start Date"
-msgstr ""
-
-#: ../helpers/ctc-support.php:308
-#, php-format
-msgid "Every day"
-msgid_plural "Every %d days"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/ctc-support.php:315
-#, php-format
-msgid "Every week"
-msgid_plural "Every %d weeks"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/ctc-support.php:322
-#, php-format
-msgid "Every month"
-msgid_plural "Every %d months"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/ctc-support.php:329
-#, php-format
-msgid "Every year"
-msgid_plural "Every %d years"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/ctc-support.php:338
-#, php-format
-msgctxt "date expression"
-msgid " on the %s"
-msgstr ""
-
-#: ../helpers/ctc-support.php:343
-#, php-format
-msgctxt "date expression"
-msgid " on the %s %s"
-msgstr ""
-
-#: ../helpers/display.php:142
+#: ../helpers/display.php:193
 msgid "Accent Color "
 msgstr ""
 
-#: ../helpers/display.php:150
+#: ../helpers/display.php:201
 msgid "Accent Color"
 msgstr ""
 
-#: ../helpers/display.php:151
+#: ../helpers/display.php:202
 msgid "Choose an accent color to use on this page."
 msgstr ""
 
@@ -849,8 +679,8 @@ msgstr ""
 msgid "Harvest Locations"
 msgstr ""
 
-#: ../helpers/widget_locations.php:74 ../helpers/widget_recent-sermon.php:138 ..
-#: /helpers/widget_weekly-cal.php:271
+#: ../helpers/widget_locations.php:74 ../helpers/widget_recent-sermon.php:137 ..
+#: /helpers/widget_weekly-cal.php:274
 msgid "Title"
 msgstr ""
 
@@ -862,50 +692,151 @@ msgstr ""
 msgid "Recent Sermon"
 msgstr ""
 
-#: ../helpers/widget_recent-sermon.php:142 ../helpers/widget_weekly-cal.php:275
+#: ../helpers/widget_recent-sermon.php:141 ../helpers/widget_weekly-cal.php:278
 msgid "Title Link?"
 msgstr ""
 
-#: ../helpers/widget_recent-sermon.php:145 ../helpers/widget_weekly-cal.php:278
+#: ../helpers/widget_recent-sermon.php:144 ../helpers/widget_weekly-cal.php:281
+msgid "Custom Link?"
+msgstr ""
+
+#: ../helpers/widget_recent-sermon.php:148 ../helpers/widget_weekly-cal.php:285
 msgid "URL"
 msgstr ""
 
-#: ../helpers/widget_recent-sermon.php:149
+#: ../helpers/widget_recent-sermon.php:152
 msgid ""
 "Choose a topic to display. If the <code>Use location</code> option is "
 "checked AND the widget is in a location page, then the most recent message "
 "with a topic matching that location is shown."
 msgstr ""
 
-#: ../helpers/widget_recent-sermon.php:153
+#: ../helpers/widget_recent-sermon.php:156
 msgid ""
 "If selected, when this widget is displayed on a location single post, it "
 "will automatically show the most recent sermon associated with that "
-"particular location if the sermon is given a topic that matches the location"
+"particular location if the sermon is given a topic that matches the location."
+" If the option to link the tile is selected, then the title links to the "
+"sermon archive for that location."
 msgstr ""
 
-#: ../helpers/widget_recent-sermon.php:153 ../helpers/widget_weekly-cal.php:286
+#: ../helpers/widget_recent-sermon.php:156 ../helpers/widget_weekly-cal.php:293
 msgid "Use location"
 msgstr ""
 
-#: ../helpers/widget_weekly-cal.php:8 ../helpers/widget_weekly-cal.php:10
+#: ../helpers/widget_weekly-cal.php:11 ../helpers/widget_weekly-cal.php:13
 msgid "Harvest Weekly Calendar"
 msgstr ""
 
-#: ../helpers/widget_weekly-cal.php:146
+#: ../helpers/widget_weekly-cal.php:138
 msgid "Weekly Calendar"
 msgstr ""
 
-#: ../helpers/widget_weekly-cal.php:282
-msgid ""
-"Choose a tag to display. If the <code>Use location</code> option is checked "
-"AND the widget is in a location page, then the most events with a tag "
-"matching that location will be shown."
+#: ../helpers/widget_weekly-cal.php:210
+#, php-format
+msgid "No events listed for %s"
 msgstr ""
 
-#: ../helpers/widget_weekly-cal.php:286
+#: ../helpers/widget_weekly-cal.php:289
+msgid ""
+"Choose a category to display. If the <code>Use location</code> option is "
+"checked AND the widget is in a location page, then the events with a "
+"category matching that location will be shown."
+msgstr ""
+
+#: ../helpers/widget_weekly-cal.php:293
 msgid ""
 "If selected, when this widget is displayed on a location single post, it "
 "will automatically show the events associated with that particular location "
-"if the event is given a tag that matches the location"
+"if the event is given a category that matches the location. If the option to "
+"link the tile is selected, then the title links to the category archive."
 msgstr ""
+
+#: ../inc/contact_widget.php:13 ../inc/contact_widget.php:15 ..
+#: /inc/contact_widget.php:19
+msgid "Contact Info"
+msgstr ""
+
+#: ../inc/contact_widget.php:68 ../inc/widget_post-post-type.php:96
+msgid "Widget Title:"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:17 ../inc/widget_post-post-type.php:30
+msgid "Widget Posts"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:18 ../inc/widget_post-post-type.php:59
+msgid "Widget Post"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:19 ../inc/widget_post-post-type.php:20
+msgid "Add New"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:21
+msgid "Edit"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:22
+msgid "Edit Widget Post"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:23
+msgid "New Widget Post"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:24 ../inc/widget_post-post-type.php:25
+msgid "View Widget Post"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:26
+msgid "Search widget posts"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:27
+msgid "No widget posts found"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:28
+msgid "No widget posts found in Trash"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:29
+msgid "Parent Widget Post"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:57
+msgid "Display widget posts"
+msgstr ""
+
+#: ../inc/widget_post-post-type.php:98
+msgid "Select Widget Post to display:"
+msgstr ""
+
+#: ../templates/event-details.php:18
+msgid "Details"
+msgstr "Detalles"
+
+#: ../templates/event-details.php:41
+msgid "get directions"
+msgstr "direcciones"
+
+#: ../templates/event-details.php:52
+msgid "Summary"
+msgstr "Resumen"
+
+#: ../templates/location-details.php:23
+msgid "Times &amp; Location"
+msgstr "Horario &amp; Ubicación"
+
+#: ../templates/sermon-details.php:35
+msgid "<b>Date:</b> "
+msgstr "<b>Fecha:</b> "
+
+#: ../templates/sermon-details.php:38
+msgid "<b>Speaker:</b> "
+msgstr "<b>Orador:</b>"
+
+#: ../templates/sermon-details.php:42
+msgid "<b>Series:</b>"
+msgstr "<b>Serie:</b>"

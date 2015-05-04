@@ -132,3 +132,33 @@ function harvest_get_person_data( $post_id ){
 	else
 		return harvest_get_default_data( $post_id ); 
 }
+
+add_action( 'admin_init', 'harvest_metabox_location_slider' , 11);
+add_action( 'admin_enqueue_scripts', 'harvest_metabox_location_slider', 11 );
+function harvest_metabox_location_slider() {
+	$meta_box = array(
+
+		// Meta Box
+		'id'        => 'ctc_location_slider', // unique ID
+		'title'     => __( 'Slider ', 'harvest' ),
+		'post_type' => 'ctc_location',
+		'context'   => 'side', 
+		'priority'  => 'low', 
+
+		// Fields
+		'fields' => array(
+			'_ctc_location_slider' => array(
+				'name'       => __( 'Location slider', 'harvest' ),
+				'desc'       => __( 'Enter the shortcode for the slider to use instead of the image (e.g., <code>[metaslider id=1]</code>).', 'harvest' ), 
+				'type'       => 'text', 
+				'default'    => '', 
+				'no_empty'   => false, 
+				'class'      => 'ctmb-medium', // class(es) to add to input (try ctmb-medium, ctmb-small, ctmb-tiny)
+				'field_class'   => '', // class(es) to add to field container
+			),
+		),
+	);
+	
+	// Add Meta Box
+	new CT_Meta_Box( $meta_box );
+}

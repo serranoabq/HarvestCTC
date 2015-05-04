@@ -50,8 +50,8 @@ class harvest_WeeklyCalendar extends WP_Widget {
 		}
 		
 		$posts = new WP_Query( $query );
+		$events = array();
 		if ( $posts -> have_posts() ){
-			$events = array();
 			while ($posts->have_posts()) :
 				$posts -> the_post();
 				$post_id  = get_the_ID();
@@ -146,7 +146,10 @@ class harvest_WeeklyCalendar extends WP_Widget {
 			$tag = $post->post_name;
 			if( ! $custom_link ){
 				$term = get_term_by( 'slug', $tag, 'ctc_event_category' );
-				$link = get_term_link( intval( $term->term_id ), 'ctc_event_category' );
+				if( $term )
+					$link = get_term_link( intval( $term->term_id ), 'ctc_event_category' );
+				else
+					$link = '';
 			}
 		}
 		

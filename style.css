@@ -647,6 +647,9 @@ i.fa {
 	/*padding-bottom: 177.78%; /* 16x9 */
 	/*padding-bottom: 100%; /* square */
 }
+.ctc-sermon-grid .ctc-grid-full{
+	height: 100%;
+}
 .front-box-widget .box-img,
 .ctc-event-grid .ctc-event-img,
 .ctc-loc-grid .ctc-loc-img,

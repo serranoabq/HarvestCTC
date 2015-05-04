@@ -23,6 +23,14 @@
 		'section' => 'general'
 	);
 	
+	$harvest_theme_options['feed_logo'] = array(
+		'title'   => _x( 'Website RSS Feed Logo ', 'Metabox name', 'harvest' ),
+		'desc'    => __( 'Upload a logo to use in RSS feed. If not spcified, the logo above will be used.', 'harvest' ),
+		'std'     => '',
+		'type'    => 'upload',
+		'section' => 'general'
+	);
+	
 	$harvest_theme_options['logo_name'] = array(
 		'title'   => _x( 'Display site name', 'Metabox name', 'harvest' ),
 		'desc'    => __( 'Optionally display the site name next to the logo.', 'harvest' ),

@@ -43,11 +43,13 @@
 			$i = 1;
 			while ( $query->have_posts() ) : $query->the_post();
 				$mpost_id = get_the_ID();
+				$topic = array_pop( explode( '/', ctcex_get_option( 'ctc-sermon-topic' , __( 'topic', 'harvest' ) ) ) );
+				$series = array_pop( explode( '/', ctcex_get_option( 'ctc-sermon-series' , __( 'series', 'harvest' ) ) ) );
 				if( $mpost_id == $post_id ) continue;
 				if( $i == 1 ):
 ?>
 			<div class="grid-100 ctc-sermon-grid-title ctc-sermon-others">
-				<h2><?php echo  __( 'Other messages from this ', 'harvest') . strtolower( harvest_option( 'ctc-sermon-series' , 'series' ) ) . ( $data['topic'] ? ' and ' . strtolower( harvest_option( 'ctc-sermon-topic' , 'topic' ) ) : '' ); ?></h2>
+				<h2><?php echo  __( 'Other messages from this ', 'harvest') . strtolower( $series ) . ( $data['topic'] ? ' and ' . strtolower( $topic ) : '' ); ?></h2>
 			</div>
 			
 <?php		endif; // $i == 1? ?>

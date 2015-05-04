@@ -36,6 +36,24 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 			'orderby' => 'date',
 			'posts_per_page' => 9,
 		);
+		
+		$topic_option = ctcex_get_option( 'ctc-sermon-topic' );
+		if( !empty( $topic_option ) && ! isset( $qv['ctc_sermon_topic' ] ) ) {
+			// Set the first location as the default
+			$locs = get_terms( 'ctc_sermon_topic', array( 'order_by' => 'id', 'order' => 'DESC') );
+			$min_loc_slug = $locs[0]->slug;
+			if( !empty( $min_loc_slug ) ){
+				$tax_query = array(
+					array(
+						'taxonomy' => 'ctc_sermon_topic',
+						'field'    => 'slug',
+						'terms'    => $min_loc_slug
+					)
+				);
+				$args[ 'tax_query' ] = $tax_query;
+			}
+		}
+		
 		$query_term = array_merge( $args, $query_term ); 
 		$wp_query = new WP_Query( $query_term );	
 

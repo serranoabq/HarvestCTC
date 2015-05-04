@@ -66,25 +66,12 @@ function harvest_register_required_plugins() {
 		),
 		
 		array(
-			'name' => 'Meteor Slides',
-			'slug' => 'meteor-slides',
-			'required' => false
-		),
-		
-		array(
 			'name' => 'CTC Extender',
 			'slug' => 'ctc-extender',
 			'required' => true,
 			'source' => 'https://github.com/serranoabq/ctc-extender/releases/download/v1.0.1/ctc-extender.zip',
 			'external_url' => 'https://github.com/serranoabq/ctc-extender',
 		),
-		
-		array(
-			'name' => 'Kirki',
-			'slug' => 'kirki',
-			'required' => true
-		),
-		
 		
 	);
 	$config = array();
