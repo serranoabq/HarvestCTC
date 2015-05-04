@@ -56,7 +56,7 @@ function harvest_itunes_head() {
 	add_filter( 'the_content_feed', 'harvest_rss_post_thumbnail' );
 	function harvest_rss_post_thumbnail( $content ) {
 		global $post;
-		$content = '<p>' . harvest_getImage( $post->ID ) . '</p>' . $content;
+		$content = '<p><img src="' . harvest_getImage( $post->ID ) . '"/></p>' . $content;
 		
 		return $content;
 	}
