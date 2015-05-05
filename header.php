@@ -12,7 +12,8 @@
 <!--[if IE 7]>     <html class="ie ie7" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 8]>     <html class="ie ie8" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 9]>     <html class="ie ie9" <?php language_attributes(); ?>> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html <?php language_attributes(); ?>> <!--<![endif]-->
+<!--[if (gte IE 9)]>  <html class="ie" <?php language_attributes(); ?>> <![endif]-->
+<!--[if !(IE)]><!--><html <?php language_attributes(); ?>> <!--<![endif]-->
 <head>
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
