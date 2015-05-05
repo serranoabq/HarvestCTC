@@ -1,7 +1,7 @@
 <?php
 	/* Sermon details */
 	$post_id = get_the_ID();
-	$data = harvest_get_sermon_data( $post_id );
+	$data = harvest_get_sermon_data( $post_id, harvest_option( 'logo' ) );
 ?>
 		
 				<div class="grid-60 push-40 ctc-sermon-media">

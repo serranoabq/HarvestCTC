@@ -676,7 +676,8 @@ i.fa {
 .ctc-sermon-logo {
 	position: relative;
 	padding-bottom: 56.25%;
-	margin-bottom: 20px;
+	margin: 5px 5px 20px;
+	width: calc(100% - 10px);
 }
 .ctc-sermon-logo .ctc-sermon-img {
 	position: absolute;

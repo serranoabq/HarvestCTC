@@ -66,7 +66,9 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 		global $wp_query;
 		$query_term = $wp_query->query;
 
-		if( 'ctc_event' != $query_term['post_type'] ) return;
+		if( 'ctc_event' != $query_term['post_type'] ) {
+			if( empty( $query_term['ctc_event_category'] ) ) return;
+		}
 		
 		$args = array(
 			'order' => 'ASC',
