@@ -4,9 +4,21 @@
 	// iTunes enhancements
 
 function harvest_podcast_description(){
+	global $wp_query;
+	$query = $wp_query->query;
 	$site_desc = bloginfo( 'description' );
 	$pod_desc = harvest_option('podcast_desc');
-	
+	$term_desc = '';
+	if( is_user_logged_in() ){
+	if( isset( $query['ctc_sermon_topic'] )){
+		$term = get_term_by( 'slug', $query['ctc_sermon_topic'], 'ctc_sermon_topic' );
+		$term_desc = $term->description;
+	}
+	}
+	if( !empty($term_desc) ) return $term_desc;
+	if( !empty($pod_desc) ) return $pod_desc;
+	if( !empty($site_desc) ) return $site_desc;
+	return '';
 }
 	
 // Add namespace
@@ -17,12 +29,13 @@ function harvest_itunes_namespace() {
 
 add_filter('rss2_head', 'harvest_itunes_head');
 function harvest_itunes_head() {
-	if( harvest_option( 'podcast_author' ) ) 
+		$desc = harvest_podcast_description();
+if( harvest_option( 'podcast_author' ) ) 
 			echo '
 	<itunes:author>'. harvest_option( 'podcast_author' ) . '</itunes:author>';
-	if( harvest_option( 'podcast_desc' ) ) 
+	if( $desc ) 
 			echo '
-	<itunes:summary>'. harvest_option('podcast_desc') . '</itunes:summary>';
+	<itunes:summary>'. $desc . '</itunes:summary>';
 	if( harvest_option('podcast_image') )
 			echo '
 	<itunes:image href="'. harvest_option('podcast_image' ) . '"/>';
@@ -68,7 +81,7 @@ function harvest_itunes_head() {
 	?>
 		<feed>
 			<icon><?php echo harvest_option( 'favicon' ); ?></icon>
-			<logo><?php echo harvest_option( 'logo' ); ?></logo>
+			<logo><?php echo harvest_option( 'feed_logo' ) ? harvest_option( 'feed_logo' ) : harvest_option( 'logo' ); ?></logo>
 		</feed>
 	<?php }
 
@@ -78,10 +91,10 @@ function harvest_itunes_head() {
 	function harvest_rss_feed_add_icon($text) { 
 	?>
 		<image>
-			<url><?php echo harvest_option( 'logo' ); ?></url>
+			<url><?php echo harvest_option( 'feed_logo' ) ? harvest_option( 'feed_logo' ) : harvest_option( 'logo' ); ?></url>
 			<title><?php wp_title( '|', true, 'right' ); ?></title>
 			<link><?php bloginfo_rss( 'url' ); ?></link>
-			<description><?php echo harvest_option( 'podcast_desc' ); ?></description>
+			<description><?php echo harvest_podcast_description(); ?></description>
 		</image>
 <?php 
 	} 

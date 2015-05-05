@@ -638,6 +638,10 @@ i.fa {
 .ctc-sermon-media .ctc-sermon {
 	padding-bottom: calc(56.25% + 50px);
 }
+.ctc-sermon-media .ctc-sermon {
+	padding-bottom: calc(56.25% - 5px);
+	padding-top: 5px;
+}
 .front-box-widget .box{
 	padding-bottom: calc(56.25% + 5px);
 }
@@ -646,9 +650,6 @@ i.fa {
 	/*padding-bottom: calc(150% + 65px); /* 4x6 */
 	/*padding-bottom: 177.78%; /* 16x9 */
 	/*padding-bottom: 100%; /* square */
-}
-.ctc-sermon-grid .ctc-grid-full{
-	height: 100%;
 }
 .front-box-widget .box-img,
 .ctc-event-grid .ctc-event-img,
@@ -666,6 +667,11 @@ i.fa {
 	-moz-transform: translate(-50%,0) scale(1.0);
 	transform: translate(-50%,0) scale(1.0);
 	padding:5px;
+}
+.ctc-sermon-grid .ctc-grid-full{
+	width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  margin-top: 5px;
 }
 .ctc-sermon-logo {
 	position: relative;
@@ -885,24 +891,31 @@ a.ctc-url:before {
 	height: 320px;
 	
 }
-.ctc-grid-full h1 {
+.ctc-grid-full h1,
+.ctc-grid-full .ctc-sermon-name {
 	margin: 0 auto;
-	-ms-transform: translate(-50%, -50% ) !important;
-	-webkit-transform: translate(-50%, -50% ) !important;
-	-moz-transform: translate(-50%, -50% ) !important;
-	transform: translate(-50%, -50% ) !important;
+	-ms-transform: translate(-50%, -50%) !important;
+	-webkit-transform: translate(-50%, -50%) !important;
+	-moz-transform: translate(-50%, -50%) !important;
+	transform: translate(-50%, -50%) !important;
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	font-size: 3vmax;
+	font-size: 3vh;
 	text-align: center;
 	line-height: initial;
 }
+.ctc-sermon-media .ctc-grid-full {
+	padding-bottom: calc(56.25% - 10px);
+  width: calc(100% - 10px);
+  margin-left: 5px;
+}
 .ctc-sermon-media .ctc-grid-full h1 {
 	font-size: 200%;
+	line-height: 1.25em;
 }
 
-/* Inpus */
+/* Inputs */
 input, textarea, select {
 	/*float:left;*/
 	border:solid 1px #c3c3c3;
