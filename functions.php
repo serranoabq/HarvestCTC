@@ -50,8 +50,9 @@ function harvest_setup(){
 	// Translation
 	load_theme_textdomain( 'harvest', get_template_directory() . '/lang' );
 	
-	if(is_user_logged_in()){
-		ctcex_update_recurring_events();
+	if( is_user_logged_in() ){
+		if( function_exists( 'ctcex_update_recurring_events' ) ) 
+			ctcex_update_recurring_events();
 	} 
 
 }
