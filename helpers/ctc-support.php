@@ -16,9 +16,9 @@ function harvest_add_ctc(){
 	}
 	if( ! class_exists( 'CTC_Extender' ) ) {
 		add_action( 'admin_notices', 'harvest_ctcex_notice' );
-		function ctcex_get_option( $option ){
-			return '';
-		}
+		//function ctcex_get_option( $option ){
+		//	return '';
+		//}
 		return;
 	}
 	
