@@ -175,15 +175,6 @@ function harvest_deregister_scripts() {
 	global $post;
 	
 	if( is_a( $post, 'WP_Post' ) ) {
-		// Meteor Slides
-		if ( ! has_shortcode( $post->post_content, 'meteor-slides' ) ){
-			wp_deregister_style( 'meteor-slides' );
-			wp_deregister_script( 'jquery-cycle' );
-			wp_deregister_script( 'jquery-touchwipe' );
-			wp_deregister_script( 'jquery-metadata' );
-			wp_deregister_script( 'meteorslides-script' );
-		}
-		
 		// Contact Form 7
 		if ( ! has_shortcode( $post->post_content, 'contact-form-7' ) ){
 			wp_deregister_script( 'contact-form-7' );
@@ -201,6 +192,8 @@ function harvest_option( $option, $default = false ) {
 	$options = get_option( $theme_safename . '-options' );
 	if ( isset( $options[ $option ] ) )
 		return $options[ $option ];
+	elseif( class_exists( 'CTC_Extender' ) )
+		return ctcex_get_option( $option, $default );
 	else
 		return $default;
 }
@@ -222,7 +215,7 @@ function harvest_wp_title( $title, $sep ) {
 	// Taxonomies
 	if ( is_tax( 'ctc_sermon_series') )
 		$tagline = sprintf( '%s: %s',
-			ctcex_get_option( 'ctc-sermon-series', _x( 'Series', 'Page title', 'harvest' ) ),
+			harvest_option( 'ctc-sermon-series', _x( 'Series', 'Page title', 'harvest' ) ),
 			single_tag_title( '', false ) ); 
 	if ( is_tax( 'ctc_sermon_speaker') ) 
 		$tagline = sprintf( _x( 'Speaker: %s', 'Page title', 'harvest' ), single_tag_title( '', false ) ); 
@@ -230,7 +223,7 @@ function harvest_wp_title( $title, $sep ) {
 		$tagline = sprintf( _x( '%s Events', 'Page title', 'harvest' ), single_tag_title( '', false ) ); 
 	if ( is_tax( 'ctc_sermon_topic') ) {
 		$tagline = sprintf( '%s: %s',
-			ctcex_get_option( 'ctc-sermon-topic', _x( 'Topic', 'Page title', 'harvest' ) ),
+			harvest_option( 'ctc-sermon-topic', _x( 'Topic', 'Page title', 'harvest' ) ),
 			single_tag_title( '', false ) ); 
 			
 	}
@@ -244,13 +237,13 @@ function harvest_wp_title( $title, $sep ) {
 	if ( is_month() ) 
 		$tagline =  sprintf( __( 'Archive | %s', 'harvest' ), get_the_time('F') ); 
 	if ( is_post_type_archive( 'ctc_location' ) ) {
-		$tagline =  ctcex_get_option ( 'ctc-locations', __( 'Locations', 'harvest') );
+		$tagline =  harvest_option ( 'ctc-locations', __( 'Locations', 'harvest') );
 	}
 	if ( is_post_type_archive( 'ctc_sermon' ) ) {
-		$tagline =  ctcex_get_option( 'ctc-sermons' , __( 'Sermons', 'harvest' ) );
+		$tagline =  harvest_option( 'ctc-sermons' , __( 'Sermons', 'harvest' ) );
 	}
 	if ( is_post_type_archive( 'ctc_event' ) ) {
-		$tagline =  ctcex_get_option ( 'ctc-events' , __( 'Events', 'harvest' ) );
+		$tagline =  harvest_option ( 'ctc-events' , __( 'Events', 'harvest' ) );
 	}
 	
 	$title = $name;

@@ -8,14 +8,14 @@
 	foreach ($tags as $option) {
 		$a_tags[] = sprintf( '<option value="%s">%s</option>', get_term_link( intval( $option->term_id ), 'ctc_sermon_topic' ), $option->name );
 	}
-	$title = array_pop( explode( '/', ctcex_get_option( 'ctc-sermon-topic' , __( 'Topic', 'harvest' ) ) ) );
+	$title = array_pop( explode( '/', harvest_option( 'ctc-sermon-topic' , __( 'Topic', 'harvest' ) ) ) );
 	array_unshift( $a_tags, sprintf( '<option value="">' . __( 'Choose a %s', 'harvest' ) . '</option>', $title ) );
 	$s_tags = implode('', $a_tags);
 	
 	global $paged; 
 	if( empty($paged) ) $paged = 1;
 	
-	$title = array_shift( explode( '/', ctcex_get_option( 'ctc-sermons' , __( 'Sermons', 'harvest' ) ) ) );
+	$title = array_shift( explode( '/', harvest_option( 'ctc-sermons' , __( 'Sermons', 'harvest' ) ) ) );
 	harvest_title_bar( $title );
 ?>
 		

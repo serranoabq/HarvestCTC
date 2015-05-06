@@ -43,8 +43,8 @@
 			$i = 1;
 			while ( $query->have_posts() ) : $query->the_post();
 				$mpost_id = get_the_ID();
-				$topic = array_pop( explode( '/', ctcex_get_option( 'ctc-sermon-topic' , __( 'topic', 'harvest' ) ) ) );
-				$series = array_pop( explode( '/', ctcex_get_option( 'ctc-sermon-series' , __( 'series', 'harvest' ) ) ) );
+				$topic = array_pop( explode( '/', harvest_option( 'ctc-sermon-topic' , __( 'topic', 'harvest' ) ) ) );
+				$series = array_pop( explode( '/', harvest_option( 'ctc-sermon-series' , __( 'series', 'harvest' ) ) ) );
 				if( $mpost_id == $post_id ) continue;
 				if( $i == 1 ):
 ?>

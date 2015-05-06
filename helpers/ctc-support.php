@@ -2,7 +2,7 @@
 // Add Church Theme Content support
 
 function harvest_ctc_notice(){
-	echo '<div class="error"><p>'. __( 'Church Theme Content Plugin is required!', 'harvest' ).'</p></div>';
+	echo '<div class="error"><p><a href="http://localhost/wp-admin/plugin-install.php?tab=plugin-information&plugin=church-theme-content&TB_iframe=true&width=600&height=550">'. __( 'Church Theme Content Plugin is required!', 'harvest' ).'</a></p></div>';
 }
 function harvest_ctcex_notice(){
 	echo '<div class="error"><p>'. __( 'CTC_Extender Plugin is required!', 'harvest' ).'</p></div>';
@@ -16,10 +16,6 @@ function harvest_add_ctc(){
 	}
 	if( ! class_exists( 'CTC_Extender' ) ) {
 		add_action( 'admin_notices', 'harvest_ctcex_notice' );
-		//function ctcex_get_option( $option ){
-		//	return '';
-		//}
-		return;
 	}
 	
 	add_theme_support( 'church-theme-content' );
@@ -89,7 +85,10 @@ function harvest_add_ctc(){
 
 // This helper is used to get an expression for recurrence
 function harvest_get_recurrence_note( $post_obj ) {
-	return ctcex_get_recurrence_note ( $post_obj );
+	if( class_exists( 'CTC_Extender' ) )
+		return ctcex_get_recurrence_note ( $post_obj );
+	else
+		return '';
 }
 
 function harvest_get_default_data( $post_id ) {
@@ -160,5 +159,6 @@ function harvest_metabox_location_slider() {
 	);
 	
 	// Add Meta Box
-	new CT_Meta_Box( $meta_box );
+	if( class_exists( 'CT_Meta_Box' ) )
+		new CT_Meta_Box( $meta_box );
 }

@@ -43,7 +43,7 @@
 <?php endif; // ser_series ?>
 
 <?php if( $data[ 'topic' ] ): ?>
-					<div class="grid-ctc-sermon-topic"><b><?php echo ucfirst( array_pop( explode( '/', ctcex_get_option( 'ctc-sermon-topic' , __( 'Topic', 'harvest') ) ) ) ); ?>:</b> <a href="<?php echo $data[ 'topic_link' ]; ?>">  <?php echo $data[ 'topic' ]; ?></a></div>				
+					<div class="grid-ctc-sermon-topic"><b><?php echo ucfirst( array_pop( explode( '/', harvest_option( 'ctc-sermon-topic' , __( 'Topic', 'harvest') ) ) ) ); ?>:</b> <a href="<?php echo $data[ 'topic_link' ]; ?>">  <?php echo $data[ 'topic' ]; ?></a></div>				
 <?php endif; // topic ?>
 
 <?php if( $data[ 'audio' ] && $data[ 'video' ] ): ?>

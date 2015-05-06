@@ -2,7 +2,7 @@
 	/* Location archive */
 	
 	get_header(); 
-	$title = array_pop( explode( '/', ctcex_get_option( 'ctc-locations' , __( 'Locations', 'harvest' ) ) ) );
+	$title = array_pop( explode( '/', harvest_option( 'ctc-locations' , __( 'Locations', 'harvest' ) ) ) );
 	harvest_title_bar( $title );
 ?>
 		

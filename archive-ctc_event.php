@@ -9,7 +9,7 @@
 	array_unshift( $a_tags, '<option value="">'. __( 'Choose a category', 'harvest' ) . '</option>' );
 	$s_tags = implode('', $a_tags);
 	
-	$title = array_shift( explode( '/', ctcex_get_option( 'ctc-events' , __( 'Events', 'harvest' ) ) ) );
+	$title = array_shift( explode( '/', harvest_option( 'ctc-events' , __( 'Events', 'harvest' ) ) ) );
 	harvest_title_bar( $title );
 ?>
 		

@@ -16,7 +16,7 @@
 	
 	$select = "<select onChange=\"window.location = jQuery(this).find('option:selected').val();\">$s_tags;</select>";
 	
-	$title = array_pop( explode( '/', ctcex_get_option( 'ctc-sermon-topic' , __( 'Topic', 'harvest' ) ) ) );
+	$title = array_pop( explode( '/', harvest_option( 'ctc-sermon-topic' , __( 'Topic', 'harvest' ) ) ) );
 	harvest_title_bar( sprintf( '%s: %s', $title, $term->name )	);
 	
 ?>

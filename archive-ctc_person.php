@@ -2,7 +2,7 @@
 	/* People archive */
 	
 	get_header(); 
-	$title = array_shift( explode( '/', ctcex_get_option( 'ctc-people' , __( 'People', 'harvest' ) ) ) );
+	$title = array_shift( explode( '/', harvest_option( 'ctc-people' , __( 'People', 'harvest' ) ) ) );
 	harvest_title_bar( $title );
 ?>
 		
