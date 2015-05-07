@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: harvest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-08 10:18-0700\n"
-"PO-Revision-Date: Sun May 03 2015 00:53:33 GMT-0600 (Mountain Daylight Time)\n"
+"PO-Revision-Date: Thu May 07 2015 08:46:56 GMT-0600 (Mountain Daylight Time)\n"
 "Last-Translator: Harvest Fellowship <serranoabq+harvest@gmail.com>\n"
 "Language-Team: \n"
 "Language: Spanish (Spain)\n"
@@ -23,7 +23,7 @@ msgstr ""
 
 #: ../404.php:4
 msgid "Page Not Found"
-msgstr ""
+msgstr "Página No Encontrada"
 
 #: ../404.php:12 ../old.php:14
 msgid ""
@@ -41,11 +41,11 @@ msgstr ""
 msgid "Choose a category"
 msgstr "Eliga una categoría"
 
-#: ../archive-ctc_event.php:12 ../functions.php:248
+#: ../archive-ctc_event.php:12 ../functions.php:246
 msgid "Events"
 msgstr "Eventos"
 
-#: ../archive-ctc_location.php:5 ../functions.php:242 ../template-locations.php:11
+#: ../archive-ctc_location.php:5 ../functions.php:240 ../template-locations.php:11
 msgid "Locations"
 msgstr "Ubicaciones"
 
@@ -63,7 +63,7 @@ msgstr "Tema"
 msgid "Choose a %s"
 msgstr "Eliga una %s"
 
-#: ../archive-ctc_sermon.php:18 ../functions.php:245
+#: ../archive-ctc_sermon.php:18 ../functions.php:243
 msgid "Sermons"
 msgstr "Sermones"
 
@@ -78,7 +78,7 @@ msgstr "Archivo"
 #: ../footer.php:35
 #, php-format
 msgid "&copy; Copyright %d %s"
-msgstr ""
+msgstr "&copy; Derechos Reservados %d %s"
 
 #: ../functions.php:25
 msgid "Header Menu"
@@ -88,47 +88,47 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: ../functions.php:220
+#: ../functions.php:218
 msgctxt "Page title"
 msgid "Series"
 msgstr "Serie"
 
-#: ../functions.php:223
+#: ../functions.php:221
 #, php-format
 msgctxt "Page title"
 msgid "Speaker: %s"
 msgstr "Orador: %s"
 
-#: ../functions.php:225
+#: ../functions.php:223
 #, php-format
 msgctxt "Page title"
 msgid "%s Events"
 msgstr "Eventos"
 
-#: ../functions.php:228
+#: ../functions.php:226
 msgctxt "Page title"
 msgid "Topic"
 msgstr "Tema"
 
-#: ../functions.php:234
+#: ../functions.php:232
 msgid "Search Results"
 msgstr "Resultados de B&uacute;squeda"
 
-#: ../functions.php:236
+#: ../functions.php:234
 msgid "Author Archive"
 msgstr "Archivo de Autor"
 
-#: ../functions.php:238
+#: ../functions.php:236
 #, php-format
 msgid "Archive: %s"
 msgstr "Archivo: %s"
 
-#: ../functions.php:240
+#: ../functions.php:238
 #, php-format
 msgid "Archive | %s"
 msgstr "Archivo | %s"
 
-#: ../header.php:66
+#: ../header.php:67
 msgid "Menu"
 msgstr "Menú"
 
@@ -136,7 +136,15 @@ msgstr "Menú"
 msgid "Page Not found"
 msgstr "Página no encontrada"
 
-#: ../single-ctc_sermon.php:50 ../taxonomy-ctc_sermon_topic.php:49
+#: ../single-ctc_sermon.php:46
+msgid "topic"
+msgstr "tema"
+
+#: ../single-ctc_sermon.php:47
+msgid "series"
+msgstr "serie"
+
+#: ../single-ctc_sermon.php:52 ../taxonomy-ctc_sermon_topic.php:49
 msgid "Other messages from this "
 msgstr "Otros mensajes de esta"
 
@@ -245,103 +253,114 @@ msgstr ""
 
 #: ../admin/harvest-options.php:27
 msgctxt "Metabox name"
-msgid "Display site name"
+msgid "Website RSS Feed Logo "
 msgstr ""
 
 #: ../admin/harvest-options.php:28
-msgid "Optionally display the site name next to the logo."
+msgid ""
+"Upload a logo to use in RSS feed. If not spcified, the logo above will be "
+"used."
 msgstr ""
 
 #: ../admin/harvest-options.php:35
 msgctxt "Metabox name"
-msgid "Site Name CSS"
+msgid "Display site name"
 msgstr ""
 
 #: ../admin/harvest-options.php:36
+msgid "Optionally display the site name next to the logo."
+msgstr ""
+
+#: ../admin/harvest-options.php:43
+msgctxt "Metabox name"
+msgid "Site Name CSS"
+msgstr ""
+
+#: ../admin/harvest-options.php:44
 msgid ""
 "Enter any specific styling for the logo name. Check the <code>."
 "logo_name</code> style in the theme stylesheet for reference."
 msgstr ""
 
-#: ../admin/harvest-options.php:43
+#: ../admin/harvest-options.php:51
 msgctxt "Metabox name"
 msgid "Favicon"
 msgstr ""
 
-#: ../admin/harvest-options.php:44
-msgid "Upload a 16x16 png or gif icon for your site."
-msgstr ""
-
-#: ../admin/harvest-options.php:51
-msgctxt "Metabox name"
-msgid "Default city"
-msgstr ""
-
 #: ../admin/harvest-options.php:52
-msgid "Enter the city for your church."
+msgid "Upload a 16x16 png or gif icon for your site."
 msgstr ""
 
 #: ../admin/harvest-options.php:59
 msgctxt "Metabox name"
-msgid "Slider"
+msgid "Default city"
 msgstr ""
 
 #: ../admin/harvest-options.php:60
+msgid "Enter the city for your church."
+msgstr ""
+
+#: ../admin/harvest-options.php:67
+msgctxt "Metabox name"
+msgid "Slider"
+msgstr ""
+
+#: ../admin/harvest-options.php:68
 msgid ""
 "Enter the shortcode a homepage slider (e.g. <code>[masterslider "
 "id=\"1\"]</code>)"
 msgstr ""
 
-#: ../admin/harvest-options.php:67
+#: ../admin/harvest-options.php:75
 msgctxt "Metabox name"
 msgid "Primary Accent Color"
 msgstr ""
 
-#: ../admin/harvest-options.php:68
+#: ../admin/harvest-options.php:76
 msgid ""
 "Choose the default accent color for the theme. This color appears in the "
 "title bars of post and pages. "
 msgstr ""
 
-#: ../admin/harvest-options.php:75
+#: ../admin/harvest-options.php:83
 msgctxt "Metabox name"
 msgid "Secondary Accent Color"
 msgstr ""
 
-#: ../admin/harvest-options.php:76
+#: ../admin/harvest-options.php:84
 msgid ""
 "Choose the secondary accent color for the theme. This color is used on the "
 "title bar of widgets in the body of the homepage, and location pages."
 msgstr ""
 
-#: ../admin/harvest-options.php:83
+#: ../admin/harvest-options.php:91
 msgctxt "Metabox name"
 msgid "Homepage Bottom Widget Area Layout"
 msgstr ""
 
-#: ../admin/harvest-options.php:84
+#: ../admin/harvest-options.php:92
 msgid "Choose the layout for your homepage widget area."
 msgstr ""
 
-#: ../admin/harvest-options.php:226
+#: ../admin/harvest-options.php:234
 msgid "Podcast Description"
 msgstr ""
 
-#: ../admin/harvest-options.php:234
+#: ../admin/harvest-options.php:242
 msgid "Podcast Image"
 msgstr ""
 
-#: ../admin/harvest-options.php:237
+#: ../admin/harvest-options.php:245
 msgid ""
 "Logo or image to use in the podcast directory. iTunes requires this to be a "
 "1400 x 1400 PNG or JPG ending in .png or .jpg"
 msgstr ""
 
-#: ../admin/harvest-options.php:242
+#: ../admin/harvest-options.php:250
 msgid "Podcast Author"
 msgstr ""
 
-#: ../admin/harvest-options.php:245
+#: ../admin/harvest-options.php:253
 msgid "Name to use in the podcast directory. This is applied to ALL feeds."
 msgstr ""
 
@@ -647,15 +666,29 @@ msgstr ""
 msgid "CTC_Extender Plugin is required!"
 msgstr ""
 
-#: ../helpers/display.php:193
+#: ../helpers/ctc-support.php:142
+msgid "Slider "
+msgstr ""
+
+#: ../helpers/ctc-support.php:150
+msgid "Location slider"
+msgstr ""
+
+#: ../helpers/ctc-support.php:151
+msgid ""
+"Enter the shortcode for the slider to use instead of the image (e.g., "
+"<code>[metaslider id=1]</code>)."
+msgstr ""
+
+#: ../helpers/display.php:213
 msgid "Accent Color "
 msgstr ""
 
-#: ../helpers/display.php:201
+#: ../helpers/display.php:221
 msgid "Accent Color"
 msgstr ""
 
-#: ../helpers/display.php:202
+#: ../helpers/display.php:222
 msgid "Choose an accent color to use on this page."
 msgstr ""
 
@@ -690,7 +723,7 @@ msgstr ""
 
 #: ../helpers/widget_recent-sermon.php:18
 msgid "Recent Sermon"
-msgstr ""
+msgstr "Sermón Más Reciente"
 
 #: ../helpers/widget_recent-sermon.php:141 ../helpers/widget_weekly-cal.php:278
 msgid "Title Link?"
@@ -730,12 +763,12 @@ msgstr ""
 
 #: ../helpers/widget_weekly-cal.php:138
 msgid "Weekly Calendar"
-msgstr ""
+msgstr "Calendario Semanal"
 
 #: ../helpers/widget_weekly-cal.php:210
 #, php-format
 msgid "No events listed for %s"
-msgstr ""
+msgstr "Ningún evento listado para %s"
 
 #: ../helpers/widget_weekly-cal.php:289
 msgid ""
@@ -750,67 +783,6 @@ msgid ""
 "will automatically show the events associated with that particular location "
 "if the event is given a category that matches the location. If the option to "
 "link the tile is selected, then the title links to the category archive."
-msgstr ""
-
-#: ../inc/contact_widget.php:13 ../inc/contact_widget.php:15 ..
-#: /inc/contact_widget.php:19
-msgid "Contact Info"
-msgstr ""
-
-#: ../inc/contact_widget.php:68 ../inc/widget_post-post-type.php:96
-msgid "Widget Title:"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:17 ../inc/widget_post-post-type.php:30
-msgid "Widget Posts"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:18 ../inc/widget_post-post-type.php:59
-msgid "Widget Post"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:19 ../inc/widget_post-post-type.php:20
-msgid "Add New"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:21
-msgid "Edit"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:22
-msgid "Edit Widget Post"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:23
-msgid "New Widget Post"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:24 ../inc/widget_post-post-type.php:25
-msgid "View Widget Post"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:26
-msgid "Search widget posts"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:27
-msgid "No widget posts found"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:28
-msgid "No widget posts found in Trash"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:29
-msgid "Parent Widget Post"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:57
-msgid "Display widget posts"
-msgstr ""
-
-#: ../inc/widget_post-post-type.php:98
-msgid "Select Widget Post to display:"
 msgstr ""
 
 #: ../templates/event-details.php:18
@@ -840,3 +812,11 @@ msgstr "<b>Orador:</b>"
 #: ../templates/sermon-details.php:42
 msgid "<b>Series:</b>"
 msgstr "<b>Serie:</b>"
+
+#: ../templates/sermon-details.php:50
+msgid "<b>Audio:</b>"
+msgstr ""
+
+#: ../templates/sermon-details.php:50
+msgid "Download audio"
+msgstr "Descargar audio"
