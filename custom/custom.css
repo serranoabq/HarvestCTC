@@ -11,6 +11,12 @@ your liking.
 
 */
 
+dt {
+	font-weight: bold;
+}
+dd {
+	margin-left: 1em;
+}
 
 /* Dont forget the media queries! */
 /* Phone portrait (<320) */
