@@ -80,6 +80,15 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 				array(
 					'key' => '_ctc_event_end_date',
 					'value' => date_i18n( 'Y-m-d' ), // today localized
+<<<<<<< HEAD
+=======
+					'compare' => '>=', // later than today
+					'type' => 'DATE',
+				),
+				array(
+					'key' => '_ctc_event_end_time',
+					'value' => date_i18n( 'H:i:s' ), // today localized
+>>>>>>> parent of 935fdbf... Time fix?
 					'compare' => '>=', // later than today
 					'type' => 'DATE',
 				),
