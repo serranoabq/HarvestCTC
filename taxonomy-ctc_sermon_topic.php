@@ -11,12 +11,12 @@
 	foreach ($tags as $option) {
 		$a_tags[] = sprintf( '<option value="%s" %s>%s</option>', get_term_link( intval( $option->term_id ), 'ctc_sermon_topic' ), ($option->term_id == $term->term_id ? 'selected': '' ),$option->name );
 	}
-	array_unshift( $a_tags, sprintf( '<option value="">Choose a %s</option>', harvest_option( 'ctc-sermon-topic', 'Topic' ) ) );
+	$title = array_pop( explode( '/', harvest_option( 'ctc-sermon-topic' , __( 'Topic', 'harvest' ) ) ) );
+	array_unshift( $a_tags, sprintf( '<option value="">Choose a %s</option>', $title ) );
 	$s_tags = implode('', $a_tags);
 	
 	$select = "<select onChange=\"window.location = jQuery(this).find('option:selected').val();\">$s_tags;</select>";
 	
-	$title = array_pop( explode( '/', harvest_option( 'ctc-sermon-topic' , __( 'Topic', 'harvest' ) ) ) );
 	harvest_title_bar( sprintf( '%s: %s', $title, $term->name )	);
 	
 ?>
