@@ -78,8 +78,8 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 			'posts_per_page' => 9,
 			'meta_query' => array(
 				array(
-					'key' => '_ctc_event_end_date',
-					'value' => date_i18n( 'Y-m-d' ), // today localized
+					'key' => '_ctc_event_end_date_end_time',
+					'value' => date_i18n( 'Y-m-d H:i:s' ), // today localized
 					'compare' => '>=', // later than today
 					'type' => 'DATE',
 				),
