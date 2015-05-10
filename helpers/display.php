@@ -83,6 +83,12 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 					'compare' => '>=', // later than today
 					'type' => 'DATE',
 				),
+				array(
+					'key' => '_ctc_event_end_time',
+					'value' => date_i18n( 'H:i:s' ), // today localized
+					'compare' => '>=', // later than today
+					'type' => 'DATE',
+				),
 			)
 		);
 		$query_term = array_merge( $args, $query_term ); 
