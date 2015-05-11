@@ -115,8 +115,9 @@ function harvest_get_default_data( $post_id ) {
 
 // Get sermon data for use in templates
 function harvest_get_sermon_data( $post_id ){
-	$default_img =  harvest_option( 'logo', '' ); 
-	if( class_exists( 'CTC_Extender' ) )
+	$default_img = harvest_option( 'feed_logo', '');
+	if( empty( $default_img ) ) $default_img = harvest_option( 'logo', '' );
+	if( class_exists( 'CTC_Extender' ) )		
 		return ctcex_get_sermon_data( $post_id, $default_img );
 	else
 		return harvest_get_default_data( $post_id ); 

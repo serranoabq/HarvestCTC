@@ -1,9 +1,7 @@
 <?php
 	/* Sermon details */
 	$post_id = get_the_ID();
-	$img = harvest_option( 'feed_logo', '');
-	if( empty( $img ) ) $img = harvest_option( 'logo' );
-	$data = harvest_get_sermon_data( $post_id, $img );
+	$data = harvest_get_sermon_data( $post_id );
 ?>
 		
 				<div class="grid-60 push-40 ctc-sermon-media">
@@ -15,9 +13,9 @@
 					<div class="ctc-sermon-video"><?php echo wp_video_shortcode( array( 'src' => $data[ 'video' ] ) ); ?></div>
 	<?php endif; ?>
 <?php elseif ( $data[ 'img' ] ): ?>
-<?php if ( $data[ 'default_used' ] ): ?><div class="ctc-sermon-logo accent-background"><?php endif; ?>
+<?php /* if ( $data[ 'default_used' ] ): ?><div class="ctc-sermon-logo accent-background"><?php endif; */ ?>
 							<img class="ctc-sermon-img" src="<?php echo $data[ 'img' ]; ?>"/>
-<?php if ( $data[ 'default_used' ] ): ?></div><?php endif;  ?>
+<?php /* if ( $data[ 'default_used' ] ): ?></div><?php endif;  */ ?>
 <?php else: ?>
 					<div class="ctc-sermon">
 						<div class="ctc-grid-full accent-background">
