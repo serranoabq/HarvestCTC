@@ -1,7 +1,7 @@
 <?php
 	/* Sermon details */
 	$post_id = get_the_ID();
-	$img = harvest_option( 'feed_logo' );
+	$img = harvest_option( 'feed_logo', '');
 	if( empty( $img ) ) $img = harvest_option( 'logo' );
 	$data = harvest_get_sermon_data( $post_id, $img );
 ?>
