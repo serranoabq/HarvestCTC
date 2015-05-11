@@ -83,6 +83,20 @@ function harvest_add_ctc(){
 	
 }
 
+// Add default image into the sermon
+add_filter( 'ctc_sermon_image', 'harvest_sermon_image' );
+function harvest_sermon_image( $img ){
+	if( empty( $img ) )
+		$img = harvest_option( 'feed_logo', '' );
+	
+	// Fall back to the site logo
+	if( empty( $img ) )
+		$img = harvest_option( 'logo', '' );
+	
+	return $img; 
+	
+}
+
 // This helper is used to get an expression for recurrence
 function harvest_get_recurrence_note( $post_obj ) {
 	if( class_exists( 'CTC_Extender' ) )
