@@ -36,6 +36,10 @@
 				$img = get_post_meta( $post_id, '_ctc_image' , true ); 
 		}
 		
+		// Fall back to the site feed logo
+		if( empty( $img ) )
+			$img = harvest_option( 'feed_logo', '' );
+		
 		// Fall back to the site logo
 		if( empty( $img ) )
 			$img = harvest_option( 'logo', '' );
