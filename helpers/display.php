@@ -310,3 +310,26 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 
 <?php		
 	}
+
+	function harvest_get_tax_dropdown( $tax ){
+		if( ! in_array( $tax, array( 'ctc_sermon_topic', 'ctc_event_category' ) ) )
+			return;
+		
+		$tags = get_terms( $tax, array( 'hide_empty' => 1 ) );
+		foreach ($tags as $option) {
+			$a_tags[] = sprintf( '<option value="%s">%s</option>', get_term_link( intval( $option->term_id ), $tax ), $option->name );
+		}
+		if( $a_tags ) { 
+			$title = array_pop( explode( '/', harvest_option( str_replace( '_', '-', $tax ) , __( 'Topic', 'harvest' ) ) ) );
+			if( 'ctc_event_category' == $tax ) $title = 'Category';
+			
+			array_unshift( $a_tags, sprintf( '<option value="">' . __( 'Choose a %s', 'harvest' ) . '</option>', $title ) );
+			$s_tags = implode('', $a_tags);
+	?>	
+					<!-- Category dropdown -->
+					<div class="grid-100 <?php echo $tax .'-select'; ?> ctc-category-dropdown" style="text-align: right; padding-bottom: 20px"><select onChange="window.location = jQuery(this).find('option:selected').val();">
+					<?php echo $s_tags; ?>
+					</select></div>
+	<?php 
+		}
+	}

@@ -5,18 +5,7 @@
 	
 	get_header(); 
 	$term = get_queried_object();
-	
-	// Create a dropdown for the locations
-	$tags = get_terms( 'ctc_sermon_topic', array( 'hide_empty' => 1 ) );
-	foreach ($tags as $option) {
-		$a_tags[] = sprintf( '<option value="%s" %s>%s</option>', get_term_link( intval( $option->term_id ), 'ctc_sermon_topic' ), ($option->term_id == $term->term_id ? 'selected': '' ),$option->name );
-	}
 	$title = array_pop( explode( '/', harvest_option( 'ctc-sermon-topic' , __( 'Topic', 'harvest' ) ) ) );
-	array_unshift( $a_tags, sprintf( '<option value="">Choose a %s</option>', $title ) );
-	$s_tags = implode('', $a_tags);
-	
-	$select = "<select onChange=\"window.location = jQuery(this).find('option:selected').val();\">$s_tags;</select>";
-	
 	harvest_title_bar( sprintf( '%s: %s', $title, $term->name )	);
 	
 ?>
@@ -25,11 +14,7 @@
 
 			<div class="grid-container content">
 
-<?php if($a_tags): ?>
-				<div class="grid-100 ctc-sermon-topics" style="text-align: right"><select onChange="window.location = jQuery(this).find('option:selected').val();">
-				<?php echo $s_tags; ?>
-				</select></div>
-<?php endif; ?>
+<?php harvest_get_tax_dropdown( 'ctc_sermon_topic' ); ?>
 
 <?php
 	$i = 1;
