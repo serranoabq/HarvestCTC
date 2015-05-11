@@ -85,6 +85,7 @@ function harvest_add_ctc(){
 
 // Add default image into the sermon
 add_filter( 'ctc_sermon_image', 'harvest_sermon_image' );
+add_filter( 'ctc_event_image', 'harvest_sermon_image' );
 function harvest_sermon_image( $img ){
 	if( empty( $img ) )
 		$img = harvest_option( 'feed_logo', '' );
