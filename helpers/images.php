@@ -23,17 +23,18 @@
 	
 	// Get image on post
 	function harvest_getImage( $post_id = null, $size = 'large' ){
-
-		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size );  
-		if( $thumbnail ) $img = $thumbnail[0];
+		if( null == $post_id ) {
+			global $post;	
+			$post_id = $post -> ID;
+		}	
 		
-		$post_type = get_post_type( $post_id );
-		switch( $post_type ){
-			case 'ctc_sermon':
-			case 'ctc_event':
-			case 'ctc_person':
-			case 'ctc_location':
-				$img = get_post_meta( $post_id, '_ctc_image' , true ); 
+		// Check for a CTC image
+    $img = get_post_meta( $post_id, '_ctc_image' , true );  
+		
+		// Fall back to the post thumbnail
+		if( empty( $img ) ) {
+			$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size );
+			if( $thumbnail ) $img = $thumbnail[0];
 		}
 		
 		// Fall back to the site feed logo
@@ -43,7 +44,7 @@
 		// Fall back to the site logo
 		if( empty( $img ) )
 			$img = harvest_option( 'logo', '' );
-		
+				
 		return $img;
 		
 	}

@@ -178,3 +178,4 @@ function harvest_metabox_location_slider() {
 	if( class_exists( 'CT_Meta_Box' ) )
 		new CT_Meta_Box( $meta_box );
 }
+

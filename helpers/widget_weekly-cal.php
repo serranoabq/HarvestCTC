@@ -297,7 +297,7 @@ class harvest_WeeklyCalendar extends WP_Widget {
 				<?php
 				
 				echo sprintf( '<option id="none" value="" %s>- None -</option>', empty( $tag ) ? ' selected=selected"' : '' );
-				$tags = get_terms( 'ctc_event_tag', array( 'hide_empty' => 0 ) );
+				$tags = get_terms( 'ctc_event_category', array( 'hide_empty' => 0 ) );
 				foreach ($tags as $option) {
 					echo sprintf( '<option id="%s" value="%s" %s>%s</option>', $option->slug, $option->slug, $tag == $option->slug ? ' selected=selected"' : '', $option->name );
 				}

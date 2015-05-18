@@ -268,3 +268,9 @@ function harvest_series_title( $title, $post_id ) {
 	return $title;
 }
 //add_filter( 'the_title', 'harvest_series_title', 10, 2);
+
+function harvest_debug( $log ) {
+	add_action( 'admin_notices', function( $log ){
+		echo '<div class="error"><p>'. $log .'</p></div>';
+	} );
+}
