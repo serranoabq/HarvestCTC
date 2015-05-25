@@ -283,6 +283,9 @@ h4 { font-size: 110%;}
 	margin-top: 20px;
 	position: relative;
 	color: #fff;
+	-webkit-box-shadow: 0 3px 20px #777;
+	   -moz-box-shadow: 0 3px 20px #777;
+	        box-shadow: 0 3px 20px #777;
 }
 .footer_wrap a,
 .footer_wrap h2,
@@ -306,6 +309,9 @@ h4 { font-size: 110%;}
 	height: 72px;
 	position:relative;
 	z-index:5;
+	-webkit-box-shadow: 0 0 10px #333;
+	   -moz-box-shadow: 0 0 10px #333;
+	        box-shadow: 0 0 10px #333;
 }
 .slider_wrap {
 	overflow: hidden;
@@ -480,6 +486,9 @@ i.fa {
 	min-height:60px;
 	padding: 5px;
 	margin-bottom: 50px;
+	-webkit-box-shadow: 0 1px 10px #777;
+	   -moz-box-shadow: 0 1px 10px #777;
+	        box-shadow: 0 1px 10px #777;
 }
 .title-bar{
 	color: #FFFFFF;
