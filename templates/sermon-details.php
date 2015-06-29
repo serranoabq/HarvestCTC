@@ -7,11 +7,37 @@
 				<div class="grid-60 push-40 ctc-sermon-media">
 				
 <?php if( $data[ 'video' ] ): ?>
-	<?php if( strripos( $data[ 'video' ], 'iframe' ) ): ?>
-					<div class="ctc-sermon-video video-container"><?php echo $data[ 'video' ]; ?></div>
+	<?php if ( $data[ 'img' ] ): ?>
+		<script>
+			// Add lazy loading of videos, using the image as the cover art
+			jQuery(document).ready( function($) {
+				$( '.ctc-sermon-media' ).css( 'position', 'relative' );
+				$( '.play-overlay' ).css( { width: '100%', position: 'absolute', height: '100%', top: 0, left: 0, color: '#fff', 'text-align': 'center', cursor: 'pointer' } );
+				$( '.play-overlay .fa' ).css( { top: '50%', position: 'relative', transform: 'translateY(-50%)' } );
+				
+				var vid_src = '<?php echo strripos( $data[ 'video' ], 'iframe' ) ? '<div class="ctc-sermon-video video-container">' . $data[ 'video' ] . '</div>': '<div class="ctc-sermon-video">' . wp_video_shortcode( array( 'src' => $data[ 'video' ] ) ) . '</div>'; ?>';
+				
+				vid_src = vid_src.replace( 'autoPlay=false', 'autoPlay=true' );
+				$( '.play-overlay' ).click( function(){
+					$( this ).hide();
+					$( '.overlay' ).fadeOut( 'fast', function() {
+						$( this ).replaceWith( vid_src );
+					});
+				} );
+			})
+			
+		</script>
+		<img class="ctc-sermon-img overlay" src="<?php echo $data[ 'img' ]; ?>"/><div class="play-overlay"><i class="fa fa-play-circle-o fa-5x"></i></div>
 	<?php else: ?>
-					<div class="ctc-sermon-video"><?php echo wp_video_shortcode( array( 'src' => $data[ 'video' ] ) ); ?></div>
+
+		<?php if( strripos( $data[ 'video' ], 'iframe' ) ): ?>
+						<div class="ctc-sermon-video video-container"><?php echo $data[ 'video' ]; ?></div>
+		<?php else: ?>
+						<div class="ctc-sermon-video"><?php echo wp_video_shortcode( array( 'src' => $data[ 'video' ] ) ); ?></div>
+		<?php endif; ?>
+		
 	<?php endif; ?>
+	
 <?php elseif ( $data[ 'img' ] ): ?>
 <?php /* if ( $data[ 'default_used' ] ): ?><div class="ctc-sermon-logo accent-background"><?php endif; */ ?>
 							<img class="ctc-sermon-img" src="<?php echo $data[ 'img' ]; ?>"/>
