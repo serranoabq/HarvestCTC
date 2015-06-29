@@ -924,7 +924,17 @@ a.ctc-url:before {
 	font-size: 200%;
 	line-height: 1.25em;
 }
-
+.play-overlay{
+	width: calc( 100% - 20px );
+	position: absolute;
+	height: calc( 100% - 20px );
+	top: 0; 
+	left: 10px; 
+	color: #fff; 
+	text-align: center; 
+	cursor: pointer;
+	background: rgba(0,0,0,0.5);
+}
 /* Inputs */
 input, textarea, select {
 	/*float:left;*/
