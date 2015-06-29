@@ -935,6 +935,12 @@ a.ctc-url:before {
 	cursor: pointer;
 	background: rgba(0,0,0,0.5);
 }
+.play-overlay .fa { 
+	top: 50%;
+	position: relative;
+	transform: translateY(-50%);
+}
+
 /* Inputs */
 input, textarea, select {
 	/*float:left;*/

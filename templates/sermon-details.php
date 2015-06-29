@@ -13,8 +13,6 @@
 			jQuery(document).ready( function($) {
 				$( '.ctc-sermon-media' ).css( 'position', 'relative' );
 				
-				$( '.play-overlay .fa' ).css( { top: '50%', position: 'relative', transform: 'translateY(-50%)' } );
-				
 				var vid_src = '<?php echo strripos( $data[ 'video' ], 'iframe' ) ? '<div class="ctc-sermon-video video-container">' . $data[ 'video' ] . '</div>': '<div class="ctc-sermon-video">' . wp_video_shortcode( array( 'src' => $data[ 'video' ] ) ) . '</div>'; ?>';
 				
 				vid_src = vid_src.replace( 'autoPlay=false', 'autoPlay=true' );
