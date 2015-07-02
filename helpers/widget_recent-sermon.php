@@ -75,8 +75,6 @@ class harvest_RecentSermon extends WP_Widget {
 			// Add lazy loading of videos, using the image as the cover art
 			jQuery(document).ready( function($) {
 				$( '.ctc-sermon' ).css( {position: 'relative', 'padding-bottom': 'calc(56.25% + 5px)' } );
-				$('.video-container').css( 'padding-top', 0 );
-				$('.video-container iframe').css( 'border', 'none' );
 				
 				var vid_src = '<?php echo strripos( $data[ 'video' ], 'iframe' ) ? '<div class="ctc-sermon-video video-container">' . $data[ 'video' ] . '</div>': '<div class="ctc-sermon-video">' . wp_video_shortcode( array( 'src' => $data[ 'video' ] ) ) . '</div>'; ?>';
 				
@@ -85,6 +83,9 @@ class harvest_RecentSermon extends WP_Widget {
 					$( this ).hide();
 					$( '.overlay' ).fadeOut( 'fast', function() {
 						$( this ).replaceWith( vid_src );
+						$('.video-container').css( 'padding-top', 0 );
+						$('.video-container iframe').css( 'border', 'none' );
+				
 					});
 				} );
 			})
