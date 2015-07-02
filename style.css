@@ -935,12 +935,23 @@ a.ctc-url:before {
 	cursor: pointer;
 	background: rgba(0,0,0,0.5);
 }
+.widget .play-overlay {
+	width: calc( 100% - 10px );
+	height: calc( 100% - 10px );
+	top: 5px; 
+	left: 5px; 
+}
 .play-overlay .fa { 
 	top: 50%;
 	position: relative;
 	transform: translateY(-50%);
 }
-
+.play-overlay ~ h3 {
+  left: 10px;
+  position: absolute;
+  bottom: 15px;
+  font-weight: bold;
+}
 /* Inputs */
 input, textarea, select {
 	/*float:left;*/
