@@ -24,7 +24,7 @@
 <?php endif; // date ?>
 				
 <?php if( $data[ 'time' ] ): ?>
-					<div class="ctc-event-details-time"><i class="fa fa-clock-o"></i><?php echo $data[ 'time' ]; ?></div>
+					<div class="ctc-event-details-time"><i class="fa fa-clock-o"></i><?php echo $data[ 'time' ]; if( $data[ 'endtime' ] ) echo ' - ' . $data[ 'endtime' ]; ?></div>
 <?php endif; // time ?>				
 
 <?php if ( $data[ 'recurrence_note' ] && $data[ 'recurrence' ] != 'none' ) : ?>
