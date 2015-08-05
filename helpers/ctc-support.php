@@ -65,6 +65,7 @@ function harvest_add_ctc(){
 					'_ctc_person_phone',
 					'_ctc_person_email',
 					'_ctc_person_urls',
+					'_ctc_person_gender',	// Not default in CTC
 			),
 			'field_overrides' => array()
 	) );
@@ -96,6 +97,22 @@ function harvest_sermon_image( $img ){
 	
 	return $img; 
 	
+}
+
+// Add a default gender-specific person image defined by the theme
+add_filter( 'ctc_person_image', 'harvest_person_image', 10, 2 );
+function harvest_person_image( $img, $gender ){
+	// Check if the gender meta is available (added by CTC Extender)
+	if( $gender ){
+		// Allow a gender-specific default image
+		if( file_exists( get_stylesheet_directory() . '/images/user_' . strtolower( $gender ) . '.png' ) )
+			$img = get_stylesheet_directory_uri() . '/images/user_' . strtolower( $gender ) . '.png';
+	} elseif( file_exists( get_stylesheet_directory() . '/images/user.png' ) ) {
+		// Get the default user image
+		$img = get_stylesheet_directory_uri() . '/images/user.png';
+	}
+	
+	return $img; 
 }
 
 // This helper is used to get an expression for recurrence

@@ -12,7 +12,7 @@ class harvest_WeeklyCalendar extends WP_Widget {
 		);
 		$this->WP_Widget( 'weekly-calendar', __( 'Harvest Weekly Calendar', 'harvest' ), $widget_ops);
 		
-		add_action( 'wp_enqueue_scripts', array( &$this, 'scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 	}
 	
 	function scripts() {
