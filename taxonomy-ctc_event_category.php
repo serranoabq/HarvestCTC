@@ -20,6 +20,10 @@
 				<div class="grid-100 ctc-event-category-desc" >
 					<p><?php echo $term->description; ?></p>
 				</div>
+<?php	else: ?>
+			<div class="grid-100 ctc-event-category-desc" >
+				<p><?php _e( 'No events were found in that category. Check back at a later time for newer events. Thanks!', 'harvest' ); ?></p>
+			</div>
 <?php	
 	endif;
 	while (have_posts()) : the_post(); 

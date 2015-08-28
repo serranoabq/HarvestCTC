@@ -1,6 +1,6 @@
 /*  
 Theme Name: Harvest
-Version: 3.0
+Version: 3.1.1
 Description: A responsive and versatile theme for churches. Uses Church Theme Content Plugin and CTC Extender Plugin.  
 Author: Justin Serrano 
 Text Domain: harvest
@@ -219,6 +219,7 @@ a img.aligncenter {
 
 .gallery-caption {}
 .bypostauthor {}
+.screen-reader-text {}
 
 /*
 .left  {float: left;}

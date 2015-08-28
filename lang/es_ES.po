@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: harvest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-08 10:18-0700\n"
-"PO-Revision-Date: Thu May 07 2015 08:46:56 GMT-0600 (Mountain Daylight Time)\n"
+"PO-Revision-Date: Fri Aug 28 2015 10:40:12 GMT-0600 (Mountain Daylight Time)\n"
 "Last-Translator: Harvest Fellowship <serranoabq+harvest@gmail.com>\n"
 "Language-Team: \n"
 "Language: Spanish (Spain)\n"
@@ -21,186 +21,25 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Loco-Target-Locale: es_ES"
 
-#: ../404.php:4
-msgid "Page Not Found"
-msgstr "Página No Encontrada"
-
-#: ../404.php:12 ../old.php:14
-msgid ""
-"We're sorry. The page you requested could not be found. It's a simple "
-"mistake, probably on our part. Please <a href=\"/\">click here</a> to return "
-"our homepage or use the menu above to visit another section of our site. "
-"Have a great day!"
-msgstr ""
-"Lo sentimos. La página que usted solicitó no fue hallada. Es un error muy "
-"simple de nuestra parte. Por favor, haga <a href=\"/\">clic aquí</a> para "
-"regresar a nuestra página principal o utilice el menú de arriba para visitar "
-"otra sección de nuestro sitio web. ¡Que tenga un buen día!"
-
-#: ../archive-ctc_event.php:9
-msgid "Choose a category"
-msgstr "Eliga una categoría"
-
-#: ../archive-ctc_event.php:12 ../functions.php:246
-msgid "Events"
-msgstr "Eventos"
-
-#: ../archive-ctc_location.php:5 ../functions.php:240 ../template-locations.php:11
-msgid "Locations"
-msgstr "Ubicaciones"
-
-#: ../archive-ctc_person.php:5
-msgid "People"
-msgstr "Personas"
-
-#: ../archive-ctc_sermon.php:11 ../taxonomy-ctc_sermon_topic.php:19 ..
-#: /templates/sermon-details.php:46
-msgid "Topic"
-msgstr "Tema"
-
-#: ../archive-ctc_sermon.php:12
-#, php-format
-msgid "Choose a %s"
-msgstr "Eliga una %s"
-
-#: ../archive-ctc_sermon.php:18 ../functions.php:243
-msgid "Sermons"
-msgstr "Sermones"
-
-#: ../archive-ctc_sermon.php:44 ../taxonomy-ctc_sermon_topic.php:41
-msgid "Latest message"
-msgstr "Mensaje más reciente"
-
-#: ../archive.php:5
-msgid "Archive"
-msgstr "Archivo"
-
-#: ../footer.php:35
-#, php-format
-msgid "&copy; Copyright %d %s"
-msgstr "&copy; Derechos Reservados %d %s"
-
 #: ../functions.php:25
 msgid "Header Menu"
-msgstr ""
+msgstr "Menú de Cabecera"
 
 #: ../functions.php:26
 msgid "Footer Menu"
-msgstr ""
-
-#: ../functions.php:218
-msgctxt "Page title"
-msgid "Series"
-msgstr "Serie"
-
-#: ../functions.php:221
-#, php-format
-msgctxt "Page title"
-msgid "Speaker: %s"
-msgstr "Orador: %s"
-
-#: ../functions.php:223
-#, php-format
-msgctxt "Page title"
-msgid "%s Events"
-msgstr "Eventos"
-
-#: ../functions.php:226
-msgctxt "Page title"
-msgid "Topic"
-msgstr "Tema"
-
-#: ../functions.php:232
-msgid "Search Results"
-msgstr "Resultados de B&uacute;squeda"
-
-#: ../functions.php:234
-msgid "Author Archive"
-msgstr "Archivo de Autor"
-
-#: ../functions.php:236
-#, php-format
-msgid "Archive: %s"
-msgstr "Archivo: %s"
-
-#: ../functions.php:238
-#, php-format
-msgid "Archive | %s"
-msgstr "Archivo | %s"
-
-#: ../header.php:67
-msgid "Menu"
-msgstr "Menú"
-
-#: ../old.php:12
-msgid "Page Not found"
-msgstr "Página no encontrada"
-
-#: ../single-ctc_sermon.php:46
-msgid "topic"
-msgstr "tema"
-
-#: ../single-ctc_sermon.php:47
-msgid "series"
-msgstr "serie"
-
-#: ../single-ctc_sermon.php:52 ../taxonomy-ctc_sermon_topic.php:49
-msgid "Other messages from this "
-msgstr "Otros mensajes de esta"
-
-#: ../taxonomy-ctc_event_category.php:13
-#, php-format
-msgctxt "Event category"
-msgid "%s events"
-msgstr "eventos de %s"
-
-#: ../taxonomy-ctc_event_tag.php:43
-#, php-format
-msgid "Occurs Daily"
-msgid_plural "Occurs Every %d Days"
-msgstr[0] "Ocurre diariamente"
-msgstr[1] "Ocurre Cada %d Días"
-
-#: ../taxonomy-ctc_event_tag.php:46
-#, php-format
-msgid "Occurs Weekly"
-msgid_plural "Occurs Every %d Weeks"
-msgstr[0] "Ocurre semanalmente"
-msgstr[1] "Ocurre cada %d semanas"
-
-#: ../taxonomy-ctc_event_tag.php:49
-#, php-format
-msgid "Occurs Monthly"
-msgid_plural "Occurs Every %d Months"
-msgstr[0] "Ocurre mensualmente"
-msgstr[1] "Ocurre cada %d meses"
-
-#: ../taxonomy-ctc_event_tag.php:52
-#, php-format
-msgid "Occurs Yearly"
-msgid_plural "Occurs Every %d Years"
-msgstr[0] "Ocurre anualmente"
-msgstr[1] "Ocurre cada %d años"
-
-#: ../taxonomy-ctc_sermon_series.php:7
-msgid "Series"
-msgstr "Serie"
-
-#: ../template-series.php:5
-msgid "Sermon Series"
-msgstr "Serie de Sermones"
+msgstr "Menú de pie de página"
 
 #: ../admin/class.theme-options.php:42 ../admin/harvest-options.php:3
 msgid "General Settings"
-msgstr ""
+msgstr "Ajustes Generales"
 
 #: ../admin/class.theme-options.php:43 ../admin/harvest-options.php:7
 msgid "About this Theme"
-msgstr ""
+msgstr "Acerca de este Tema"
 
 #: ../admin/class.theme-options.php:70 ../admin/class.theme-options.php:71
 msgid "Theme Options"
-msgstr ""
+msgstr "Opciones del Tema"
 
 #: ../admin/class.theme-options.php:91
 msgid "Default Field"
@@ -212,19 +51,19 @@ msgstr ""
 
 #: ../admin/class.theme-options.php:126
 msgid " Theme Options"
-msgstr ""
+msgstr " Opciones del Tema"
 
 #: ../admin/class.theme-options.php:129
 msgid "Theme options updated."
-msgstr ""
+msgstr "Las opciones del tema han sido actualizadas"
 
 #: ../admin/class.theme-options.php:148
 msgid "Restore Defaults"
-msgstr ""
+msgstr "Restaurar Valores por Defecto"
 
 #: ../admin/class.theme-options.php:149
 msgid "Save Changes"
-msgstr ""
+msgstr "Salvar Cambios"
 
 #: ../admin/class.theme-options.php:366
 msgid "Dummy Setting"
@@ -236,25 +75,25 @@ msgstr ""
 
 #: ../admin/harvest-options.php:4
 msgid "Social Media"
-msgstr ""
+msgstr "Redes Sociales"
 
 #: ../admin/harvest-options.php:6
 msgid "Podcasting"
-msgstr ""
+msgstr "Podcasting"
 
 #: ../admin/harvest-options.php:19
 msgctxt "Metabox name"
 msgid "Website Logo"
-msgstr ""
+msgstr "Logo del Sitio Web"
 
 #: ../admin/harvest-options.php:20
 msgid "Upload a logo."
-msgstr ""
+msgstr "Subir un logo"
 
 #: ../admin/harvest-options.php:27
 msgctxt "Metabox name"
 msgid "Website RSS Feed Logo "
-msgstr ""
+msgstr "Logo para el listado RSS"
 
 #: ../admin/harvest-options.php:28
 msgid ""
@@ -344,17 +183,20 @@ msgstr ""
 
 #: ../admin/harvest-options.php:234
 msgid "Podcast Description"
-msgstr ""
+msgstr "Descripción del Podcast"
 
 #: ../admin/harvest-options.php:242
 msgid "Podcast Image"
-msgstr ""
+msgstr "Imágen para el podcast"
 
 #: ../admin/harvest-options.php:245
 msgid ""
 "Logo or image to use in the podcast directory. iTunes requires this to be a "
 "1400 x 1400 PNG or JPG ending in .png or .jpg"
 msgstr ""
+"Logo o imágen para usar en el directiori de podcasts. iTunes requiere que "
+"éste sea una imagen PNG or JPG de 1400 x 1400 pixeles y cuyo nombre de "
+"archivo termina en .png o .jpg"
 
 #: ../admin/harvest-options.php:250
 msgid "Podcast Author"
@@ -502,7 +344,7 @@ msgstr ""
 
 #: ../helpers/class-tgm-plugin-activation.php:532 ../helpers/class-tgm-plugin-
 #: activation.php:532 ../helpers/class-tgm-plugin-activation.php:2173 ..
-#: /helpers/class-tgm-plugin-activation.php:2173
+#: helpers/class-tgm-plugin-activation.php:2173
 msgid "Return to the Dashboard"
 msgstr ""
 
@@ -710,32 +552,28 @@ msgstr ""
 
 #: ../helpers/widget_locations.php:10 ../helpers/widget_locations.php:12
 msgid "Harvest Locations"
-msgstr ""
+msgstr "Ubicaciones"
 
 #: ../helpers/widget_locations.php:74 ../helpers/widget_recent-sermon.php:137 ..
-#: /helpers/widget_weekly-cal.php:274
+#: helpers/widget_weekly-cal.php:274
 msgid "Title"
 msgstr ""
 
 #: ../helpers/widget_recent-sermon.php:10 ../helpers/widget_recent-sermon.php:12
 msgid "Harvest Recent Sermon"
-msgstr ""
-
-#: ../helpers/widget_recent-sermon.php:18
-msgid "Recent Sermon"
-msgstr "Sermón Más Reciente"
+msgstr "Sermón Reciente"
 
 #: ../helpers/widget_recent-sermon.php:141 ../helpers/widget_weekly-cal.php:278
 msgid "Title Link?"
-msgstr ""
+msgstr "Enlazar el título"
 
 #: ../helpers/widget_recent-sermon.php:144 ../helpers/widget_weekly-cal.php:281
 msgid "Custom Link?"
-msgstr ""
+msgstr "Enlace a gusto?"
 
 #: ../helpers/widget_recent-sermon.php:148 ../helpers/widget_weekly-cal.php:285
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: ../helpers/widget_recent-sermon.php:152
 msgid ""
@@ -743,6 +581,9 @@ msgid ""
 "checked AND the widget is in a location page, then the most recent message "
 "with a topic matching that location is shown."
 msgstr ""
+"Eliga un tópico a mostrar. Si la opción <code>Usar ubicación</code> está "
+"marcada Y el widget está en una página de Ubicación, entonces se mostrará el "
+"mensaje más reciente con un tópico que coincida con esa ubicación"
 
 #: ../helpers/widget_recent-sermon.php:156
 msgid ""
@@ -752,23 +593,20 @@ msgid ""
 " If the option to link the tile is selected, then the title links to the "
 "sermon archive for that location."
 msgstr ""
+"Si está marcado, cuando este widget sea mostrado en una página de ubicacion "
+"sencilla mostrará \n"
+"el mensaje más reciente asociado con esa ubicación si el sermon tiene un "
+"tópico que coincide con esa ubicación. Si la opción de Enlazar el título "
+"está marcada, entonces el título enlazará al archivo de sermones para esa "
+"ubicación"
 
 #: ../helpers/widget_recent-sermon.php:156 ../helpers/widget_weekly-cal.php:293
 msgid "Use location"
-msgstr ""
+msgstr "Usar la ubicación"
 
 #: ../helpers/widget_weekly-cal.php:11 ../helpers/widget_weekly-cal.php:13
 msgid "Harvest Weekly Calendar"
-msgstr ""
-
-#: ../helpers/widget_weekly-cal.php:138
-msgid "Weekly Calendar"
-msgstr "Calendario Semanal"
-
-#: ../helpers/widget_weekly-cal.php:210
-#, php-format
-msgid "No events listed for %s"
-msgstr "Ningún evento listado para %s"
+msgstr "Calendario Semanal de Harvest"
 
 #: ../helpers/widget_weekly-cal.php:289
 msgid ""
@@ -784,6 +622,184 @@ msgid ""
 "if the event is given a category that matches the location. If the option to "
 "link the tile is selected, then the title links to the category archive."
 msgstr ""
+
+#: ../templates/sermon-details.php:50
+msgid "<b>Audio:</b>"
+msgstr ""
+
+#: ../404.php:4
+msgid "Page Not Found"
+msgstr "Página No Encontrada"
+
+#: ../404.php:12 ../old.php:14
+msgid ""
+"We're sorry. The page you requested could not be found. It's a simple "
+"mistake, probably on our part. Please <a href=\"/\">click here</a> to return "
+"our homepage or use the menu above to visit another section of our site. "
+"Have a great day!"
+msgstr ""
+"Lo sentimos. La página que usted solicitó no fue hallada. Es un error muy "
+"simple de nuestra parte. Por favor, haga <a href=\"/\">clic aquí</a> para "
+"regresar a nuestra página principal o utilice el menú de arriba para visitar "
+"otra sección de nuestro sitio web. ¡Que tenga un buen día!"
+
+#: ../archive-ctc_event.php:9
+msgid "Choose a category"
+msgstr "Eliga una categoría"
+
+#: ../archive-ctc_event.php:12 ../functions.php:246
+msgid "Events"
+msgstr "Eventos"
+
+#: ../archive-ctc_location.php:5 ../functions.php:240 ../template-locations.php:11
+msgid "Locations"
+msgstr "Ubicaciones"
+
+#: ../archive-ctc_person.php:5
+msgid "People"
+msgstr "Personas"
+
+#: ../archive-ctc_sermon.php:11 ../taxonomy-ctc_sermon_topic.php:19 ..
+#: templates/sermon-details.php:46
+msgid "Topic"
+msgstr "Tema"
+
+#: ../archive-ctc_sermon.php:12
+#, php-format
+msgid "Choose a %s"
+msgstr "Eliga una %s"
+
+#: ../archive-ctc_sermon.php:18 ../functions.php:243
+msgid "Sermons"
+msgstr "Sermones"
+
+#: ../archive-ctc_sermon.php:44 ../taxonomy-ctc_sermon_topic.php:41
+msgid "Latest message"
+msgstr "Mensaje más reciente"
+
+#: ../archive.php:5
+msgid "Archive"
+msgstr "Archivo"
+
+#: ../footer.php:35
+#, php-format
+msgid "&copy; Copyright %d %s"
+msgstr "&copy; Derechos Reservados %d %s"
+
+#: ../functions.php:218
+msgctxt "Page title"
+msgid "Series"
+msgstr "Serie"
+
+#: ../functions.php:221
+#, php-format
+msgctxt "Page title"
+msgid "Speaker: %s"
+msgstr "Orador: %s"
+
+#: ../functions.php:223
+#, php-format
+msgctxt "Page title"
+msgid "%s Events"
+msgstr "Eventos"
+
+#: ../functions.php:226
+msgctxt "Page title"
+msgid "Topic"
+msgstr "Tema"
+
+#: ../functions.php:232
+msgid "Search Results"
+msgstr "Resultados de B&uacute;squeda"
+
+#: ../functions.php:234
+msgid "Author Archive"
+msgstr "Archivo de Autor"
+
+#: ../functions.php:236
+#, php-format
+msgid "Archive: %s"
+msgstr "Archivo: %s"
+
+#: ../functions.php:238
+#, php-format
+msgid "Archive | %s"
+msgstr "Archivo | %s"
+
+#: ../header.php:67
+msgid "Menu"
+msgstr "Menú"
+
+#: ../old.php:12
+msgid "Page Not found"
+msgstr "Página no encontrada"
+
+#: ../single-ctc_sermon.php:46
+msgid "topic"
+msgstr "tema"
+
+#: ../single-ctc_sermon.php:47
+msgid "series"
+msgstr "serie"
+
+#: ../single-ctc_sermon.php:52 ../taxonomy-ctc_sermon_topic.php:49
+msgid "Other messages from this "
+msgstr "Otros mensajes de esta"
+
+#: ../taxonomy-ctc_event_category.php:13
+#, php-format
+msgctxt "Event category"
+msgid "%s events"
+msgstr "eventos de %s"
+
+#: ../taxonomy-ctc_event_tag.php:43
+#, php-format
+msgid "Occurs Daily"
+msgid_plural "Occurs Every %d Days"
+msgstr[0] "Ocurre diariamente"
+msgstr[1] "Ocurre Cada %d Días"
+
+#: ../taxonomy-ctc_event_tag.php:46
+#, php-format
+msgid "Occurs Weekly"
+msgid_plural "Occurs Every %d Weeks"
+msgstr[0] "Ocurre semanalmente"
+msgstr[1] "Ocurre cada %d semanas"
+
+#: ../taxonomy-ctc_event_tag.php:49
+#, php-format
+msgid "Occurs Monthly"
+msgid_plural "Occurs Every %d Months"
+msgstr[0] "Ocurre mensualmente"
+msgstr[1] "Ocurre cada %d meses"
+
+#: ../taxonomy-ctc_event_tag.php:52
+#, php-format
+msgid "Occurs Yearly"
+msgid_plural "Occurs Every %d Years"
+msgstr[0] "Ocurre anualmente"
+msgstr[1] "Ocurre cada %d años"
+
+#: ../taxonomy-ctc_sermon_series.php:7
+msgid "Series"
+msgstr "Serie"
+
+#: ../template-series.php:5
+msgid "Sermon Series"
+msgstr "Serie de Sermones"
+
+#: ../helpers/widget_recent-sermon.php:18
+msgid "Recent Sermon"
+msgstr "Sermón Más Reciente"
+
+#: ../helpers/widget_weekly-cal.php:138
+msgid "Weekly Calendar"
+msgstr "Calendario Semanal"
+
+#: ../helpers/widget_weekly-cal.php:210
+#, php-format
+msgid "No events listed for %s"
+msgstr "Ningún evento listado para %s"
 
 #: ../templates/event-details.php:18
 msgid "Details"
@@ -812,10 +828,6 @@ msgstr "<b>Orador:</b>"
 #: ../templates/sermon-details.php:42
 msgid "<b>Series:</b>"
 msgstr "<b>Serie:</b>"
-
-#: ../templates/sermon-details.php:50
-msgid "<b>Audio:</b>"
-msgstr ""
 
 #: ../templates/sermon-details.php:50
 msgid "Download audio"

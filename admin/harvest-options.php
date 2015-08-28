@@ -25,7 +25,7 @@
 	
 	$harvest_theme_options['feed_logo'] = array(
 		'title'   => _x( 'Website RSS Feed Logo ', 'Metabox name', 'harvest' ),
-		'desc'    => __( 'Upload a logo to use in RSS feed. If not spcified, the logo above will be used.', 'harvest' ),
+		'desc'    => __( 'Upload a logo to use in RSS feed. If not specified, the logo above will be used.', 'harvest' ),
 		'std'     => '',
 		'type'    => 'upload',
 		'section' => 'general'
@@ -49,10 +49,11 @@
 	
 	$harvest_theme_options['favicon'] = array(
 		'title'   => _x( 'Favicon', 'Metabox name', 'harvest' ),
-		'desc'    => __( 'Upload a 16x16 png or gif icon for your site.', 'harvest'),
+		'desc'    => __( 'Upload a 16x16 png or gif icon for your site.' , 'harvest') ,
 		'std'     => '',
 		'type'    => 'upload',
-		'section' => 'general'
+		'section' => 'general',
+		'condition' => ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ),
 	);
 	
 	$harvest_theme_options['city'] = array(

@@ -39,8 +39,8 @@ class Theme_Options {
 			$this->sections = $my_sections;
 		}else{
 			// Default sections 
-			$this->sections['general']    = __( 'General Settings' );
-			$this->sections['about']      = __( 'About this Theme' );
+			$this->sections['general']    = __( 'General Settings', 'cltop' );
+			$this->sections['about']      = __( 'About this Theme', 'cltop' );
 		}
 		
 		// Get theme name to save the options 
@@ -67,8 +67,8 @@ class Theme_Options {
 	public function add_pages() {
 		
 		$admin_page = add_theme_page( 
-			__( 'Theme Options' ), 							// page title
-			__( 'Theme Options' ), 							// menu title
+			__( 'Theme Options', 'cltop' ), 		// page title
+			__( 'Theme Options', 'cltop' ), 		// menu title
 			'manage_options', 									// capability
 			$this->theme_safename . '-options', // menu slug
 			array( &$this, 'display_page' ) 		// callback
@@ -87,14 +87,15 @@ class Theme_Options {
 	public function create_setting( $args = array() ) {
 		
 		$defaults = array(
-			'id'      => 'default_field',
-			'title'   => __( 'Default Field' ),
-			'desc'    => __( 'This is a default description.' ),
-			'std'     => '',
-			'type'    => 'text',
-			'section' => 'general',
-			'choices' => array(),
-			'class'   => ''
+			'id'      	=> 'default_field',
+			'title'   	=> __( 'Default Field', 'cltop' ),
+			'desc'    	=> __( 'This is a default description.', 'cltop' ),
+			'std'     	=> '',
+			'type'    	=> 'text',
+			'section' 	=> 'general',
+			'choices' 	=> array(),
+			'class'   	=> '',
+			'condition' => true  // boolean flag to determine whether to include the option or not
 		);
 			
 		extract( wp_parse_args( $args, $defaults ) );
@@ -106,13 +107,15 @@ class Theme_Options {
 			'std'       => $std,
 			'choices'   => $choices,
 			'label_for' => $id,
-			'class'     => $class
+			'class'     => $class,
+			'condition' => $condition
 		);
 		
 		if ( $type == 'checkbox' )
 			$this->checkboxes[] = $id;
 		
-		add_settings_field( $id, $title, array( $this, 'display_setting' ), $this->theme_safename . '-options', $section, $field_args );
+		if ( $condition ) 
+			add_settings_field( $id, $title, array( $this, 'display_setting' ), $this->theme_safename . '-options', $section, $field_args );
 	}
 	
 	/**
@@ -123,10 +126,10 @@ class Theme_Options {
 	public function display_page() {
 		$name = $this->theme_safename;
 		
-		echo '<div class="wrap"><h2>' . ucwords($this->theme_name).  __( ' Theme Options' ) . '</h2>';
+		echo '<div class="wrap"><h2>' . ucwords($this->theme_name).  __( ' Theme Options', 'cltop' ) . '</h2>';
 	
 		if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] == true )
-			echo '<div class="updated fade"><p>' . __( 'Theme options updated.' ) . '</p></div>';
+			echo '<div class="updated fade"><p>' . __( 'Theme options updated.', 'cltop' ) . '</p></div>';
 		
 		echo '<form action="options.php" method="post">';
 	
@@ -145,8 +148,8 @@ class Theme_Options {
 		echo '</div> <!-- .options-tabs -->
 		
 		<p class="submit">
-			<input name="reset" id="reset" type="submit" class="reset-button button-secondary" value="'. __( 'Restore Defaults' ) .'" onclick="return confirm(\'Click OK to reset. Any theme settings will be lost!\');" />
-			<input name="submit" id="submit" type="submit" class="button-primary" value="' . __( 'Save Changes' ) . '" />
+			<input name="reset" id="reset" type="submit" class="reset-button button-secondary" value="'. __( 'Restore Defaults', 'cltop' ) .'" onclick="return confirm(\'' . __( 'Click OK to reset. Any theme settings will be lost!', 'cltop' ) . '\');" />
+			<input name="submit" id="submit" type="submit" class="button-primary" value="' . __( 'Save Changes', 'cltop' ) . '" />
 		</p>
 		
 	</form>';
@@ -182,19 +185,19 @@ class Theme_Options {
 		
 		echo '<div style="padding:20px;">';
 		if(file_exists(STYLESHEETPATH .'/screenshot.jpg'))
-			echo '<img src="'.get_stylesheet_directory_uri(). '/screenshot.jpg" /><br/>';
+			echo '<img src="' . get_stylesheet_directory_uri() . '/screenshot.jpg" /><br/>';
 		elseif(file_exists(STYLESHEETPATH .'/screenshot.png'))
-			echo '<img src="'.get_stylesheet_directory_uri(). '/screenshot.png" /><br/>';
+			echo '<img src="' . get_stylesheet_directory_uri() . '/screenshot.png" /><br/>';
 		
 		echo '<h4>'.$theme_data.' Theme'; 
-		if ($theme_data->get('Version'))
-			echo ', Version ' . $theme_data->get('Version') .'</h4>';
+		if ( $theme_data->get( 'Version' ) )
+			echo ', Version ' . $theme_data -> get( 'Version' ) . '</h4>';
 		else
 			echo '</h4>';
-		if ($theme_data->get('Description'))
-			echo '<span class="description">'.$theme_data->get('Description').'</span><br/>';
-		if ($theme_data->get('Author'))
-			echo '<span class="description">&copy; ' . date('Y ') . $theme_data->get('Author').'</span>';
+		if ( $theme_data -> get( 'Description' ) )
+			echo '<span class="description">' . $theme_data -> get( 'Description' ) . '</span><br/>';
+		if ( $theme_data -> get( 'Author' ) )
+			echo '<span class="description">&copy; ' . date('Y ') . $theme_data -> get( 'Author' ) . '</span>';
 			
 		echo '</div>';
 	}
@@ -363,8 +366,8 @@ class Theme_Options {
 			===========================================*/
 			if( isset( $this->settings ) ) return;
 			$this->settings['dummy'] = array(
-				'title'   => __( 'Dummy Setting' ),
-				'desc'    => __( 'Dummy setting to demo functionality.' ),
+				'title'   => __( 'Dummy Setting', 'cltop' ),
+				'desc'    => __( 'Dummy setting to demo functionality.', 'cltop' ),
 				'std'     => '',
 				'type'    => 'text',
 				'section' => 'general'
@@ -409,20 +412,20 @@ class Theme_Options {
 					$slug, 
 					$title, 
 					array( &$this, 'display_about_section' ), 
-					$this->theme_safename . '-options' 
+					$this -> theme_safename . '-options' 
 				);
 			else
 				add_settings_section( 
 					$slug, 
 					$title, 
 					array( &$this, 'display_section' ), 
-					$this->theme_safename . '-options' 
+					$this -> theme_safename . '-options' 
 				);
 		}
 		
 		$this->get_settings();
 		
-		foreach ( $this->settings as $id => $setting ) {
+		foreach ( $this -> settings as $id => $setting ) {
 			$setting['id'] = $id;
 			$this->create_setting( $setting );
 		}
@@ -436,13 +439,13 @@ class Theme_Options {
 	* @since 1.0
 	*/
 	public function scripts() {
-		$file=realpath(dirname(__FILE__));
-		$templ=realpath(get_stylesheet_directory());
-		$subf=trailingslashit(str_replace('\\','/',str_replace($templ,'',$file)));
-		$uri=get_stylesheet_directory_uri().$subf;
+		$file = realpath( dirname( __FILE__ ) );
+		$templ = realpath( get_stylesheet_directory() );
+		$subf = trailingslashit( str_replace( '\\', '/', str_replace( $templ, '', $file ) ) );
+		$uri = get_stylesheet_directory_uri() . $subf;
 		
 		wp_enqueue_media();
-		wp_enqueue_script( 'iris', admin_url( 'js/iris.min.js' ), array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ),             false, 1 );
+		wp_enqueue_script( 'iris', admin_url( 'js/iris.min.js' ), array( 'jquery-ui-draggable', 'jquery-ui-slider', 'jquery-touch-punch' ), false, 1 );
 		wp_enqueue_script( 'responsive-tabs', $uri . 'jquery.responsiveTabs.min.js', array( 'jquery' ) );
 		wp_enqueue_script( 'theme-options-js', $uri . 'theme-options.js', array( 'jquery' ) );
 	}
@@ -453,10 +456,10 @@ class Theme_Options {
 	* @since 1.0
 	*/
 	public function styles() {
-		$file=realpath(dirname(__FILE__));
-		$templ=realpath(get_stylesheet_directory());
-		$subf=trailingslashit(str_replace('\\','/',str_replace($templ,'',$file)));
-		$uri=get_stylesheet_directory_uri().$subf;
+		$file = realpath( dirname(__FILE__) );
+		$templ = realpath( get_stylesheet_directory() );
+		$subf = trailingslashit( str_replace( '\\', '/', str_replace( $templ, '', $file ) ) );
+		$uri = get_stylesheet_directory_uri() . $subf;
 		
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_style( 'theme-options-css', $uri . 'theme-options.css' );

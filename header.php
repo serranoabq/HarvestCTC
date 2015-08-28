@@ -27,10 +27,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<meta name="description" content="<?php echo get_bloginfo( 'description' ); ?>">
 	<meta name="author" content="<?php echo get_bloginfo( 'name' ); ?>">
-	
-<?php if ( harvest_option( 'favicon' ) <> "" ) { ?>
+
+<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() && harvest_option( 'favicon' ) <> "" ) { ?>
 	<link rel="shortcut icon" href="<?php echo harvest_option( 'favicon' )  ?> "/>
-<?php }?>
+<?php } ?>
+	
  
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
