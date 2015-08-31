@@ -8,7 +8,9 @@
 		$post_id = get_the_ID();
 		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
 		$color = get_post_meta( $post_id, '_post_accent_color', true );
-		harvest_title_bar( ctcex_get_option( 'ctc-locations', __( 'Locations', 'harvest') ), $color );
+		$title = explode( '/', harvest_option( 'ctc-locations' , __( 'Locations', 'harvest' ) ) );
+		$title = array_shift( $title );
+		harvest_title_bar( $title, $color );
 ?>
 		<div class="content_wrap">
 

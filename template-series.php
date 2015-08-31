@@ -2,7 +2,9 @@
 	/* Template Name: Sermon Series */
 	
 	get_header(); 
-	harvest_title_bar( ctcex_get_option( 'ctc-sermon-series' , __( 'Sermon Series', 'harvest' ) ) );
+	$title = explode( '/', harvest_option( 'ctc-sermon-series' , __( 'Sermons', 'harvest' ) ) );
+	$title = array_shift( $title );
+	harvest_title_bar( $title );
 ?>
 		<div class="content_wrap">
 

@@ -2,7 +2,8 @@
 	/* Event archive */
 	
 	get_header(); 
-	$title = array_shift( explode( '/', harvest_option( 'ctc-events' , __( 'Events', 'harvest' ) ) ) );
+	$title = explode( '/', harvest_option( 'ctc-events' , __( 'Events', 'harvest' ) ) );
+	$title = array_shift( $title );
 	harvest_title_bar( $title );
 ?>
 		

@@ -320,10 +320,11 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 			$a_tags[] = sprintf( '<option value="%s">%s</option>', get_term_link( intval( $option->term_id ), $tax ), $option->name );
 		}
 		if( $a_tags ) { 
-			$title = array_pop( explode( '/', harvest_option( str_replace( '_', '-', $tax ) , __( 'Topic', 'harvest' ) ) ) );
+			$title = explode( '/', harvest_option( str_replace( '_', '-', $tax ) , __( 'Topic', 'harvest' ) ) );
+			$title = array_pop( $title );
 			if( 'ctc_event_category' == $tax ) $title = 'Category';
 			
-			array_unshift( $a_tags, sprintf( '<option value="">' . __( 'Choose a %s', 'harvest' ) . '</option>', $title ) );
+			array_unshift( $a_tags, sprintf( '<option value="">' . _x( 'Choose a %s', 'Dropdown category instructions', 'harvest' ) . '</option>', $title ) );
 			$s_tags = implode('', $a_tags);
 	?>	
 					<!-- Category dropdown -->

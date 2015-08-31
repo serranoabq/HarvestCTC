@@ -5,8 +5,8 @@
 	
 	global $paged; 
 	if( empty($paged) ) $paged = 1;
-	
-	$title = array_shift( explode( '/', harvest_option( 'ctc-sermons' , __( 'Sermons', 'harvest' ) ) ) );
+	$title = explode( '/', harvest_option( 'ctc-sermons' , __( 'Sermons', 'harvest' ) ) );
+	$title = array_shift( $title );
 	harvest_title_bar( $title );
 ?>
 		

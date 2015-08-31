@@ -63,7 +63,7 @@
 <?php endif; // ser_speakers ?>
 					
 <?php if( $data[ 'series' ] ): ?>
-					<div class="grid-ctc-sermon-series"><?php _e( '<b>Series:</b>', 'harvest' );?> <a href="<?php echo $data[ 'series_link' ]; ?>">  <?php echo $data[ 'series' ]; ?></a></div>				
+					<div class="grid-ctc-sermon-series"><?php _ex( '<b>Series:</b>', 'Label for detail template', 'harvest' );?> <a href="<?php echo $data[ 'series_link' ]; ?>">  <?php echo $data[ 'series' ]; ?></a></div>				
 <?php endif; // ser_series ?>
 
 <?php if( $data[ 'topic' ] ): ?>

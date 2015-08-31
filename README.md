@@ -24,3 +24,4 @@ Changelog
 * 3.0 - First public version
 * 3.1 - Add gender-specific default user image for person
 * 3.1.1 - Update TGMPA and minor fixes. Add 4.3 fSite Icon compatibility
+* 3.1.2 - Minor fixes

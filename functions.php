@@ -97,17 +97,16 @@ add_action( 'wp_enqueue_scripts', 'harvest_scripts_styles' );
 function harvest_scripts_styles(){
 	// sytle.css 	= main theme style
 	// custom.css = additional custom styles
-	wp_enqueue_style('harvest-grid', get_stylesheet_directory_uri() . '/css/unsemantic-grid-responsive.css' );
-	wp_enqueue_style('harvest-stylesheet', get_stylesheet_uri() );
+	wp_enqueue_style( 'harvest-grid', get_stylesheet_directory_uri() . '/css/unsemantic-grid-responsive.css' );
+	wp_enqueue_style( 'harvest-stylesheet', get_stylesheet_uri() );
 	
 	// Add font awesome support
-	wp_enqueue_style('font-awesome','//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), null );
-	wp_enqueue_style('font-Bitter','//fonts.googleapis.com/css?family=Bitter:400,700', array(), null );
-	wp_enqueue_style('font-Lato','//fonts.googleapis.com/css?family=Lato:400,700', array(), null );
-	//wp_enqueue_style('fonts-Grace','http://fonts.googleapis.com/css?family=Covered+By+Your+Grace', array(), null );
-
+	wp_enqueue_style( 'font-awesome','//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), null );
+	wp_enqueue_style( 'font-Bitter','//fonts.googleapis.com/css?family=Bitter:400,700', array(), null );
+	wp_enqueue_style( 'font-Lato','//fonts.googleapis.com/css?family=Lato:400,700', array(), null );
+	
 	// Registered, but not enqueued
-	wp_register_script( 'responsive-tabs-js', get_stylesheet_directory_uri() . '/js/jquery.responsiveTabs.min.js', array('jquery') );
+	wp_register_script( 'responsive-tabs-js', get_stylesheet_directory_uri() . '/js/jquery.responsiveTabs.min.js', array( 'jquery' ) );
 	wp_enqueue_script( 'harvest-js', get_stylesheet_directory_uri() . '/js/harvest.js', array( 'jquery' ) );
 	
 	// Handle deregistering plugin scripts
@@ -116,15 +115,15 @@ function harvest_scripts_styles(){
 	// Load custom styles and scripts
 	//-------------------------------
 	// Custom styles loaded AFTER all other styles to allow overriding
-	wp_enqueue_style('harvest-custom-stylesheet', get_stylesheet_directory_uri() . '/custom/custom.css', array(), null );
+	wp_enqueue_style( 'harvest-custom-stylesheet', get_stylesheet_directory_uri() . '/custom/custom.css', array(), null );
 	
 	// Additional color stylesheet
 	if ( harvest_option( 'custom_style') ){
-		wp_enqueue_style('harvest-color-stylesheet', harvest_option( 'custom_style' ), array(), null );
+		wp_enqueue_style( 'harvest-color-stylesheet', harvest_option( 'custom_style' ), array(), null );
 	}
 
 	// Custom scripts with jQuery support
-	wp_enqueue_script('harvest-custom-scripts', get_stylesheet_directory_uri() . '/custom/custom.js', array('jquery'), null);
+	wp_enqueue_script( 'harvest-custom-scripts', get_stylesheet_directory_uri() . '/custom/custom.js', array( 'jquery' ), null );
 	
 	// Override styles
 	harvest_style_override();
@@ -187,13 +186,14 @@ function harvest_deregister_scripts() {
 
 // Helper function for theme options
 function harvest_option( $option, $default = false ) {
+	if( class_exists( 'CTC_Extender' )  && ctcex_has_option( $option ) )
+		return ctcex_get_option( $option, $default );
+	
 	$theme_data = wp_get_theme();
 	$theme_safename = sanitize_title( $theme_data );
 	$options = get_option( $theme_safename . '-options' );
-	if ( isset( $options[ $option ] ) )
+	if( isset( $options[ $option ] ) ) 
 		return $options[ $option ];
-	elseif( class_exists( 'CTC_Extender' ) )
-		return ctcex_get_option( $option, $default );
 	else
 		return $default;
 }

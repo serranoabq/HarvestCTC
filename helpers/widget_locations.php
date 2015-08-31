@@ -4,12 +4,12 @@
 
 class harvest_Locations extends WP_Widget {
 		
-	function harvest_Locations() {
+	function __construct() {
 		$widget_ops = array(
 			'classname' 	=> 'harvest-locations', 
 			'description' => __( 'Harvest Locations', 'harvest' ) 
 		);
-		$this->WP_Widget( 'harvest-locations', __( 'Harvest Locations', 'harvest' ), $widget_ops);
+		parent::__construct( 'harvest-locations', __( 'Harvest Locations', 'harvest' ), $widget_ops);
 	}
 		
 	function widget( $args, $instance ) {

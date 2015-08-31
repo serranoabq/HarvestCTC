@@ -4,12 +4,12 @@
 
 class harvest_RecentSermon extends WP_Widget {
 		
-	function harvest_RecentSermon() {
+	function __construct() {
 		$widget_ops = array(
 			'classname' 	=> 'recent-sermon', 
 			'description' => __( 'Harvest Recent Sermon', 'harvest' ) 
 		);
-		$this->WP_Widget( 'recent-sermon', __( 'Harvest Recent Sermon', 'harvest' ), $widget_ops);
+		parent::__construct( 'recent-sermon', __( 'Harvest Recent Sermon', 'harvest' ), $widget_ops);
 	}
 		
 	function widget( $args, $instance ) {

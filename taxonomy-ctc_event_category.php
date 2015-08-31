@@ -15,17 +15,21 @@
 <?php
 	do_action('__before_loop');
 	
-	if (have_posts()) :  
-		if( $term -> description ): 	?>
-				<div class="grid-100 ctc-event-category-desc" >
-					<p><?php echo $term->description; ?></p>
-				</div>
-<?php	else: ?>
+	if ( !have_posts() ) :  ?>
 			<div class="grid-100 ctc-event-category-desc" >
 				<p><?php _e( 'No events were found in that category. Check back at a later time for newer events. Thanks!', 'harvest' ); ?></p>
 			</div>
+	
+<?php else:
+		if ( $term -> description ): 	?>
+				<div class="grid-100 ctc-event-category-desc" >
+					<p><?php echo $term->description; ?></p>
+				</div>
+		
 <?php	
-	endif;
+		endif;
+?>
+<?php	
 	while (have_posts()) : the_post(); 
 		
 	get_template_part( 'templates/event', 'grid' );

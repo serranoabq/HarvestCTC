@@ -5,12 +5,12 @@
 if ( ! class_exists( 'Church_Theme_Content' ) ) return;
 class harvest_WeeklyCalendar extends WP_Widget {
 		
-	function harvest_WeeklyCalendar() {
+	function __construct() {
 		$widget_ops = array(
 			'classname' 	=> 'weekly-calendar', 
 			'description' => __( 'Harvest Weekly Calendar', 'harvest' ) 
 		);
-		$this->WP_Widget( 'weekly-calendar', __( 'Harvest Weekly Calendar', 'harvest' ), $widget_ops);
+		parent::__construct( 'weekly-calendar', __( 'Harvest Weekly Calendar', 'harvest' ), $widget_ops);
 		
 		add_action( 'wp_enqueue_scripts', array( $this, 'scripts' ) );
 	}

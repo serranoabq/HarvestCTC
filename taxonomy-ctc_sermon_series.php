@@ -3,8 +3,8 @@
 	
 	get_header(); 
 	$term = get_queried_object();
-
-	$title = array_pop( explode( '/', harvest_option( 'ctc-sermon-series' , __( 'Series', 'harvest' ) ) ) );
+	$title = explode( '/', harvest_option( 'ctc-sermon-series' , __( 'Series', 'harvest' ) ) );
+	$title = array_pop( $title );
 	harvest_title_bar( sprintf( '%s: %s', $title, $term->name	) );
 	
 ?>

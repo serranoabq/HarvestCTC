@@ -19,7 +19,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	
 	<meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>" />
-	<meta property="og:url" content="<?php echo home_url(add_query_arg(array(),$wp->request)); ?>" />
+	<meta property="og:url" content="<?php echo home_url( add_query_arg( array(), $wp->request ) ); ?>" />
 <?php if( $img ): ?>
 	<meta property="og:image" content="<?php echo $img; ?>" />
 <?php endif; ?>

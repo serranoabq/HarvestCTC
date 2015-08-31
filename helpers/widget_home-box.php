@@ -1,14 +1,14 @@
 <?php
 
 class harvest_HomeBox extends WP_Widget {
-	function harvest_HomeBox() {
+	function __construct() {
 		global $pagenow;
 		
 		$widget_ops = array(
 			'classname' 	=> 'front-box-widget', 
 			'description' => 'Harvest Home Box' 
 		);
-		$this->WP_Widget('front_box_widget', __('Harvest Home Page Box', 'harvest'), $widget_ops);
+		parent::__construct( 'front_box_widget', __('Harvest Home Page Box', 'harvest'), $widget_ops );
 	
 	}
 	

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: harvest\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-08 10:18-0700\n"
-"PO-Revision-Date: Fri Aug 28 2015 10:40:12 GMT-0600 (Mountain Daylight Time)\n"
+"PO-Revision-Date: Fri Aug 28 2015 15:06:35 GMT-0600 (Mountain Daylight Time)\n"
 "Last-Translator: Harvest Fellowship <serranoabq+harvest@gmail.com>\n"
 "Language-Team: \n"
 "Language: Spanish (Spain)\n"
@@ -21,612 +21,6 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Loco-Target-Locale: es_ES"
 
-#: ../functions.php:25
-msgid "Header Menu"
-msgstr "Menú de Cabecera"
-
-#: ../functions.php:26
-msgid "Footer Menu"
-msgstr "Menú de pie de página"
-
-#: ../admin/class.theme-options.php:42 ../admin/harvest-options.php:3
-msgid "General Settings"
-msgstr "Ajustes Generales"
-
-#: ../admin/class.theme-options.php:43 ../admin/harvest-options.php:7
-msgid "About this Theme"
-msgstr "Acerca de este Tema"
-
-#: ../admin/class.theme-options.php:70 ../admin/class.theme-options.php:71
-msgid "Theme Options"
-msgstr "Opciones del Tema"
-
-#: ../admin/class.theme-options.php:91
-msgid "Default Field"
-msgstr ""
-
-#: ../admin/class.theme-options.php:92
-msgid "This is a default description."
-msgstr ""
-
-#: ../admin/class.theme-options.php:126
-msgid " Theme Options"
-msgstr " Opciones del Tema"
-
-#: ../admin/class.theme-options.php:129
-msgid "Theme options updated."
-msgstr "Las opciones del tema han sido actualizadas"
-
-#: ../admin/class.theme-options.php:148
-msgid "Restore Defaults"
-msgstr "Restaurar Valores por Defecto"
-
-#: ../admin/class.theme-options.php:149
-msgid "Save Changes"
-msgstr "Salvar Cambios"
-
-#: ../admin/class.theme-options.php:366
-msgid "Dummy Setting"
-msgstr ""
-
-#: ../admin/class.theme-options.php:367
-msgid "Dummy setting to demo functionality."
-msgstr ""
-
-#: ../admin/harvest-options.php:4
-msgid "Social Media"
-msgstr "Redes Sociales"
-
-#: ../admin/harvest-options.php:6
-msgid "Podcasting"
-msgstr "Podcasting"
-
-#: ../admin/harvest-options.php:19
-msgctxt "Metabox name"
-msgid "Website Logo"
-msgstr "Logo del Sitio Web"
-
-#: ../admin/harvest-options.php:20
-msgid "Upload a logo."
-msgstr "Subir un logo"
-
-#: ../admin/harvest-options.php:27
-msgctxt "Metabox name"
-msgid "Website RSS Feed Logo "
-msgstr "Logo para el listado RSS"
-
-#: ../admin/harvest-options.php:28
-msgid ""
-"Upload a logo to use in RSS feed. If not spcified, the logo above will be "
-"used."
-msgstr ""
-
-#: ../admin/harvest-options.php:35
-msgctxt "Metabox name"
-msgid "Display site name"
-msgstr ""
-
-#: ../admin/harvest-options.php:36
-msgid "Optionally display the site name next to the logo."
-msgstr ""
-
-#: ../admin/harvest-options.php:43
-msgctxt "Metabox name"
-msgid "Site Name CSS"
-msgstr ""
-
-#: ../admin/harvest-options.php:44
-msgid ""
-"Enter any specific styling for the logo name. Check the <code>."
-"logo_name</code> style in the theme stylesheet for reference."
-msgstr ""
-
-#: ../admin/harvest-options.php:51
-msgctxt "Metabox name"
-msgid "Favicon"
-msgstr ""
-
-#: ../admin/harvest-options.php:52
-msgid "Upload a 16x16 png or gif icon for your site."
-msgstr ""
-
-#: ../admin/harvest-options.php:59
-msgctxt "Metabox name"
-msgid "Default city"
-msgstr ""
-
-#: ../admin/harvest-options.php:60
-msgid "Enter the city for your church."
-msgstr ""
-
-#: ../admin/harvest-options.php:67
-msgctxt "Metabox name"
-msgid "Slider"
-msgstr ""
-
-#: ../admin/harvest-options.php:68
-msgid ""
-"Enter the shortcode a homepage slider (e.g. <code>[masterslider "
-"id=\"1\"]</code>)"
-msgstr ""
-
-#: ../admin/harvest-options.php:75
-msgctxt "Metabox name"
-msgid "Primary Accent Color"
-msgstr ""
-
-#: ../admin/harvest-options.php:76
-msgid ""
-"Choose the default accent color for the theme. This color appears in the "
-"title bars of post and pages. "
-msgstr ""
-
-#: ../admin/harvest-options.php:83
-msgctxt "Metabox name"
-msgid "Secondary Accent Color"
-msgstr ""
-
-#: ../admin/harvest-options.php:84
-msgid ""
-"Choose the secondary accent color for the theme. This color is used on the "
-"title bar of widgets in the body of the homepage, and location pages."
-msgstr ""
-
-#: ../admin/harvest-options.php:91
-msgctxt "Metabox name"
-msgid "Homepage Bottom Widget Area Layout"
-msgstr ""
-
-#: ../admin/harvest-options.php:92
-msgid "Choose the layout for your homepage widget area."
-msgstr ""
-
-#: ../admin/harvest-options.php:234
-msgid "Podcast Description"
-msgstr "Descripción del Podcast"
-
-#: ../admin/harvest-options.php:242
-msgid "Podcast Image"
-msgstr "Imágen para el podcast"
-
-#: ../admin/harvest-options.php:245
-msgid ""
-"Logo or image to use in the podcast directory. iTunes requires this to be a "
-"1400 x 1400 PNG or JPG ending in .png or .jpg"
-msgstr ""
-"Logo o imágen para usar en el directiori de podcasts. iTunes requiere que "
-"éste sea una imagen PNG or JPG de 1400 x 1400 pixeles y cuyo nombre de "
-"archivo termina en .png o .jpg"
-
-#: ../admin/harvest-options.php:250
-msgid "Podcast Author"
-msgstr ""
-
-#: ../admin/harvest-options.php:253
-msgid "Name to use in the podcast directory. This is applied to ALL feeds."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:161
-msgid "Install Required Plugins"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:162
-msgid "Install Plugins"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:163
-#, php-format
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:164
-msgid "Something went wrong."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:165
-#, php-format
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:166
-#, php-format
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:167
-#, php-format
-msgid ""
-"Sorry, but you do not have the correct permissions to install the %s plugin. "
-"Contact the administrator of this site for help on getting the plugin "
-"installed."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to install the %s plugins."
-" Contact the administrator of this site for help on getting the plugins "
-"installed."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:168
-#, php-format
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:169
-#, php-format
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:170
-#, php-format
-msgid ""
-"Sorry, but you do not have the correct permissions to activate the %s plugin."
-" Contact the administrator of this site for help on getting the plugin "
-"activated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to activate the %s "
-"plugins. Contact the administrator of this site for help on getting the "
-"plugins activated."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:171
-#, php-format
-msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:172
-#, php-format
-msgid ""
-"Sorry, but you do not have the correct permissions to update the %s plugin. "
-"Contact the administrator of this site for help on getting the plugin "
-"updated."
-msgid_plural ""
-"Sorry, but you do not have the correct permissions to update the %s plugins. "
-"Contact the administrator of this site for help on getting the plugins "
-"updated."
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:173
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:174
-msgid "Begin activating plugin"
-msgid_plural "Begin activating plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:175
-msgid "Return to Required Plugins Installer"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:176
-msgid "Return to the dashboard"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:177 ../helpers/class-tgm-plugin-
-#: activation.php:1956
-msgid "Plugin activated successfully."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:178 ../helpers/class-tgm-plugin-
-#: activation.php:1644
-msgid "The following plugin was activated successfully:"
-msgid_plural "The following plugins were activated successfully:"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ../helpers/class-tgm-plugin-activation.php:179
-#, php-format
-msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:180
-msgid "Dismiss this notice"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:532 ../helpers/class-tgm-plugin-
-#: activation.php:532 ../helpers/class-tgm-plugin-activation.php:2173 ..
-#: helpers/class-tgm-plugin-activation.php:2173
-msgid "Return to the Dashboard"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1167 ../helpers/class-tgm-plugin-
-#: activation.php:1348
-msgid "Private Repository"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1170 ../helpers/class-tgm-plugin-
-#: activation.php:1351
-msgid "Pre-Packaged"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1175
-msgid "WordPress Repository"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1178
-msgid "Required"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1178
-msgid "Recommended"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1181
-msgid "Not Installed"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1183
-msgid "Installed But Not Activated"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1288 ../helpers/class-tgm-plugin-
-#: activation.php:1288 ../helpers/class-tgm-plugin-activation.php:1409
-msgid "Install"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1312 ../helpers/class-tgm-plugin-
-#: activation.php:1312 ../helpers/class-tgm-plugin-activation.php:1410
-msgid "Activate"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1372
-#, php-format
-msgid ""
-"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
-"Dashboard\">Return to the Dashboard</a>"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1388
-msgid "Plugin"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1389
-msgid "Source"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1390
-msgid "Type"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1391
-msgid "Status"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1939
-msgid "Install package not available."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1940
-#, php-format
-msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1941
-msgid "Unpacking the package&#8230;"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1942
-msgid "Installing the plugin&#8230;"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1943
-msgid "Plugin install failed."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1944
-msgid "Plugin installed successfully."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:1955
-msgid "Plugin activation failed."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2069
-msgid ""
-"The installation and activation process is starting. This process may take a "
-"while on some hosts, so please be patient."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2070
-#, php-format
-msgid "%1$s installed and activated successfully."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2070 ../helpers/class-tgm-plugin-
-#: activation.php:2079
-msgid "Show Details"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2070 ../helpers/class-tgm-plugin-
-#: activation.php:2079
-msgid "Hide Details"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2071
-msgid "All installations and activations have been completed."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2072
-#, php-format
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2076
-msgid ""
-"The installation process is starting. This process may take a while on some "
-"hosts, so please be patient."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2077
-#, php-format
-msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2078
-#, php-format
-msgid "The installation of %1$s failed."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2079
-#, php-format
-msgid "%1$s installed successfully."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2080
-msgid "All installations have been completed."
-msgstr ""
-
-#: ../helpers/class-tgm-plugin-activation.php:2081
-#, php-format
-msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: ../helpers/ctc-support.php:5
-msgid "Church Theme Content Plugin is required!"
-msgstr ""
-
-#: ../helpers/ctc-support.php:8
-msgid "CTC_Extender Plugin is required!"
-msgstr ""
-
-#: ../helpers/ctc-support.php:142
-msgid "Slider "
-msgstr ""
-
-#: ../helpers/ctc-support.php:150
-msgid "Location slider"
-msgstr ""
-
-#: ../helpers/ctc-support.php:151
-msgid ""
-"Enter the shortcode for the slider to use instead of the image (e.g., "
-"<code>[metaslider id=1]</code>)."
-msgstr ""
-
-#: ../helpers/display.php:213
-msgid "Accent Color "
-msgstr ""
-
-#: ../helpers/display.php:221
-msgid "Accent Color"
-msgstr ""
-
-#: ../helpers/display.php:222
-msgid "Choose an accent color to use on this page."
-msgstr ""
-
-#: ../helpers/widget_home-box.php:11
-msgid "Harvest Home Page Box"
-msgstr ""
-
-#: ../helpers/widget_home-box.php:83
-msgid "Caption"
-msgstr ""
-
-#: ../helpers/widget_home-box.php:87
-msgid "Link URL"
-msgstr ""
-
-#: ../helpers/widget_home-box.php:91
-msgid "Image"
-msgstr ""
-
-#: ../helpers/widget_locations.php:10 ../helpers/widget_locations.php:12
-msgid "Harvest Locations"
-msgstr "Ubicaciones"
-
-#: ../helpers/widget_locations.php:74 ../helpers/widget_recent-sermon.php:137 ..
-#: helpers/widget_weekly-cal.php:274
-msgid "Title"
-msgstr ""
-
-#: ../helpers/widget_recent-sermon.php:10 ../helpers/widget_recent-sermon.php:12
-msgid "Harvest Recent Sermon"
-msgstr "Sermón Reciente"
-
-#: ../helpers/widget_recent-sermon.php:141 ../helpers/widget_weekly-cal.php:278
-msgid "Title Link?"
-msgstr "Enlazar el título"
-
-#: ../helpers/widget_recent-sermon.php:144 ../helpers/widget_weekly-cal.php:281
-msgid "Custom Link?"
-msgstr "Enlace a gusto?"
-
-#: ../helpers/widget_recent-sermon.php:148 ../helpers/widget_weekly-cal.php:285
-msgid "URL"
-msgstr "URL"
-
-#: ../helpers/widget_recent-sermon.php:152
-msgid ""
-"Choose a topic to display. If the <code>Use location</code> option is "
-"checked AND the widget is in a location page, then the most recent message "
-"with a topic matching that location is shown."
-msgstr ""
-"Eliga un tópico a mostrar. Si la opción <code>Usar ubicación</code> está "
-"marcada Y el widget está en una página de Ubicación, entonces se mostrará el "
-"mensaje más reciente con un tópico que coincida con esa ubicación"
-
-#: ../helpers/widget_recent-sermon.php:156
-msgid ""
-"If selected, when this widget is displayed on a location single post, it "
-"will automatically show the most recent sermon associated with that "
-"particular location if the sermon is given a topic that matches the location."
-" If the option to link the tile is selected, then the title links to the "
-"sermon archive for that location."
-msgstr ""
-"Si está marcado, cuando este widget sea mostrado en una página de ubicacion "
-"sencilla mostrará \n"
-"el mensaje más reciente asociado con esa ubicación si el sermon tiene un "
-"tópico que coincide con esa ubicación. Si la opción de Enlazar el título "
-"está marcada, entonces el título enlazará al archivo de sermones para esa "
-"ubicación"
-
-#: ../helpers/widget_recent-sermon.php:156 ../helpers/widget_weekly-cal.php:293
-msgid "Use location"
-msgstr "Usar la ubicación"
-
-#: ../helpers/widget_weekly-cal.php:11 ../helpers/widget_weekly-cal.php:13
-msgid "Harvest Weekly Calendar"
-msgstr "Calendario Semanal de Harvest"
-
-#: ../helpers/widget_weekly-cal.php:289
-msgid ""
-"Choose a category to display. If the <code>Use location</code> option is "
-"checked AND the widget is in a location page, then the events with a "
-"category matching that location will be shown."
-msgstr ""
-
-#: ../helpers/widget_weekly-cal.php:293
-msgid ""
-"If selected, when this widget is displayed on a location single post, it "
-"will automatically show the events associated with that particular location "
-"if the event is given a category that matches the location. If the option to "
-"link the tile is selected, then the title links to the category archive."
-msgstr ""
-
-#: ../templates/sermon-details.php:50
-msgid "<b>Audio:</b>"
-msgstr ""
-
 #: ../404.php:4
 msgid "Page Not Found"
 msgstr "Página No Encontrada"
@@ -643,11 +37,7 @@ msgstr ""
 "regresar a nuestra página principal o utilice el menú de arriba para visitar "
 "otra sección de nuestro sitio web. ¡Que tenga un buen día!"
 
-#: ../archive-ctc_event.php:9
-msgid "Choose a category"
-msgstr "Eliga una categoría"
-
-#: ../archive-ctc_event.php:12 ../functions.php:246
+#: ../archive-ctc_event.php:5 ../functions.php:246
 msgid "Events"
 msgstr "Eventos"
 
@@ -659,23 +49,17 @@ msgstr "Ubicaciones"
 msgid "People"
 msgstr "Personas"
 
-#: ../archive-ctc_sermon.php:11 ../taxonomy-ctc_sermon_topic.php:19 ..
-#: templates/sermon-details.php:46
-msgid "Topic"
-msgstr "Tema"
-
-#: ../archive-ctc_sermon.php:12
-#, php-format
-msgid "Choose a %s"
-msgstr "Eliga una %s"
-
-#: ../archive-ctc_sermon.php:18 ../functions.php:243
+#: ../archive-ctc_sermon.php:9 ../functions.php:243
 msgid "Sermons"
 msgstr "Sermones"
 
-#: ../archive-ctc_sermon.php:44 ../taxonomy-ctc_sermon_topic.php:41
+#: ../archive-ctc_sermon.php:31 ../taxonomy-ctc_sermon_topic.php:26
 msgid "Latest message"
 msgstr "Mensaje más reciente"
+
+#: ../archive-ctc_sermon.php:38
+msgid "Other messages"
+msgstr ""
 
 #: ../archive.php:5
 msgid "Archive"
@@ -685,6 +69,14 @@ msgstr "Archivo"
 #, php-format
 msgid "&copy; Copyright %d %s"
 msgstr "&copy; Derechos Reservados %d %s"
+
+#: ../functions.php:25
+msgid "Header Menu"
+msgstr "Menú de Cabecera"
+
+#: ../functions.php:26
+msgid "Footer Menu"
+msgstr "Menú de pie de página"
 
 #: ../functions.php:218
 msgctxt "Page title"
@@ -726,7 +118,7 @@ msgstr "Archivo: %s"
 msgid "Archive | %s"
 msgstr "Archivo | %s"
 
-#: ../header.php:67
+#: ../header.php:68
 msgid "Menu"
 msgstr "Menú"
 
@@ -742,15 +134,21 @@ msgstr "tema"
 msgid "series"
 msgstr "serie"
 
-#: ../single-ctc_sermon.php:52 ../taxonomy-ctc_sermon_topic.php:49
+#: ../single-ctc_sermon.php:52 ../taxonomy-ctc_sermon_topic.php:34
 msgid "Other messages from this "
-msgstr "Otros mensajes de esta"
+msgstr "Otros mensajes de esta "
 
-#: ../taxonomy-ctc_event_category.php:13
+#: ../taxonomy-ctc_event_category.php:7
 #, php-format
 msgctxt "Event category"
 msgid "%s events"
 msgstr "eventos de %s"
+
+#: ../taxonomy-ctc_event_category.php:25
+msgid ""
+"No events were found in that category. Check back at a later time for newer "
+"events. Thanks!"
+msgstr ""
 
 #: ../taxonomy-ctc_event_tag.php:43
 #, php-format
@@ -784,13 +182,767 @@ msgstr[1] "Ocurre cada %d años"
 msgid "Series"
 msgstr "Serie"
 
+#: ../taxonomy-ctc_sermon_topic.php:8 ../helpers/display.php:323 ..
+#: /templates/sermon-details.php:70
+msgid "Topic"
+msgstr "Tema"
+
 #: ../template-series.php:5
 msgid "Sermon Series"
 msgstr "Serie de Sermones"
 
+#: ../admin/class.theme-options.php:42 ../admin/harvest-options.php:3
+msgid "General Settings"
+msgstr "Ajustes Generales"
+
+#: ../admin/class.theme-options.php:43 ../admin/harvest-options.php:7
+msgid "About this Theme"
+msgstr "Acerca de este Tema"
+
+#: ../admin/class.theme-options.php:70 ../admin/class.theme-options.php:71
+msgid "Theme Options"
+msgstr "Opciones del Tema"
+
+#: ../admin/class.theme-options.php:91
+msgid "Default Field"
+msgstr ""
+
+#: ../admin/class.theme-options.php:92
+msgid "This is a default description."
+msgstr ""
+
+#: ../admin/class.theme-options.php:129
+msgid " Theme Options"
+msgstr " Opciones del Tema"
+
+#: ../admin/class.theme-options.php:132
+msgid "Theme options updated."
+msgstr "Las opciones del tema han sido actualizadas"
+
+#: ../admin/class.theme-options.php:151
+msgid "Restore Defaults"
+msgstr "Restaurar Valores por Defecto"
+
+#: ../admin/class.theme-options.php:151
+msgid "Click OK to reset. Any theme settings will be lost!"
+msgstr ""
+
+#: ../admin/class.theme-options.php:152
+msgid "Save Changes"
+msgstr "Salvar Cambios"
+
+#: ../admin/class.theme-options.php:369
+msgid "Dummy Setting"
+msgstr ""
+
+#: ../admin/class.theme-options.php:370
+msgid "Dummy setting to demo functionality."
+msgstr ""
+
+#: ../admin/harvest-options.php:4
+msgid "Social Media"
+msgstr "Redes Sociales"
+
+#: ../admin/harvest-options.php:6
+msgid "Podcasting"
+msgstr "Podcasting"
+
+#: ../admin/harvest-options.php:19
+msgctxt "Metabox name"
+msgid "Website Logo"
+msgstr "Logo del Sitio Web"
+
+#: ../admin/harvest-options.php:20
+msgid "Upload a logo."
+msgstr "Subir un logo"
+
+#: ../admin/harvest-options.php:27
+msgctxt "Metabox name"
+msgid "Website RSS Feed Logo "
+msgstr "Logo para el listado RSS"
+
+#: ../admin/harvest-options.php:28
+msgid ""
+"Upload a logo to use in RSS feed. If not specified, the logo above will be "
+"used."
+msgstr ""
+
+#: ../admin/harvest-options.php:35
+msgctxt "Metabox name"
+msgid "Display site name"
+msgstr ""
+
+#: ../admin/harvest-options.php:36
+msgid "Optionally display the site name next to the logo."
+msgstr ""
+
+#: ../admin/harvest-options.php:43
+msgctxt "Metabox name"
+msgid "Site Name CSS"
+msgstr ""
+
+#: ../admin/harvest-options.php:44
+msgid ""
+"Enter any specific styling for the logo name. Check the <code>."
+"logo_name</code> style in the theme stylesheet for reference."
+msgstr ""
+
+#: ../admin/harvest-options.php:51
+msgctxt "Metabox name"
+msgid "Favicon"
+msgstr ""
+
+#: ../admin/harvest-options.php:52
+msgid "Upload a 16x16 png or gif icon for your site."
+msgstr ""
+
+#: ../admin/harvest-options.php:60
+msgctxt "Metabox name"
+msgid "Default city"
+msgstr ""
+
+#: ../admin/harvest-options.php:61
+msgid "Enter the city for your church."
+msgstr ""
+
+#: ../admin/harvest-options.php:68
+msgctxt "Metabox name"
+msgid "Slider"
+msgstr ""
+
+#: ../admin/harvest-options.php:69
+msgid ""
+"Enter the shortcode a homepage slider (e.g. <code>[masterslider "
+"id=\"1\"]</code>)"
+msgstr ""
+
+#: ../admin/harvest-options.php:76
+msgctxt "Metabox name"
+msgid "Primary Accent Color"
+msgstr ""
+
+#: ../admin/harvest-options.php:77
+msgid ""
+"Choose the default accent color for the theme. This color appears in the "
+"title bars of post and pages. "
+msgstr ""
+
+#: ../admin/harvest-options.php:84
+msgctxt "Metabox name"
+msgid "Secondary Accent Color"
+msgstr ""
+
+#: ../admin/harvest-options.php:85
+msgid ""
+"Choose the secondary accent color for the theme. This color is used on the "
+"title bar of widgets in the body of the homepage, and location pages."
+msgstr ""
+
+#: ../admin/harvest-options.php:92
+msgctxt "Metabox name"
+msgid "Homepage Bottom Widget Area Layout"
+msgstr ""
+
+#: ../admin/harvest-options.php:93
+msgid "Choose the layout for your homepage widget area."
+msgstr ""
+
+#: ../admin/harvest-options.php:235
+msgid "Podcast Description"
+msgstr "Descripción del Podcast"
+
+#: ../admin/harvest-options.php:243
+msgid "Podcast Image"
+msgstr "Imágen para el podcast"
+
+#: ../admin/harvest-options.php:246
+msgid ""
+"Logo or image to use in the podcast directory. iTunes requires this to be a "
+"1400 x 1400 PNG or JPG ending in .png or .jpg"
+msgstr ""
+"Logo o imágen para usar en el directiori de podcasts. iTunes requiere que "
+"éste sea una imagen PNG or JPG de 1400 x 1400 pixeles y cuyo nombre de "
+"archivo termina en .png o .jpg"
+
+#: ../admin/harvest-options.php:251
+msgid "Podcast Author"
+msgstr "Autor del podcast"
+
+#: ../admin/harvest-options.php:254
+msgid "Name to use in the podcast directory. This is applied to ALL feeds."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:333
+msgid "Install Required Plugins"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:334
+msgid "Install Plugins"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:335
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:336
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:337
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:342
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:347
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:352
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:357
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:362
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to update the %1$s plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:367
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:372
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:377
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:382
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:387
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:392
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:397
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:398
+msgid "Return to the dashboard"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:399 ../helpers/class-tgm-plugin-
+#: activation.php:3034
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:400 ../helpers/class-tgm-plugin-
+#: activation.php:2837
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:401
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:402
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:403
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:404
+msgid "Dismiss this notice"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:405
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:524
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:525
+msgid "Update Required"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:639
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:833 ../helpers/class-tgm-plugin-
+#: activation.php:3443
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:940
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:940 ../helpers/class-tgm-plugin-
+#: activation.php:943
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:943
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:1121 ../helpers/class-tgm-plugin-
+#: activation.php:2833
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:1886
+#, php-format
+msgctxt "%s = version number"
+msgid "TGMPA v%s"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2172
+msgid "Required"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2175
+msgid "Recommended"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2191
+msgid "WordPress Repository"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2194
+msgid "External Source"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2197
+msgid "Pre-Packaged"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2214
+msgid "Not Installed"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2218
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2220
+msgid "Active"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2226
+msgid "Required Update not Available"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2229
+msgid "Requires Update"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2232
+msgid "Update recommended"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2240
+#, php-format
+msgctxt "%1$s = install status, %2$s = update status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2285
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2288
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2291
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2294
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2376
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2384
+msgid "Installed version:"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2392
+msgid "Minimum required version:"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2404
+msgid "Available version:"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2427
+#, php-format
+msgid ""
+"No plugins to install, update or activate. <a href=\"%1$s\">Return to the "
+"Dashboard</a>"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2441
+msgid "Plugin"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2442
+msgid "Source"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2443
+msgid "Type"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2447
+msgid "Version"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2448
+msgid "Status"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2496
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Install %2$s"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2500
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Update %2$s"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2505
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Activate %2$s"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2575
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2608
+msgid "Install"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2614
+msgid "Update"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2617
+msgid "Activate"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2648
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2650
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2686
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2688
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2793
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:2819
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3033
+msgid "Plugin activation failed."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3367
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3369
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3370
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3374
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3375
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3375 ../helpers/class-tgm-plugin-
+#: activation.php:3381
+msgid "Show Details"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3375 ../helpers/class-tgm-plugin-
+#: activation.php:3381
+msgid "Hide Details"
+msgstr "Esconder detalles"
+
+#: ../helpers/class-tgm-plugin-activation.php:3376
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3377
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3380
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3381
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3382
+msgid "All installations have been completed."
+msgstr ""
+
+#: ../helpers/class-tgm-plugin-activation.php:3383
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../helpers/ctc-support.php:5
+msgid "Church Theme Content Plugin is required!"
+msgstr ""
+
+#: ../helpers/ctc-support.php:8
+msgid "CTC_Extender Plugin is required!"
+msgstr ""
+
+#: ../helpers/ctc-support.php:175
+msgid "Slider "
+msgstr ""
+
+#: ../helpers/ctc-support.php:183
+msgid "Location slider"
+msgstr ""
+
+#: ../helpers/ctc-support.php:184
+msgid ""
+"Enter the shortcode for the slider to use instead of the image (e.g., "
+"<code>[metaslider id=1]</code>)."
+msgstr ""
+
+#: ../helpers/display.php:213
+msgid "Accent Color "
+msgstr ""
+
+#: ../helpers/display.php:221
+msgid "Accent Color"
+msgstr ""
+
+#: ../helpers/display.php:222
+msgid "Choose an accent color to use on this page."
+msgstr ""
+
+#: ../helpers/display.php:326
+#, php-format
+msgid "Choose a %s"
+msgstr "Eliga una %s"
+
+#: ../helpers/widget_home-box.php:11
+msgid "Harvest Home Page Box"
+msgstr ""
+
+#: ../helpers/widget_home-box.php:83
+msgid "Caption"
+msgstr ""
+
+#: ../helpers/widget_home-box.php:87
+msgid "Link URL"
+msgstr ""
+
+#: ../helpers/widget_home-box.php:91
+msgid "Image"
+msgstr "Imagen"
+
+#: ../helpers/widget_locations.php:10 ../helpers/widget_locations.php:12
+msgid "Harvest Locations"
+msgstr "Ubicaciones"
+
+#: ../helpers/widget_locations.php:74 ../helpers/widget_recent-sermon.php:161 ..
+#: /helpers/widget_weekly-cal.php:274
+msgid "Title"
+msgstr ""
+
+#: ../helpers/widget_recent-sermon.php:10 ../helpers/widget_recent-sermon.php:12
+msgid "Harvest Recent Sermon"
+msgstr "Sermón Reciente"
+
 #: ../helpers/widget_recent-sermon.php:18
 msgid "Recent Sermon"
 msgstr "Sermón Más Reciente"
+
+#: ../helpers/widget_recent-sermon.php:165 ../helpers/widget_weekly-cal.php:278
+msgid "Title Link?"
+msgstr "Enlazar el título"
+
+#: ../helpers/widget_recent-sermon.php:168 ../helpers/widget_weekly-cal.php:281
+msgid "Custom Link?"
+msgstr "Enlace a gusto?"
+
+#: ../helpers/widget_recent-sermon.php:172 ../helpers/widget_weekly-cal.php:285
+msgid "URL"
+msgstr "URL"
+
+#: ../helpers/widget_recent-sermon.php:176
+msgid ""
+"Choose a topic to display. If the <code>Use location</code> option is "
+"checked AND the widget is in a location page, then the most recent message "
+"with a topic matching that location is shown."
+msgstr ""
+"Eliga un tópico a mostrar. Si la opción <code>Usar ubicación</code> está "
+"marcada Y el widget está en una página de Ubicación, entonces se mostrará el "
+"mensaje más reciente con un tópico que coincida con esa ubicación"
+
+#: ../helpers/widget_recent-sermon.php:180
+msgid ""
+"If selected, when this widget is displayed on a location single post, it "
+"will automatically show the most recent sermon associated with that "
+"particular location if the sermon is given a topic that matches the location."
+" If the option to link the tile is selected, then the title links to the "
+"sermon archive for that location."
+msgstr ""
+"Si está marcado, cuando este widget sea mostrado en una página de ubicacion "
+"sencilla mostrará \n"
+"el mensaje más reciente asociado con esa ubicación si el sermon tiene un "
+"tópico que coincide con esa ubicación. Si la opción de Enlazar el título "
+"está marcada, entonces el título enlazará al archivo de sermones para esa "
+"ubicación"
+
+#: ../helpers/widget_recent-sermon.php:180 ../helpers/widget_weekly-cal.php:293
+msgid "Use location"
+msgstr "Usar la ubicación"
+
+#: ../helpers/widget_weekly-cal.php:11 ../helpers/widget_weekly-cal.php:13
+msgid "Harvest Weekly Calendar"
+msgstr "Calendario Semanal de Harvest"
 
 #: ../helpers/widget_weekly-cal.php:138
 msgid "Weekly Calendar"
@@ -799,7 +951,22 @@ msgstr "Calendario Semanal"
 #: ../helpers/widget_weekly-cal.php:210
 #, php-format
 msgid "No events listed for %s"
-msgstr "Ningún evento listado para %s"
+msgstr "Ningún evento listado para el %s"
+
+#: ../helpers/widget_weekly-cal.php:289
+msgid ""
+"Choose a category to display. If the <code>Use location</code> option is "
+"checked AND the widget is in a location page, then the events with a "
+"category matching that location will be shown."
+msgstr ""
+
+#: ../helpers/widget_weekly-cal.php:293
+msgid ""
+"If selected, when this widget is displayed on a location single post, it "
+"will automatically show the events associated with that particular location "
+"if the event is given a category that matches the location. If the option to "
+"link the tile is selected, then the title links to the category archive."
+msgstr ""
 
 #: ../templates/event-details.php:18
 msgid "Details"
@@ -817,18 +984,23 @@ msgstr "Resumen"
 msgid "Times &amp; Location"
 msgstr "Horario &amp; Ubicación"
 
-#: ../templates/sermon-details.php:35
+#: ../templates/sermon-details.php:59
 msgid "<b>Date:</b> "
 msgstr "<b>Fecha:</b> "
 
-#: ../templates/sermon-details.php:38
+#: ../templates/sermon-details.php:62
 msgid "<b>Speaker:</b> "
 msgstr "<b>Orador:</b>"
 
-#: ../templates/sermon-details.php:42
+#: ../templates/sermon-details.php:66
+msgctxt "Label for detail template"
 msgid "<b>Series:</b>"
 msgstr "<b>Serie:</b>"
 
-#: ../templates/sermon-details.php:50
+#: ../templates/sermon-details.php:74
+msgid "<b>Audio:</b>"
+msgstr ""
+
+#: ../templates/sermon-details.php:74
 msgid "Download audio"
 msgstr "Descargar audio"
