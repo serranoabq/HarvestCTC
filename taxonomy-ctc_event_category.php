@@ -23,7 +23,7 @@
 <?php else:
 		if ( $term -> description ): 	?>
 				<div class="grid-100 ctc-event-category-desc" >
-					<p><?php echo do_shortcodes( $term->description ); ?></p>
+					<p><?php echo $term->description; ?></p>
 				</div>
 		
 <?php	
