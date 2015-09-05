@@ -171,15 +171,11 @@ function harvest_style_override(){
 
 // Handle scripts that we dont want loaded all the time
 function harvest_deregister_scripts() {
-	global $post;
+	global $wp_query;
 	
-	if( is_a( $post, 'WP_Post' ) ) {
-		// Contact Form 7
-		if ( ! has_shortcode( $post->post_content, 'contact-form-7' ) ){
+	if( ! strpos( json_encode( $wp_query ), '[contact-form-7' ) ) {
 			wp_deregister_script( 'contact-form-7' );
 			wp_deregister_style( 'contact-form-7' );
-		}
-		
 	}
 
 }

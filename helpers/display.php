@@ -65,10 +65,9 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 	function harvest_ctc_event_pre_loop() {
 		global $wp_query;
 		$query_term = $wp_query->query;
-
-		if( 'ctc_event' != $query_term['post_type'] ) {
-			if( empty( $query_term['ctc_event_category'] ) ) return;
-		}
+		$ct1 = array_key_exists( 'ctc_event_category', $query_term ) && ! empty( $query_term['ctc_event_category'] );
+		$ct3 = array_key_exists( 'post_type', $query_term )  && 'ctc_event' == $query_term['post_type'];
+		if( !( $ct1 || $ct3 ) ) return;
 		
 		$args = array(
 			'order' => 'ASC',
