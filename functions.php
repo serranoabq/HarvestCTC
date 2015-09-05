@@ -173,7 +173,7 @@ function harvest_style_override(){
 function harvest_deregister_scripts() {
 	global $wp_query;
 	
-	if( ! strpos( json_encode( $wp_query ), '[contact-form-7' ) ) {
+	if( ! ( strpos( json_encode( $wp_query ), '[contact-form-7' ) || strpos( json_encode( $post ), '[contact-form-7' ) ) )  {
 			wp_deregister_script( 'contact-form-7' );
 			wp_deregister_style( 'contact-form-7' );
 	}
