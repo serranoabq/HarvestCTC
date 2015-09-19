@@ -32,27 +32,31 @@ jQuery(document).ready( function($) {
 	}
 	
 	try {
-		var oimg = $('img[class$="-img"][class^="ctc-"]')[0];
+		var oimg = $('.single img[class$="-img"][class^="ctc-"]')[0];
 		if( ! oimg ) oimg = $('.featured-image');
 		if( oimg ) {
-			$( oimg ).load( function() {
-				var colorThief = new ColorThief();
-				var rgb = colorThief.getColor( this );
-				ctr = rgbVa ( rgb );
-				
-				$( '.accent-background' ).css( 'transition', 'background-color 2s' );
-				
-				$( '.accent-background' ).css( 'background-color', 'rgb(' + rgb.join(',') + ')' );
-				$( this ).css( 'box-shadow', '0 0 5px rgb(' + rgb.join(',') + ')' );
-				$( '.accent-background h2' ).css( 'color', ctr > 200 ? '#333' : 'white' );
-			});
+			if( oimg.complete )
+				doColorThief( oimg );
+			else
+				$( oimg ).load( function(){
+					doColorThief( this ); 
+				});
 		}
 	}catch (e){
-		console.log(e);
+		//console.log(e);
 	}
 	
-	function rgbVa( rgb ){
-		return ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
+	function doColorThief( oimg ){
+		var colorThief = new ColorThief();
+		var rgb = colorThief.getColor( oimg );
+		var ctr = ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
+		
+		$( '.accent-background' ).css( 'background-color', 'rgb(' + rgb.join(',') + ')' );
+		var css = '0 0 5px rgb(' + rgb.join(',') + ')';
+		$( oimg ).css( '-webkit-box-shadow', css );
+		$( oimg ).css( '-moz-box-shadow', css );
+		$( oimg ).css( 'box-shadow', css );
+		$( '.accent-background h2' ).css( 'color', ctr > 200 ? '#333' : 'white' );
 	}
+	
 });
-
