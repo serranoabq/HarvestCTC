@@ -107,6 +107,7 @@ function harvest_scripts_styles(){
 	
 	// Registered, but not enqueued
 	wp_register_script( 'responsive-tabs-js', get_stylesheet_directory_uri() . '/js/jquery.responsiveTabs.min.js', array( 'jquery' ) );
+	wp_enqueue_script( 'color-thief', get_stylesheet_directory_uri() . '/js/color-thief.min.js', array( 'jquery' ) );
 	wp_enqueue_script( 'harvest-js', get_stylesheet_directory_uri() . '/js/harvest.js', array( 'jquery' ) );
 	
 	// Handle deregistering plugin scripts

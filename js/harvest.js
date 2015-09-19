@@ -31,6 +31,22 @@ jQuery(document).ready( function($) {
 		hh = $( '.ctc-sermon-grid .ctc-grid-full h1' ).height();			
 	}
 	
+	try {
+		var colorThief = new ColorThief();
+		var rgb = colorThief.getColor( $('.single img[class$="-img"][class^="ctc-"]')[0] );
+		ctr = rgbVa ( rgb );
+		
+		$( '.accent-background' ).css( 'transition', 'background-color 3s' );
+		
+		$( '.accent-background' ).css( 'background-color', 'rgb(' + rgb.join(',') + ')' );
+		$('.single img[class$="-img"][class^="ctc-"]').css( 'box-shadow', '0 0 5px rgb(' + rgb.join(',') + ')' );
+		$( '.accent-background h2' ).css( 'color', ctr > 200 ? '#333' : 'white' );
+	}catch (e){
+		//console.log(e);
+	}
 	
+	function rgbVa( rgb ){
+		return ((rgb[0]*299)+(rgb[1]*587)+(rgb[2]*114))/1000;
+	}
 });
 
