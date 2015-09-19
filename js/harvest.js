@@ -32,17 +32,21 @@ jQuery(document).ready( function($) {
 	}
 	
 	try {
-		var colorThief = new ColorThief();
-		var rgb = colorThief.getColor( $('.single img[class$="-img"][class^="ctc-"]')[0] );
-		ctr = rgbVa ( rgb );
-		
-		$( '.accent-background' ).css( 'transition', 'background-color 3s' );
-		
-		$( '.accent-background' ).css( 'background-color', 'rgb(' + rgb.join(',') + ')' );
-		$('.single img[class$="-img"][class^="ctc-"]').css( 'box-shadow', '0 0 5px rgb(' + rgb.join(',') + ')' );
-		$( '.accent-background h2' ).css( 'color', ctr > 200 ? '#333' : 'white' );
+		var ctc_img = $('.single img[class$="-img"][class^="ctc-"]')[0];
+		console.log(ctc_img);
+		$( ctc_img ).load( function() {
+			var colorThief = new ColorThief();
+			var rgb = colorThief.getColor( this );
+			ctr = rgbVa ( rgb );
+			
+			$( '.accent-background' ).css( 'transition', 'background-color 2s' );
+			
+			$( '.accent-background' ).css( 'background-color', 'rgb(' + rgb.join(',') + ')' );
+			$('.single img[class$="-img"][class^="ctc-"]').css( 'box-shadow', '0 0 5px rgb(' + rgb.join(',') + ')' );
+			$( '.accent-background h2' ).css( 'color', ctr > 200 ? '#333' : 'white' );
+		});
 	}catch (e){
-		//console.log(e);
+		console.log(e);
 	}
 	
 	function rgbVa( rgb ){
