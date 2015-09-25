@@ -78,6 +78,7 @@ function harvest_add_ctc(){
 					'_ctc_location_phone',
 					'_ctc_location_times',
 					'_ctc_location_slider',
+					'_ctc_location_pastor',
 			),
 			'field_overrides' => array()
 	) );
