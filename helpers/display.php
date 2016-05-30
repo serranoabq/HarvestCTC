@@ -41,7 +41,8 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 		if( !empty( $topic_option ) && ! isset( $qv['ctc_sermon_topic' ] ) ) {
 			// Set the first location as the default
 			$locs = get_terms( 'ctc_sermon_topic', array( 'order_by' => 'id', 'order' => 'DESC') );
-			$min_loc_slug = $locs[0]->slug;
+			$first_loc = array_shift( $locs );
+			$min_loc_slug = $first_loc->slug;
 			if( !empty( $min_loc_slug ) ){
 				$tax_query = array(
 					array(
@@ -80,7 +81,7 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 					'key' => '_ctc_event_end_date_end_time',
 					'value' => date_i18n( 'Y-m-d H:i:s' ), // today localized
 					'compare' => '>=', // later than today
-					'type' => 'DATE',
+					'type' => 'DATETIME',
 				),
 			)
 		);
@@ -314,7 +315,16 @@ function wp_embed_handler_livestream( $matches, $attr, $url, $rawattr ) {
 		if( ! in_array( $tax, array( 'ctc_sermon_topic', 'ctc_event_category' ) ) )
 			return;
 		
-		$tags = get_terms( $tax, array( 'hide_empty' => 1 ) );
+		$meta_query = array( 
+				'key' => '_ctc_event_end_date_end_time',
+				'value' => date_i18n( 'Y-m-d H:i:s' ), // today localized
+				'compare' => '>=', // later than today
+				'type' => 'DATETIME',
+		);
+		$tags = get_terms( $tax, array( 
+			'hide_empty' => 1,
+			'meta_query' => $meta_query,
+		) );
 		foreach ($tags as $option) {
 			$a_tags[] = sprintf( '<option value="%s">%s</option>', get_term_link( intval( $option->term_id ), $tax ), $option->name );
 		}

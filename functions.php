@@ -107,7 +107,7 @@ function harvest_scripts_styles(){
 	
 	// Registered, but not enqueued
 	wp_register_script( 'responsive-tabs-js', get_stylesheet_directory_uri() . '/js/jquery.responsiveTabs.min.js', array( 'jquery' ) );
-	wp_enqueue_script( 'color-thief', get_stylesheet_directory_uri() . '/js/color-thief.min.js', array( 'jquery' ) );
+	//wp_enqueue_script( 'color-thief', get_stylesheet_directory_uri() . '/js/color-thief.min.js', array( 'jquery' ) );
 	wp_enqueue_script( 'harvest-js', get_stylesheet_directory_uri() . '/js/harvest.js', array( 'jquery' ) );
 	
 	// Handle deregistering plugin scripts
@@ -172,7 +172,7 @@ function harvest_style_override(){
 
 // Handle scripts that we dont want loaded all the time
 function harvest_deregister_scripts() {
-	global $wp_query;
+	global $wp_query, $post;
 	
 	if( ! ( strpos( json_encode( $wp_query ), '[contact-form-7' ) || strpos( json_encode( $post ), '[contact-form-7' ) ) )  {
 			wp_deregister_script( 'contact-form-7' );
@@ -199,7 +199,7 @@ function harvest_wp_title( $title, $sep ) {
 	
 	global $paged, $page;
 	global $wp_filter;
-	
+
 	// Add the site name.
 	$name = get_bloginfo( 'name' );
 	if ( is_feed() ) return $name;
@@ -268,6 +268,58 @@ function harvest_series_title( $title, $post_id ) {
 
 function harvest_debug( $log ) {
 	add_action( 'admin_notices', function( $log ){
-		echo '<div class="error"><p>'. $log .'</p></div>';
+		echo '<div class="error"><p><code>'. $log .'</code></p></div>';
 	} );
 }
+
+function harvest_sermon_save_audio_enclosure( $post_id, $post ) {
+
+	// Stop if no post, auto-save (meta not submitted) or user lacks permission
+	$post_type = get_post_type_object( $post->post_type );
+	if ( empty( $_POST ) || ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) || ! current_user_can( $post_type->cap->edit_post, $post_id ) ) {
+		return false;
+	}
+
+	// Stop if PowerPress plugin is active
+	// Solves conflict regarding enclosure field: http://wordpress.org/support/topic/breaks-blubrry-powerpress-plugin?replies=6
+	if ( defined( 'POWERPRESS_VERSION' ) ) {
+		return false;
+	}
+
+	// Get audio URL
+	$audio = get_post_meta( $post_id , '_ctc_sermon_audio' , true );
+
+	// The built-in do_enclose method goes a roundabout way of getting the file 
+	// length, which involves an http fetch to get the right length on some server 
+	// configurations if the fetch fails the enclosure isn't added. 
+	// This isn't a big deal if the file is remote, but it's frustrating if the file 
+	// is on the same server, where WP can get all the information without the http fetch. 
+	// This method now does the handling of the enclosure data using WP methods if the 
+	// file is local and then falls back to the normal do_enclose method if it's 
+	// a remote file
+	
+	// Populate enclosure field with URL, length and format, if valid URL found
+	$uploads = wp_upload_dir();
+	$is_local = stripos( $audio, $uploads[ 'baseurl' ] ); // check if the link is to a local file
+	if( ! ( false === $is_local)  ) {
+		// Get the path to the file
+		$audio_src = str_replace( $uploads['baseurl'], $uploads['basedir'], $audio );
+		// Get meta data
+		$metadata =  wp_read_audio_metadata( $audio_src );
+		if( $metadata ){
+			// Make sure we got metadata and read the mime_type 
+			// and filesize values which are needed for the enclosure
+			$mime = $metadata[ 'mime_type' ];
+			$length = $metadata[ 'filesize' ];
+			if( $mime ) {
+				// We've got data, add enclosure meta
+				update_post_meta( $post_id, 'enclosure', "$audio\n$length\n$mime\n" );
+			}
+		}
+	} else {
+		// Leave do_enclose for remote files
+		do_enclose( $audio, $post_id ); 
+	}
+}
+remove_action( 'save_post', 'ctc_sermon_save_audio_enclosure', 11 ); // Replace the built in CTC enclosure function which is failing on my server
+add_action( 'save_post', 'harvest_sermon_save_audio_enclosure', 11, 2 ); // after 'save_post' saves meta fields on 10
